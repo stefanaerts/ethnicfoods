@@ -6,9 +6,15 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from 'angularfire2/index';
 import { firebaseConfig } from '../environments/firebase.config';
+import { HomeComponent } from './home/home.component';
+import { DessertsService } from './shared/model/desserts.service';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -16,7 +22,7 @@ import { firebaseConfig } from '../environments/firebase.config';
     HttpModule,
     AngularFireModule.initializeApp(firebaseConfig)
   ],
-  providers: [],
+  providers: [DessertsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

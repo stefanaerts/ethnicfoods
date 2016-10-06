@@ -9,7 +9,7 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+/*  title = 'app works!';
 
   desserts$: FirebaseListObservable<any>;
   dessert$: FirebaseObjectObservable<any>;
@@ -61,4 +61,5 @@ export class AppComponent {
 
     this.dessert$.remove();
   }
+  */
 }

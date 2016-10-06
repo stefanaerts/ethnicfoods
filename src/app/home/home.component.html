@@ -1,0 +1,19 @@
+<h2> All Desserts</h2>
+
+<h4>Total Desserts: {{desserts?.length}}</h4>
+
+<input class="search-bar" placeholder="Search">
+
+<div class="lessons-list-container v-h-center-block-parent">
+  <table class="table lessons-list card card-strong">
+    <tbody>
+      <tr *ngFor="let item of desserts" >
+        <td class="lesson-title">{{item.name}}</td>
+        <td class="duration">
+          <i class="md-icon duration-icon2">access_time</i>
+          <span>TODO</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
