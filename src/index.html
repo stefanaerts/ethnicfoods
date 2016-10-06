@@ -10,22 +10,5 @@
 </head>
 <body>
   <app-root>Loading...</app-root>
-
-<script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyDzr5YdLA3EMg_IkjoCedTqWlZDE-ugsO8",
-    authDomain: "ethnicfoods-b928a.firebaseapp.com",
-    databaseURL: "https://ethnicfoods-b928a.firebaseio.com",
-    storageBucket: "ethnicfoods-b928a.appspot.com",
-    messagingSenderId: "265422387177"
-  };
-  firebase.initializeApp(config);
-  var root = firebase.database().ref();
-  root.on('value', function(snap) {
-    console.log(snap.val());
-  });
-</script>
 </body>
 </html>

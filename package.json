@@ -13,15 +13,17 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/common": "2.0.0",
-    "@angular/compiler": "2.0.0",
-    "@angular/core": "2.0.0",
+    "@angular/common": "2.0.1",
+    "@angular/compiler": "2.0.1",
+    "@angular/core": "2.0.1",
     "@angular/forms": "2.0.0",
     "@angular/http": "2.0.0",
-    "@angular/platform-browser": "2.0.0",
+    "@angular/platform-browser": "2.0.1",
     "@angular/platform-browser-dynamic": "2.0.0",
     "@angular/router": "3.0.0",
-    "angularfire2": "^2.0.0-beta.5",
+    "angularfire2": "2.0.0-beta.5",
+    "firebase": "^3.3.1",
+    "firebase-queue": "^1.5.0",
     "core-js": "^2.4.1",
     "rxjs": "5.0.0-beta.12",
     "ts-helpers": "^1.1.1",
@@ -41,6 +43,6 @@
     "protractor": "4.0.9",
     "ts-node": "1.2.1",
     "tslint": "3.13.0",
-    "typescript": "2.0.2"
+    "typescript": "^2.0.0"
   }
 }
