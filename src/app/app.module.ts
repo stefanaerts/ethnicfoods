@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
+import { MaterialModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from 'angularfire2/index';
 import { firebaseConfig } from '../environments/firebase.config';
@@ -20,6 +20,7 @@ import 'rxjs/add/operator/do';
     BrowserModule,
     FormsModule,
     HttpModule,
+    MaterialModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig)
   ],
   providers: [DessertsService],
