@@ -15,7 +15,8 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
-        "styles.css"
+        "styles.css",
+        "leashed-theme.scss"
       ],
       "scripts": [
 "../node_modules/hammerjs/hammer.min.js"
