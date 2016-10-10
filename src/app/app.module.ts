@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
-import { AppComponent, SettingsDialog } from './app.component';
+//import { AppComponent, SettingsDialog } from './app.component';
+import { AppComponent } from './app.component';
 import { AngularFireModule } from 'angularfire2/index';
 import { firebaseConfig } from '../environments/firebase.config';
 import { HomeComponent } from './home/home.component';
@@ -15,10 +16,11 @@ import 'rxjs/add/operator/do';
   declarations: [
     AppComponent,
     HomeComponent,
-    SettingsDialog
+  //  SettingsDialog
   ],
   entryComponents: [
-AppComponent, SettingsDialog
+AppComponent,
+// SettingsDialog
   ],
   imports: [
     BrowserModule,

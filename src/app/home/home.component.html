@@ -1,9 +1,22 @@
-<h2> All Desserts</h2>
-
+<md-card>
+      <md-card-header>
+        <img md-card-avatar src="http://ethnicfoods.stevegravy.com/wp-content/uploads/2016/01/PNI_4335-2.jpg">
+        <md-card-title>ethnicfoods</md-card-title>
+        <md-card-subtitle>Votre traiteur EthnicFoods</md-card-subtitle>
+      </md-card-header>
+      <img md-card-image alt="Main image" src="http://ethnicfoods.stevegravy.com/wp-content/uploads/2016/08/PNI_4475-2.jpg">
+      <md-card-content>
+        <md-card-title>All Desserts</md-card-title>
+        <p>Here is some content</p>
+      </md-card-content>
+    </md-card>
 <div class="lessons-list-container v-h-center-block-parent">
   <table class="table lessons-list card card-strong">
     <tbody>
       <tr *ngFor="let item of desserts">
+        <td>
+         <img md-card-avatar src="http://ethnicfoods.stevegravy.com/wp-content/uploads/2016/01/PNI_4335-2.jpg">
+        </td>
         <td class="lesson-title">{{item.name}}</td>
         <td>{{item.prize}}</td>
         <td><i class="md-icon duration-icon">euro_symbol</i></td>
