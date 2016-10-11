@@ -6,14 +6,21 @@ body {
   margin: 0;
   font-family: Roboto, sans-serif;
 }
+.material-icons.md-16 { padding-bottom: 32px; font-size: 12px; height: 12px; width: 12px; color: rgba(0, 0, 0, 0.54);}
 
 md-toolbar-row{
   justify-content: space-between;
 }
+
 [md-raised-button] {
   width: 100%;
 }
-
+.padbot{
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 14px;
+  height: 12px;
+  padding-bottom: 38px;
+}
 md-grid-list {
   max-width: 1403px;
   margin: 16px;

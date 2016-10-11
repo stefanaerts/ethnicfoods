@@ -1,7 +1,7 @@
 import { FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2/database';
 import { AngularFire } from 'angularfire2';
 import { Component, ViewChild, ViewContainerRef } from '@angular/core';
-import { MdCard, MdSidenav, MdDialog, MdDialogConfig } from "@angular/material";
+//import { MdList,MdListItem,MdListDivider,MdListAvatar, MdCard, MdSidenav, MdDialog, MdDialogConfig } from "@angular/material";
 import 'rxjs/add/operator/map';
 
 
