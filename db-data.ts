@@ -42,13 +42,16 @@ export const dbData = {
       "iconUrl": "http://ethnicfoods.stevegravy.com/wp-content/uploads/2016/08/PNI_4475-2.jpg",
     }
   ],
-  "Pains_garnis_options":
+  "Pains_garnis_required":
   [{
     "name": "Pain blanc"
   },
   {
     "name": "Pain gris"
   },
+  ],
+  "Pains_garnis_options":
+  [
   {
     "name": "tomates séchées"
   },

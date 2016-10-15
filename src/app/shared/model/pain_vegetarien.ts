@@ -3,9 +3,12 @@ export class PainVegetarien{
     public name: string,
     public description: string,
     public iconurl: string,
-    public prizedemi: string,
-    public prizeentier: string,
+    public prize_demi: string,
+    public prize_entier: string,
     ) {
 
+  }
+  static fromJson({$key, name, description,iconurl,prize_demi,prize_entier}) {
+    return new PainVegetarien($key, name, description,iconurl,prize_demi,prize_entier);
   }
 }

@@ -20,14 +20,22 @@ const Pain_PoissonsRef = database().ref('Pain_Poissons');
 const Plats_du_jourRef = database().ref('Plat_du_jour');
 const Petites_entrées_avec_potagesRef = database().ref('Petites_entrées_&_potages');
 const FormulesRef = database().ref('Formules');
+const Pains_garnis_requiredRef = database().ref('Pains_garnis_required');
 
 
 
 // const lessonsRef = database().ref('lessons');
 
+dbData.Pains_garnis_required.forEach( garnis => {
 
+  console.log('adding garnis', garnis.name);
 
-dbData.desserts.forEach( dessert => {
+  const garnisRef = Pains_garnis_requiredRef.push({
+      name: garnis.name,
+  });
+});
+
+/*dbData.desserts.forEach( dessert => {
 
   console.log('adding dessert', dessert.name);
 

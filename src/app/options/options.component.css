@@ -1,0 +1,19 @@
+.app-content md-card {
+   padding: 10px;
+   /*background-color: #FAFAFA;*/
+   /*background-color: red;*/
+   border-radius: 16px;
+    background-color: rgb(204,255,144);
+}
+.app-action {
+  display: inline-block;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+/*.header-content {
+  padding: 10px;
+}
+.footer-content {
+  padding: 10px;
+}*/
