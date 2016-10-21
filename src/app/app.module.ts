@@ -3,40 +3,60 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
-//import { AppComponent, SettingsDialog } from './app.component';
+import {ToastModule, ToastOptions} from 'ng2-toastr/ng2-toastr';
+
+// import { AppComponent, SettingsDialog } from './app.component';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from 'angularfire2/index';
 import { firebaseConfig } from '../environments/firebase.config';
 import { HomeComponent } from './home/home.component';
 import { DessertsService } from './shared/model/desserts.service';
 import { SaladesService } from './shared/model/salades.service';
-import { VegetariensService} from './shared/model/vegetariens.service';
-import { VolaillesService } from './shared/model/volailles.service';
-import { ViandesService } from './shared/model/viandes.service';
+import { PainVegetariensService} from './shared/model/pain-vegetariens.service';
+import { PainVolaillesService } from './shared/model/pain-volailles.service';
+import { PainViandesService } from './shared/model/pain-viandes.service';
 import { FormulesService } from './shared/model/formules.service';
 import { PlatDuJourService } from './shared/model/plat-du-jour.service';
 import { SpécialitésService} from './shared/model/spécialités.service';
 import { PetiteEntreesService } from './shared/model/petite-entrees.service';
-import { PoissonsService } from './shared/model/poissons.service';
+import { PainPoissonsService } from './shared/model/pain-poissons.service';
 import {PainGarnisOptionsService} from './shared/model/pain-garnis-options.service';
 import {PainGarnisRequiredService} from './shared/model/pain-garnis-required.service';
+import {ToastService} from './shared/toast.service';
+
 import {OrderService} from './shared/model/order.service';
 import {RouterModule} from '@angular/router';
-import {routerConfig} from './router.config';
-
-
+import {routes} from './router.config';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import { OptionsComponent } from './options/options.component';
 import { RequiredOptionsComponent } from './required-options/required-options.component';
+import { MdCardSubtitleComponent } from './shared/templates/headers/md-card-subtitle/md-card-subtitle.component';
+import { RadioButtonWithPrizeComponent } from './shared/templates/radio-buttons/radio-button-with-prize/radio-button-with-prize.component';
+import { RadioButtonWithoutPrizeComponent } from
+'./shared/templates/radio-buttons/radio-button-without-prize/radio-button-without-prize.component';
+import { TotalPrizeComponent } from './shared/templates/md-cards/total-prize/total-prize.component';
+import { AddActionComponent } from './shared/templates/action-buttons/add-action/add-action.component';
+import { ProductListComponent } from './home/products/product-list/product-list.component';
+import {Constants} from './shared/constants';
 
+let options = <ToastOptions> {
+  animate: 'flyRight',
+  positionClass: 'toast-bottom-right',
+};
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     OptionsComponent,
     RequiredOptionsComponent,
+    MdCardSubtitleComponent,
+  RadioButtonWithPrizeComponent,
+  RadioButtonWithoutPrizeComponent,
+  TotalPrizeComponent,
+  AddActionComponent,
+  ProductListComponent,
   //  SettingsDialog
   ],
   entryComponents: [
@@ -49,11 +69,12 @@ AppComponent,
     HttpModule,
     MaterialModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig),
-    RouterModule.forRoot(routerConfig),
+    RouterModule.forRoot(routes),
+     ToastModule.forRoot(options),
   ],
-  providers: [DessertsService,SaladesService,SpécialitésService,ViandesService,VolaillesService,
-  FormulesService,PetiteEntreesService,VegetariensService,PlatDuJourService,PoissonsService,PainGarnisOptionsService,
-  PainGarnisRequiredService,OrderService],
+  providers: [DessertsService, SaladesService, SpécialitésService, PainViandesService, PainVolaillesService,
+  FormulesService, PetiteEntreesService, PainVegetariensService, PlatDuJourService, PainPoissonsService, PainGarnisOptionsService,
+  PainGarnisRequiredService, ToastService, Constants, OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

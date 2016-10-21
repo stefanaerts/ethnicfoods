@@ -7,21 +7,54 @@ body {
   margin: 0;
   font-family: Roboto, sans-serif;
 }
-.material-icons.md-16 { padding-bottom: 32px; font-size: 12px; height: 12px; width: 12px; color: rgba(0, 0, 0, 0.54);}
 
-md-toolbar-row{
+ /*md-radio-button ._md-container {
+        top: 0;
+        transform: translateY(12%);
+
+      }*/
+/*.md-radio-label {
+  /*  cursor: pointer;
+    display: inline-flex;
+    background-color: orangered;
+    white-space: nowrap;
+  align-content: center;
+  align-items: center;
+  align-self: center;
+}*/
+/*.md-radio-label-content{
+  align-content: center;
+  align-items: center;
+  align-self: center;
+}
+*/
+.padright2{
+  padding-right: 2px;
+}
+.padtop20{
+  padding-top: 20px;
+}
+.padtop10{
+  padding-top: 10px;
+}
+
+.material-icons.md-14 {  font-size: 14px; width: 14px; color: rgba(0, 0, 0, 0.54);}
+.material-icons.md-16 {  font-size: 16px; height: 16px; width: 16px; color: rgba(0, 0, 0, 0.54);}
+
+/*md-toolbar-row{
   justify-content: space-between;
 }
+*/
 
 [md-raised-button] {
   width: 100%;
 }
-.padbot{
+.prizecolor{
   color: rgba(0, 0, 0, 0.54);
   font-size: 14px;
-  height: 12px;
-  padding-bottom: 38px;
-}
+/*  height: 14px; */
+ }
+
 md-grid-list {
   max-width: 1403px;
   margin: 16px;
@@ -44,3 +77,4 @@ md-sidenav {
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
   }
+

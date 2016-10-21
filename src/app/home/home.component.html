@@ -1,7 +1,7 @@
 
 <md-card >
   <md-card-header>
-    <!--<img md-card-avatar src="http://ethnicfoods.stevegravy.com/wp-content/uploads/2016/01/PNI_4335-2.jpg"> -->
+    <!--<img md-card-avatar src="http://ethnicfoods.stevegravy.com/wp-content/uploads/2016/01/PNI_4335-2.jpg">-->
     <md-card-title>ethnicfoodstest</md-card-title>
     <md-card-subtitle>Votre traiteur EthnicFoods</md-card-subtitle>
   </md-card-header>
@@ -18,25 +18,7 @@
     </td>
   </md-list-item>
 </md-list>
-
-<md-list *ngFor="let item of painvegetariens" [hidden]="pain_VegetariensVisible">
-  <md-list-item   (click)="gotoRequiredOptions(item)">
-    <img md-list-avatar src={{item.iconUrl}} alt="...">
-    <h1 md-line > {{item.name}} </h1>
-     <td class="padbot"> {{item.prize_demi}}/{{item.prize_entier}}</td>
-    <td>
-      <md-icon class="material-icons md-16"> euro_symbol </md-icon>
-    </td>
-    <td style="padding-right: 20px"></td>
-       <td>
-      <md-icon class="material-icons md-16">keyboard_arrow_right </md-icon>
-    </td>
-    <md-card-subtitle md-line>
-     {{item.description}}</md-card-subtitle>
-  </md-list-item>
-  <md-divider style="color: rgb(204,255,144)"></md-divider>
-</md-list>
-
+<app-product-list  [items]="vegetariensService.painvegetariens$ | async" [boolVisible]="pain_VegetariensVisible"  ></app-product-list>
 
 <md-list>
   <md-list-item>
@@ -48,25 +30,7 @@
     </td>
   </md-list-item>
 </md-list>
-
-<md-list *ngFor="let item of painvolailles" [hidden]="pain_VolaillesVisible">
-  <md-list-item>
-    <img md-list-avatar src={{item.iconUrl}} alt="...">
-    <h1 md-line> {{item.name}} </h1>
-     <td class="padbot"> {{item.prize_demi}}/{{item.prize_entier}}</td>
-    <td>
-      <md-icon class="material-icons md-16"> euro_symbol </md-icon>
-    </td>
-    <td style="padding-right: 20px"></td>
-    <td>
-      <md-icon class="material-icons md-16">keyboard_arrow_right </md-icon>
-    </td>
-    <md-card-subtitle md-line>
-     {{item.description}}</md-card-subtitle>
-  </md-list-item>
-  <md-divider style="color: rgb(204,255,144)"></md-divider>
-</md-list>
-
+<app-product-list  [items]="volaillesService.painvolailles$ | async" [boolVisible]="pain_VolaillesVisible"></app-product-list>
 
 <md-list>
   <md-list-item>
@@ -79,53 +43,22 @@
   </md-list-item>
 </md-list>
 
-<md-list *ngFor="let item of painviandes" [hidden]="pain_ViandesVisible">
-  <md-list-item>
-    <img md-list-avatar src={{item.iconUrl}} alt="...">
-    <h1 md-line> {{item.name}} </h1>
-     <td class="padbot"> {{item.prize_demi}}/{{item.prize_entier}}</td>
-    <td>
-      <md-icon class="material-icons md-16"> euro_symbol </md-icon>
-    </td>
-    <td style="padding-right: 20px"></td>
-    <td>
-      <md-icon class="material-icons md-16">keyboard_arrow_right </md-icon>
-    </td>
-    <md-card-subtitle md-line>
-     {{item.description}}</md-card-subtitle>
-  </md-list-item>
-  <md-divider style="color: rgb(204,255,144)"></md-divider>
-</md-list>
+<app-product-list  [items]="viandesService.painviandes$ | async" [boolVisible]="pain_ViandesVisible"></app-product-list>
+
 
 
 <md-list>
   <md-list-item>
     <md-card-subtitle md-line>Pains garnis Poissons</md-card-subtitle>
     <td>
-    <button md-icon-button (click)="pain_poissonsVisible=!pain_poissonsVisible">
+    <button md-icon-button (click)="pain_PoissonsVisible=!pain_PoissonsVisible">
       <md-icon>keyboard_arrow_down</md-icon>
     </button>
     </td>
   </md-list-item>
 </md-list>
 
-<md-list *ngFor="let item of painpoissons" [hidden]="pain_poissonsVisible">
-  <md-list-item>
-    <img md-list-avatar src={{item.iconUrl}} alt="...">
-    <h1 md-line> {{item.name}} </h1>
-    <td class="padbot"> {{item.prize_demi}}/{{item.prize_entier}}</td>
-     <td>
-      <md-icon class="material-icons md-16"> euro_symbol </md-icon>
-    </td>
-    <td style="padding-right: 20px"></td>
-    <td>
-      <md-icon class="material-icons md-16">keyboard_arrow_right </md-icon>
-    </td>
-    <md-card-subtitle md-line>
-      {{item.description}}</md-card-subtitle>
-  </md-list-item>
-  <md-divider style="color: rgb(204,255,144)"></md-divider>
-</md-list>
+<app-product-list [items]="poissonsService.painpoissons$ | async" [boolVisible]="pain_PoissonsVisible"></app-product-list>
 
 <md-list>
   <md-list-item>
@@ -138,23 +71,7 @@
   </md-list-item>
 </md-list>
 
-<md-list *ngFor="let item of platdujours" [hidden]="plat_du_jourVisible">
-  <md-list-item>
-    <img md-list-avatar src={{item.iconUrl}} alt="...">
-    <h1 md-line> {{item.name}} </h1>
-    <td class="padbot"> {{item.prize}} </td>
-    <td>
-      <md-icon class="material-icons md-16"> euro_symbol </md-icon>
-    </td>
-    <td style="padding-right: 20px"></td>
-    <td>
-      <md-icon class="material-icons md-16">keyboard_arrow_right </md-icon>
-    </td>
-    <md-card-subtitle md-line>
-      {{item.description}}</md-card-subtitle>
-  </md-list-item>
-  <md-divider style="color: rgb(204,255,144)"></md-divider>
-</md-list>
+<app-product-list  [items]="platdujoursService.plat_du_jours$ | async" [boolVisible]="plat_du_jourVisible"></app-product-list>
 
 <md-list>
   <md-list-item>
@@ -167,23 +84,7 @@
   </md-list-item>
 </md-list>
 
-<md-list *ngFor="let item of petite_entrees" [hidden]="petites_entreesVisible">
-  <md-list-item>
-    <img md-list-avatar src={{item.iconUrl}} alt="...">
-    <h1 md-line> {{item.name}} </h1>
-    <td class="padbot"> {{item.prize}} </td>
-    <td>
-      <md-icon class="material-icons md-16"> euro_symbol </md-icon>
-    </td>
-    <td style="padding-right: 20px"></td>
-    <td>
-      <md-icon class="material-icons md-16">keyboard_arrow_right </md-icon>
-    </td>
-    <md-card-subtitle md-line>
-      {{item.description}}</md-card-subtitle>
-  </md-list-item>
-  <md-divider style="color: rgb(204,255,144)"></md-divider>
-</md-list>
+<app-product-list  [items]="petiteentreesService.petiteentrees$ | async" [boolVisible]="petites_entreesVisible"></app-product-list>
 
 <md-list>
   <md-list-item>
@@ -196,25 +97,7 @@
   </md-list-item>
 </md-list>
 
-<md-list *ngFor="let item of formules" [hidden]="formulesVisible">
-  <md-list-item>
-    <img md-list-avatar src={{item.iconUrl}} alt="...">
-    <h1 md-line> {{item.name}} </h1>
-    <td class="padbot"> {{item.prize}} </td>
-    <td>
-      <md-icon class="material-icons md-16"> euro_symbol </md-icon>
-    </td>
-    <td style="padding-right: 20px"></td>
-    <td>
-      <md-icon class="material-icons md-16">keyboard_arrow_right </md-icon>
-    </td>
-    <md-card-subtitle md-line>
-     {{item.description}}</md-card-subtitle>
-  </md-list-item>
-  <md-divider style="color: rgb(204,255,144)"></md-divider>
-</md-list>
-
-
+<app-product-list  [items]="formulesService.formules$ | async" [boolVisible]="formulesVisible"></app-product-list>
 
 
 <md-list>
@@ -228,24 +111,7 @@
   </md-list-item>
 </md-list>
 
-<md-list *ngFor="let item of salades" [hidden]="saladesVisible">
-
-  <md-list-item>
-    <!--<img md-list-avatar src={{item.iconUrl}} alt="...">-->
-    <h1 md-line> {{item.name}} </h1>
-    <td class="padbot"> {{item.prize}} </td>
-    <td>
-      <md-icon class="material-icons md-16"> euro_symbol </md-icon>
-    </td>
-    <td style="padding-right: 20px"></td>
-    <td>
-      <md-icon class="material-icons md-16">keyboard_arrow_right </md-icon>
-    </td>
-    <md-card-subtitle md-line>
-      {{item.description}}</md-card-subtitle>
-  </md-list-item>
-  <md-divider style="color: rgb(204,255,144)"></md-divider>
-</md-list>
+<app-product-list  [items]="saladesService.salades$ | async" [boolVisible]="saladesVisible"></app-product-list>
 
 <md-list>
   <md-list-item>
@@ -258,23 +124,7 @@
   </md-list-item>
 </md-list>
 
-<md-list *ngFor="let item of specialites" [hidden]="specialitesVisible">
-  <md-list-item>
-    <!--<img md-list-avatar src={{item.iconUrl}} alt="...">-->
-    <h1 md-line> {{item.name}} </h1>
-    <td class="padbot"> {{item.prize}} </td>
-    <td>
-      <md-icon class="material-icons md-16"> euro_symbol </md-icon>
-    </td>
-    <td style="padding-right: 20px"></td>
-    <td>
-      <md-icon class="material-icons md-16">keyboard_arrow_right </md-icon>
-    </td>
-    <md-card-subtitle md-line>
-      {{item.description}}</md-card-subtitle>
-  </md-list-item>
-  <md-divider style="color: rgb(204,255,144)"></md-divider>
-</md-list>
+<app-product-list  [items]="specialitesService.specialites$ | async" [boolVisible]="specialitesVisible"></app-product-list>
 
 <md-list>
   <md-list-item>
@@ -287,20 +137,6 @@
   </md-list-item>
 </md-list>
 
-<md-list *ngFor="let item of desserts" [hidden]="dessertsVisible">
-  <md-list-item>
-    <!--<img md-list-avatar src={{item.iconUrl}} alt="...">-->
-    <h1 md-line> {{item.name}} </h1>
-    <td class="padbot"> {{item.prize}} </td>
-    <td>
-      <md-icon class="material-icons md-16"> euro_symbol </md-icon>
-    </td>
-    <td style="padding-right: 20px"></td>
-    <td>
-      <md-icon class="material-icons md-16">keyboard_arrow_right </md-icon>
-    </td>
-    <md-card-subtitle md-line>
-     {{item.description}}</md-card-subtitle>
-  </md-list-item>
-  <md-divider style="color: rgb(204,255,144)"></md-divider>
-</md-list>
+<app-product-list  [items]="dessertsService.desserts$ | async" [boolVisible]="dessertsVisible"  ></app-product-list>
+
+<!--<app-product-list [typeOfProduct]="constants.DESSERTS" [items]="dessertsService.desserts$ | async" [boolVisible]="dessertsVisible"  ></app-product-list>-->
