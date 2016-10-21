@@ -1,0 +1,17 @@
+.md-card-green{
+ border-radius: 16px;
+ background-color: #CDDC39;
+
+}
+.md-card-blue{
+ border-radius: 16px;
+ background-color: blue;
+
+}
+.md-card-title-white{
+  color: rgba(0, 0, 0, 0.54);
+  background-color:#FAFAFA;
+}
+.md-card-title-default{
+  color: rgba(0, 0, 0, 0.54);
+}

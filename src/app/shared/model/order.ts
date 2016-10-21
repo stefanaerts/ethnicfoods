@@ -1,12 +1,19 @@
-import  {PainVegetarien} from './pain_vegetarien';
+import { Product } from './product';
 export class Order {
 
   constructor(
-    public painVegetarien: PainVegetarien,
-  //  public name: string,
-  //   public description: string,
-     public type: string,
-     public size: string,
-    public totalprize: number) {
+    public painVegetarien: Product[],
+    public painVolaille: Product[],
+    public painViande: Product[],
+   public painPoisson: Product[],
+   public dessert: Product[],
+   public platdujour: Product[],
+   public formule: Product[],
+   public petiteentree: Product[],
+   public specialite: Product[],
+   public salade: Product[],
+   public totalPrize: number,
+   public orderId: string
+    ) {
   }
 }

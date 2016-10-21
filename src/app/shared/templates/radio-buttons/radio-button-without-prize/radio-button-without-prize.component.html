@@ -1,0 +1,15 @@
+<md-radio-group>
+		<md-list *ngFor="let item of items">
+			<md-list-item>
+				<h1 md-line>
+					<td>
+						<md-radio-button value="2" (click)="setType(item.name)">
+						</md-radio-button>
+						{{item?.name}}
+					</td>
+					<td style="padding-right: 20px"></td>
+					<md-divider style="color: rgb(204,255,144)"></md-divider>
+				</h1>
+			</md-list-item>
+		</md-list>
+	</md-radio-group>

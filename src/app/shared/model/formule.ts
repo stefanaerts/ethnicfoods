@@ -1,7 +1,3 @@
-export class Formule {
-
-  constructor(public $key: string,
-    public name: string,
-    public prize: string) {
-  }
+import { Product } from './product';
+export class Formule extends Product {
 }

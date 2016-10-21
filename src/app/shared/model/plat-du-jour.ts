@@ -1,7 +1,4 @@
-export class PlatDuJour {
+import { Product } from './product';
+export class PlatDuJour extends Product {
 
-   constructor(public $key: string,
-    public name: string,
-    public prize: string) {
-  }
 }

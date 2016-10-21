@@ -1,16 +1,21 @@
+import { Constants } from './../constants';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
-import { GarnisOption } from './garnis-option';
+import { PainGarnisOption } from './pain-garnis-option';
 import { AngularFire } from 'angularfire2';
 
 
 @Injectable()
 export class PainGarnisOptionsService {
+  paingarnisoptions$: Observable<PainGarnisOption[]>;
 
-  constructor(private af: AngularFire ) { }
+  constructor(private af: AngularFire ) {
+      this.paingarnisoptions$ = af.database.list(Constants.PAINGARNISOPTIONS)
+   .map(PainGarnisOption.fromJsonArray);
+  }
 
-  findAllGarnisOptions(): Observable<GarnisOption[]> {
-    return this.af.database.list('Pains_garnis_options');
+  findAllGarnisOptions(): Observable<PainGarnisOption[]> {
+    return this.paingarnisoptions$;
  }
 
 }

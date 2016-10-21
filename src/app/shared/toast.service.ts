@@ -12,8 +12,8 @@ showSuccess() {
     this.toastr.success('You are awesome!', 'Success!');
   }
 
-  showError() {
-    this.toastr.error('I am sorry something went wrong,please make a new order!', 'You will be redirected to the home page');
+ showError() {
+    this.toastr.error('Something went wrong,please make a new order! You will be redirected to the home page','Error!');
   this.goToHome();
 }
 
@@ -26,12 +26,15 @@ showSuccess() {
   }
 
   showCustom() {
-    this.toastr.custom('<span style="color: red">Message in red.</span>', null, { enableHTML: true });
+    this.toastr.custom('<button md-fab><md-icon>add</md-icon></button>', null, { enableHTML: true });
   }
+
 
 goToHome() {
   let link = ['/home'];
     this.router.navigate(link);
 }
+
+
 }
 

@@ -1,5 +1,5 @@
- import {Pain} from './pain';
+import { Product } from './product';
 
- export class Item extends Pain {
+ export class Item extends Product {
 
  }

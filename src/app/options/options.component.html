@@ -4,24 +4,22 @@
 		<md-card-subtitle>Options ?</md-card-subtitle>
 		<!--<img md-card-image md-image-no-fill alt="Main image" src="http://ethnicfoods.stevegravy.com/wp-content/uploads/2016/08/PNI_4475-2.jpg">-->
 	</md-card>
-	<md-list *ngFor="let item of paingarnisoptions">
+	<md-list *ngFor="let item of paingarnisoptions ">
 		<md-list-item>
 			<h1 md-line>
 				<td>
-					<md-checkbox></md-checkbox>
-					{{item.name}}
+					<md-checkbox  (click)="toggle(item.name)"></md-checkbox>
+					{{item?.name}}
 				</td>
 				<td style="padding-right: 20px"></td>
 				<md-divider style="color: rgb(204,255,144)"></md-divider>
 			</h1>
 		</md-list-item>
 	</md-list>
-	<!--<button md-button>FLAT</button>
-      <button md-raised-button md-tooltip="This is a tooltip!">RAISED</button>
-      <button md-raised-button color="primary">PRIMARY RAISED</button>
-      <button md-raised-button color="accent">ACCENT RAISED</button>-->
-	<span class="app-action">
-      <button md-fab  (click)="addTotal()">
+      <h2 class="md-title">Selected Items</h2>
+      <code style="display: block; padding: 8px;">{{selected | json}}</code>
+<span class="app-action">
+      <button md-fab  (click)="addOrder()">
         <md-icon>add</md-icon>
       </button>
       </span>
