@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { PainGarnisOptionsService } from '../shared/model/pain-garnis-options.service';
 import { PainGarnisOption } from '../shared/model/pain-garnis-option';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute,Router } from "@angular/router";
 import { OrderService } from "../shared/model/order.service";
 import { ToastService } from "../shared/toast.service";
 
@@ -16,20 +16,23 @@ export class OptionsComponent implements OnInit, OnDestroy {
   @Output() selectedChange: EventEmitter<any> = new EventEmitter();
 
   constructor(private toastService: ToastService, private orderService: OrderService,
-    private garnisoptionsService: PainGarnisOptionsService, private route: ActivatedRoute) {
+    private painGarnisoptionsService: PainGarnisOptionsService, private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit() {
 
-  this.garnisoptionsService.findAllGarnisOptions()
+  this.painGarnisoptionsService.findAllGarnisOptions()
       .subscribe(paingarnisoptions => this.paingarnisoptions = paingarnisoptions);
   }
 
   addOrder() {
     try {
          // this.orderService.getProduct().options = this.selected;
-          this.orderService.pushProductToOrder(this.orderService.getProduct(), this.selected);
+         this.orderService.getOrder().totalPrize = this.orderService.getTempTotalPrize();
+         this.orderService.getProduct().options = this.selected;
+          this.orderService.pushProductToOrder(this.orderService.getProduct());
           this.orderService.setProduct(null);
+          this.goToHome();
 
     } catch (error) {
       this.toastService.showError();
@@ -52,4 +55,10 @@ export class OptionsComponent implements OnInit, OnDestroy {
 
     //  this.orderService.clearOrder();
   }
+
+goToHome() {
+  let link = ['/home'];
+    this.router.navigate(link);
+}
+
 }

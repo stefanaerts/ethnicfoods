@@ -16,7 +16,7 @@ export class OrderService {
 
   setProduct(product: Product) {
     this.product = product;
-    this.product.itemId = this.getDate_Time();
+ //   this.product.itemId = this.getDate_Time();
   }
   getProduct() {
     return this.product;
@@ -35,6 +35,7 @@ export class OrderService {
   getOrder() {
     return this.order;
   }
+
   getTotalPrize() {
     return this.order.totalPrize;
   }
@@ -54,7 +55,7 @@ export class OrderService {
   clearOrder() {
     this.order = null;
   }
-  pushProductToOrder(product: Product, options: any[]) {
+  pushProductToOrder(product: Product) {
 
     try {
       switch (product.type) {

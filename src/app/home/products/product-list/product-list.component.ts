@@ -29,8 +29,9 @@ export class ProductListComponent {
   addToOrder(item: Product) {
 try {
          // this.orderService.getProduct().options = this.selected;
-          this.orderService.pushProductToOrder(item, null);
- //         this.orderService.setProduct(null);
+          this.orderService.getOrder().totalPrize = (this.orderService.getOrder().totalPrize + +item.prize);
+          this.orderService.pushProductToOrder(item);
+          this.orderService.setProduct(null);
 
     } catch (error) {
         console.log(error);
