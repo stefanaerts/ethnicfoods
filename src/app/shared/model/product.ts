@@ -3,7 +3,7 @@ export class Product {
   type: string;
   name: string;
   description: string;
-  iconurl: string;
+  iconUrl: string;
   prize: number;
   prize_small: number;
   prize_large: number;
@@ -11,17 +11,17 @@ export class Product {
   options: string[];
   orderId: string;
   itemId: string;
-static fromJson({$key, type, name, description, iconurl,  prize , prize_small, prize_large, typeOfBread, options, orderId , itemId}) {
-    return new Product($key,type, name, description, iconurl, prize, prize_small, prize_large, typeOfBread, options,  orderId, itemId);
+  static fromJson({$key, type, name, description, iconUrl, prize, prize_small, prize_large, typeOfBread, options, orderId, itemId}) {
+    return new Product($key, type, name, description, iconUrl, prize, prize_small, prize_large, typeOfBread, options, orderId, itemId);
   }
   static fromJsonArray(json: any[]): Product[] {
     return json.map(Product.fromJson);
   }
   constructor($key: string,
-  type: string,
+    type: string,
     name: string,
     description: string,
-    iconurl: string,
+    iconUrl: string,
     prize: number,
     prize_small: number,
     prize_large: number,
@@ -29,18 +29,18 @@ static fromJson({$key, type, name, description, iconurl,  prize , prize_small, p
     options: string[],
     orderId: string,
     itemId: string
-    ) {
-      this.$key = $key;
-      this.type = type;
-      this.name = name;
-      this.description = description;
-      this.iconurl = iconurl;
-      this.prize = prize;
-      this.orderId = orderId;
-      this.itemId = itemId;
-      this.prize_large = prize_large;
-      this.prize_small = prize_small;
-      this.typeOfBread = typeOfBread;
-      this.options = options;
-    }
+  ) {
+    this.$key = $key;
+    this.type = type;
+    this.name = name;
+    this.description = description;
+    this.iconUrl = iconUrl;
+    this.prize = prize;
+    this.orderId = orderId;
+    this.itemId = itemId;
+    this.prize_large = prize_large;
+    this.prize_small = prize_small;
+    this.typeOfBread = typeOfBread;
+    this.options = options;
   }
+}

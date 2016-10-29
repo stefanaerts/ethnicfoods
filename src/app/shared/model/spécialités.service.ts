@@ -11,7 +11,6 @@ specialites$: Observable<Specialite[]>;
 
 
  constructor(private af: AngularFire ) {
-    console.log("in constructor van specialites service");
     this.specialites$ = af.database.list(Constants.SPECIALITES)
    .map(Specialite.fromJsonArray);
  }

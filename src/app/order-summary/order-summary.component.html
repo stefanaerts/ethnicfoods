@@ -1,0 +1,62 @@
+<md-list *ngFor="let item of painVegetarien">
+	<md-list-item>
+		<h1 md-line>
+			<app-counter-item [itemKey]="item.prod.$key"></app-counter-item>
+
+		</h1>
+		<h1 md-line>{{item?.prod.name}}</h1>
+		<h1 md-line>
+			<td>{{item?.prod.options}} {{item?.prod.typeOfBread}}</td>
+			<td *ngIf="item?.prod.prize"> {{item?.prod.prize}}</td>
+		</h1>
+		<md-list *ngIf="item?.extraOptions">
+			<md-list-item *ngFor="let item of item?.extraOptions">
+				<h1 md-line>{{item?.extraOptions.length}}</h1>
+			</md-list-item>
+		</md-list>
+	</md-list-item>
+</md-list>
+
+
+
+<!--<md-divider style="color: rgb(204,255,144)"></md-divider>
+	</md-list-item>
+</md-list>-->
+
+<!--
+<md-list *ngFor="let item of painVolaille trackBy:item?.$key;" >
+  <md-list-item>
+    <h1 md-line >
+     <app-counter-item [itemKey] = "item.$key" ></app-counter-item>
+    <!--<img md-list-avatar [src]="item.iconUrl" alt="...">
+      {{item?.name}} </h1>
+
+     <td class="prizecolor padbot25 padright2" *ngIf="item?.prize"> {{item?.prize}}</td>
+
+    <td>
+      <md-icon class="material-icons md-14 padbot20"  > euro_symbol </md-icon>
+    </td>
+    <md-card-subtitle md-line>
+     {{item?.description}}</md-card-subtitle>
+  </md-list-item>
+  <md-divider style="color: rgb(204,255,144)"></md-divider>
+</md-list>
+
+<md-list *ngFor="let item of platdujour" >
+  <md-list-item>
+    <h1 md-line >
+     <app-counter-item [itemKey] = "item.$key" ></app-counter-item>
+    <!<img md-list-avatar [src]="item.iconUrl" alt="...">
+      {{item?.name}} </h1>
+
+     <td class="prizecolor padbot25 padright2" *ngIf="item?.prize"> {{item?.prize}}</td>
+
+    <td>
+      <md-icon class="material-icons md-14 padbot20"  > euro_symbol </md-icon>
+    </td>
+    <md-card-subtitle md-line>
+     {{item?.description}}</md-card-subtitle>
+  </md-list-item>
+  <md-divider style="color: rgb(204,255,144)"></md-divider>
+</md-list>
+-->

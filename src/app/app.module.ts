@@ -1,11 +1,13 @@
+import { CounterService } from './shared/counter/counter.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import {ToastModule, ToastOptions} from 'ng2-toastr/ng2-toastr';
+//import { MaterializeModule } from 'angular2-materialize';
+//import {MaterializeDirective} from "angular2-materialize";
 
-// import { AppComponent, SettingsDialog } from './app.component';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from 'angularfire2/index';
 import { firebaseConfig } from '../environments/firebase.config';
@@ -25,6 +27,7 @@ import {PainGarnisRequiredService} from './shared/model/pain-garnis-required.ser
 import {ToastService} from './shared/toast.service';
 
 import {OrderService} from './shared/model/order.service';
+
 import {RouterModule} from '@angular/router';
 import {routes} from './router.config';
 
@@ -40,7 +43,13 @@ import { TotalPrizeComponent } from './shared/templates/md-cards/total-prize/tot
 import { AddActionComponent } from './shared/templates/action-buttons/add-action/add-action.component';
 import { ProductListComponent } from './home/products/product-list/product-list.component';
 import {Constants} from './shared/constants';
-
+import { CounterItemComponent } from './shared/counter/counter-item/counter-item.component';
+import { OrderSummaryComponent } from './order-summary/order-summary.component';
+//import { ModalModule } from 'angular2-modal';
+//import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
+import {SnackbarComponent} from './shared/snackbar/snackbar.component';
+import { PizzadialogComponent } from './shared/pizza/pizzadialog/pizzadialog.component';
+import { CounterPipe } from './shared/pipes/counter.pipe';
 let options = <ToastOptions> {
   animate: 'flyRight',
   positionClass: 'toast-bottom-right',
@@ -57,11 +66,16 @@ let options = <ToastOptions> {
   TotalPrizeComponent,
   AddActionComponent,
   ProductListComponent,
-  //  SettingsDialog
+  CounterItemComponent,
+  OrderSummaryComponent,
+  SnackbarComponent,
+  PizzadialogComponent,
+  CounterPipe,
   ],
   entryComponents: [
 AppComponent,
-// SettingsDialog
+SnackbarComponent,
+PizzadialogComponent
   ],
   imports: [
     BrowserModule,
@@ -71,10 +85,13 @@ AppComponent,
     AngularFireModule.initializeApp(firebaseConfig),
     RouterModule.forRoot(routes),
      ToastModule.forRoot(options),
+   //  MaterializeModule,
+  //   ModalModule.forRoot(),
+  //  BootstrapModalModule
   ],
   providers: [DessertsService, SaladesService, SpécialitésService, PainViandesService, PainVolaillesService,
   FormulesService, PetiteEntreesService, PainVegetariensService, PlatDuJourService, PainPoissonsService, PainGarnisOptionsService,
-  PainGarnisRequiredService, ToastService, Constants, OrderService],
+  PainGarnisRequiredService, ToastService, Constants, OrderService, CounterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

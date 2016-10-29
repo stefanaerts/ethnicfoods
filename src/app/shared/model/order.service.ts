@@ -1,3 +1,4 @@
+import { CounterService } from './../counter/counter.service';
 import { Product } from './product';
 import { Constants } from './../constants';
 import { Injectable } from '@angular/core';
@@ -8,15 +9,13 @@ export class OrderService {
   private order: Order;
   private product: Product;
   private tempTotalPrize: number;
-  constructor() {
-    console.log('instance of orderservice Created');
+  constructor(private counterService: CounterService) {
     this.order = new Order([], [], [], [], [], [], [], [], [], [], 0, this.getDate_Time());
 
   }
 
   setProduct(product: Product) {
     this.product = product;
- //   this.product.itemId = this.getDate_Time();
   }
   getProduct() {
     return this.product;
@@ -63,61 +62,62 @@ export class OrderService {
           product.orderId = this.order.orderId;
           product.itemId = this.getDate_Time();
           this.order.painVegetarien.push(product);
-          console.log("pushed veg PainToOrder=" + this.order.painVegetarien.length);
+          this.counterService.inc(product.$key);
+
           break;
         case Constants.PAINVOLAILLE:
           product.orderId = this.order.orderId;
           product.itemId = this.getDate_Time();
           this.order.painVolaille.push(product);
-          console.log("pushed vol PainToOrder=" + this.order.painVolaille.length);
-          break;
+          this.counterService.inc(product.$key);
+        break;
         case Constants.PAINVIANDE:
           product.orderId = this.order.orderId;
           product.itemId = this.getDate_Time();
           this.order.painViande.push(product);
-          console.log("pushed viande PainToOrder=" + this.order.painViande.length);
+        this.counterService.inc(product.$key);
           break;
         case Constants.PAINPOISSON:
           product.orderId = this.order.orderId;
           product.itemId = this.getDate_Time();
           this.order.painPoisson.push(product);
-          console.log("pushed poisson PainToOrder=" + this.order.painPoisson.length);
+                  this.counterService.inc(product.$key);
           break;
         case Constants.DESSERTS:
           product.orderId = this.order.orderId;
           product.itemId = this.getDate_Time();
           this.order.dessert.push(product);
-          console.log("pushed dessert ToOrder=" + this.order.dessert.length);
+                  this.counterService.inc(product.$key);
           break;
         case Constants.FORMULES:
           product.orderId = this.order.orderId;
           product.itemId = this.getDate_Time();
           this.order.formule.push(product);
-          console.log("pushed formule ToOrder=" + this.order.formule.length);
+                  this.counterService.inc(product.$key);
           break;
         case Constants.SPECIALITES:
           product.orderId = this.order.orderId;
           product.itemId = this.getDate_Time();
           this.order.specialite.push(product);
-          console.log("pushed specialite PainToOrder=" + this.order.specialite.length);
+                  this.counterService.inc(product.$key);
           break;
         case Constants.PETITEENTREE:
           product.orderId = this.order.orderId;
           product.itemId = this.getDate_Time();
           this.order.petiteentree.push(product);
-          console.log("pushed petiteentree PainToOrder=" + this.order.petiteentree.length);
+                  this.counterService.inc(product.$key);
           break;
         case Constants.PLATDUJOUR:
           product.orderId = this.order.orderId;
           product.itemId = this.getDate_Time();
           this.order.platdujour.push(product);
-          console.log("pushed platdujour PainToOrder=" + this.order.platdujour.length);
+                  this.counterService.inc(product.$key);
           break;
         case Constants.SALADES:
           product.orderId = this.order.orderId;
           product.itemId = this.getDate_Time();
           this.order.salade.push(product);
-          console.log("pushed salade PainToOrder=" + this.order.salade.length);
+                  this.counterService.inc(product.$key);
           break;
 
         default:

@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
-import { Router, ActivatedRoute } from "@angular/router";
+import { Router } from "@angular/router";
 
 @Injectable()
 export class ToastService {
 
-  constructor(public toastr: ToastsManager, private route: ActivatedRoute, private router: Router) { }
+  constructor(public toastr: ToastsManager, private router: Router) { }
 
 
 showSuccess() {

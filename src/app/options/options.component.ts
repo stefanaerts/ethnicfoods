@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { PainGarnisOptionsService } from '../shared/model/pain-garnis-options.service';
 import { PainGarnisOption } from '../shared/model/pain-garnis-option';
-import { ActivatedRoute,Router } from "@angular/router";
+import { Router } from "@angular/router";
 import { OrderService } from "../shared/model/order.service";
 import { ToastService } from "../shared/toast.service";
 
@@ -16,7 +16,7 @@ export class OptionsComponent implements OnInit, OnDestroy {
   @Output() selectedChange: EventEmitter<any> = new EventEmitter();
 
   constructor(private toastService: ToastService, private orderService: OrderService,
-    private painGarnisoptionsService: PainGarnisOptionsService, private route: ActivatedRoute, private router: Router) {
+    private painGarnisoptionsService: PainGarnisOptionsService, private router: Router) {
   }
 
   ngOnInit() {

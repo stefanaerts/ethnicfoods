@@ -1,5 +1,7 @@
-import { Constants } from './../shared/constants';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
+import { Constants } from './../shared/constants';
 import { DessertsService } from './../shared/model/desserts.service';
 import { SaladesService } from './../shared/model/salades.service';
 import { SpécialitésService } from './../shared/model/spécialités.service';
@@ -11,16 +13,13 @@ import { PlatDuJourService } from './../shared/model/plat-du-jour.service';
 import { PetiteEntreesService } from './../shared/model/petite-entrees.service';
 import { PainPoissonsService } from './../shared/model/pain-poissons.service';
 import { OrderService } from "../shared/model/order.service";
-
-
-import { Component, OnInit } from '@angular/core';
-
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  //  providers: [OrderService]
+   providers: []
 })
 export class HomeComponent implements OnInit {
   dessertsVisible = false;
@@ -33,17 +32,27 @@ export class HomeComponent implements OnInit {
   pain_ViandesVisible = false;
   pain_VegetariensVisible = false;
   pain_VolaillesVisible = false;
+  totalPrize$: Observable<number>;
 
-  constructor(private dessertsService: DessertsService, private saladesService: SaladesService,
+  constructor(
+    private router: Router, private dessertsService: DessertsService, private saladesService: SaladesService,
     private specialitesService: SpécialitésService, private vegetariensService: PainVegetariensService,
     private volaillesService: PainVolaillesService, private viandesService: PainViandesService,
     private poissonsService: PainPoissonsService, private formulesService: FormulesService,
     private platdujoursService: PlatDuJourService, private petiteentreesService: PetiteEntreesService,
     private orderService: OrderService, private constants: Constants
 
-  ) { }
+  ) {
+    }
 
   ngOnInit() {
+    }
 
+
+  goToOrderSummary() {
+    let link = ['/order'];
+    this.router.navigate(link);
   }
+
+
 }

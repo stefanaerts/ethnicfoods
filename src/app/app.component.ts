@@ -1,30 +1,24 @@
 import { Constants } from './shared/constants';
-import { FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2/database';
-import { AngularFire } from 'angularfire2';
-import { Component, ViewChild, ViewContainerRef } from '@angular/core';
-//import { MdList,MdListItem,MdListDivider,MdListAvatar, MdCard, MdSidenav, MdDialog, MdDialogConfig } from "@angular/material";
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
+//import { Overlay } from 'angular2-modal';
+//import { Modal } from 'angular2-modal/plugins/bootstrap';
+import { SnackbarComponent } from './shared/snackbar/snackbar.component';
 
-
-// @Component({
-//   selector: 'settings-dialog',
-//   template: `
-//    <label> Would you like more pictures?</label>
-//    <md-slide-toggle></md-slide-toggle>
-//  `
-// })
-// export class SettingsDialog{
-
-//   constructor() { }
-//   }
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [SnackbarComponent]
 })
-export class AppComponent {
-  constructor(constants: Constants){
+export class AppComponent implements OnInit{
+  constructor(constants: Constants,public snb: SnackbarComponent, public  vc: ViewContainerRef) {
 
   }
+
+ngOnInit(){
+    this.snb.refreshTotalPrizeSnackbar();
+
+}
 
 }

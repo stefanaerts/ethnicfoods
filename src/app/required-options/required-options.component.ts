@@ -1,7 +1,7 @@
 import { PainGarnisRequiredService } from './../shared/model/pain-garnis-required.service';
 import { PainGarnisRequired } from './../shared/model/pain-garnis-required';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router, ActivatedRoute } from "@angular/router";
+import { Router} from "@angular/router";
 import { OrderService } from "../shared/model/order.service";
 import { ToastService } from "../shared/toast.service";
 
@@ -18,7 +18,7 @@ export class RequiredOptionsComponent implements OnInit, OnDestroy {
 
 
   constructor(private toastService: ToastService, private orderService: OrderService,
-    private garnisrequiredService: PainGarnisRequiredService, private activatedRoute: ActivatedRoute, private router: Router
+    private garnisrequiredService: PainGarnisRequiredService, private router: Router
     ) {
   }
 

@@ -1,3 +1,5 @@
+import { HomeComponent } from './../../home.component';
+import { CounterService } from './../../../shared/counter/counter.service';
 import { ToastService } from './../../../shared/toast.service';
 import { Product } from './../../../shared/model/product';
 import { Constants } from './../../../shared/constants';
@@ -5,11 +7,10 @@ import { OrderService } from './../../../shared/model/order.service';
 import { Component, Input } from '@angular/core';
 import { Item } from '../../../shared/model/item';
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent {
 
@@ -22,7 +23,8 @@ export class ProductListComponent {
   // @Input()
   // typeOfProduct: string;
 
-  constructor(private router: Router, private orderService: OrderService,private toastService: ToastService) {
+  constructor( private homeComponent: HomeComponent,
+   private counterService: CounterService, private router: Router, private orderService: OrderService, private toastService: ToastService) {
   }
 
 
@@ -32,14 +34,14 @@ try {
           this.orderService.getOrder().totalPrize = (this.orderService.getOrder().totalPrize + +item.prize);
           this.orderService.pushProductToOrder(item);
           this.orderService.setProduct(null);
-
     } catch (error) {
-        console.log(error);
+ //       console.log(error);
       this.toastService.showError();
     }
   }
 
   checkForRequirementsOrOptions(item: Product): void {
+
     this.orderService.setProduct(item);
     switch (item.type) {
       case Constants.PLATDUJOUR:
