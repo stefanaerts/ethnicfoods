@@ -7,7 +7,7 @@
 
 <app-radio-button-without-prize [items]="paingarnisrequired" (setTypeEvent)="setType($event)"></app-radio-button-without-prize>
 
-<app-total-prize  mdCardColor="md-card-green" mdCardTitleColor="md-card-title-white" [totalPrize]="this.orderService.getTempTotalPrize()"></app-total-prize>
+<app-total-prize  mdCardColor="md-card-green" mdCardTitleColor="md-card-title-white" [totalPrize]="this.orderService.getTempTotalPrize() | number"></app-total-prize>
 
 <span class="app-action">
       <button md-fab [disabled]="boolDisabled" (click)="gotoOptions()">

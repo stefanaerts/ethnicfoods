@@ -1,62 +1,67 @@
-<md-list *ngFor="let item of painVegetarien">
+<md-card style="width:100%;padding-left:1px;background: #FAFAFA;opacity:0.4;">
+ <span style="width:30%;padding-left:1px;"> <button md-button (click)="goToHome()">Home</button></span><span class="cartc" >Cart</span><span style="width:20%;align:right;"><button md-button >Payment</button></span>
+</md-card >
+<md-list  *ngFor="let item of order.painVegetarien trackBy:item?.$key;">
+	<md-list-item  >
+  	<h4 md-line style="padding-left:1px;color:#4CAF50;">
+			{{item?.name}} </h4>
+
+		<td  class="prizecolor padbot25 padright2" *ngIf="item?.prize"> {{item?.prize}}</td>
+		<td>
+			<md-icon class="material-icons md-14 padbot20"> euro_symbol </md-icon>
+		</td>
+		<td style="padding-right: 5px"></td>
+		<md-card-subtitle md-line style="padding-left:50px">
+			<span><b>	{{item?.typeOfBread}}: </b></span>
+			<span *ngIf="item?.options[0]">{{item?.options[0]}}</span>
+      <span *ngIf="item?.options[1]">,{{item?.options[1]}}</span>
+       <br class="rwd-break530">
+      <span *ngIf="item?.options[2]">,{{item?.options[2]}}</span>
+       <br class="rwd-break670">
+      <span *ngIf="item?.options[3]">,{{item?.options[3]}}</span>
+      <span *ngIf="item?.options[4]">,{{item?.options[4]}}</span>
+    	<md-divider style="color: rgb(204,255,144)"></md-divider>
+    </md-card-subtitle>
+  </md-list-item>
+</md-list>
+<md-list  *ngFor="let item of order.painVolaille trackBy:item?.$key;">
+	<md-list-item >
+  	<h4 class="productname" md-line>
+			{{item?.name}} </h4>
+
+		<td  class="prizecolor padbot25 padright2" *ngIf="item?.prize"> {{item?.prize}}</td>
+		<td>
+			<md-icon class="material-icons md-14 padbot20"> euro_symbol </md-icon>
+		</td>
+		<td style="padding-right: 5px"></td>
+		<md-card-subtitle md-line style="padding-left:50px">
+			<span><b>	{{item?.typeOfBread}}: </b></span>
+			<span *ngIf="item?.options[0]">{{item?.options[0]}}</span>
+      <span *ngIf="item?.options[1]">,{{item?.options[1]}}</span>
+       <br class="rwd-break530">
+      <span *ngIf="item?.options[2]">,{{item?.options[2]}}</span>
+       <br class="rwd-break670">
+      <span *ngIf="item?.options[3]">,{{item?.options[3]}}</span>
+      <span *ngIf="item?.options[4]">,{{item?.options[4]}}</span>
+    	<md-divider style="color: rgb(204,255,144)"></md-divider>
+    </md-card-subtitle>
+  </md-list-item>
+</md-list>
+
+<md-list  *ngFor="let item of order.platdujour trackBy:item?.$key;">
 	<md-list-item>
-		<h1 md-line>
-			<app-counter-item [itemKey]="item.prod.$key"></app-counter-item>
+  	<h4 class="productname" md-line>
+			{{item?.name}} </h4>
 
-		</h1>
-		<h1 md-line>{{item?.prod.name}}</h1>
-		<h1 md-line>
-			<td>{{item?.prod.options}} {{item?.prod.typeOfBread}}</td>
-			<td *ngIf="item?.prod.prize"> {{item?.prod.prize}}</td>
-		</h1>
-		<md-list *ngIf="item?.extraOptions">
-			<md-list-item *ngFor="let item of item?.extraOptions">
-				<h1 md-line>{{item?.extraOptions.length}}</h1>
-			</md-list-item>
-		</md-list>
-	</md-list-item>
-</md-list>
-
-
-
-<!--<md-divider style="color: rgb(204,255,144)"></md-divider>
-	</md-list-item>
-</md-list>-->
-
-<!--
-<md-list *ngFor="let item of painVolaille trackBy:item?.$key;" >
-  <md-list-item>
-    <h1 md-line >
-     <app-counter-item [itemKey] = "item.$key" ></app-counter-item>
-    <!--<img md-list-avatar [src]="item.iconUrl" alt="...">
-      {{item?.name}} </h1>
-
-     <td class="prizecolor padbot25 padright2" *ngIf="item?.prize"> {{item?.prize}}</td>
-
-    <td>
-      <md-icon class="material-icons md-14 padbot20"  > euro_symbol </md-icon>
-    </td>
-    <md-card-subtitle md-line>
-     {{item?.description}}</md-card-subtitle>
+		<td  class="prizecolor padbot25 padright2" *ngIf="item?.prize"> {{item?.prize}}</td>
+		<td>
+			<md-icon class="material-icons md-14 padbot20"> euro_symbol </md-icon>
+		</td>
+		<td style="padding-right: 5px"></td>
+		<md-card-subtitle md-line style="padding-left:50px">
+    	<md-divider style="color: rgb(204,255,144)"></md-divider>
+    </md-card-subtitle>
   </md-list-item>
-  <md-divider style="color: rgb(204,255,144)"></md-divider>
 </md-list>
-
-<md-list *ngFor="let item of platdujour" >
-  <md-list-item>
-    <h1 md-line >
-     <app-counter-item [itemKey] = "item.$key" ></app-counter-item>
-    <!<img md-list-avatar [src]="item.iconUrl" alt="...">
-      {{item?.name}} </h1>
-
-     <td class="prizecolor padbot25 padright2" *ngIf="item?.prize"> {{item?.prize}}</td>
-
-    <td>
-      <md-icon class="material-icons md-14 padbot20"  > euro_symbol </md-icon>
-    </td>
-    <md-card-subtitle md-line>
-     {{item?.description}}</md-card-subtitle>
-  </md-list-item>
-  <md-divider style="color: rgb(204,255,144)"></md-divider>
-</md-list>
--->
+<md-card style="opacity:0.4;background: #FAFAFA;">
+</md-card>

@@ -1,4 +1,4 @@
-import { FormsModule } from '@angular/forms';
+// import { FormsModule } from '@angular/forms';
 import { Constants } from './src/app/shared/constants';
 import {database, initializeApp} from "firebase";
 import {firebaseConfig} from "./src/environments/firebase.config";

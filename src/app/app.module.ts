@@ -1,6 +1,7 @@
 import { CounterService } from './shared/counter/counter.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {CommonModule} from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
@@ -50,6 +51,7 @@ import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import {SnackbarComponent} from './shared/snackbar/snackbar.component';
 import { PizzadialogComponent } from './shared/pizza/pizzadialog/pizzadialog.component';
 import { CounterPipe } from './shared/pipes/counter.pipe';
+import { TesterComponent } from './test/tester/tester.component';
 let options = <ToastOptions> {
   animate: 'flyRight',
   positionClass: 'toast-bottom-right',
@@ -68,9 +70,11 @@ let options = <ToastOptions> {
   ProductListComponent,
   CounterItemComponent,
   OrderSummaryComponent,
+  TesterComponent,
   SnackbarComponent,
   PizzadialogComponent,
   CounterPipe,
+  TesterComponent,
   ],
   entryComponents: [
 AppComponent,
@@ -79,6 +83,7 @@ PizzadialogComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     FormsModule,
     HttpModule,
     MaterialModule.forRoot(),

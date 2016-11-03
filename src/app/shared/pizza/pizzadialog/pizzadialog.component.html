@@ -1,13 +1,18 @@
-<style>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ <style>
     #mytable {width:250px;}
-    #mytable .left {padding:0px;text-align:left;padding-bottom: 30px;spacing:20px}
+    #mytable .left {padding:0px; text-align:left;padding-bottom: 30px;spacing:20px}
     #mytable .right {padding:0px;padding-bottom: 30px;text-align:right;}
 </style>
-
-<md-card  class="card" >
+</head>
+<body>
+<md-card  class="card">
   <table id="mytable">
     <tr>
-        <td class="left">Total prize({{ this.os.getTotalPrize() }})</td>
+        <td class="left">Total prize({{ this.os.getTotalPrize() | number}})</td>
         <td class="right" (click)="goToOrder()">View Orders</td>
     </tr>
 </table>
@@ -17,4 +22,5 @@
       </button>-->
 
 </md-card>
-
+</body>
+</html>

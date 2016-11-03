@@ -12,7 +12,7 @@ export class PizzadialogComponent implements OnInit {
 
 tp: number;
   constructor(public os: OrderService, public router: Router) {
- //       console.log('in pizzdialog constructor' + this.os.getTotalPrize());
+        console.log('in pizzdialog constructor' + this.os.getTotalPrize());
 
    }
 

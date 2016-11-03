@@ -52,10 +52,10 @@ export const dbData = {
   ],
   "Pains_garnis_required":
   [{
-    "name": "Pain blanc"
+    "name": "Blanc"
   },
   {
-    "name": "Pain gris"
+    "name": "Gris"
   },
   ],
   "Pains_garnis_options":

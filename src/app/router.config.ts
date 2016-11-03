@@ -1,3 +1,4 @@
+import { TesterComponent } from './test/tester/tester.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
@@ -10,5 +11,7 @@ export const routes: Routes = [
   { path: 'required', component: RequiredOptionsComponent },
   { path: 'options', component: OptionsComponent },
   { path: 'order', component: OrderSummaryComponent},
+  { path: 'test', component: TesterComponent},
+
   {path: '**',pathMatch: 'full', redirectTo: '/home'}
 ];

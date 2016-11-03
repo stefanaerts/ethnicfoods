@@ -29,7 +29,7 @@ export class OptionsComponent implements OnInit, OnDestroy {
     try {
          // this.orderService.getProduct().options = this.selected;
          this.orderService.getOrder().totalPrize = this.orderService.getTempTotalPrize();
-         this.orderService.getProduct().options = this.selected;
+         this.orderService.getProduct().options = this.selected.sort();
           this.orderService.pushProductToOrder(this.orderService.getProduct());
           this.orderService.setProduct(null);
           this.goToHome();
