@@ -1,23 +1,23 @@
-<md-list *ngFor="let item of items trackBy:item?.$key;" [hidden]="boolVisible" >
-  <md-list-item   (click)="checkForRequirementsOrOptions(item)">
-    <h1 md-line >
-     <app-counter-item [itemKey] = "item.$key" ></app-counter-item>
-    <img md-list-avatar [src]="item.iconUrl" alt="...">
-      {{item?.name}} </h1>
+  <md-list class="listitems"  *ngFor="let item of items" [hidden]="boolVisible" (click)="checkForRequirementsOrOptions(item)">
+  <span class="list-item">
 
-     <td class="prizecolor padbot25 padright2" *ngIf="item?.prize_small"> {{item?.prize_small}}/{{item?.prize_large}}</td>
-     <td class="prizecolor padbot25 padright2" *ngIf="item?.prize"> {{item?.prize}}</td>
+  <div class="productname">
+     <img style="width: 40px;margin-top: 5px;" md-card-avatar src="http://ethnicfoods.stevegravy.com/wp-content/uploads/2016/08/PNI_4475-2.jpg" alt="...">
+    {{item?.name}}</div>
+        <app-counter-item [itemKey] = "item.$key" ></app-counter-item>
 
-    <td>
-      <md-icon class="material-icons md-14 padbot20"  > euro_symbol </md-icon>
-    </td>
-    <td style="padding-right: 20px"></td>
-       <td>
-      <md-icon class="material-icons md-16" style="padding-bottom: 20px">keyboard_arrow_right </md-icon>
-    </td>
-    <md-card-subtitle md-line style="padding-left:50px">
-     {{item?.description}}</md-card-subtitle>
-  </md-list-item>
-  <md-divider style="color: rgb(204,255,144)"></md-divider>
-</md-list>
+  <span class="prizecolor">{{item?.description}}</span>
+  <span>
+   <span class="prizecolor" *ngIf="item?.prize_small"> {{item?.prize_small}}/{{item?.prize_large}}</span>
+     <span class="prizecolor" *ngIf="item?.prize"> {{item?.prize}}</span>
+    <span>
+      <md-icon class="material-icons md-14 ">euro_symbol</md-icon>
+    </span>
+       <span style="padding:5px;">
+      <md-icon class="material-icons md-14">keyboard_arrow_right</md-icon>
+    </span>
+  </span>
+  </span>
+  <md-divider class="divider"></md-divider>
+  </md-list>
 

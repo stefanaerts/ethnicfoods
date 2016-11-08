@@ -74,7 +74,6 @@ let options = <ToastOptions> {
   SnackbarComponent,
   PizzadialogComponent,
   CounterPipe,
-  TesterComponent,
   ],
   entryComponents: [
 AppComponent,

@@ -37,14 +37,14 @@ export const dbData = {
   [
     {
       "name": "Onglet de boeuf facon tandoori",
-      "description": "avec pleurottes poêlées,riz basmati,sushi su,cacahuétètes grillées,germes de soja",
+      "description": "avec pleurottes poêlées, riz basmati, sushi su, cacahuétètes grillées, germes de soja",
       "prize": "8.95",
       "iconUrl": "https://ethnicfoods.stevegravy.com/wp-content/uploads/2016/08/PNI_4475-2.jpg",
       "type" : Constants.SPECIALITES
     },
     {
       "name": "Brochette de scampis",
-      "description": "avec riz sauvage,légumes wok poêlées aux herbes",
+      "description": "avec riz sauvage, légumes wok poêlées aux herbes",
       "prize": "8.95",
       "iconUrl": "https://ethnicfoods.stevegravy.com/wp-content/uploads/2016/08/PNI_4475-2.jpg",
       "type" : Constants.SPECIALITES
@@ -80,14 +80,14 @@ export const dbData = {
   [
     {
       "name": "Gouda",
-      "description": "Beurre,gouda,parmesan,cressonnette",
+      "description": "Beurre, gouda, parmesan, cressonnette",
        "prize_small": "1.95",
       "prize_large": "3.75",
       "type": Constants.PAINVEGETARIEN
     },
     {
       "name": "Melun",
-      "description": "Brie,vinaigrette de mangue,noix de pécan,roquette",
+      "description": "Brie, vinaigrette de mangue, noix de pécan, roquette",
        "prize_small": "2.95",
       "prize_large": "5.25",
        "type": Constants.PAINVEGETARIEN
@@ -97,14 +97,14 @@ export const dbData = {
   [
     {
       "name": "Ethnicfoods",
-      "description": "Poulet grillé au thym,légumes grillés aux herbes",
+      "description": "Poulet grillé au thym, légumes grillés aux herbes",
       "prize_small": "3.25",
       "prize_large": "5.95",
        "type": Constants.PAINVOLAILLE
     },
     {
       "name": "Bombay",
-      "description": "Blanc de poulet,sauce tandoori,comcombre,salade",
+      "description": "Blanc de poulet, sauce tandoori, comcombre, salade",
       "prize_small": "2.95",
       "prize_large": "5.50",
        "type": Constants.PAINVOLAILLE
@@ -114,14 +114,14 @@ export const dbData = {
   [
     {
       "name": "Bourgogne",
-      "description": "Boeuf rôti au romarin,rémoulade de céleri-rave,parmesan,cressonnette",
+      "description": "Boeuf rôti au romarin, rémoulade de céleri-rave, parmesan, cressonnette",
       "prize_small": "2.95",
       "prize_large": "5.50",
        "type": Constants.PAINVIANDE
     },
     {
       "name": "Venis",
-      "description": "Carpaccio de boeuf,huile de truffe noire,parmesan,roquette,dés de tomates nature",
+      "description": "Carpaccio de boeuf, huile de truffe noire, parmesan, roquette, dés de tomates nature",
       "days-avaiable": "uniquement le jeudi et vendredi",
       "prize_small": "2.95",
       "prize_large": "5.25",
@@ -132,14 +132,14 @@ export const dbData = {
   [
     {
       "name": "Nice",
-      "description": "Thon,huile d'olive,anchois,trio de poivrons,olives noires,salade verte",
+      "description": "Thon, huile d'olive, anchois, trio de poivrons, olives noires, salade verte",
       "prize_small": "3.25",
       "prize_large": "5.95",
        "type": Constants.PAINPOISSON
     },
     {
       "name": "Knokke",
-      "description": "Salade de crevettes grises,tomates confites,vinaigre balsamique,vinaigrette de tomate,cressonnette",
+      "description": "Salade de crevettes grises, tomates confites, vinaigre balsamique, vinaigrette de tomate, cressonnette",
       "prize_small": "3.25",
       "prize_large": "5.95",
        "type": Constants.PAINPOISSON
@@ -156,12 +156,12 @@ export const dbData = {
   "Petites_entrées_avec_potages":
   [
     {
-      "name": "Potage du jour,pain,beurre,croûton",
+      "name": "Potage du jour, pain,beurre, croûton",
       "prize": "3.95",
       "type": Constants.PETITEENTREE
     },
     {
-      "name": "Samosa végétarien/poulet tikka/boeuf",
+      "name": "Samosa végétarien, poulet tikka, boeuf",
       "prize": "1.00",
       "type": Constants.PETITEENTREE
     }, {

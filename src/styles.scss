@@ -1,0 +1,86 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~https://fonts.googleapis.com/icon?family=Material+Icons.css';
+/*@import '~@angular/material/core/theming/prebuilt/orange-green';*/
+@import '~@angular/material/core/theming/all-theme';
+
+@include md-core();
+
+body {
+  margin: 0;
+  font-family: Roboto, sans-serif;
+}
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* colors begin */
+
+/*.color-primary {
+color: md-palette($md-orange, A200, A100, A400);
+}
+.background-color-primary {
+ background-color: md-palette($md-orange, A200, A100, A400);
+}
+.color-accent {
+color: md-palette($md-green, A200, A100, A400);
+}
+.background-color-accent {
+ background-color: md-palette($md-green, A200, A100, A400);
+}*/
+/*$primary: md-palette($md-cyan);
+$accent: md-palette($md-amber);*/
+
+.divider{
+  background-color: #CDDC39;
+  color: #CDDC39;
+  width:100vw;
+}
+
+.productname {
+  font-weight: bold;
+  color: #43A047;
+  padding-left: 20px;
+}
+
+.listitems{
+padding-top:0px;
+}
+/*body {
+  margin: 0;
+  font-family: Roboto, sans-serif;
+}
+
+
+
+[md-raised-button] {
+  width: 100%;
+}
+.prizecolor{
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 14px;
+/*  height: 14px;
+ }
+
+md-grid-list {
+  max-width: 1403px;
+  margin: 16px;
+}
+p{
+  margin: 16px;
+}
+md-sidenav-layout {
+  height: 100vh;
+}
+
+md-sidenav {
+  width: 320px;
+}
+
+.icon-20{
+  font-size: 20px;
+}
+* {
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+  }*/

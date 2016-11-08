@@ -1,79 +1,128 @@
-
-<md-card >
-  <md-card-header>
-    <!--<img md-card-avatar src="http://ethnicfoods.stevegravy.com/wp-content/uploads/2016/01/PNI_4335-2.jpg">-->
-    <md-card-title>ethnicfoodstest</md-card-title>
+<md-card style="background-color:#AED581;">
+  <md-card-title-group>
+    <md-card-title><span style="font-weight:bold;">Ethnic</span><span style="font-style:italic;">foods</span></md-card-title>
     <md-card-subtitle>Votre traiteur EthnicFoods</md-card-subtitle>
-  </md-card-header>
-  <!--<img md-card-image md-image-no-fill alt="Main image" src="http://ethnicfoods.stevegravy.com/wp-content/uploads/2016/08/PNI_4475-2.jpg">-->
+    <img md-card-md-image src="http://ethnicfoods.stevegravy.com/wp-content/uploads/2016/01/PNI_4335-2.jpg">
+  </md-card-title-group>
 </md-card>
 
-<md-list>
-  <md-list-item>
-    <md-card-subtitle md-line>Pains garnis Végétariens</md-card-subtitle>
-    <td>
-    <button md-icon-button (click)="pain_VegetariensVisible=!pain_VegetariensVisible">
+<!-- veg -->
+<div class="product-type">
+  <span>
+
+      <button class="pijltje" md-icon-button (click)="pain_VegetariensVisible=!pain_VegetariensVisible">
       <md-icon>keyboard_arrow_down</md-icon>
     </button>
-    </td>
-  </md-list-item>
-</md-list>
-<app-product-list  [items]="vegetariensService.painvegetariens$ | async" [boolVisible]="pain_VegetariensVisible"  ></app-product-list>
+    Pains garnis Végétariens
+  </span>
+</div>
 
-<md-list>
-  <md-list-item>
-    <md-card-subtitle md-line>Pains garnis Volailles</md-card-subtitle>
-    <td>
-    <button md-icon-button (click)="pain_VolaillesVisible=!pain_VolaillesVisible">
+<div class="grid" layout="horizontal" layout-align="left" layout-fill>
+  <div>
+    <!--<div class="product-type">
+      Pains garnis Végétarienst
+    </div>-->
+    <div>
+      <app-product-list [items]="vegetariensService.painvegetariens$ | async" [boolVisible]="pain_VegetariensVisible"></app-product-list>
+    </div>
+  </div>
+</div>
+
+
+<!-- vol -->
+<div class="product-type">
+  <span>
+
+      <button class="pijltje" md-icon-button (click)="pain_VolaillesVisible=!pain_VolaillesVisible">
       <md-icon>keyboard_arrow_down</md-icon>
     </button>
-    </td>
-  </md-list-item>
-</md-list>
-<app-product-list  [items]="volaillesService.painvolailles$ | async" [boolVisible]="pain_VolaillesVisible"></app-product-list>
+    Pains garnis Volailles
+  </span>
+</div>
 
-<md-list>
-  <md-list-item>
-    <md-card-subtitle md-line>Pains garnis Viandes</md-card-subtitle>
-    <td>
-    <button md-icon-button (click)="pain_ViandesVisible=!pain_ViandesVisible">
+<div class="grid" layout="horizontal" layout-align="left center" layout-fill>
+  <div>
+    <!--<div class="product-type">
+      Pains garnis Végétarienst
+    </div>-->
+    <div>
+      <app-product-list [items]="volaillesService.painvolailles$ | async" [boolVisible]="pain_VolaillesVisible"></app-product-list>
+    </div>
+  </div>
+</div>
+
+<!-- viande -->
+<div class="product-type">
+  <span>
+
+      <button class="pijltje" md-icon-button (click)="pain_ViandesVisible=!pain_ViandesVisible">
       <md-icon>keyboard_arrow_down</md-icon>
     </button>
-    </td>
-  </md-list-item>
-</md-list>
+    Pains garnis Viandes
+  </span>
+</div>
 
-<app-product-list  [items]="viandesService.painviandes$ | async" [boolVisible]="pain_ViandesVisible"></app-product-list>
+<div class="grid" layout="horizontal" layout-align="left center" layout-fill>
+  <div>
+    <div>
+      <app-product-list [items]="viandesService.painviandes$ | async" [boolVisible]="pain_ViandesVisible"></app-product-list>
+    </div>
+  </div>
+</div>
 
+<!-- poisson -->
+<div class="product-type">
+  <span>
 
-
-<md-list>
-  <md-list-item>
-    <md-card-subtitle md-line>Pains garnis Poissons</md-card-subtitle>
-    <td>
-    <button md-icon-button (click)="pain_PoissonsVisible=!pain_PoissonsVisible">
+      <button class="pijltje" md-icon-button (click)="pain_PoissonsVisible=!pain_PoissonsVisible">
       <md-icon>keyboard_arrow_down</md-icon>
     </button>
-    </td>
-  </md-list-item>
-</md-list>
+    Pains garnis Poisson
+  </span>
+</div>
 
-<app-product-list [items]="poissonsService.painpoissons$ | async" [boolVisible]="pain_PoissonsVisible"></app-product-list>
+<div class="grid" layout="horizontal" layout-align="left center" layout-fill>
+  <div>
+    <div>
+      <app-product-list [items]="poissonsService.painpoissons$ | async" [boolVisible]="pain_PoissonsVisible"></app-product-list>
+    </div>
+  </div>
+</div>
 
-<md-list>
-  <md-list-item>
-    <md-card-subtitle md-line>Plat du jour</md-card-subtitle>
-    <td>
-    <button md-icon-button (click)="plat_du_jourVisible=!plat_du_jourVisible">
+<!-- Plat du jour -->
+<div class="product-type">
+  <span>
+
+      <button class="pijltje" md-icon-button (click)="plat_du_jourVisible=!plat_du_jourVisible">
       <md-icon>keyboard_arrow_down</md-icon>
     </button>
-    </td>
-  </md-list-item>
-</md-list>
+    Plat du jour
+  </span>
+</div>
 
-<app-product-list  [items]="platdujoursService.plat_du_jours$ | async" [boolVisible]="plat_du_jourVisible"></app-product-list>
+<div class="grid" layout="horizontal" layout-align="left center" layout-fill>
+  <div>
+    <div>
+ <app-product-list  [items]="platdujoursService.plat_du_jours$ | async" [boolVisible]="plat_du_jourVisible"></app-product-list>
+   </div>
+  </div>
+</div>
 
-<md-list>
+
+<md-card style="background-color:orange;">
+  <md-card-title-group>
+    <md-card-title><span style="font-weight:bold;">Ethnic</span><span style="font-style:italic;">foods</span></md-card-title>
+    <md-card-subtitle>Votre traiteur EthnicFoods</md-card-subtitle>
+    <img md-card-md-image src="http://ethnicfoods.stevegravy.com/wp-content/uploads/2016/08/PNI_4475-2.jpg">
+  </md-card-title-group>
+</md-card>
+
+
+
+
+
+
+<!--<md-list>
   <md-list-item>
     <md-card-subtitle md-line>Petites entrées & potages</md-card-subtitle>
     <td>
@@ -137,4 +186,6 @@
   </md-list-item>
 </md-list>
 
-<app-product-list  [items]="dessertsService.desserts$ | async" [boolVisible]="dessertsVisible"  ></app-product-list>
+<app-product-list  [items]="dessertsService.desserts$ | async" [boolVisible]="dessertsVisible"  ></app-product-list>-->
+
+
