@@ -1,9 +1,4 @@
-@import '~@angular/material/core/theming/all-theme';
-
-@include md-core();
-
-$primary: md-palette($md-cyan);
-$accent: md-palette($md-amber);
+@import '~@angular/material/core/theming/prebuilt/purple-green';
 
 $theme: md-light-theme($primary, $accent);
 

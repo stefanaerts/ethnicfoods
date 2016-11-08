@@ -1,16 +1,16 @@
-<div *ngIf="this.orderService.getProduct()?.prize_small">
+<div class="bc-primary-light" style ="height:100vh;" *ngIf="this.orderService.getProduct()?.prize_small">
 <app-md-card-subtitle title="size(Required)" [product]="this.orderService.getProduct()?.name" [description]="this.orderService.getProduct()?.description"></app-md-card-subtitle>
 
 <app-radio-button-with-prize  [prize_small]="this.orderService.getProduct()?.prize_small" [prize_large]="this.orderService.getProduct()?.prize_large" (setPrizeEvent)="setPrize($event)"></app-radio-button-with-prize>
-</div>
 <app-md-card-subtitle title="Type of bread(required)"></app-md-card-subtitle>
 
 <app-radio-button-without-prize [items]="paingarnisrequired" (setTypeEvent)="setType($event)"></app-radio-button-without-prize>
 
-<app-total-prize  mdCardColor="md-card-green" mdCardTitleColor="md-card-title-white" [totalPrize]="this.orderService.getTempTotalPrize() | number"></app-total-prize>
+<!--<app-total-prize   [totalPrize]="this.orderService.getTempTotalPrize() | number"></app-total-prize>-->
 
 <span class="app-action">
       <button md-fab [disabled]="boolDisabled" (click)="gotoOptions()">
         <md-icon>add</md-icon>
       </button>
 </span>
+</div>

@@ -1,13 +1,6 @@
-<md-toolbar >
-
-  <span>Ordered</span>
-
-  <!-- This fills the remaining space of the current row -->
-  <span class="example-fill-remaining-space"></span>
-
-  <span><button md-button >Payment</button></span>
-</md-toolbar>
-
+<md-card style="width:100%;padding-left:1px;background: #FAFAFA;opacity:0.4;">
+ <span style="width:30%;padding-left:1px;"> <button md-button (click)="goToHome()">Home</button></span><span class="cartc" >Cart</span><span style="width:20%;align:right;"><button md-button >Payment</button></span>
+</md-card >
 <md-list  *ngFor="let item of order.painVegetarien trackBy:item?.$key;">
 	<md-list-item  >
   	<h4 class="productname" md-line>
@@ -66,7 +59,7 @@
 		</td>
 		<td style="padding-right: 5px"></td>
 		<md-card-subtitle md-line style="padding-left:50px">
-    	<md-divider class="background-color-accents" ></md-divider>
+    	<md-divider style="color: rgb(204,255,144)"></md-divider>
     </md-card-subtitle>
   </md-list-item>
 </md-list>

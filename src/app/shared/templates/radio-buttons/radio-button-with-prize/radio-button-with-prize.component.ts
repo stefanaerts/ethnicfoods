@@ -3,7 +3,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-radio-button-with-prize',
   templateUrl: './radio-button-with-prize.component.html',
-  styleUrls: ['./radio-button-with-prize.component.css']
+  styleUrls: ['./radio-button-with-prize.component.scss']
 })
 export class RadioButtonWithPrizeComponent implements OnInit {
 

@@ -1,55 +1,11 @@
-@import '../../styles';
-
-
-.product-type{
-  @extend .bc-primary-medium;
-  font-weight: bold;
-  color: white;
-    /*@include bg-green();*/
-
-    font-size: 22px;
-    padding: 10px 15px 10px;
-     /*position: relative;
-    width: 100%;*/
-    /*padding: 10px 15px 10px;*/
-    /*margin: 0;*/
-
- }
- /*.full-width-div {
-    position: absolute;
-    width: 100%;
-    left: 0;
-}*/
-
-.pijltje{
-  /*background-color:white;*/
-  color:lightseagreen;
-@extend .bc-accent;
-  position:absolute;
-  /*align-items: baseline;*/
-  right:1px;
-  border:1px;
-  border-style: dashed;
-  border-color: green;
-
-}
-
-
-/*.demo {
-  display: flex;
-  flex-flow: row wrap;
-}
-  md-list-item {
-    border: 1px;
-    border-color: solid rgba(0, 0, 0, 0.12);
-    width: 350px;
-    margin: 10px 10px 0 0;
-  }*/
-
+/*md-card {
+      margin: 0 16px 16px 0;
+      width: 350px;
+    }*/
 
 .grid {
     flex-wrap:wrap;
-    width:100%;
+    width:100px;
 }
 img {
     width:100px;
@@ -58,8 +14,6 @@ img {
 @media (min-width: 200px) {
     .grid {
         width:200px;
-
-
     }
 }
 

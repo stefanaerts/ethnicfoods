@@ -1,7 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~https://fonts.googleapis.com/icon?family=Material+Icons.css';
 @import '~@angular/material/core/theming/prebuilt/purple-green';
-/*@import '~@angular/material/core/theming/prebuilt/deeppurple-amber';*/
+
+$primary-color-dark:#691A99;
+$primary-color-medium:#7A1EA1;
+$primary-color-light:#9B26AF;
+$accent-color:#68EFAD;
 
 body {
   margin: 0;
@@ -11,74 +15,74 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.material-icons.md-14 {
+  font-size: 14px;
+  width: 14px;
+}
 
-/* colors begin */
+.list-item:hover{
+ /*color: #F0F4C3;
+background-color: #DCEDC8;*/
+.prizecolor{
+  color:white;
+}
+background-color: #AA00FF;
+ width: 100vw;
+}
 
-/*.color-primary {
-color: md-palette($md-orange, A200, A100, A400);
+.prize{
+  @extend .prizecolor;
+font-size: 15px;
+  padding-left: 20px;
+  padding-top: 0;
+  box-shadow: default;
 }
-.background-color-primary {
- background-color: md-palette($md-orange, A200, A100, A400);
+.prizecolor {
+  color: rgba(0, 0, 0, 0.54);
 }
-.color-accent {
-color: md-palette($md-green, A200, A100, A400);
-}
-.background-color-accent {
- background-color: md-palette($md-green, A200, A100, A400);
-}*/
-/*$primary: md-palette($md-cyan);
-$accent: md-palette($md-amber);*/
 
 .divider{
-  background-color: #CDDC39;
-  color: #CDDC39;
+  background-color:$primary-color-light;
+
+  color: $primary-color-light;
   width:100vw;
 }
 
 .productname {
+  @extend .c-accent;
   font-weight: bold;
-  color: #43A047;
   padding-left: 20px;
 }
+ .bc-accent{
+   background-color:$accent-color;
+ }
+ .c-accent{
+   color:$accent-color;
+ }
+
+ .bc-primary-dark{
+   background-color:$primary-color-dark;
+ }
+
+.c-primary-dark{
+   background-color:$primary-color-dark;
+ }
+
+.bc-primary-medium{
+   background-color:$primary-color-medium;
+ }
+.c-primary-medium{
+   background-color:$primary-color-medium;
+ }
+
+.bc-primary-light{
+   background-color:$primary-color-light;
+ }
+.c-primary-light{
+   background-color:$primary-color-light;
+ }
+
 
 .listitems{
 padding-top:0px;
 }
-/*body {
-  margin: 0;
-  font-family: Roboto, sans-serif;
-}
-
-
-
-[md-raised-button] {
-  width: 100%;
-}
-.prizecolor{
-  color: rgba(0, 0, 0, 0.54);
-  font-size: 14px;
-/*  height: 14px;
- }
-
-md-grid-list {
-  max-width: 1403px;
-  margin: 16px;
-}
-p{
-  margin: 16px;
-}
-md-sidenav-layout {
-  height: 100vh;
-}
-
-md-sidenav {
-  width: 320px;
-}
-
-.icon-20{
-  font-size: 20px;
-}
-* {
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
-  }*/

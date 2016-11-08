@@ -1,38 +1,33 @@
 @import '../../../../styles';
+
 .material-icons.md-14 {
   font-size: 14px;
   width: 14px;
-  color: rgba(0, 0, 0, 0.54);
+  @extend .prizecolor;
 }
 
 .list-item:hover{
- color: #F0F4C3;
-background-color: #DCEDC8;
+ /*color: #F0F4C3;
+background-color: #DCEDC8;*/
+.prizecolor{
+  color:white;
+}
+background-color: #AA00FF;
+
 /*#F0F4C3*/
  width: 100vw;
 }
 
-
-.prizecolor {
-  color: rgba(0, 0, 0, 0.54);
-  font-size: 15px;
+.prize{
+  @extend .prizecolor;
+font-size: 15px;
   padding-left: 20px;
   padding-top: 0;
   box-shadow: default;
-  /*  height: 14px; */
 }
-
-
-/*.demo {
-  display: flex;
-  flex-flow: row wrap;
+.prizecolor {
+  color: rgba(0, 0, 0, 0.54);
 }
-  md-list-item {
-    border: 1px;
-    border-color: solid rgba(0, 0, 0, 0.12);
-    width: 350px;
-    margin: 10px 10px 0 0;
-  }*/
 
 .grid {
   flex-wrap: wrap;
