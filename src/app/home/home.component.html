@@ -7,106 +7,81 @@
 </md-card>
 
 <!-- veg -->
-<div  class="product-type">
+<div class="product-type">
   <span>
-
-      <button class="pijltje" md-icon-button (click)="pain_VegetariensVisible=!pain_VegetariensVisible">
+      <button color="accent" class="pijltje" md-mini-fab (click)="pain_VegetariensVisible=!pain_VegetariensVisible">
       <md-icon>keyboard_arrow_down</md-icon>
     </button>
     Pains garnis Végétariens
   </span>
 </div>
 
-<div class="grid" layout="horizontal" layout-align="left" layout-fill>
   <div>
-    <!--<div class="product-type">
-      Pains garnis Végétarienst
-    </div>-->
-    <div>
-      <app-product-list [items]="vegetariensService.painvegetariens$ | async" [boolVisible]="pain_VegetariensVisible"></app-product-list>
-    </div>
+    <app-product-list [items]="vegetariensService.painvegetariens$ | async" [boolVisible]="pain_VegetariensVisible"></app-product-list>
   </div>
-</div>
 
 
 <!-- vol -->
 <div class="product-type">
   <span>
 
-      <button class="pijltje" md-icon-button (click)="pain_VolaillesVisible=!pain_VolaillesVisible">
+      <button class="pijltje" md-mini-fab (click)="pain_VolaillesVisible=!pain_VolaillesVisible">
       <md-icon>keyboard_arrow_down</md-icon>
     </button>
     Pains garnis Volailles
   </span>
 </div>
 
-<div class="grid" layout="horizontal" layout-align="left center" layout-fill>
   <div>
-    <!--<div class="product-type">
-      Pains garnis Végétarienst
-    </div>-->
-    <div>
-      <app-product-list [items]="volaillesService.painvolailles$ | async" [boolVisible]="pain_VolaillesVisible"></app-product-list>
-    </div>
+    <app-product-list [items]="volaillesService.painvolailles$ | async" [boolVisible]="pain_VolaillesVisible"></app-product-list>
   </div>
-</div>
 
 <!-- viande -->
 <div class="product-type">
   <span>
 
-      <button class="pijltje" md-icon-button (click)="pain_ViandesVisible=!pain_ViandesVisible">
+      <button class="pijltje" md-mini-fab (click)="pain_ViandesVisible=!pain_ViandesVisible">
       <md-icon>keyboard_arrow_down</md-icon>
     </button>
     Pains garnis Viandes
   </span>
 </div>
 
-<div class="grid" layout="horizontal" layout-align="left center" layout-fill>
   <div>
-    <div>
-      <app-product-list [items]="viandesService.painviandes$ | async" [boolVisible]="pain_ViandesVisible"></app-product-list>
-    </div>
+    <app-product-list [items]="viandesService.painviandes$ | async" [boolVisible]="pain_ViandesVisible"></app-product-list>
   </div>
-</div>
 
 <!-- poisson -->
 <div class="product-type">
   <span>
 
-      <button class="pijltje" md-icon-button (click)="pain_PoissonsVisible=!pain_PoissonsVisible">
+      <button class="pijltje" md-mini-fab (click)="pain_PoissonsVisible=!pain_PoissonsVisible">
       <md-icon>keyboard_arrow_down</md-icon>
     </button>
     Pains garnis Poisson
   </span>
 </div>
 
-<div class="grid" layout="horizontal" layout-align="left center" layout-fill>
   <div>
-    <div>
-      <app-product-list [items]="poissonsService.painpoissons$ | async" [boolVisible]="pain_PoissonsVisible"></app-product-list>
-    </div>
+    <app-product-list [items]="poissonsService.painpoissons$ | async" [boolVisible]="pain_PoissonsVisible"></app-product-list>
   </div>
-</div>
+
 
 <!-- Plat du jour -->
 <div class="product-type">
   <span>
 
-      <button class="pijltje" md-icon-button (click)="plat_du_jourVisible=!plat_du_jourVisible">
+      <button class="pijltje" md-mini-fab (click)="plat_du_jourVisible=!plat_du_jourVisible">
       <md-icon>keyboard_arrow_down</md-icon>
     </button>
     Plat du jour
   </span>
 </div>
 
-<div class="grid" layout="horizontal" layout-align="left center" layout-fill>
+
   <div>
-    <div>
- <app-product-list  [items]="platdujoursService.plat_du_jours$ | async" [boolVisible]="plat_du_jourVisible"></app-product-list>
-   </div>
+    <app-product-list [items]="platdujoursService.plat_du_jours$ | async" [boolVisible]="plat_du_jourVisible"></app-product-list>
   </div>
-</div>
 
 
 <md-card class="bc-primary-dark">
@@ -187,5 +162,3 @@
 </md-list>
 
 <app-product-list  [items]="dessertsService.desserts$ | async" [boolVisible]="dessertsVisible"  ></app-product-list>-->
-
-

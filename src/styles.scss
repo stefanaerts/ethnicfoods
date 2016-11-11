@@ -1,12 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~https://fonts.googleapis.com/icon?family=Material+Icons.css';
 @import '~@angular/material/core/theming/prebuilt/purple-green';
+/*@include md-core(); // include all mixins*/
 
-$primary-color-dark:#691A99;
-$primary-color-medium:#7A1EA1;
-$primary-color-light:#9B26AF;
-$accent-color:#68EFAD;
+/*.link{display:inline-block;}*/
+.right-pos{
+    right: 0;
+    position: absolute;
+}
 
+.example-fill-remaining-space {
+  // This fills the remaining space, by using flexbox.
+  // Every toolbar row uses a flexbox row layout.
+  flex: 1 1 auto;
+}
+
+$primary-color-dark:#7B1FA2;
+$primary-color:#9C27B0;
+$primary-color-light:#E1BEE7;
+$accent-color:#7C4DFF;
+/*#68EFAD;  green*/
+
+
+$text-icons:#FFFFFF;
+$primary-text:#212121;
+$secundary-text:#757575;
+$divider-color:#BDBDBD;
+
+.c-text-icons{
+color:$text-icons;
+}
+
+.c-text-footer{
+color:rgba(255, 255, 255, 0.87);
+}
+/*md-color($primary, 500, 1);*/
 body {
   margin: 0;
   font-family: Roboto, sans-serif;
@@ -17,41 +44,48 @@ body {
 }
 .material-icons.md-14 {
   font-size: 14px;
-  width: 14px;
+  /*width: 14px;*/
+
 }
 
+.material-icons.md-16 {
+  font-size: 16px;
+  width: 16px;
+
+}
+.list-item{
+  width: 100vw;
+}
 .list-item:hover{
  /*color: #F0F4C3;
 background-color: #DCEDC8;*/
 .prizecolor{
   color:white;
 }
-background-color: #AA00FF;
- width: 100vw;
+background-color: $primary-color-light;
+ /*width: 100vw;*/
 }
+
 
 .prize{
   @extend .prizecolor;
 font-size: 15px;
-  padding-left: 20px;
   padding-top: 0;
   box-shadow: default;
 }
 .prizecolor {
-  color: rgba(0, 0, 0, 0.54);
+  color: $secundary-text;
 }
 
 .divider{
-  background-color:$primary-color-light;
-
-  color: $primary-color-light;
+  background-color:$divider-color;
+  color: $divider-color;
   width:100vw;
 }
 
 .productname {
   @extend .c-accent;
   font-weight: bold;
-  padding-left: 20px;
 }
  .bc-accent{
    background-color:$accent-color;
@@ -65,23 +99,27 @@ font-size: 15px;
  }
 
 .c-primary-dark{
-   background-color:$primary-color-dark;
+   color:$primary-color-dark;
  }
 
 .bc-primary-medium{
-   background-color:$primary-color-medium;
+   background-color:$primary-color;
  }
 .c-primary-medium{
-   background-color:$primary-color-medium;
+   color:$primary-color;
  }
 
 .bc-primary-light{
+  color:$accent-color;
    background-color:$primary-color-light;
  }
 .c-primary-light{
-   background-color:$primary-color-light;
+   color:$primary-color-light;
  }
-
+.c-white{
+  color:white;
+  background-color:$accent-color;
+}
 
 .listitems{
 padding-top:0px;

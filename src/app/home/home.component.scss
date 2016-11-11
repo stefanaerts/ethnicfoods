@@ -1,6 +1,9 @@
 @import '../../styles';
 
+md-card-subtitle{
+  color: #D1C4E9;
 
+}
 .product-type{
   @extend .bc-primary-medium;
   font-weight: bold;
@@ -23,14 +26,13 @@
 
 .pijltje{
   /*background-color:white;*/
-  color:lightseagreen;
-@extend .bc-accent;
+/*@extend .bc-accent;*/
   position:absolute;
   /*align-items: baseline;*/
-  right:1px;
-  border:1px;
+  right:2px;
+  border:2px;
   border-style: dashed;
-  border-color: green;
+  /*border-color: */
 
 }
 
@@ -47,7 +49,7 @@
   }*/
 
 
-.grid {
+/*.grid {
     flex-wrap:wrap;
     width:100%;
 }
@@ -73,26 +75,26 @@ img {
   box-sizing: border-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex; }*/
 
-[layout=vertical] {
+/*[layout=vertical] {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
-          flex-direction: column; }
+          flex-direction: column; }*/
 
-[layout-padding], [layout][layout-padding] > [flex] {
+/*[layout-padding], [layout][layout-padding] > [flex] {
   padding: 8px; }
 
 [layout-padding] + [layout-padding] {
   margin-top: -8px;
-  padding-top: 0; }
+  padding-top: 0; }*/
 
-[layout-fill] {
+/*[layout-fill] {
   margin: 0;
   min-height: 100%;
-  width: 100%; }
+  width: 100%; }*/
 
-[layout-align="center"], [layout-align="center center"], [layout-align="center start"], [layout-align="center end"] {
+/*[layout-align="center"], [layout-align="center center"], [layout-align="center start"], [layout-align="center end"] {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center; }
@@ -125,9 +127,9 @@ img {
 [layout-align="center end"], [layout-align="start end"], [layout-align="end end"], [layout-align="space-between end"], [layout-align="space-around end"] {
   -webkit-align-items: flex-end;
       -ms-flex-align: end;
-          align-items: flex-end; }
+          align-items: flex-end; }*/
 
-[block] {
+/*[block] {
   display: block; }
 
 [inline-block] {
@@ -1093,4 +1095,4 @@ img {
         -ms-flex-direction: column;
             flex-direction: column; }
 
-}
+}*/
