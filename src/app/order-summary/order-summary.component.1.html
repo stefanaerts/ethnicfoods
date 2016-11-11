@@ -1,6 +1,14 @@
-<md-card style="width:100%;padding-left:1px;background: #FAFAFA;opacity:0.4;">
- <span style="width:30%;padding-left:1px;"> <button md-button (click)="goToHome()">Home</button></span><span class="cartc" >Cart</span><span style="width:20%;align:right;"><button md-button >Payment</button></span>
-</md-card >
+<div class="bc-primary-light">
+<md-toolbar color="primary" style="width:100%;">
+<span style="width:33%;" (click)="goToHome()"><a md-button >Home</a></span>
+  <span style="widht:33%;">Ordered</span>
+
+  <!-- This fills the remaining space of the current row -->
+  <span class="example-fill-remaining-space"></span>
+
+  <span><a md-button >Payment</a></span>
+</md-toolbar>
+
 <md-list  *ngFor="let item of order.painVegetarien trackBy:item?.$key;">
 	<md-list-item  >
   	<h4 class="productname" md-line>
@@ -20,7 +28,7 @@
        <br class="rwd-break670">
       <span *ngIf="item?.options[3]">,{{item?.options[3]}}</span>
       <span *ngIf="item?.options[4]">,{{item?.options[4]}}</span>
-    	<md-divider style="color: rgb(204,255,144)"></md-divider>
+    	<md-divider ></md-divider>
     </md-card-subtitle>
   </md-list-item>
 </md-list>
@@ -43,7 +51,7 @@
        <br class="rwd-break670">
       <span *ngIf="item?.options[3]">,{{item?.options[3]}}</span>
       <span *ngIf="item?.options[4]">,{{item?.options[4]}}</span>
-    	<md-divider style="color: rgb(204,255,144)"></md-divider>
+    	<md-divider ></md-divider>
     </md-card-subtitle>
   </md-list-item>
 </md-list>
@@ -59,9 +67,10 @@
 		</td>
 		<td style="padding-right: 5px"></td>
 		<md-card-subtitle md-line style="padding-left:50px">
-    	<md-divider style="color: rgb(204,255,144)"></md-divider>
+    	<md-divider class="background-color-accents" ></md-divider>
     </md-card-subtitle>
   </md-list-item>
 </md-list>
 <md-card style="opacity:0.4;background: #FAFAFA;">
 </md-card>
+</div>

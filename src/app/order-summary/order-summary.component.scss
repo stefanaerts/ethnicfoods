@@ -1,4 +1,97 @@
 @import '../../styles.scss';
+
+
+
+
+.product-name{
+  font-weight:bold;
+}
+#productShowcaseContainer {
+	display: flex;
+	flex-flow: row wrap;
+	width: 100vw;
+
+  /*border: 5px solid black;*/
+}
+#showTotal {
+  flex:inline-block;
+  /* flex: 1 1 50%; /* ~ 2 * 33.33% */
+  flex:2;
+  border: 5px solid white;
+}
+#showPickupTime {
+  flex:inline-block;
+  /* flex: 1 1 50%; /* ~ 2 * 33.33% */
+  flex:3;
+  border: 5px solid white;
+}
+
+
+#showTotalContainer {
+	display: flex;
+	flex-flow: row wrap;
+	/*width: 100%;*/
+  /*border: 5px solid rosybrown;*/
+}
+
+#showTotalText {
+  flex:inline-block;
+  /* flex: 1 1 50%; /* ~ 2 * 33.33% */
+  flex:2;
+  /*border: 5px solid orange;*/
+}
+.showTotalPrize {
+  flex:inline-block;
+  /* flex: 1 1 50%; /* ~ 2 * 33.33% */
+  flex:2;
+  /*border: 5px solid deepskyblue;
+  float:right;*/
+}
+
+
+
+/*.showTotalPrize .col2{float:right;}*/
+#productShowcaseDetail {
+  flex:inline-block;
+  /*flex: 1 1 80%; /* ~ 2 * 33.33% */
+ /*  height: calc(100% - 100px); /* excluding the height of the header */
+  flex:80;
+
+  /*border: 5px solid yellow;*/
+}
+
+#productShowcaseThumbnailContainer {
+  flex:inline-block;
+  flex: 1 1 34%;  /* ~ 33.33% */
+  flex:19;
+  /*border: 5px solid red;*/
+  padding:2px;
+  margin:2px;
+  text-align:right;
+  /* height: calc(100% - 100px); */
+}
+
+
+
+
+
+
+
+
+
+#empty-el{
+  flex:inline-block;
+  flex:1;
+}
+#pad-left{
+  padding-left:5px;
+  /*background-color:red;*/
+  color:white;
+}
+
+
+
+
 .example-fill-remaining-space {
   // This fills the remaining space, by using flexbox.
   // Every toolbar row uses a flexbox row layout.
@@ -59,14 +152,6 @@
   }
 }
 
- .cartc{
-width:40%;
-color:#4CAF50;
- }
-/*.productname{
-  padding-left:1px;
-  color:#4CAF50;
-}*/
 
  .rwd-break670 {
    display: block;
@@ -97,11 +182,7 @@ color:#4CAF50;
    }
  }
 
- .material-icons.md-14 {
-   font-size: 14px;
-   width: 14px;
-   color: rgba(0, 0, 0, 0.54);
- }
+
 
  .prizecolor {
    color: rgba(0, 0, 0, 0.54);

@@ -1,4 +1,4 @@
-  <md-list class="listitems"  *ngFor="let item of items" [hidden]="boolVisible" (click)="checkForRequirementsOrOptions(item)">
+<md-list  class="listitems" *ngFor="let item of items" [hidden]="boolVisible" (click)="checkForRequirementsOrOptions(item)">
   <span class="list-item">
 
 <div>
@@ -6,22 +6,26 @@
    <app-counter-item [itemKey] = "item.$key" ></app-counter-item>
    <img  style="width: 40px;margin-top: 5px;" md-card-avatar src="http://ethnicfoods.stevegravy.com/wp-content/uploads/2016/08/PNI_4475-2.jpg" alt="...">
    </span>
-</div>
-  <span  rowspan="1" class="productname"> {{item?.name}}</span>
+  </div>
+  <span rowspan="1" class="productname"> {{item?.name}}</span>
 
- <span rowspan="2">
-  <span  class="prize">{{item?.description}}</span>
+
+  <span rowspan="2">
+  <span  class="prize" *ngIf="item?.description">{{item?.description}}</span>
+
+  <span>
    <span class="prize" *ngIf="item?.prize_small"> {{item?.prize_small}}/{{item?.prize_large}}</span>
-     <span class="prize" *ngIf="item?.prize"> {{item?.prize}}</span>
-    <span>
-      <md-icon class="material-icons md-14 ">euro_symbol</md-icon>
+  <span class="prize" *ngIf="item?.prize">{{item?.prize}}</span>
+  <span>
+      <md-icon class="material-icons md-14 prizecolor">euro_symbol</md-icon>
     </span>
-       <span style="padding:5px;">
-      <md-icon class="material-icons md-14">keyboard_arrow_right</md-icon>
+      <span >
+      <md-icon class="material-icons md-16 prizecolor">keyboard_arrow_right</md-icon>
     </span>
+    </span>
+
   </span>
 
   </span>
-  <md-divider class="divider"></md-divider>
-  </md-list>
-
+  <md-divider md-inset class="divider"></md-divider>
+</md-list>

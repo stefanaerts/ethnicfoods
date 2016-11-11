@@ -8,7 +8,7 @@ import { ToastService } from "../shared/toast.service";
 @Component({
   selector: 'app-required-options',
   templateUrl: './required-options.component.html',
-  styleUrls: ['./required-options.component.css']
+  styleUrls: ['./required-options.component.scss']
 })
 export class RequiredOptionsComponent implements OnInit, OnDestroy {
   paingarnisrequired: PainGarnisRequired[ ];

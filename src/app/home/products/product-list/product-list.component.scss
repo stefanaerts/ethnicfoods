@@ -1,32 +1,12 @@
 @import '../../../../styles';
 
-.material-icons.md-14 {
-  font-size: 14px;
-  width: 14px;
-  @extend .prizecolor;
-}
-
-.list-item:hover{
- /*color: #F0F4C3;
-background-color: #DCEDC8;*/
-.prizecolor{
-  color:white;
-}
-background-color: #AA00FF;
-
-/*#F0F4C3*/
- width: 100vw;
-}
-
-.prize{
-  @extend .prizecolor;
-font-size: 15px;
-  padding-left: 20px;
-  padding-top: 0;
-  box-shadow: default;
-}
-.prizecolor {
-  color: rgba(0, 0, 0, 0.54);
+.fixed-right{
+/*position:absolute;*/
+  /*align-items: baseline; */
+  /*right:2px;*/
+  /*border:2px;*/
+  padding-left: 100px;
+  /*margin: 5;*/
 }
 
 .grid {

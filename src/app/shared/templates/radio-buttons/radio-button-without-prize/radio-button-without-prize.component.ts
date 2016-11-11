@@ -3,7 +3,7 @@ import { PainGarnisRequired } from '../../../model/pain-garnis-required';
 @Component({
   selector: 'app-radio-button-without-prize',
   templateUrl: './radio-button-without-prize.component.html',
-  styleUrls: ['./radio-button-without-prize.component.css']
+  styleUrls: ['./radio-button-without-prize.component.scss']
 })
 export class RadioButtonWithoutPrizeComponent implements OnInit, OnChanges {
 

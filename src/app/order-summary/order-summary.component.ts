@@ -29,7 +29,8 @@ class ProductDisplay {
 @Component({
   selector: 'app-order-summary',
   templateUrl: './order-summary.component.html',
-  styleUrls: ['./order-summary.component.scss']
+  styleUrls: ['./order-summary.component.scss'],
+
 })
 
 export class OrderSummaryComponent implements OnInit {
@@ -38,12 +39,16 @@ export class OrderSummaryComponent implements OnInit {
   counts: ProductDisplay;
   arr = [];
 arrdupl = [];
+currentDate:number;
+pickupTime:number;
   constructor(private router: Router, private orderService: OrderService,
     private counterService: CounterService
   ) { }
 
   ngOnInit() {
     this.order = this.orderService.getOrder();
+    this.currentDate = Date.now();
+    this.pickupTime = this.currentDate + ( 30 * 60 * 1000);
 
     this.order.painVegetarien.sort();
       // (leftSide, rightSide): number => {

@@ -5,15 +5,13 @@ import { Component, OnInit } from '@angular/core';
 @Component({
    selector: 'pizza-dialog',
   templateUrl: './pizzadialog.component.html',
-  styleUrls: ['./pizzadialog.component.css'],
+  styleUrls: ['./pizzadialog.component.scss'],
   providers: []
 })
 export class PizzadialogComponent implements OnInit {
 
 tp: number;
   constructor(public os: OrderService, public router: Router) {
-        console.log('in pizzdialog constructor' + this.os.getTotalPrize());
-
    }
 
   ngOnInit() {

@@ -1,4 +1,4 @@
-	<md-radio-group>
+	<md-radio-group >
 		<md-list>
 			<md-list-item>
 				<h1 md-line>
@@ -10,14 +10,14 @@
 				</h1>
 				<td class=" padright2"> {{prize_small}} </td>
 				<td>
-					<md-icon class="material-icons md-14 padtop10" > euro_symbol </md-icon>
+					<md-icon class="material-icons md-14 padtop10"  style="color: white" > euro_symbol </md-icon>
 				</td>
 			</md-list-item>
-				<md-divider style="color: white"></md-divider>
+				<md-divider md-inset style="color: white"></md-divider>
 			<md-list-item>
 				<h1 md-line>
 					<td>
-						<md-radio-button  value="2" (click)="setPrize('large')">
+						<md-radio-button   value="2" (click)="setPrize('large')">
 							<span >	large</span>
 						</md-radio-button>
 
@@ -26,10 +26,8 @@
 				<td class=" padright2"> {{prize_large}} </td>
 
 				<td>
-					<md-icon class="material-icons md-14 padtop10"> euro_symbol </md-icon>
+					<md-icon class="material-icons md-14 padtop10"  style="color: white"> euro_symbol </md-icon>
 				</td>
-					<md-divider style="color: white"></md-divider>
-
 			</md-list-item>
 
 		</md-list>

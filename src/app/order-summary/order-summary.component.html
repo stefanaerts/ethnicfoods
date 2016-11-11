@@ -1,74 +1,91 @@
-<md-toolbar >
+<div id="productShowcaseContainer" class="bc-primary-light">
+  <md-toolbar color="primary" style="width:100%;">
+    <span style="width:33%;" (click)="goToHome()"><a md-button >Home</a></span>
+    <span style="widht:33%;">Ordered</span>
 
-  <span>Ordered</span>
+    <!-- This fills the remaining space of the current row -->
+    <span class="example-fill-remaining-space"></span>
 
-  <!-- This fills the remaining space of the current row -->
-  <span class="example-fill-remaining-space"></span>
+    <span><a md-button >Payment</a></span>
+  </md-toolbar>
 
-  <span><button md-button >Payment</button></span>
-</md-toolbar>
 
-<md-list  *ngFor="let item of order.painVegetarien trackBy:item?.$key;">
-	<md-list-item  >
-  	<h4 class="productname" md-line>
-			{{item?.name}} </h4>
+  <!--<md-list class="listitems" *ngFor="let item of order.painVegetarien trackBy:item?.$key;" style="width:100%;">
+   <span class="list-item">
+     <div>
+       <span rowspan="2" style="width:20%;"  class="productname"> {{item?.name}}</span>
+     </div>
+       <span style="width:65%;padding-left:30px;">
+          <span  class="prize" *ngIf="item?.description">{{item?.typeOfBread}}:{{item?.options}}</span>
+       </span>
+       <span class="example-fill-remaining-space"></span>
+       <span >
+         <span class="prize"  *ngIf="item?.prize">{{item?.prize}}</span>
+         <span>
+      <md-icon class="material-icons md-14 ">euro_symbol</md-icon>
+    </span>
+      </span>
+      </span>
+    </md-list>-->
 
-		<td  class="prizecolor padbot25 padright2" *ngIf="item?.prize"> {{item?.prize}}</td>
-		<td>
-			<md-icon class="material-icons md-14 padbot20"> euro_symbol </md-icon>
-		</td>
-		<td style="padding-right: 5px"></td>
-		<md-card-subtitle md-line style="padding-left:50px">
-			<span><b>	{{item?.typeOfBread}}: </b></span>
-			<span *ngIf="item?.options[0]">{{item?.options[0]}}</span>
-      <span *ngIf="item?.options[1]">,{{item?.options[1]}}</span>
-       <br class="rwd-break530">
-      <span *ngIf="item?.options[2]">,{{item?.options[2]}}</span>
-       <br class="rwd-break670">
-      <span *ngIf="item?.options[3]">,{{item?.options[3]}}</span>
-      <span *ngIf="item?.options[4]">,{{item?.options[4]}}</span>
-    	<md-divider style="color: rgb(204,255,144)"></md-divider>
-    </md-card-subtitle>
-  </md-list-item>
-</md-list>
-<md-list  *ngFor="let item of order.painVolaille trackBy:item?.$key;">
-	<md-list-item >
-  	<h4 class="productname" md-line>
-			{{item?.name}} </h4>
+  <md-list id="productShowcaseContainer" class="c-white" *ngFor="let item of order.painVegetarien trackBy:item?.$key;" style="width:100%;">
+    <span id="pad-left"></span>
 
-		<td  class="prizecolor padbot25 padright2" *ngIf="item?.prize"> {{item?.prize}}</td>
-		<td>
-			<md-icon class="material-icons md-14 padbot20"> euro_symbol </md-icon>
-		</td>
-		<td style="padding-right: 5px"></td>
-		<md-card-subtitle md-line style="padding-left:50px">
-			<span><b>	{{item?.typeOfBread}}: </b></span>
-			<span *ngIf="item?.options[0]">{{item?.options[0]}}</span>
-      <span *ngIf="item?.options[1]">,{{item?.options[1]}}</span>
-       <br class="rwd-break530">
-      <span *ngIf="item?.options[2]">,{{item?.options[2]}}</span>
-       <br class="rwd-break670">
-      <span *ngIf="item?.options[3]">,{{item?.options[3]}}</span>
-      <span *ngIf="item?.options[4]">,{{item?.options[4]}}</span>
-    	<md-divider style="color: rgb(204,255,144)"></md-divider>
-    </md-card-subtitle>
-  </md-list-item>
-</md-list>
+    <span id="productShowcaseDetail" >
+         <span class="product-name" > {{item?.name}}</span>
+    <span >{{item?.typeOfBread}}: {{item?.options}}</span>
+    </span>
+    <span id="productShowcaseThumbnailContainer">
 
-<md-list  *ngFor="let item of order.platdujour trackBy:item?.$key;">
-	<md-list-item>
-  	<h4 class="productname" md-line>
-			{{item?.name}} </h4>
+          <span >{{item?.prize}}<md-icon class="material-icons md-14 ">euro_symbol</md-icon> </span>
+    </span>
+    <span id="empty-el"></span>
+<md-divider class="divider"></md-divider>
+  </md-list>
 
-		<td  class="prizecolor padbot25 padright2" *ngIf="item?.prize"> {{item?.prize}}</td>
-		<td>
-			<md-icon class="material-icons md-14 padbot20"> euro_symbol </md-icon>
-		</td>
-		<td style="padding-right: 5px"></td>
-		<md-card-subtitle md-line style="padding-left:50px">
-    	<md-divider class="background-color-accents" ></md-divider>
-    </md-card-subtitle>
-  </md-list-item>
-</md-list>
-<md-card style="opacity:0.4;background: #FAFAFA;">
-</md-card>
+<md-divider class="divider"></md-divider>
+
+  <md-list id="productShowcaseContainer" class="c-white" *ngFor="let item of order.platdujour trackBy:item?.$key;" style="width:100%;">
+ <span id="pad-left"></span>
+
+    <span id="productShowcaseDetail" > {{item?.name}}</span>
+
+    <span id="productShowcaseThumbnailContainer">
+
+          <span >{{item?.prize}}<md-icon class="material-icons md-14 ">euro_symbol</md-icon> </span>
+    </span>
+    <span id="empty-el"></span>
+<md-divider class="divider"></md-divider>
+  </md-list>
+
+
+</div>
+<md-divider></md-divider>
+<div id="productShowcaseContainer"  class="bc-primary-dark c-text-footer">
+ <span id="pad-left"></span>
+
+  <div id="showPickupTime">
+    CHOOSE YOUR PICKUP TIME
+    <br> {{pickupTime | date:'medium'}}
+  </div>
+
+  <div id="showTotal">
+
+    <div id="showTotalContainer">
+
+      <div id="showTotalText">
+        <span>Total</span>
+        <br>
+        <span>Inclusive vat</span>
+      </div>
+
+      <div class="showTotalPrize ">
+          <span class="right-pos">{{order.totalPrize | number}}<md-icon class="material-icons md-14">euro_symbol</md-icon></span>
+        <br>
+          <span class="right-pos">{{order.totalPrize * 0.06 | number:''}}<md-icon class="material-icons md-14">euro_symbol</md-icon></span>
+      </div>
+
+    </div>
+
+  </div>
+</div>

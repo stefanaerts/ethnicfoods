@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class Constants {
   constructor() {
-    console.log('instance of Constants Created');
+ //   console.log('instance of Constants Created');
    }
  // public static get API_ENDPOINT(): string { return 'http://127.0.0.1:6666/api/'; }
 

@@ -125,7 +125,7 @@ export class OrderService {
           break;
       }
     } catch (error) {
-      console.log("error in pushPainToOrder=" + error);
+      // console.log("error in pushPainToOrder=" + error);
 
     }
 
