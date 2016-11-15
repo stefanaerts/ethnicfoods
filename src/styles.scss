@@ -1,39 +1,66 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/core/theming/prebuilt/purple-green';
-/*@include md-core(); // include all mixins*/
+/*@import '~@angular/material/core/theming/prebuilt/purple-green';*/
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import '~@angular/material/core/theming/prebuilt/pink-bluegrey';
+.mr {
+  display: -webkit-flex;
+   display: flex;
+  -webkit-flex-direction:row;
+  flex-direction: row;
 
-/*.link{display:inline-block;}*/
-.right-pos{
-    right: 0;
-    position: absolute;
+
+ /* border:1px orange solid; */
 }
 
-.example-fill-remaining-space {
-  // This fills the remaining space, by using flexbox.
-  // Every toolbar row uses a flexbox row layout.
-  flex: 1 1 auto;
+.subr{
+ display: -webkit-flex;
+   display: flex;
+  -webkit-flex-direction:row;
+  flex-direction: row;
+
+
 }
 
-$primary-color-dark:#7B1FA2;
-$primary-color:#9C27B0;
-$primary-color-light:#E1BEE7;
-$accent-color:#7C4DFF;
-/*#68EFAD;  green*/
-
-
-$text-icons:#FFFFFF;
-$primary-text:#212121;
-$secundary-text:#757575;
-$divider-color:#BDBDBD;
-
-.c-text-icons{
-color:$text-icons;
+.subc{
+  display: -webkit-flex;
+   display: flex;
+  -webkit-flex-direction:column;
+  flex-direction:column;
+    width:100vw;
 }
 
-.c-text-footer{
-color:rgba(255, 255, 255, 0.87);
+.bigitem {
+   flex: 2 0 0;
 }
-/*md-color($primary, 500, 1);*/
+
+.padding-left{
+   padding-left:5px;
+}
+
+.fillupspace{
+  width:10%;
+/*  border:yellow solid 2px;*/
+}
+
+[md-card-sm-image] {
+   position: relative;
+    height: 60px;
+    width: 60px;
+    padding-top:8px;
+    padding-bottom: 5px;
+    padding-right: 10px;
+}
+
+/*[md-card-sm-image] {
+  width: 68px;
+  height: 68px;
+  margin:1px;
+
+  /* margin: -8px 0;
+}*/
+
+
+
 body {
   margin: 0;
   font-family: Roboto, sans-serif;
@@ -42,85 +69,28 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.material-icons.md-14 {
+
+$accent-color:#7C4DFF;
+.md-14 {
   font-size: 14px;
   /*width: 14px;*/
 
 }
 
-.material-icons.md-16 {
-  font-size: 16px;
-  width: 16px;
-
-}
-.list-item{
-  width: 100vw;
-}
-.list-item:hover{
- /*color: #F0F4C3;
-background-color: #DCEDC8;*/
-.prizecolor{
-  color:white;
-}
-background-color: $primary-color-light;
- /*width: 100vw;*/
-}
-
-
-.prize{
-  @extend .prizecolor;
-font-size: 15px;
-  padding-top: 0;
-  box-shadow: default;
-}
-.prizecolor {
-  color: $secundary-text;
-}
-
-.divider{
-  background-color:$divider-color;
-  color: $divider-color;
-  width:100vw;
-}
-
 .productname {
-  @extend .c-accent;
+ color:$accent-color;
   font-weight: bold;
 }
- .bc-accent{
-   background-color:$accent-color;
- }
- .c-accent{
-   color:$accent-color;
- }
 
- .bc-primary-dark{
-   background-color:$primary-color-dark;
- }
+.md-16 {
+  font-size: 16px;
 
-.c-primary-dark{
-   color:$primary-color-dark;
- }
+}
 
-.bc-primary-medium{
-   background-color:$primary-color;
- }
-.c-primary-medium{
-   color:$primary-color;
- }
-
-.bc-primary-light{
-  color:$accent-color;
-   background-color:$primary-color-light;
- }
-.c-primary-light{
-   color:$primary-color-light;
- }
-.c-white{
+.list-item:hover{
   color:white;
-  background-color:$accent-color;
+  background-color: grey;
 }
 
-.listitems{
-padding-top:0px;
-}
+
+

@@ -5,50 +5,19 @@ md-card-subtitle{
 
 }
 .product-type{
-  /*@extend .bc-primary-medium; */
   background-color: green;
   font-weight: bold;
   color: white;
-    /*@include bg-green();*/
-
-  /*  font-size: 22px;
-     padding:1px;
-  margin:1px;
-     /*position: relative;
-    width: 100%;*/
-    /*padding: 10px 15px 10px;*/
-    /*margin: 0;*/
 
  }
- /*.full-width-div {
-    position: absolute;
-    width: 100%;
-    left: 0;
-}*/
 
 .pijltje{
-  /*background-color:white;*/
-/*@extend .bc-accent;*/
   position:absolute;
-  /*align-items: baseline;*/
   right:2px;
   border:2px;
-/*  border-style: dashed; */
-  /*border-color: */
-
 }
 
 
-/*.demo {
-  display: flex;
-  flex-flow: row wrap;
-}
-  md-list-item {
-    border: 1px;
-    border-color: solid rgba(0, 0, 0, 0.12);
-    width: 350px;
-    margin: 10px 10px 0 0;
-  }*/
 
 
 /*.grid {
