@@ -5,13 +5,15 @@ md-card-subtitle{
 
 }
 .product-type{
-  @extend .bc-primary-medium;
+  /*@extend .bc-primary-medium; */
+  background-color: green;
   font-weight: bold;
   color: white;
     /*@include bg-green();*/
 
-    font-size: 22px;
-    padding: 10px 15px 10px;
+  /*  font-size: 22px;
+     padding:1px;
+  margin:1px;
      /*position: relative;
     width: 100%;*/
     /*padding: 10px 15px 10px;*/
@@ -31,7 +33,7 @@ md-card-subtitle{
   /*align-items: baseline;*/
   right:2px;
   border:2px;
-  border-style: dashed;
+/*  border-style: dashed; */
   /*border-color: */
 
 }

@@ -77,8 +77,8 @@ let options = <ToastOptions> {
   ],
   entryComponents: [
 AppComponent,
-SnackbarComponent,
-PizzadialogComponent
+// SnackbarComponent,
+ PizzadialogComponent
   ],
   imports: [
     BrowserModule,
