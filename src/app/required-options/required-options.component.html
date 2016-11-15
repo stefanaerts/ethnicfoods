@@ -1,4 +1,4 @@
-<div class="bc-primary-light" style ="height:100vh;" *ngIf="this.orderService.getProduct()?.prize_small">
+<div style ="height:100vh;" *ngIf="this.orderService.getProduct()?.prize_small">
 <app-md-card-subtitle title="size(Required)" [product]="this.orderService.getProduct()?.name" [description]="this.orderService.getProduct()?.description"></app-md-card-subtitle>
 
 <app-radio-button-with-prize  [prize_small]="this.orderService.getProduct()?.prize_small" [prize_large]="this.orderService.getProduct()?.prize_large" (setPrizeEvent)="setPrize($event)"></app-radio-button-with-prize>

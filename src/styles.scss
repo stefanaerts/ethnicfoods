@@ -1,13 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
 /*@import '~@angular/material/core/theming/prebuilt/purple-green';*/
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-@import '~@angular/material/core/theming/prebuilt/pink-bluegrey';
+/*@import '~@angular/material/core/theming/all-theme';
+@include md-core();*/
+
+//@import './lightgreen-amber.scss';
+@import './amber-pink.scss';
+
+@include angular-material-theme($custom-theme);
+
+body {
+  font-size:14px;
+  line-height:14px;
+  font-family: Roboto, sans-serif;
+
+}
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.productname {
+ color: md-color($custom-color-accent,A700);
+  font-weight: bold;
+  font-size:16px;
+}
+md-icon{
+color:white;
+}
 .mr {
   display: -webkit-flex;
    display: flex;
   -webkit-flex-direction:row;
   flex-direction: row;
-
+ box-sizing: border-box;
 
  /* border:1px orange solid; */
 }
@@ -17,7 +43,7 @@
    display: flex;
   -webkit-flex-direction:row;
   flex-direction: row;
-
+ box-sizing: border-box;
 
 }
 
@@ -27,6 +53,7 @@
   -webkit-flex-direction:column;
   flex-direction:column;
     width:100vw;
+     box-sizing: border-box;
 }
 
 .bigitem {
@@ -51,24 +78,6 @@
     padding-right: 10px;
 }
 
-/*[md-card-sm-image] {
-  width: 68px;
-  height: 68px;
-  margin:1px;
-
-  /* margin: -8px 0;
-}*/
-
-
-
-body {
-  margin: 0;
-  font-family: Roboto, sans-serif;
-}
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
 $accent-color:#7C4DFF;
 .md-14 {
@@ -77,10 +86,7 @@ $accent-color:#7C4DFF;
 
 }
 
-.productname {
- color:$accent-color;
-  font-weight: bold;
-}
+
 
 .md-16 {
   font-size: 16px;
