@@ -1,34 +1,27 @@
-	<md-radio-group >
-		<md-list>
-			<md-list-item>
-				<h1 md-line>
-					<td>
+	<md-radio-group>
+  	<md-list class="bc-primary-light" >
+      <md-list-item style="color:white;">
+
+      <span class="bigitem">
 						<md-radio-button  value="2" (click)="setPrize('small')">
-							<span >small</span>
+							<span style="color:white;">small</span>
 						</md-radio-button>
-					</td>
-				</h1>
-				<td class=" padright2"> {{prize_small}} </td>
-				<td>
-					<md-icon class="material-icons md-14 padtop10"  style="color: white" > euro_symbol </md-icon>
-				</td>
+      </span>
+      <span > {{prize_small}}
+					<md-icon class="material-icons md-14"  style="color: white" > euro_symbol </md-icon>
+				</span>
 			</md-list-item>
 				<md-divider md-inset style="color: white"></md-divider>
-			<md-list-item>
-				<h1 md-line>
-					<td>
+			<md-list-item style="color:white;">
+			<span class="bigitem">
 						<md-radio-button   value="2" (click)="setPrize('large')">
-							<span >	large</span>
+							<span style="color:white;">	large</span>
 						</md-radio-button>
+			</span>
 
-					</td>
-				</h1>
-				<td class=" padright2"> {{prize_large}} </td>
-
-				<td>
-					<md-icon class="material-icons md-14 padtop10"  style="color: white"> euro_symbol </md-icon>
-				</td>
+				<span class="padright2"> {{prize_large}}
+					<md-icon class="material-icons md-14"  style="color: white"> euro_symbol </md-icon>
+				</span>
 			</md-list-item>
-
 		</md-list>
 	</md-radio-group>

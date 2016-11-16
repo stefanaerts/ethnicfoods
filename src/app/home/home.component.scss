@@ -1,39 +1,10 @@
-@import '../../styles';
-//@import '~@angular/material/core/theming/all-theme';
 
-//@include md-core();
 
-/* primary 500: #8BC34A */
-/* primary 700: #689F38 */
 
-/* accent #FFC400 */
-//$primary: md-palette($md-light-green,700);
-//$accent: md-palette($md-amber,A400);
-/*$primary:  #689F38;*/
-// Import theming functions
-/*@import '~@angular/material/core/theming/theming';*/
-// Import your custom theme
-//@import 'src/unicorn-app-theme.scss';
-
-// Use md-color to extract individual colors from a palette as necessary.
-.product-type {
-  /*background-color: md-color($custom-color-primary,700);*/
-  background-color:#FF5722;
-  font-weight: bold;
-  color: white;
-}
-.bc-primary-dark{
-  background-color: md-color($custom-color-primary,500);
-}
-.pijltje{
+button{
   position:absolute;
-  right:2px;
-  border:2px;
-  color: md-color($custom-color-accent,A700);
+  right:1px;
 }
-
-
-
 
 /*.grid {
     flex-wrap:wrap;

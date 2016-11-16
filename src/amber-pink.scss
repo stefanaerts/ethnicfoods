@@ -3,4 +3,6 @@ $custom-color-primary: md-palette($md-amber,500,300,700);
 $custom-color-accent:  md-palette($md-pink, A200,A100,A700);
 $custom-color-warn:    md-palette($md-red);
 
-$custom-theme: md-light-theme($custom-color-primary, $custom-color-accent, $custom-color-warn);
+
+//$custom-theme: md-light-theme($custom-color-primary, $custom-color-accent, $custom-color-warn);
+$custom-theme: md-dark-theme($custom-color-primary, $custom-color-accent, $custom-color-warn);

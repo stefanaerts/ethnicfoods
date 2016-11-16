@@ -1,14 +1,10 @@
 <md-radio-group>
-		<md-list *ngFor="let item of items">
-			<md-list-item>
-				<h1 md-line>
-					<td>
+		<md-list class="bc-primary-light" *ngFor="let item of items">
+			<md-list-item style="color:white;">
 						<md-radio-button value="2" (click)="setType(item.name)">
-					<span>{{item?.name}}</span>
-          	</md-radio-button>
-					</td>
-						</h1>
+						</md-radio-button>
+						{{item?.name}}
 			</md-list-item>
-          <md-divider md-inset style="color: white"></md-divider>
+      	<md-divider style="color: white"></md-divider>
 		</md-list>
 	</md-radio-group>

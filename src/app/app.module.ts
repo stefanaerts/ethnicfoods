@@ -6,8 +6,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import {ToastModule, ToastOptions} from 'ng2-toastr/ng2-toastr';
-//import { MaterializeModule } from 'angular2-materialize';
-//import {MaterializeDirective} from "angular2-materialize";
 
 import { AppComponent } from './app.component';
 import { AngularFireModule } from 'angularfire2/index';

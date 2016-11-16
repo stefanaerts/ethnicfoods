@@ -1,14 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 /*@import '~@angular/material/core/theming/prebuilt/purple-green';*/
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-/*@import '~@angular/material/core/theming/all-theme';
-@include md-core();*/
+@import '~@angular/material/core/theming/all-theme';
+@include md-core();
 
-//@import './lightgreen-amber.scss';
-@import './amber-pink.scss';
+@import './lightgreen-amber.scss';
+//@import './amber-pink.scss';
 
 @include angular-material-theme($custom-theme);
 
+$custom-color-dark: md-color($custom-color-primary,700);
+$key-board-color: md-color($custom-color-accent,A700);
 body {
   font-size:14px;
   line-height:14px;
@@ -19,15 +21,64 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.right-pos{
+    right: 0;
+    position: absolute;
+}
 
+.pijltje{
+
+ /* border:2px; */
+ @extend .b-accent100;
+ color:white;
+ /* background-color: Transparent;*/
+    /*background-repeat:no-repeat;
+    border: none;*/
+    /*cursor:pointer;*/
+  /*  overflow: hidden; */
+  /*  outline:none; */
+}
+.bc-primary-500{
+  background-color: md-color($custom-color-primary,500);
+}
+.bc-primary-700{
+  background-color: md-color($custom-color-primary,700);
+}
+
+.c-white{
+color:white;
+}
+.bc-primary-light{
+  background-color: md-color($custom-color-primary,300);
+}
+.accent700{
+  color: md-color($custom-color-accent,A700);
+}
+.accent100{
+  color: md-color($custom-color-accent,A100);
+}
+.b-accent100{
+  background-color: md-color($custom-color-accent,A100);
+}
 .productname {
- color: md-color($custom-color-accent,A700);
+ @extend .accent700;
   font-weight: bold;
   font-size:16px;
 }
-md-icon{
-color:white;
+.product-type {
+ /* background-color: md-color($custom-color-primary,700);*/
+  background-color: $custom-color-dark;
+
+  font-weight: bold;
+  color: white;
 }
+
+
+
+/*md-icon{
+color:white;
+}*/
+
 .mr {
   display: -webkit-flex;
    display: flex;
@@ -44,6 +95,7 @@ color:white;
   -webkit-flex-direction:row;
   flex-direction: row;
  box-sizing: border-box;
+ padding-right: 30px;
 
 }
 
@@ -64,9 +116,8 @@ color:white;
    padding-left:5px;
 }
 
-.fillupspace{
-  width:10%;
-/*  border:yellow solid 2px;*/
+.padding-right{
+   padding-right:15px;
 }
 
 [md-card-sm-image] {
@@ -80,23 +131,19 @@ color:white;
 
 
 $accent-color:#7C4DFF;
-.md-14 {
-  font-size: 14px;
-  /*width: 14px;*/
-
-}
-
-
-
-.md-16 {
-  font-size: 16px;
-
-}
 
 .list-item:hover{
-  color:white;
-  background-color: grey;
+ /* color:white; */
+  background-color: md-color($custom-color-primary,300);
+  .keyboard-arrow-right-color{
+  color: white;
+ font-size: 24px;
+ font-weight:bold;
+  }
 }
 
+.keyboard-arrow-right-color{
+  color: $key-board-color;
+}
 
 

@@ -1,4 +1,4 @@
-<md-list  *ngFor="let item of items" [hidden]="boolVisible" (click)="checkForRequirementsOrOptions(item)">
+<md-list class="list-item"  *ngFor="let item of items" [hidden]="boolVisible" (click)="checkForRequirementsOrOptions(item)">
 <div class="mr">
    <span >
    <app-counter-item [itemKey] = "item.$key" ></app-counter-item>
@@ -8,19 +8,22 @@
    <!-- md-card-sm-image -->
    </span>
  <span class="subc">
-   <div class="subr">
-      <span class="bigitem padding-left productname"> {{item?.name}}</span>
-      <span class="fillupspace"></span>
-          <span  *ngIf="item?.prize_small"> {{item?.prize_small}}/{{item?.prize_large}}</span>
-       <span  *ngIf="item?.prize">{{item?.prize}}  </span>
-<span class="emptyspaces"></span>
-          <md-icon class="material-icons md-14 ">euro_symbol</md-icon>
-         <span >
 
-         <md-icon class="material-icons md-16">keyboard_arrow_right</md-icon>
+   <div class="subr">
+
+          <span class="bigitem padding-left productname"> {{item?.name}}</span>
+          <span  *ngIf="item?.prize_small"> {{item?.prize_small}}/{{item?.prize_large}}</span>
+          <span  *ngIf="item?.prize">{{item?.prize}}  </span>
+          <md-icon class="material-icons md-14 ">euro_symbol</md-icon>
+
+
+   </div>
+   <div class="subr">
+      <span  class="bigitem padding-left" *ngIf="item?.description">{{item?.description}}</span>
+      <span >
+         <md-icon class="material-icons md-16 accent700">keyboard_arrow_right</md-icon>
          </span>
    </div>
-      <span  class="padding-left" *ngIf="item?.description">{{item?.description}}</span>
-  </span>
+ </span>
 </div>
 </md-list>
