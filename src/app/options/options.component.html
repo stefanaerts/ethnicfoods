@@ -1,20 +1,20 @@
-<md-toolbar class="bc-primary-700">Options</md-toolbar>
+<md-toolbar class="bg-primary-700">Options</md-toolbar>
 
-<div class="bc-primary-light" style ="height:100vh;">
+<div class="bg-primary-300 height-100-vh">
 
 	<md-list  *ngFor="let item of paingarnisoptions ">
-    <md-list-item style="color:white;">
+    <md-list-item class="c-white">
 					<md-checkbox (click)="toggle(item.name)"></md-checkbox>
 					{{item?.name}}
-				<td style="padding-right: 20px"></td>
+				<td class="pad-r-20"></td>
     </md-list-item>
-				<md-divider style="color:white;"></md-divider>
+				<md-divider class="c-white"></md-divider>
 	</md-list>
       <!--<h2 class="md-title">Selected Items</h2>
-      <code style="display: block; padding: 8px;">{{selected | json}}</code>-->
+      <code styles ="display: block; padding: 8px;">{{selected | json}}</code>-->
 <span class="app-action">
       <button md-fab  (click)="addOrder()">
-        <md-icon style="color:white">add</md-icon>
+        <md-icon class="c-white">add</md-icon>
       </button>
       </span>
 </div>

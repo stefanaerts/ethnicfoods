@@ -1,4 +1,4 @@
-<div style ="height:100vh;" *ngIf="this.orderService.getProduct()?.prize_small">
+<div class="height-100-vh" *ngIf="this.orderService.getProduct()?.prize_small">
 <app-md-card-subtitle title="size(Required)" [product]="this.orderService.getProduct()?.name" [description]="this.orderService.getProduct()?.description"></app-md-card-subtitle>
 
 <app-radio-button-with-prize  [prize_small]="this.orderService.getProduct()?.prize_small" [prize_large]="this.orderService.getProduct()?.prize_large" (setPrizeEvent)="setPrize($event)"></app-radio-button-with-prize>
@@ -10,7 +10,7 @@
 
 <span class="app-action">
       <button md-fab [disabled]="boolDisabled" (click)="gotoOptions()">
-        <md-icon style="color:white">add</md-icon>
+        <md-icon class="c-white">add</md-icon>
       </button>
 </span>
 </div>

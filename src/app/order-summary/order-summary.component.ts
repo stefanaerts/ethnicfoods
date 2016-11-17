@@ -29,7 +29,7 @@ class ProductDisplay {
 @Component({
   selector: 'app-order-summary',
   templateUrl: './order-summary.component.html',
-  styleUrls: ['./order-summary.component.scss'],
+  styleUrls: ['./order-summary.component.scss']
 
 })
 
