@@ -50,6 +50,7 @@ import {SnackbarComponent} from './shared/snackbar/snackbar.component';
 import { PizzadialogComponent } from './shared/pizza/pizzadialog/pizzadialog.component';
 import { CounterPipe } from './shared/pipes/counter.pipe';
 import { TesterComponent } from './test/tester/tester.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 let options = <ToastOptions> {
   animate: 'flyRight',
   positionClass: 'toast-bottom-right',
@@ -72,6 +73,7 @@ let options = <ToastOptions> {
   SnackbarComponent,
   PizzadialogComponent,
   CounterPipe,
+  CheckoutComponent,
   ],
   entryComponents: [
 AppComponent,

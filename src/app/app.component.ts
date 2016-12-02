@@ -1,7 +1,5 @@
 import { Constants } from './shared/constants';
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
-//import { Overlay } from 'angular2-modal';
-//import { Modal } from 'angular2-modal/plugins/bootstrap';
 import { SnackbarComponent } from './shared/snackbar/snackbar.component';
 
 
@@ -12,6 +10,7 @@ import { SnackbarComponent } from './shared/snackbar/snackbar.component';
   providers: [SnackbarComponent]
 })
 export class AppComponent implements OnInit{
+
   constructor(constants: Constants,public snb: SnackbarComponent, public  vc: ViewContainerRef) {
 
   }

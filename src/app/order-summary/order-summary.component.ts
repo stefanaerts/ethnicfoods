@@ -38,9 +38,9 @@ export class OrderSummaryComponent implements OnInit {
   visibool: boolean = false;
   counts: ProductDisplay;
   arr = [];
-arrdupl = [];
-currentDate:number;
-pickupTime:number;
+  arrdupl = [];
+  currentDate: number;
+  pickupTime: number;
   constructor(private router: Router, private orderService: OrderService,
     private counterService: CounterService
   ) { }
@@ -48,18 +48,18 @@ pickupTime:number;
   ngOnInit() {
     this.order = this.orderService.getOrder();
     this.currentDate = Date.now();
-    this.pickupTime = this.currentDate + ( 30 * 60 * 1000);
+    this.pickupTime = this.currentDate + (30 * 60 * 1000);
 
     this.order.painVegetarien.sort();
-      // (leftSide, rightSide): number => {
-      //   if (leftSide.$key < rightSide.$key) return -1;
-      //   if (leftSide.$key > rightSide.$key) return 1;
-      //   return 0;
-      // });
-      this.order.painVolaille.sort();
-       this.order.painViande.sort();
-        this.order.painPoisson.sort();
-         this.order.platdujour.sort();
+    // (leftSide, rightSide): number => {
+    //   if (leftSide.$key < rightSide.$key) return -1;
+    //   if (leftSide.$key > rightSide.$key) return 1;
+    //   return 0;
+    // });
+    this.order.painVolaille.sort();
+    this.order.painViande.sort();
+    this.order.painPoisson.sort();
+    this.order.platdujour.sort();
     //    this.order.painVegetarien
     //  this.order.painVegetarien.forEach(
     //    element => {
@@ -75,28 +75,32 @@ pickupTime:number;
     //        this.arr.push(element);
     //     }
     //   }
- //);
-// console.log("arr.length na =" + this.arr.length);
-// console.log("arrdupl.length na =" + this.arrdupl.length);
+    //);
+    // console.log("arr.length na =" + this.arr.length);
+    // console.log("arrdupl.length na =" + this.arrdupl.length);
 
-//  console.log("is element in arr" +
-//   arr.some(element=>element.name==='Gouda'));
-// this.arr.forEach(
-//      element => {console.log(element.name + ',' + element.typeOfBread + ',' + element.options + ',' + element.prize);
-//   });
-   }
+    //  console.log("is element in arr" +
+    //   arr.some(element=>element.name==='Gouda'));
+    // this.arr.forEach(
+    //      element => {console.log(element.name + ',' + element.typeOfBread + ',' + element.options + ',' + element.prize);
+    //   });
+  }
 
-// hack(val) {
-//   return Array.from(val);
-// }
-// getdupllength(){
-//   return this.arrdupl.length;
-// }
-// initDisplayOrderedProducts() {
-//   //  this.painVegetarien = new Array<ProductDisplay>();
-// }
-goToHome() {
-  let link = ['/home'];
-     this.router.navigate(link);
-}
+  // hack(val) {
+  //   return Array.from(val);
+  // }
+  // getdupllength(){
+  //   return this.arrdupl.length;
+  // }
+  // initDisplayOrderedProducts() {
+  //   //  this.painVegetarien = new Array<ProductDisplay>();
+  // }
+  goToHome() {
+    let link = ['/home'];
+    this.router.navigate(link);
+  }
+  goToCheckout() {
+    let link = ['/checkout'];
+    this.router.navigate(link);
+  }
 }

@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -5,7 +6,7 @@ export class Constants {
   constructor() {
  //   console.log('instance of Constants Created');
    }
- // public static get API_ENDPOINT(): string { return 'http://127.0.0.1:6666/api/'; }
+  public static get API_ENDPOINT(): string { return 'https://jvggmrjkt7.execute-api.eu-central-1.amazonaws.com/latest/'; }
 
  public static get PAINVEGETARIEN(): string {return 'PAINVEGETARIEN'; }
  public static get PAINVOLAILLE(): string {return 'PAINVOLAILLE'; }

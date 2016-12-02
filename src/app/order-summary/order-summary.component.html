@@ -6,7 +6,7 @@
     <!-- This fills the remaining space of the current row -->
     <span class="example-fill-remaining-space"></span>
 
-    <span><a md-button >Payment</a></span>
+    <span (click)="goToCheckout()"><a md-button >Payment</a></span>
   </md-toolbar>
 
   <md-list  *ngFor="let item of order.painVegetarien trackBy:item?.$key;" class="width-100-p">
