@@ -38,7 +38,12 @@ export class OrderService {
   getTotalPrize() {
     return this.order.totalPrize;
   }
-
+  getTotalPrizeAsString() {
+    return this.order.totalPrize.toFixed(3);
+  }
+checkTotalPrizeNotNull() {
+  return (this.order.totalPrize === 0);
+}
   getAllOrderedPainVolailles() {
     return this.order.painVolaille;
   }

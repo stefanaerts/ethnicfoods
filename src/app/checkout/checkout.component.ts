@@ -9,7 +9,7 @@ import * as $ from 'jquery';
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
-  styleUrls: ['./checkout.component.scss']
+  styleUrls: ['./checkout.component.scss'],
 })
 export class CheckoutComponent implements OnInit {
   message: string;
@@ -113,11 +113,9 @@ export class CheckoutComponent implements OnInit {
           });
 
           if (formValid) {
-            submit.style.backgroundColor = '#E91E63';
-            submit.removeAttribute('disabled');
             submit.setAttribute('class', 'pay-button');
-          } else {
-            submit.style.backgroundColor = 'rgba(0, 0, 0, .54)';
+            submit.removeAttribute('disabled');
+             } else {
             submit.setAttribute('disabled', 'true');
             submit.setAttribute('class', 'pay-button-dence');
           }

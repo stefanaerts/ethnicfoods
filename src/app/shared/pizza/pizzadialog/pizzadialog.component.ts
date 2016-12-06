@@ -10,12 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PizzadialogComponent implements OnInit {
 
-tp: number;
+
   constructor(public os: OrderService, public router: Router) {
    }
 
   ngOnInit() {
-this.tp= this.os.getTotalPrize();
+
   }
   goToOrder(){
 let link=['/order'];
