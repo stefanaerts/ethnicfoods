@@ -1,9 +1,21 @@
-@import '~@angular/material/core/theming/all-theme';
-$custom-color-primary: md-palette($md-light-green,700,500,300);
-$custom-color-accent:  md-palette($md-amber, A200, A100, A400);
-$custom-color-warn:    md-palette($md-red);
-$custom-theme: md-light-theme($custom-color-primary, $custom-color-accent, $custom-color-warn);
+//@import '~@angular/material/core/theming/all-theme';
+//$custom-color-primary: md-palette($md-light-green,700,500,300);
+//$custom-color-accent:  md-palette($md-amber, A200, A100, A400);
+//$custom-color-warn:    md-palette($md-red);
+//$custom-theme: md-light-theme($custom-color-primary, $custom-color-accent, $custom-color-warn);
 
-.dark-theme {
-$custom-theme: md-dark-theme($custom-color-primary, $custom-color-accent, $custom-color-warn);
-}
+//.dark-theme {
+//$custom-theme: md-dark-theme($custom-color-primary, $custom-color-accent, $custom-color-warn);
+//}
+
+// Include non-theme styles for core.
+@include md-core();
+
+// Define a theme.
+$primary: md-palette($md-light-green,700,500,300);
+$accent:  md-palette($md-amber, A200, A100, A400);
+
+$theme: md-light-theme($primary, $accent);
+
+// Include all theme styles for the components.
+@include angular-material-theme($theme);

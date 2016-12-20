@@ -1,0 +1,208 @@
+/* You can add global styles to this file, and also import other style files */
+/*@import '~@angular/material/core/theming/prebuilt/purple-green';*/
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import '~@angular/material/core/theming/all-theme';
+@include md-core();
+
+@import './lightgreen-amber.scss';
+//@import './amber-pink.scss';
+
+@include angular-material-theme($custom-theme);
+
+$custom-color-dark: md-color($custom-color-primary,700);
+$key-board-color: md-color($custom-color-accent,A700);
+
+body {
+  font-size:14px;
+  line-height:14px;
+  font-family: Roboto, sans-serif;
+
+}
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.flexrow{
+  display: -webkit-flex;
+  display: -ms-flex;
+   display: flex;
+  -webkit-flex-direction:row;
+  -ms-flex-direction:row;
+  flex-direction: row;
+ box-sizing: border-box;
+  /* border:1px orange solid; */
+}
+.flexcol{
+  display: -webkit-flex;
+  display: -ms-flex;
+   display: flex;
+  -webkit-flex-direction:column;
+  -ms-flex-direction:column;
+  flex-direction: column;
+ box-sizing: border-box;
+  /* border:1px orange solid; */
+}
+
+// begin flex stuff
+.mr {
+  @extend .flexrow;
+}
+
+.subr{
+ @extend .flexrow;
+ padding-right: 30px;
+}
+
+.subc{
+  @extend .flexcol;
+    width:100vw;
+
+}
+
+.bigitem {
+   flex: 2 0 0;
+}
+
+// end flex stuff
+
+
+// colors
+.c-white{
+color:white;
+}
+
+.bg-primary-500{
+  background-color: md-color($custom-color-primary,500);
+}
+.bg-primary-700{
+  background-color: md-color($custom-color-primary,700);
+}
+
+.bg-primary-300{
+  background-color: md-color($custom-color-primary,300);
+}
+.bg-accent100{
+  background-color: md-color($custom-color-accent,A100);
+}
+.bg-accent200{
+  background-color: md-color($custom-color-accent,A200);
+}
+.bg-accent400{
+  background-color: md-color($custom-color-accent,A400);
+}
+
+.accent700{
+  color: md-color($custom-color-accent,A700);
+}
+.accent100{
+  color: md-color($custom-color-accent,A100);
+}
+.accent200{
+  color: md-color($custom-color-accent,A200);
+}
+.accent400{
+  color: md-color($custom-color-accent,A400);
+}
+.border-accent700{
+   border: 5px solid md-color($custom-color-accent,A700);
+}
+
+//lists
+.list-item:hover{
+ /* color:white; */
+  background-color: md-color($custom-color-primary,300);
+   color: white;
+  .keyboard-arrow-right-color{
+  color: white;
+ font-size: 24px;
+ font-weight:bold;
+  }
+}
+
+//products
+.productname {
+ @extend .accent700;
+  font-weight: bold;
+  font-size:16px;
+}
+.product-type {
+ /* background-color: md-color($custom-color-primary,700);*/
+  background-color: $custom-color-dark;
+  font-weight: bold;
+  color: white;
+}
+
+//paddings
+.pad-left-5{
+   padding-left:5px;
+}
+
+.pad-right-15{
+   padding-right:15px;
+}
+.pad-r-20{
+  padding-right:20px;
+}
+
+//images
+[md-card-sm-image] {
+   position: relative;
+    height: 60px;
+    width: 60px;
+    padding-top:8px;
+    padding-bottom: 5px;
+    padding-right: 10px;
+}
+
+//materials
+.keyboard-arrow-right-color{
+  color: $key-board-color;
+}
+
+.pijltje{
+ /* border:2px; */
+ @extend .bg-accent100;
+ color:white;
+ /* background-color: Transparent;*/
+    /*background-repeat:no-repeat;
+    border: none;*/
+    /*cursor:pointer;*/
+  /*  overflow: hidden; */
+  /*  outline:none; */
+}
+
+//fonts
+.bold{
+ font-weight:bold;
+}
+.italic{
+ font-style:italic;
+}
+.font14{
+font-size: 14px;
+}
+.font16{
+font-size: 16px;
+}
+
+//widths
+.width-100-p{
+width:100%;
+}
+.width-100-vw{
+width:100vw;
+}
+.height-100-vh{
+  height:100vh;
+}
+.width-33{
+  width:33%;
+}
+
+//absolutes
+.right-pos{
+    right: 0;
+    position: absolute;
+}
+

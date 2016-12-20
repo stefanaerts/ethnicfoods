@@ -57,6 +57,9 @@ export const dbData = {
   {
     "name": "Gris"
   },
+  ],
+  "Pains_garnis_options":
+  [
   {
     "name": "tomates séchées"
   },

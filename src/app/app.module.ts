@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import {CommonModule} from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { MaterialModule } from '@angular/material';
+import { MaterialModule, MdDialogRef } from '@angular/material';
 import {ToastModule, ToastOptions} from 'ng2-toastr/ng2-toastr';
 
 import { AppComponent } from './app.component';
@@ -51,6 +51,13 @@ import { PizzadialogComponent } from './shared/pizza/pizzadialog/pizzadialog.com
 import { CounterPipe } from './shared/pipes/counter.pipe';
 import { TesterComponent } from './test/tester/tester.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { PpComponent } from './pp/pp.component';
+import { BetaalMenuComponent } from './betaal-menu/betaal-menu.component';
+import { CcpickerComponent } from './ccpicker/ccpicker.component';
+import { DialogComponent } from './dialog/dialog.component';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { NoWifiDialogComponent } from './no-wifi-dialog/no-wifi-dialog.component';
+import { ConfirmNoWifiDialogComponent } from './confirm-no-wifi-dialog/confirm-no-wifi-dialog.component';
 let options = <ToastOptions> {
   animate: 'flyRight',
   positionClass: 'toast-bottom-right',
@@ -58,6 +65,7 @@ let options = <ToastOptions> {
 @NgModule({
   declarations: [
     AppComponent,
+    DialogComponent,
     HomeComponent,
     OptionsComponent,
     RequiredOptionsComponent,
@@ -74,11 +82,24 @@ let options = <ToastOptions> {
   PizzadialogComponent,
   CounterPipe,
   CheckoutComponent,
+  PpComponent,
+  BetaalMenuComponent,
+  CcpickerComponent,
+  DialogComponent,
+  ConfirmDialogComponent,
+  PpComponent,
+  NoWifiDialogComponent,
+  ConfirmNoWifiDialogComponent
   ],
   entryComponents: [
 AppComponent,
+DialogComponent,
+ConfirmDialogComponent,
 // SnackbarComponent,
- PizzadialogComponent
+ PizzadialogComponent,
+ NoWifiDialogComponent,
+  ConfirmNoWifiDialogComponent
+
   ],
   imports: [
     BrowserModule,

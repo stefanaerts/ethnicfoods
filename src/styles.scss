@@ -1,17 +1,54 @@
 /* You can add global styles to this file, and also import other style files */
-/*@import '~@angular/material/core/theming/prebuilt/purple-green';*/
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+//@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+//@import '~@angular/material/core/theming/prebuilt/deeppurple-amber.scss';
+/* fallback */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Material Icons'), local('MaterialIcons-Regular'), url('materialicons.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Material Icons'), local('MaterialIcons-Regular'), url('materialicons.woff') format('woff');
+}
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
 @import '~@angular/material/core/theming/all-theme';
-@include md-core();
+//@include md-core();
 
 @import './lightgreen-amber.scss';
 //@import './amber-pink.scss';
 
-@include angular-material-theme($custom-theme);
 
-$custom-color-dark: md-color($custom-color-primary,700);
-$key-board-color: md-color($custom-color-accent,A700);
+//$custom-color-dark: md-color($custom-color-primary,700);
+//$key-board-color: md-color($custom-color-accent,A700);
 
+$custom-color-primary: md-palette($md-light-green,500,300,700);
+$custom-color-accent:  md-palette($md-amber, A200,A100,A400);
+$custom-color-warn:    md-palette($md-red);
+// .font14{
+//    font-size:14px;
+// }
+// .material-icons{
+//   font-size: 14px;
+// }
 body {
   font-size:14px;
   line-height:14px;
@@ -71,50 +108,36 @@ body {
 .c-white{
 color:white;
 }
-
-.bg-primary-500{
-  background-color: md-color($custom-color-primary,500);
-}
-.bg-primary-700{
-  background-color: md-color($custom-color-primary,700);
-}
-
-.bg-primary-300{
-  background-color: md-color($custom-color-primary,300);
-}
-.bg-accent100{
-  background-color: md-color($custom-color-accent,A100);
-}
-.bg-accent200{
-  background-color: md-color($custom-color-accent,A200);
-}
-.bg-accent400{
-  background-color: md-color($custom-color-accent,A400);
-}
-
-.accent700{
-  color: md-color($custom-color-accent,A700);
-}
-.accent100{
+.c-accent-100{
   color: md-color($custom-color-accent,A100);
 }
-.accent200{
-  color: md-color($custom-color-accent,A200);
+.bg-accent-100{
+  background-color: md-color($custom-color-accent,A100);
 }
-.accent400{
-  color: md-color($custom-color-accent,A400);
+.bg-accent-200{
+  background-color: md-color($custom-color-accent,A200);
 }
-.border-accent700{
-   border: 5px solid md-color($custom-color-accent,A700);
+.bg-accent-400{
+  background-color: md-color($custom-color-accent,A400);
 }
-
+ .bg-primary-500{
+   background-color: md-color($custom-color-primary,500);
+ }
+ .bg-primary-700{
+   background-color: md-color($custom-color-primary,700);
+ }
+ .bg-primary-300{
+   background-color: md-color($custom-color-primary,300);
+ }
+.leighter{
+      font-weight: lighter;
+}
 //lists
 .list-item:hover{
  /* color:white; */
-  background-color: md-color($custom-color-primary,300);
-   color: white;
+  background-color: md-color($custom-color-accent,100);
+ //  color: white;
   .keyboard-arrow-right-color{
-  color: white;
  font-size: 24px;
  font-weight:bold;
   }
@@ -122,13 +145,12 @@ color:white;
 
 //products
 .productname {
- @extend .accent700;
-  font-weight: bold;
+   font-weight: 400;
   font-size:16px;
 }
 .product-type {
  /* background-color: md-color($custom-color-primary,700);*/
-  background-color: $custom-color-dark;
+ // background-color: $custom-color-dark;
   font-weight: bold;
   color: white;
 }
@@ -157,19 +179,21 @@ color:white;
 
 //materials
 .keyboard-arrow-right-color{
-  color: $key-board-color;
+   color: md-color($custom-color-accent,700);
 }
-
+.border-accent-700{
+   border: 1px solid md-color($custom-color-accent,A700);
+}
 .pijltje{
- /* border:2px; */
- @extend .bg-accent100;
- color:white;
- /* background-color: Transparent;*/
-    /*background-repeat:no-repeat;
-    border: none;*/
-    /*cursor:pointer;*/
-  /*  overflow: hidden; */
-  /*  outline:none; */
+  border:2px;
+
+ color:green;
+  background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
 }
 
 //fonts
@@ -199,7 +223,13 @@ width:100vw;
 .width-33{
   width:33%;
 }
-
+ .hover-a{
+   a:hover{
+    background-color:#000;
+    opacity:0.5;
+    border-radius:30px;
+   }
+}
 //absolutes
 .right-pos{
     right: 0;

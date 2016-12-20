@@ -74,14 +74,14 @@ dbData.spécialités.forEach( spécialité => {
       type: spécialité.type
   });
 });
-  dbData.Pains_garnis_options.forEach( pain_garnis_option => {
+ /* dbData.Pains_garnis_options.forEach( pain_garnis_option => {
 
   console.log('adding pain_garnis_option', pain_garnis_option.name);
 
   const pain_garnis_optionRef = Pains_garnis_optionsRef.push({
       name: pain_garnis_option.name,
     });
-});
+});*/
 
 dbData.Pain_Végétariens.forEach( Pain_Végétarien => {
   console.log('adding Pain_Végétarien', Pain_Végétarien.name);
