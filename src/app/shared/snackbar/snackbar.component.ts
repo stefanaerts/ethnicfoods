@@ -28,9 +28,13 @@ export class SnackbarComponent implements OnInit {
    refreshTotalPrizeSnackbar() {
 
   //  if (this.orderService.getTotalPrize() > 0) {
+
        let sbConfig = new MdSnackBarConfig(this.vc);
     //   sbConfig.
-      this.snackBarRef = this.sb.openFromComponent(PizzadialogComponent,sbConfig);
+
+      //this.snackBarRef =
+      this.sb.openFromComponent(PizzadialogComponent,sbConfig);
+
     //  this.snackBarRef = this.sb.open('Total Prize(' + this.orderService.getTotalPrize() + ')', 'View Order', sbConfig);
   //    this.snackBarRef.afterDismissed().subscribe(result => {
   //      console.log('result: ' + result);

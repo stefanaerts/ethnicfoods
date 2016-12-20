@@ -1,3 +1,4 @@
+import { DialogComponent } from './../dialog/dialog.component';
 
 import { Injectable } from '@angular/core';
 
@@ -21,9 +22,6 @@ export class Constants {
  public static get DESSERTS(): string {return 'DESSERTS'; }
  public static get PAINGARNISOPTIONS(): string {return 'PAINGARNISOPTIONS'; }
  public static get PAINGARNISREQUIREMENTS(): string {return 'PAINGARNISREQUIREMENTS'; }
+ // get PICTURE_ENDPOINT(): string { return 'http://ethnicfoods.stevegravy.com/wp-content/uploads/2016/01/PNI_4335-2.jpg' };
 
-
-
-
-// get PICTURE_ENDPOINT(): string { return 'http://ethnicfoods.stevegravy.com/wp-content/uploads/2016/01/PNI_4335-2.jpg' };
 }

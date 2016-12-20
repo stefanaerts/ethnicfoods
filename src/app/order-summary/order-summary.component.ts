@@ -1,3 +1,4 @@
+import { Item } from './../shared/model/item';
 import { element } from 'protractor';
 import { Constants } from './../shared/constants';
 import { CounterService } from './../shared/counter/counter.service';
@@ -39,23 +40,42 @@ export class OrderSummaryComponent implements OnInit {
   counts: ProductDisplay;
   arr = [];
   arrdupl = [];
-  currentDate: number;
-  pickupTime: number;
+  currentDate: number = 0;
+  pickupTimeTemp: String = '';
+  pickupTime: String = '';
+
   constructor(private router: Router, private orderService: OrderService,
     private counterService: CounterService
-  ) { }
+  ) {
+    //  this.order = this.orderService.getOrder();
+    //  this.currentDate = Date.now() ;
+    //  this.pickupTimeTemp = new Date(this.currentDate + (30 * 60 * 1000)).toString()
+    //   this.pickupTime= this.pickupTimeTemp.substring(0,this.pickupTimeTemp.length - 13);
+  }
 
   ngOnInit() {
     this.order = this.orderService.getOrder();
     this.currentDate = Date.now();
-    this.pickupTime = this.currentDate + (30 * 60 * 1000);
+    this.pickupTimeTemp = new Date(this.currentDate + (30 * 60 * 1000)).toString();
+    this.pickupTime = this.pickupTimeTemp.substring(0, this.pickupTimeTemp.length - 14);
+    // {{pickupTime | date:'medium'}}
+   // this.order.painVegetarien.sort();
+    this.order.painVegetarien.sort(
+      (leftSide, rightSide): number => {
+        if(leftSide.name < rightSide.name)return -1;
+        if(leftSide.name > rightSide.name)return 1;
+        if (leftSide.name === rightSide.name)
+        {
+          if (leftSide.typeOfBread < rightSide.typeOfBread) return -1;
+          if (leftSide.typeOfBread > rightSide.typeOfBread) return 1;
+          if (leftSide.typeOfBread === rightSide.typeOfBread) {
+            if (leftSide.prize < rightSide.prize) return -1;
+            if (leftSide.prize > rightSide.prize) return 1;
+          }
+        }
+          return 0;
+      });
 
-    this.order.painVegetarien.sort();
-    // (leftSide, rightSide): number => {
-    //   if (leftSide.$key < rightSide.$key) return -1;
-    //   if (leftSide.$key > rightSide.$key) return 1;
-    //   return 0;
-    // });
     this.order.painVolaille.sort();
     this.order.painViande.sort();
     this.order.painPoisson.sort();
@@ -95,12 +115,15 @@ export class OrderSummaryComponent implements OnInit {
   // initDisplayOrderedProducts() {
   //   //  this.painVegetarien = new Array<ProductDisplay>();
   // }
+  deleteItem(item: Product) {
+    this.orderService.removeProductFromOrder(item);
+  }
   goToHome() {
     let link = ['/home'];
     this.router.navigate(link);
   }
   goToCheckout() {
-    let link = ['/checkout'];
+    let link = ['/checkout-menu'];
     this.router.navigate(link);
   }
 }

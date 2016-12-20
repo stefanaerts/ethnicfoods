@@ -1,16 +1,29 @@
-<div class="height-100-vh" *ngIf="this.orderService.getProduct()?.prize_small">
-<app-md-card-subtitle title="size(Required)" [product]="this.orderService.getProduct()?.name" [description]="this.orderService.getProduct()?.description"></app-md-card-subtitle>
+ <md-toolbar class="bg-primary-500 c-white" >
+    <span  class="width-33 hover-a" (click)="goToHome()"><a class="material-icons">home</a></span>
 
-<app-radio-button-with-prize  [prize_small]="this.orderService.getProduct()?.prize_small" [prize_large]="this.orderService.getProduct()?.prize_large" (setPrizeEvent)="setPrize($event)"></app-radio-button-with-prize>
-<app-md-card-subtitle title="Type of bread(required)"></app-md-card-subtitle>
+    <span >Required Options</span>
 
-<app-radio-button-without-prize [items]="paingarnisrequired" (setTypeEvent)="setType($event)"></app-radio-button-without-prize>
+    <!-- This fills the remaining space of the current row -->
+    <span class="example-fill-remaining-space"></span>
 
-<!--<app-total-prize   [totalPrize]="this.orderService.getTempTotalPrize() | number"></app-total-prize>-->
+  </md-toolbar>
 
-<span class="app-action">
-      <button md-fab [disabled]="boolDisabled" (click)="gotoOptions()">
-        <md-icon class="c-white">add</md-icon>
-      </button>
-</span>
+<div *ngIf="this.orderService.getProduct()?.prize_small">
+  <app-md-card-subtitle  [product]="this.orderService.getProduct()?.name" [description]="this.orderService.getProduct()?.description"></app-md-card-subtitle>
+
+  <app-radio-button-with-prize [prize_small]="this.orderService.getProduct()?.prize_small" [prize_large]="this.orderService.getProduct()?.prize_large"
+    (setPrizeEvent)="setPrize($event)"></app-radio-button-with-prize>
+
+  <!--<app-radio-button-without-prize [items]="paingarnisrequired" (setTypeEvent)="setType($event)"></app-radio-button-without-prize>-->
+  <!--<app-total-prize   [totalPrize]="this.orderService.getTempTotalPrize() | number"></app-total-prize>-->
 </div>
+<md-toolbar style="height:100vh" class="bg-primary-500">
+  <span  style="width:80vw"></span>
+  <span class="example-fill-remaining-space"></span>
+
+  <span style="width:20vw">
+      <button md-fab [disabled]="boolDisabled" (click)="gotoOptions()">
+        <md-icon class="material-icons">navigate_next</md-icon>
+      </button>
+  </span>
+</md-toolbar>

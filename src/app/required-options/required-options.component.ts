@@ -1,5 +1,4 @@
 import { PainGarnisRequiredService } from './../shared/model/pain-garnis-required.service';
-import { PainGarnisRequired } from './../shared/model/pain-garnis-required';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router} from "@angular/router";
 import { OrderService } from "../shared/model/order.service";
@@ -11,9 +10,7 @@ import { ToastService } from "../shared/toast.service";
   styleUrls: ['./required-options.component.scss']
 })
 export class RequiredOptionsComponent implements OnInit, OnDestroy {
-  paingarnisrequired: PainGarnisRequired[ ];
   sizeDisabled = true;
-  typeDisabled = true;
   boolDisabled = true;
 
 
@@ -22,13 +19,14 @@ export class RequiredOptionsComponent implements OnInit, OnDestroy {
     ) {
   }
 
+goToHome() {
+    let link = ['/home'];
+    this.router.navigate(link);
+  }
   ngOnInit() {
 
     try {
       this.orderService.setTempTotalPrize(this.orderService.getTotalPrize());
-
-      this.garnisrequiredService.findAllGarnisRequired()
-        .subscribe(paingarnisrequired => this.paingarnisrequired = paingarnisrequired);
 
     } catch (error) {
 
@@ -60,15 +58,15 @@ export class RequiredOptionsComponent implements OnInit, OnDestroy {
       //       break;
       //   }
       this.sizeDisabled = false;
-      if (this.typeDisabled === false) {
+ //     if (this.typeDisabled === false) {
         this.boolDisabled = false;
-      }
+ //     }
     } catch (e) {
       this.toastService.showError();
     }
   }
 
-  setType(itemname: string) {
+  /*setType(itemname: string) {
     try {
       this.orderService.getProduct().typeOfBread = itemname;
 
@@ -76,10 +74,11 @@ export class RequiredOptionsComponent implements OnInit, OnDestroy {
       if (this.sizeDisabled === false) {
         this.boolDisabled = false;
       }
+
     } catch (e) {
       this.toastService.showError();
     }
-  }
+  }*/
 
   gotoOptions(): void {
     //   this.orderService.setTempTotalPrize(this.tempTotalPrize);

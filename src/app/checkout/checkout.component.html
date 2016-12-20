@@ -12,9 +12,21 @@
 <form id="checkout-form"  action="" method="post">
   <div id="error-message"></div>
   <div class="panel">
-    <header class="panel__header">
-      <h1>Card Payment</h1>
+    <header>
+    <md-toolbar color="primary" >
+    <span  style="width:30vw" (click)="goToHome()"><a md-button>Home</a></span>
+
+    <span  style="width:40vw">Card Payment</span>
+    <!-- This fills the remaining space of the current row -->
+    <span class="example-fill-remaining-space"></span>
+
+    <span style="width:20vw" (click)="goToPayPal()"><a md-button >PayPal</a></span>
+  </md-toolbar>
     </header>
+
+    <!--<md-toolbar> class="panel__header">
+      <h1><span>Card Payment</span><span>Card Payment</span></h1>
+    </header>-->
 
     <div class="panel__content">
       <div class="textfield--float-label">

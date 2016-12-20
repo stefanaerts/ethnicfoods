@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { OrderService } from './../shared/model/order.service';
 import { Constants } from './../shared/constants';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Http } from '@angular/http';
@@ -12,31 +14,40 @@ import * as $ from 'jquery';
   styleUrls: ['./checkout.component.scss'],
 })
 export class CheckoutComponent implements OnInit {
-  message: string;
   authorization: any;
-
-  constructor(public http: Http) {
-    this.message = "...Loading";
+  constructor(public http: Http, public os: OrderService, private router: Router) {
+  }
+  goToPayPal() {
+    let link = ['/pp'];
+    this.router.navigate(link);
+  }
+  goToHome() {
+    let link = ['/home'];
+    this.router.navigate(link);
   }
   getToken() {
 
+    if (this.os.getTotalPrize() === 0) {
+      alert('Order amount cannot be zero');
+      this.goToHome();
+    }
+    else {
+      this.http.get(Constants.API_ENDPOINT + 'api/v1/token').first().subscribe(
+        data => {
 
-    this.http.get(Constants.API_ENDPOINT + 'api/v1/token').first().subscribe(
-      data => {
-
-        if (data.status === 200) {
-          //      this.createClient(data.text());
-          this.authorization = data.text();
-          //   this.message = data.text();
-          this.makeTransaction();
+          if (data.status === 200) {
+            //      this.createClient(data.text());
+            this.authorization = data.text();
+            //   this.message = data.text();
+            this.makeTransaction(this.os.getTotalPrizeAsString());
+          } else {
+            console.error("error in getToken, status =" + data.status + "REASON: " + data.statusText);
+          }
+        }, (error: any) => {
+          console.error("error in subscribe gettoken=" + error);
         }
-        else {
-          console.error("error in getToken, status =" + data.status + "REASON: " + data.statusText);
-        }
-      }, (error: any) => {
-        console.error("error in subscribe gettoken=" + error);
-      }
-    );
+      );
+    }
   }
 
 
@@ -44,14 +55,13 @@ export class CheckoutComponent implements OnInit {
   }
   ngAfterViewInit() {
     //   this.amount.focus();
-    //  this.getToken();
     this.getToken();
   }
 
-  makeTransaction() {
+  makeTransaction(totalPrize: string) {
+    let amount: string = totalPrize;
     let form: HTMLFormElement = (<HTMLFormElement>document.querySelector('#checkout-form'));
     let submit: HTMLElement = (<HTMLElement>document.getElementById('submitBtn'));
-
 
     braintree.client.create({
       authorization: this.authorization
@@ -115,7 +125,7 @@ export class CheckoutComponent implements OnInit {
           if (formValid) {
             submit.setAttribute('class', 'pay-button');
             submit.removeAttribute('disabled');
-             } else {
+          } else {
             submit.setAttribute('disabled', 'true');
             submit.setAttribute('class', 'pay-button-dence');
           }
@@ -153,6 +163,7 @@ export class CheckoutComponent implements OnInit {
             if (tokenizeErr) {
               console.error('tokenizeErr=' + JSON.stringify(tokenizeErr));
               alert('Error: cannot connect to tokenize server. Please make sure your server is running.');
+              window.location.href = '/home';
               return;
             }
             // If this was a real integration, this is where you would
@@ -161,7 +172,8 @@ export class CheckoutComponent implements OnInit {
               url: Constants.API_ENDPOINT + 'checkout',
               type: 'POST',
               data: JSON.stringify({
-                payment_method_nonce: payload.nonce
+                payment_method_nonce: payload.nonce,
+                amount: amount
               }),
               contentType: 'application/json',
               success: function (data) {
@@ -171,20 +183,21 @@ export class CheckoutComponent implements OnInit {
                 if (data.success) {
                   submit.style.backgroundColor = 'rgba(0, 0, 0, .54)';
                   submit.setAttribute('disabled', 'true');
+                  //alert('Payment authorized, thanks.');
                   alert('Payment authorized, thanks.');
-
-
+                  window.location.href = '/home';
                 } else {
                   alert('Payment failed: ' + data.message + ' Please refresh the page and try again.');
                   console.error("data=" + JSON.stringify(data));
                   submit.style.backgroundColor = 'rgba(0, 0, 0, .54)';
                   submit.setAttribute('disabled', 'true');
-
                 }
               },
               error: function (error) {
                 alert('Error: cannot connect to server. Please make sure your server is running.');
                 console.error(error);
+                 window.location.href = '/home';
+                ;
               }
             });
           });
@@ -192,6 +205,7 @@ export class CheckoutComponent implements OnInit {
       });
     });
   }
+
 }
 
 

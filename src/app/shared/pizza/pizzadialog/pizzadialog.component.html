@@ -8,7 +8,9 @@
 <md-card  class="card">
   <div class="mytable">
         <span class="left">Total prize({{ this.os.getTotalPrizeAsString() }})</span>
-        <span class="right" (click)="goToOrder()" [hidden]=this.os.checkTotalPrizeNotNull() >View Orders</span>
+        <span class="right" [hidden]=this.os.checkTotalPrizeNotNull() >
+          <button md-raised-button color="accent" (click)="goToOrder()">View Orders</button>
+          </span>
 </div>
 
 

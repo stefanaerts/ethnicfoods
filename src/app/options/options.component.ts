@@ -1,28 +1,29 @@
+import { PainGarnisRequiredService } from './../shared/model/pain-garnis-required.service';
 import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
-import { PainGarnisOptionsService } from '../shared/model/pain-garnis-options.service';
-import { PainGarnisOption } from '../shared/model/pain-garnis-option';
 import { Router } from "@angular/router";
 import { OrderService } from "../shared/model/order.service";
 import { ToastService } from "../shared/toast.service";
-
+import { PainGarnisRequired } from './../shared/model/pain-garnis-required';
 @Component({
   selector: 'app-options',
   templateUrl: './options.component.html',
   styleUrls: ['./options.component.scss']
 })
 export class OptionsComponent implements OnInit, OnDestroy {
-  paingarnisoptions: PainGarnisOption[];
+    paingarnisrequired: PainGarnisRequired[ ];
+
   selected = [];
+   typeDisabled = true;
   @Output() selectedChange: EventEmitter<any> = new EventEmitter();
 
   constructor(private toastService: ToastService, private orderService: OrderService,
-    private painGarnisoptionsService: PainGarnisOptionsService, private router: Router) {
+    private garnisrequiredService: PainGarnisRequiredService, private router: Router) {
   }
 
   ngOnInit() {
 
-  this.painGarnisoptionsService.findAllGarnisOptions()
-      .subscribe(paingarnisoptions => this.paingarnisoptions = paingarnisoptions);
+  this.garnisrequiredService.findAllGarnisRequired()
+        .subscribe(paingarnisrequired => this.paingarnisrequired = paingarnisrequired);
   }
 
   addOrder() {
@@ -55,10 +56,28 @@ export class OptionsComponent implements OnInit, OnDestroy {
 
     //  this.orderService.clearOrder();
   }
+setType(itemname: string) {
+    try {
+      this.orderService.getProduct().typeOfBread = itemname;
+
+      this.typeDisabled = false;
+   /*   if (this.sizeDisabled === false) {
+        this.boolDisabled = false;
+      }
+      */
+    } catch (e) {
+      this.toastService.showError();
+    }
+  }
 
 goToHome() {
   let link = ['/home'];
     this.router.navigate(link);
 }
 
+ goToRequiredOptions(): void {
+    //   this.orderService.setTempTotalPrize(this.tempTotalPrize);
+    let link = ['/required'];
+    this.router.navigate(link);
+  };
 }

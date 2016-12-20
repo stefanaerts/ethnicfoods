@@ -1,20 +1,36 @@
-<md-toolbar color="primary">Options</md-toolbar>
+<md-toolbar class="bg-primary-500 c-white" >
+    <span  style="width:30vw" class="hover-a" (click)="goToHome()"><a class="material-icons">home</a></span>
 
-<div class=" height-100-vh bg-primary-300">
+   <span style="width:60vw">Type of bread</span>
 
-	<md-list  *ngFor="let item of paingarnisoptions ">
-    <md-list-item class="c-white">
+    <!-- This fills the remaining space of the current row -->
+    <span class="example-fill-remaining-space"></span>
+   <span style="width:20vw"class="hover-a" (click)="goToRequiredOptions()"><a class="material-icons">keyboard_arrow_left</a></span>
+
+  </md-toolbar>
+
+<div >
+  <app-radio-button-without-prize [items]="paingarnisrequired" (setTypeEvent)="setType($event)"></app-radio-button-without-prize>
+
+	<!--<md-list  *ngFor="let item of paingarnisoptions ">
+    <md-list-item >
 					<md-checkbox (click)="toggle(item.name)"></md-checkbox>
 					{{item?.name}}
 				<td class="pad-r-20"></td>
     </md-list-item>
-				<md-divider class="c-white"></md-divider>
-	</md-list>
+				<md-divider class="c-accent-100"></md-divider>
+	</md-list>-->
       <!--<h2 class="md-title">Selected Items</h2>
       <code styles ="display: block; padding: 8px;">{{selected | json}}</code>-->
-<span class="app-action">
-      <button md-fab  (click)="addOrder()">
-        <md-icon class="c-white">add</md-icon>
-      </button>
-      </span>
+
 </div>
+<md-toolbar style="height:100vh" class="bg-primary-500">
+  <span  style="width:80vw"></span>
+  <span class="example-fill-remaining-space"></span>
+
+  <span style="width:20vw">
+      <button md-fab [disabled]="boolDisabled" (click)="addOrder()">
+        <md-icon class="material-icons">navigate_next</md-icon>
+      </button>
+  </span>
+</md-toolbar>
