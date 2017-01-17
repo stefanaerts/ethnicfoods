@@ -67,6 +67,8 @@ export class TypeOfBreadComponent implements OnInit, OnDestroy {
   }
 
   goToExtraOptions(): void {
+       this.orderService.pushProductToOrder(this.orderService.getProduct());
+
     //   this.orderService.setTempTotalPrize(this.tempTotalPrize);
     let link = ['/extraOptions'];
     this.router.navigate(link);

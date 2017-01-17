@@ -39,8 +39,7 @@ export class ExtraOptionsComponent implements OnInit {
            this.orderService.getProduct().prize = tempprize3;
           this.orderService.getOrder().totalPrize = Number(this.orderService.getOrder().totalPrize)  + Number(tempprize);
       });
-      this.orderService.pushProductToOrder(this.orderService.getProduct());
-      this.orderService.setProduct(null);
+         this.orderService.setProduct(null);
 
       this.goToHome();
     } catch (error) {
