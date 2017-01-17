@@ -1,8 +1,8 @@
 import { PainGarnisRequiredService } from './../shared/model/pain-garnis-required.service';
 import { Router } from '@angular/router';
-import { ToastService } from './../shared/toast.service';
+//import { ToastService } from './../shared/toast.service';
 import { OrderService } from './../shared/model/order.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PainGarnisRequired } from './../shared/model/pain-garnis-required';
 
 @Component({
@@ -10,22 +10,28 @@ import { PainGarnisRequired } from './../shared/model/pain-garnis-required';
   templateUrl: './type-of-bread.component.html',
   styleUrls: ['./type-of-bread.component.scss']
 })
-export class TypeOfBreadComponent implements OnInit {
+export class TypeOfBreadComponent implements OnInit, OnDestroy {
   paingarnisrequired: PainGarnisRequired[];
-selected = [];
- //  typeDisabled = true;
+  selected = [];
+  boolDisabled = true;
+
   constructor(private garnisrequiredService: PainGarnisRequiredService,
-    private orderService: OrderService, private toastService: ToastService, private router: Router) { }
+   private orderService: OrderService, private router: Router) { }
+
+//    private orderService: OrderService, private toastService: ToastService, private router: Router) { }
 
   ngOnInit() {
 
-//  this.orderService.getProduct().typeOfBread = null;
+    //  this.orderService.getProduct().typeOfBread = null;
     this.garnisrequiredService.findAllGarnisRequired()
       .subscribe(paingarnisrequired => this.paingarnisrequired = paingarnisrequired);
-      // this.orderService.getOrder().painVegetarien.forEach(element => {
-      //    alert(element.options);
-      //    });
+    // this.orderService.getOrder().painVegetarien.forEach(element => {
+    //    alert(element.options);
+    //    });
 
+  }
+  ngOnDestroy() {
+    this.boolDisabled = true;
   }
   setType(itemname: string) {
     try {
@@ -36,19 +42,22 @@ selected = [];
            this.boolDisabled = false;
          }
          */
+        this.boolDisabled = false;
     } catch (e) {
-      this.toastService.showError();
+      alert(e);
+    //  this.toastService.showError();
     }
   }
-addOrder() {
+  addOrder() {
     try {
-        // this.orderService.getProduct().options = this.selected;
-         this.orderService.getOrder().totalPrize = this.orderService.getTempTotalPrize();
+      // this.orderService.getProduct().options = this.selected;
+      this.orderService.getOrder().totalPrize = this.orderService.getTempTotalPrize();
       //   this.orderService.getProduct().options = this.selected.sort();
-          this.goToDrinks();
+      this.goToExtraOptions();
 
     } catch (error) {
-      this.toastService.showError();
+ //     this.toastService.showError();
+      alert(error);
     }
   }
 
@@ -57,14 +66,14 @@ addOrder() {
     this.router.navigate(link);
   }
 
-  goToDrinks(): void {
+  goToExtraOptions(): void {
     //   this.orderService.setTempTotalPrize(this.tempTotalPrize);
-    let link = ['/drinks'];
+    let link = ['/extraOptions'];
     this.router.navigate(link);
   };
   goToRequiredOptions(): void {
-// alert(this.selected.length);
-   // + this.selected.length);
+    // alert(this.selected.length);
+    // + this.selected.length);
     //   this.orderService.setTempTotalPrize(this.tempTotalPrize);
     let link = ['/required'];
     this.router.navigate(link);

@@ -17,7 +17,8 @@ export class OptionsComponent implements OnInit, OnDestroy {
   selected = [];
   boolchecked: boolean;
 
-  constructor(private toastService: ToastService, private orderService: OrderService,
+//  constructor(private toastService: ToastService, private orderService: OrderService,
+constructor( private orderService: OrderService,
     private garnisrequiredService: PainGarnisRequiredService, private router: Router) {
   }
 
@@ -47,7 +48,8 @@ export class OptionsComponent implements OnInit, OnDestroy {
       //     });
       this.goToRequiredOptions();
     } catch (error) {
-      this.toastService.showError();
+      //this.toastService.showError();
+      alert(error);
     }
   }
   toggle(id) {

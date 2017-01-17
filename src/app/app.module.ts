@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, FormBuilder } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
-import { ToastModule, ToastOptions } from 'ng2-toastr/ng2-toastr';
+//import { ToastModule, ToastOptions } from 'ng2-toastr/ng2-toastr';
 import { Ng2DatetimePickerModule } from 'ng2-datetime-picker';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from 'angularfire2/index';
@@ -24,7 +24,7 @@ import { PetiteEntreesService } from './shared/model/petite-entrees.service';
 import { PainPoissonsService } from './shared/model/pain-poissons.service';
 import { PainGarnisOptionsService } from './shared/model/pain-garnis-options.service';
 import { PainGarnisRequiredService } from './shared/model/pain-garnis-required.service';
-import { ToastService } from './shared/toast.service';
+//import { ToastService } from './shared/toast.service';
 import { DrinksService } from './shared/model/drinks.service';
 
 import { OrderService } from './shared/model/order.service';
@@ -62,13 +62,13 @@ import { NoWifiDialogComponent } from './no-wifi-dialog/no-wifi-dialog.component
 import { ConfirmNoWifiDialogComponent } from './confirm-no-wifi-dialog/confirm-no-wifi-dialog.component';
 import { DatetimeComponent } from './shared/datetime/datetime/datetime.component';
 import { TypeOfBreadComponent } from './type-of-bread/type-of-bread.component';
-import { DrinksComponent } from './drinks/drinks.component';
+import { ExtraOptionsComponent } from './drinks/extra-options.component';
 // import { WrongDateDialogComponent } from './wrong-date-dialog/wrong-date-dialog.component';
 // import { ConfirmWrongDateDialogComponent } from './confirm-wrong-date-dialog/confirm-wrong-date-dialog.component';
-let options = <ToastOptions>{
+/*let options = <ToastOptions>{
   animate: 'flyRight',
   positionClass: 'toast-bottom-right',
-};
+};*/
 
 @NgModule({
   declarations: [
@@ -100,7 +100,7 @@ let options = <ToastOptions>{
     ConfirmNoWifiDialogComponent,
     DatetimeComponent,
     TypeOfBreadComponent,
-    DrinksComponent
+    ExtraOptionsComponent
     // WrongDateDialogComponent,
     // ConfirmWrongDateDialogComponent
   ],
@@ -124,7 +124,7 @@ let options = <ToastOptions>{
     MaterialModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig),
     RouterModule.forRoot(routes),
-    ToastModule.forRoot(options),
+  //  ToastModule.forRoot(options),
     Ng2DatetimePickerModule
     //  MaterializeModule,
     //   ModalModule.forRoot(),
@@ -133,7 +133,7 @@ let options = <ToastOptions>{
   providers: [FormBuilder, DessertsService, SaladesService, SpécialitésService, PainViandesService, PainVolaillesService,
     FormulesService, PetiteEntreesService, PainVegetariensService, PlatDuJourService, PainPoissonsService,
     PainGarnisOptionsService, DrinksService,
-  PainGarnisRequiredService, ToastService, Constants, OrderService, CounterService, DatetimeService],
+  PainGarnisRequiredService, Constants, OrderService, CounterService, DatetimeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

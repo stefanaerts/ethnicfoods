@@ -102,6 +102,7 @@ export class OrderService {
         this.order.totalPrize = (this.order.totalPrize - drink.prize);
         this.order.drinks.splice(index, 1);
       }
+      this.counterService.dec(drink.$key);
    //   this.counterService.dec(drink.$key);
     } catch (error) {
       alert(error);
@@ -126,46 +127,61 @@ export class OrderService {
           break;
 
         case Constants.PAINVOLAILLE:
-          product.orderId = this.order.orderId;
-          product.itemId = this.getDate_Time();
-          this.order.painVolaille.push(product);
-          this.counterService.inc(product.$key);
+          index = this.order.painVolaille.indexOf(product);
+          if (index > -1) {
+            this.order.totalPrize = (this.order.totalPrize - product.prize);
+            this.order.painVolaille.splice(index, 1);
+          }
+          this.counterService.dec(product.$key);
           break;
+
         case Constants.PAINVIANDE:
-          product.orderId = this.order.orderId;
-          product.itemId = this.getDate_Time();
-          this.order.painViande.push(product);
-          this.counterService.inc(product.$key);
+            index = this.order.painViande.indexOf(product);
+          if (index > -1) {
+            this.order.totalPrize = (this.order.totalPrize - product.prize);
+            this.order.painViande.splice(index, 1);
+          }
+          this.counterService.dec(product.$key);
           break;
         case Constants.PAINPOISSON:
-          product.orderId = this.order.orderId;
-          product.itemId = this.getDate_Time();
-          this.order.painPoisson.push(product);
-          this.counterService.inc(product.$key);
+            index = this.order.painPoisson.indexOf(product);
+          if (index > -1) {
+            this.order.totalPrize = (this.order.totalPrize - product.prize);
+            this.order.painPoisson.splice(index, 1);
+          }
+          this.counterService.dec(product.$key);
           break;
         case Constants.DESSERTS:
-          product.orderId = this.order.orderId;
-          product.itemId = this.getDate_Time();
-          this.order.dessert.push(product);
-          this.counterService.inc(product.$key);
+            index = this.order.dessert.indexOf(product);
+          if (index > -1) {
+            this.order.totalPrize = (this.order.totalPrize - product.prize);
+            this.order.dessert.splice(index, 1);
+          }
+          this.counterService.dec(product.$key);
           break;
         case Constants.FORMULES:
-          product.orderId = this.order.orderId;
-          product.itemId = this.getDate_Time();
-          this.order.formule.push(product);
-          this.counterService.inc(product.$key);
+             index = this.order.formule.indexOf(product);
+          if (index > -1) {
+            this.order.totalPrize = (this.order.totalPrize - product.prize);
+            this.order.formule.splice(index, 1);
+          }
+          this.counterService.dec(product.$key);
           break;
         case Constants.SPECIALITES:
-          product.orderId = this.order.orderId;
-          product.itemId = this.getDate_Time();
-          this.order.specialite.push(product);
-          this.counterService.inc(product.$key);
+             index = this.order.specialite.indexOf(product);
+          if (index > -1) {
+            this.order.totalPrize = (this.order.totalPrize - product.prize);
+            this.order.specialite.splice(index, 1);
+          }
+          this.counterService.dec(product.$key);
           break;
         case Constants.PETITEENTREE:
-          product.orderId = this.order.orderId;
-          product.itemId = this.getDate_Time();
-          this.order.petiteentree.push(product);
-          this.counterService.inc(product.$key);
+             index = this.order.petiteentree.indexOf(product);
+          if (index > -1) {
+            this.order.totalPrize = (this.order.totalPrize - product.prize);
+            this.order.petiteentree.splice(index, 1);
+          }
+          this.counterService.dec(product.$key);
           break;
         case Constants.PLATDUJOUR:
           //   console.log('product.orderid=' + product.orderId);
@@ -179,10 +195,12 @@ export class OrderService {
           this.counterService.dec(product.$key);
           break;
         case Constants.SALADES:
-          product.orderId = this.order.orderId;
-          product.itemId = this.getDate_Time();
-          this.order.salade.push(product);
-          this.counterService.inc(product.$key);
+            index = this.order.salade.indexOf(product);
+          if (index > -1) {
+            this.order.totalPrize = (this.order.totalPrize - product.prize);
+            this.order.salade.splice(index, 1);
+          }
+          this.counterService.dec(product.$key);
           break;
 
         default:
@@ -252,10 +270,13 @@ export class OrderService {
         case Constants.PLATDUJOUR:
           product.orderId = this.order.orderId;
           product.itemId = this.getDate_Time();
-
           this.order.platdujour.push(product);
-
-
+          this.counterService.inc(product.$key);
+          break;
+case Constants.DRINKS:
+          product.orderId = this.order.orderId;
+          product.itemId = this.getDate_Time();
+          this.order.drinks.push(product);
           this.counterService.inc(product.$key);
           break;
         case Constants.SALADES:

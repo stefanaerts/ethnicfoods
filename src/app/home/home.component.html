@@ -84,6 +84,100 @@
     <app-product-list [items]="platdujoursService.plat_du_jours$ | async" [boolVisible]="plat_du_jourVisible"></app-product-list>
   </div>
 
+<!-- Petite entrees & potage -->
+<div class="product-type bg-primary-300">
+  <span>
+
+      <button class="pijltje"  (click)="petites_entreesVisible=!petites_entreesVisible">
+      <md-icon>keyboard_arrow_down</md-icon>
+    </button>
+   Petites entrées & potages
+  </span>
+</div>
+
+
+  <div>
+    <app-product-list [items]="petiteentreesService.petiteentrees$ | async" [boolVisible]="petites_entreesVisible"></app-product-list>
+  </div>
+
+<!-- Formules -->
+<div class="product-type bg-primary-300">
+  <span>
+
+      <button class="pijltje"  (click)="formulesVisible=!formulesVisible">
+      <md-icon>keyboard_arrow_down</md-icon>
+    </button>
+    Formules
+  </span>
+</div>
+
+
+  <div>
+    <app-product-list [items]="formulesService.formules$ | async" [boolVisible]="formulesVisible"></app-product-list>
+  </div>
+
+<!-- Salades -->
+<div class="product-type bg-primary-300">
+  <span>
+
+      <button class="pijltje"  (click)="saladesVisible=!saladesVisible">
+      <md-icon>keyboard_arrow_down</md-icon>
+    </button>
+    Salades
+  </span>
+</div>
+
+
+  <div>
+    <app-product-list [items]="saladesService.salades$ | async" [boolVisible]="saladesVisible"></app-product-list>
+  </div>
+<!-- specialites -->
+<div class="product-type bg-primary-300">
+  <span>
+
+      <button class="pijltje"  (click)="specialitesVisible=!specialitesVisible">
+      <md-icon>keyboard_arrow_down</md-icon>
+    </button>
+    Specialites
+  </span>
+</div>
+
+
+  <div>
+    <app-product-list [items]="specialitesService.specialites$ | async" [boolVisible]="specialitesVisible"></app-product-list>
+  </div>
+
+
+<!-- Desserts -->
+<div class="product-type bg-primary-300">
+  <span>
+
+      <button class="pijltje"  (click)="dessertsVisible=!dessertsVisible">
+      <md-icon>keyboard_arrow_down</md-icon>
+    </button>
+    Desserts
+  </span>
+</div>
+
+
+  <div>
+    <app-product-list [items]="dessertsService.desserts$ | async" [boolVisible]="dessertsVisible"></app-product-list>
+  </div>
+
+
+<div class="product-type bg-primary-300">
+  <span>
+
+      <button class="pijltje"  (click)="drinksVisible=!drinksVisible">
+      <md-icon>keyboard_arrow_down</md-icon>
+    </button>
+    Drinks
+  </span>
+</div>
+<div>
+    <app-product-list [items]="drinksService.drinks$ | async" [boolVisible]="drinksVisible"></app-product-list>
+  </div>
+<br>
 
 <md-card style="height:100vh" class="bg-primary-500">
   <md-card-title-group class="c-white">
@@ -92,74 +186,3 @@
     <img md-card-md-image src="../../assets/PNI_4475-2.jpg">
   </md-card-title-group>
 </md-card>
-
-
-
-
-
-
-<!--<md-list>
-  <md-list-item>
-    <md-card-subtitle md-line>Petites entrées & potages</md-card-subtitle>
-    <td>
-    <button md-icon-button (click)="petites_entreesVisible=!petites_entreesVisible">
-      <md-icon>keyboard_arrow_down</md-icon>
-    </button>
-    </td>
-  </md-list-item>
-</md-list>
-
-<app-product-list  [items]="petiteentreesService.petiteentrees$ | async" [boolVisible]="petites_entreesVisible"></app-product-list>
-
-<md-list>
-  <md-list-item>
-    <md-card-subtitle md-line>Formules</md-card-subtitle>
-    <td>
-    <button md-icon-button (click)="formulesVisible=!formulesVisible">
-      <md-icon>keyboard_arrow_down</md-icon>
-    </button>
-    </td>
-  </md-list-item>
-</md-list>
-
-<app-product-list  [items]="formulesService.formules$ | async" [boolVisible]="formulesVisible"></app-product-list>
-
-
-<md-list>
-  <md-list-item>
-    <md-card-subtitle md-line>Salades</md-card-subtitle>
-    <td>
-    <button md-icon-button (click)="saladesVisible=!saladesVisible">
-      <md-icon>keyboard_arrow_down</md-icon>
-    </button>
-    </td>
-  </md-list-item>
-</md-list>
-
-<app-product-list  [items]="saladesService.salades$ | async" [boolVisible]="saladesVisible"></app-product-list>
-
-<md-list>
-  <md-list-item>
-    <md-card-subtitle md-line>Spécialités</md-card-subtitle>
-    <td>
-    <button md-icon-button (click)="specialitesVisible=!specialitesVisible">
-      <md-icon>keyboard_arrow_down</md-icon>
-    </button>
-    </td>
-  </md-list-item>
-</md-list>
-
-<app-product-list  [items]="specialitesService.specialites$ | async" [boolVisible]="specialitesVisible"></app-product-list>
-
-<md-list>
-  <md-list-item>
-    <md-card-subtitle md-line>Desserts</md-card-subtitle>
-    <td>
-    <button md-icon-button (click)="dessertsVisible=!dessertsVisible">
-      <md-icon>keyboard_arrow_down</md-icon>
-    </button>
-    </td>
-  </md-list-item>
-</md-list>
-
-<app-product-list  [items]="dessertsService.desserts$ | async" [boolVisible]="dessertsVisible"  ></app-product-list>-->

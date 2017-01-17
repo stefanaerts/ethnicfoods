@@ -1,4 +1,4 @@
-import { DrinksComponent } from './drinks/drinks.component';
+import { ExtraOptionsComponent } from './drinks/extra-options.component';
 import { TypeOfBreadComponent } from './type-of-bread/type-of-bread.component';
 // import { ConfirmWrongDateDialogComponent } from './confirm-wrong-date-dialog/confirm-wrong-date-dialog.component';
 // import { WrongDateDialogComponent } from './wrong-date-dialog/wrong-date-dialog.component';
@@ -22,7 +22,7 @@ export const routes: Routes = [
   { path: 'required', component: RequiredOptionsComponent },
   { path: 'options', component: OptionsComponent },
   { path: 'typeOfBread', component: TypeOfBreadComponent },
-  { path: 'drinks', component: DrinksComponent },
+  { path: 'extraOptions', component: ExtraOptionsComponent },
 
   { path: 'order', component: OrderSummaryComponent },
   { path: 'test', component: TesterComponent },

@@ -1,3 +1,4 @@
+import { DrinksService } from './../shared/model/drinks.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -32,6 +33,7 @@ export class HomeComponent implements OnInit {
   pain_ViandesVisible = false;
   pain_VegetariensVisible = false;
   pain_VolaillesVisible = false;
+  drinksVisible = false;
   totalPrize$: Observable<number>;
 
   constructor(
@@ -40,12 +42,13 @@ export class HomeComponent implements OnInit {
     private volaillesService: PainVolaillesService, private viandesService: PainViandesService,
     private poissonsService: PainPoissonsService, private formulesService: FormulesService,
     private platdujoursService: PlatDuJourService, private petiteentreesService: PetiteEntreesService,
-    private orderService: OrderService, private constants: Constants
+    private orderService: OrderService,private drinksService: DrinksService, private constants: Constants
 
   ) {
     }
 
   ngOnInit() {
+
     }
 
 

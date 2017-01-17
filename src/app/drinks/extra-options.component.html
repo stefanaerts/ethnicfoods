@@ -1,7 +1,7 @@
 <md-toolbar class="bg-primary-500 c-white">
   <span style="width:30vw" class="hover-a" (click)="goToHome()"><a class="material-icons">home</a></span>
 
-<span style="width:60vw">Drinks</span>
+<span style="width:60vw">Extra Options</span>
 
 <!-- This fills the remaining space of the current row -->
 <span class="example-fill-remaining-space"></span>
@@ -10,7 +10,7 @@
 </md-toolbar>
 
 <div>
-  <md-list *ngFor="let item of drinks ">
+  <md-list *ngFor="let item of extraOptions ">
        <span >
    <app-counter-item [itemKey] = "item.$key" ></app-counter-item>
    </span>

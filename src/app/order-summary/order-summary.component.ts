@@ -81,46 +81,149 @@ export class OrderSummaryComponent implements OnInit {
           return 0;
       });
 
-    this.order.painVolaille.sort();
-    this.order.painViande.sort();
-    this.order.painPoisson.sort();
-    this.order.platdujour.sort();
-    this.order.drinks.sort();
-    //    this.order.painVegetarien
-    //  this.order.painVegetarien.forEach(
-    //    element => {
-    //      console.log(element.options[0]);
-    //    }
-    //     if (this.arr.some(x=>x.name === element.name) )
-    //     {
-    //     console.log("el in arr=" + element.name);
-    //     this.arrdupl.push(element);
-    //     }
-    //     else{
-    //        console.log("el not in arr=" + element.name);
-    //        this.arr.push(element);
-    //     }
-    //   }
-    //);
-    // console.log("arr.length na =" + this.arr.length);
-    // console.log("arrdupl.length na =" + this.arrdupl.length);
+    this.order.painVolaille.sort((leftSide, rightSide): number => {
+        if(leftSide.name < rightSide.name)return -1;
+        if(leftSide.name > rightSide.name)return 1;
+        if (leftSide.name === rightSide.name)
+        {
+          if (leftSide.typeOfBread < rightSide.typeOfBread) return -1;
+          if (leftSide.typeOfBread > rightSide.typeOfBread) return 1;
+          if (leftSide.typeOfBread === rightSide.typeOfBread) {
+            if (leftSide.prize < rightSide.prize) return -1;
+            if (leftSide.prize > rightSide.prize) return 1;
+          }
+        }
+          return 0;
+      });
+    this.order.painViande.sort((leftSide, rightSide): number => {
+        if(leftSide.name < rightSide.name)return -1;
+        if(leftSide.name > rightSide.name)return 1;
+        if (leftSide.name === rightSide.name)
+        {
+          if (leftSide.typeOfBread < rightSide.typeOfBread) return -1;
+          if (leftSide.typeOfBread > rightSide.typeOfBread) return 1;
+          if (leftSide.typeOfBread === rightSide.typeOfBread) {
+            if (leftSide.prize < rightSide.prize) return -1;
+            if (leftSide.prize > rightSide.prize) return 1;
+          }
+        }
+          return 0;
+      });
+    this.order.painPoisson.sort((leftSide, rightSide): number => {
+        if(leftSide.name < rightSide.name)return -1;
+        if(leftSide.name > rightSide.name)return 1;
+        if (leftSide.name === rightSide.name)
+        {
+          if (leftSide.typeOfBread < rightSide.typeOfBread) return -1;
+          if (leftSide.typeOfBread > rightSide.typeOfBread) return 1;
+          if (leftSide.typeOfBread === rightSide.typeOfBread) {
+            if (leftSide.prize < rightSide.prize) return -1;
+            if (leftSide.prize > rightSide.prize) return 1;
+          }
+        }
+          return 0;
+      });
+    this.order.platdujour.sort((leftSide, rightSide): number => {
+        if(leftSide.name < rightSide.name)return -1;
+        if(leftSide.name > rightSide.name)return 1;
+        if (leftSide.name === rightSide.name)
+        {
+          if (leftSide.typeOfBread < rightSide.typeOfBread) return -1;
+          if (leftSide.typeOfBread > rightSide.typeOfBread) return 1;
+          if (leftSide.typeOfBread === rightSide.typeOfBread) {
+            if (leftSide.prize < rightSide.prize) return -1;
+            if (leftSide.prize > rightSide.prize) return 1;
+          }
+        }
+          return 0;
+      });
+    this.order.drinks.sort((leftSide, rightSide): number => {
+        if(leftSide.name < rightSide.name)return -1;
+        if(leftSide.name > rightSide.name)return 1;
+        if (leftSide.name === rightSide.name)
+        {
+          if (leftSide.typeOfBread < rightSide.typeOfBread) return -1;
+          if (leftSide.typeOfBread > rightSide.typeOfBread) return 1;
+          if (leftSide.typeOfBread === rightSide.typeOfBread) {
+            if (leftSide.prize < rightSide.prize) return -1;
+            if (leftSide.prize > rightSide.prize) return 1;
+          }
+        }
+          return 0;
+      });
 
-    //  console.log("is element in arr" +
-    //   arr.some(element=>element.name==='Gouda'));
-    // this.arr.forEach(
-    //      element => {console.log(element.name + ',' + element.typeOfBread + ',' + element.options + ',' + element.prize);
-    //   });
+  this.order.dessert.sort((leftSide, rightSide): number => {
+        if(leftSide.name < rightSide.name)return -1;
+        if(leftSide.name > rightSide.name)return 1;
+        if (leftSide.name === rightSide.name)
+        {
+          if (leftSide.typeOfBread < rightSide.typeOfBread) return -1;
+          if (leftSide.typeOfBread > rightSide.typeOfBread) return 1;
+          if (leftSide.typeOfBread === rightSide.typeOfBread) {
+            if (leftSide.prize < rightSide.prize) return -1;
+            if (leftSide.prize > rightSide.prize) return 1;
+          }
+        }
+          return 0;
+      });
+      this.order.petiteentree.sort((leftSide, rightSide): number => {
+        if(leftSide.name < rightSide.name)return -1;
+        if(leftSide.name > rightSide.name)return 1;
+        if (leftSide.name === rightSide.name)
+        {
+          if (leftSide.typeOfBread < rightSide.typeOfBread) return -1;
+          if (leftSide.typeOfBread > rightSide.typeOfBread) return 1;
+          if (leftSide.typeOfBread === rightSide.typeOfBread) {
+            if (leftSide.prize < rightSide.prize) return -1;
+            if (leftSide.prize > rightSide.prize) return 1;
+          }
+        }
+          return 0;
+      });
+      this.order.specialite.sort((leftSide, rightSide): number => {
+        if(leftSide.name < rightSide.name)return -1;
+        if(leftSide.name > rightSide.name)return 1;
+        if (leftSide.name === rightSide.name)
+        {
+          if (leftSide.typeOfBread < rightSide.typeOfBread) return -1;
+          if (leftSide.typeOfBread > rightSide.typeOfBread) return 1;
+          if (leftSide.typeOfBread === rightSide.typeOfBread) {
+            if (leftSide.prize < rightSide.prize) return -1;
+            if (leftSide.prize > rightSide.prize) return 1;
+          }
+        }
+          return 0;
+      });
+      this.order.salade.sort((leftSide, rightSide): number => {
+        if(leftSide.name < rightSide.name)return -1;
+        if(leftSide.name > rightSide.name)return 1;
+        if (leftSide.name === rightSide.name)
+        {
+          if (leftSide.typeOfBread < rightSide.typeOfBread) return -1;
+          if (leftSide.typeOfBread > rightSide.typeOfBread) return 1;
+          if (leftSide.typeOfBread === rightSide.typeOfBread) {
+            if (leftSide.prize < rightSide.prize) return -1;
+            if (leftSide.prize > rightSide.prize) return 1;
+          }
+        }
+          return 0;
+      });
+      this.order.formule.sort((leftSide, rightSide): number => {
+        if(leftSide.name < rightSide.name)return -1;
+        if(leftSide.name > rightSide.name)return 1;
+        if (leftSide.name === rightSide.name)
+        {
+          if (leftSide.typeOfBread < rightSide.typeOfBread) return -1;
+          if (leftSide.typeOfBread > rightSide.typeOfBread) return 1;
+          if (leftSide.typeOfBread === rightSide.typeOfBread) {
+            if (leftSide.prize < rightSide.prize) return -1;
+            if (leftSide.prize > rightSide.prize) return 1;
+          }
+        }
+          return 0;
+      });
   }
 
-  // hack(val) {
-  //   return Array.from(val);
-  // }
-  // getdupllength(){
-  //   return this.arrdupl.length;
-  // }
-  // initDisplayOrderedProducts() {
-  //   //  this.painVegetarien = new Array<ProductDisplay>();
-  // }
   deleteItem(item: Product) {
     this.orderService.removeProductFromOrder(item);
   }

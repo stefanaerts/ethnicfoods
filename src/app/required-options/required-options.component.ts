@@ -2,7 +2,7 @@ import { PainGarnisRequiredService } from './../shared/model/pain-garnis-require
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from "@angular/router";
 import { OrderService } from "../shared/model/order.service";
-import { ToastService } from "../shared/toast.service";
+//import { ToastService } from "../shared/toast.service";
 
 @Component({
   selector: 'app-required-options',
@@ -13,8 +13,9 @@ export class RequiredOptionsComponent implements OnInit, OnDestroy {
   sizeDisabled = true;
   boolDisabled = true;
 
+ //constructor(private toastService: ToastService, private orderService: OrderService,
 
-  constructor(private toastService: ToastService, private orderService: OrderService,
+  constructor(private orderService: OrderService,
     private garnisrequiredService: PainGarnisRequiredService, private router: Router
   ) {
   }
@@ -33,7 +34,8 @@ export class RequiredOptionsComponent implements OnInit, OnDestroy {
 
     } catch (error) {
 
-      this.toastService.showError();
+   //   this.toastService.showError();
+   alert(error);
     }
   }
 
@@ -65,7 +67,8 @@ export class RequiredOptionsComponent implements OnInit, OnDestroy {
       this.boolDisabled = false;
       //     }
     } catch (e) {
-      this.toastService.showError();
+      //this.toastService.showError();
+      alert(e);
     }
   }
 
