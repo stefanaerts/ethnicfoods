@@ -1,6 +1,68 @@
 import { Constants } from './src/app/shared/constants';
 
 export const dbData = {
+  "drinks": [
+    {
+      "name": "Agrum Schweppes 33cl",
+      "prize": "1.50",
+      "type": Constants.DRINKS
+    },
+    {
+      "name": "Lipton Ice Tea 33cl",
+      "prize": "1.50",
+      "type": Constants.DRINKS
+    },
+    {
+      "name": "Fanta 33cl",
+      "prize": "1.50",
+      "type": Constants.DRINKS
+    },
+    {
+      "name": "Diet Coke 50cl",
+      "prize": "2.00",
+      "type": Constants.DRINKS
+    },
+    {
+      "name": "Agrum Schweppes 33cl",
+      "prize": "3.50",
+      "type": Constants.DRINKS
+    },
+    {
+      "name": "Coca-Cola 50cl",
+      "prize": "2.00",
+      "type": Constants.DRINKS
+    },
+    {
+      "name": "Diet Coke 33cl",
+      "prize": "1.50",
+      "type": Constants.DRINKS
+    },
+    {
+      "name": "Coke Zero 33cl",
+      "prize": "1.50",
+      "type": Constants.DRINKS
+    },
+    {
+      "name": "Bru 50cl",
+      "prize": "2.00",
+      "type": Constants.DRINKS
+    },
+    {
+      "name": "Spa flat 50cl",
+      "prize": "1.50",
+      "type": Constants.DRINKS
+    },
+    {
+      "name": "Spa sparkling 33cl",
+      "prize": "1.50",
+      "type": Constants.DRINKS
+    },
+    {
+      "name": "Perrier 50cl",
+      "prize": "1.75",
+      "type": Constants.DRINKS
+    },
+  ],
   "desserts": [
     {
       "name": "Tiramisu au spéculoos",
@@ -60,9 +122,9 @@ export const dbData = {
   {
     "name": "tomates séchées"
   },
-  {
-    "name": "chili"
-  },
+  // {
+  //   "name": "chili"
+  // },
   {
     "name": "olives noires"
   },
@@ -72,6 +134,53 @@ export const dbData = {
   {
     "name": "ciabatta au choix"
   }
+  ],
+  "Pains_garnis_options":
+  [
+  {
+    "name": "Carottes râpées",
+    "prize": "0.50"
+  },
+  {
+    "name": "Maïs",
+    "prize": "0.50"
+  },
+  {
+    "name": "Jalapenos",
+    "prize": "0.50"
+  },
+  {
+    "name": "Dés de tomates",
+    "prize": "0.50"
+  },
+  {
+    "name": "Tomates séchées",
+    "prize": "0.50"
+  },
+  {
+    "name": "Légumes grillés",
+    "prize": "1.00"
+  },
+  {
+    "name": "Parmesan",
+    "prize": "0.50"
+  },
+  {
+    "name": "Guacamole",
+    "prize": "0.50"
+  },
+  {
+    "name": "Beurre",
+    "prize": "0.20"
+  },
+  {
+    "name": "Noix de pécan",
+    "prize": "0.50"
+  },
+  {
+    "name": "Poulet grillé",
+    "prize": "1.00"
+  },
   ],
   "Pain_Végétariens":
   [

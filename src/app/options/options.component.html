@@ -1,25 +1,25 @@
 <md-toolbar class="bg-primary-500 c-white" >
     <span  style="width:30vw" class="hover-a" (click)="goToHome()"><a class="material-icons">home</a></span>
 
-   <span style="width:60vw">Type of bread</span>
+   <span style="width:60vw">Options</span>
 
     <!-- This fills the remaining space of the current row -->
     <span class="example-fill-remaining-space"></span>
-   <span style="width:20vw"class="hover-a" (click)="goToRequiredOptions()"><a class="material-icons">keyboard_arrow_left</a></span>
+   <span style="width:20vw"class="hover-a" (click)="goToHome()"><a class="material-icons">keyboard_arrow_left</a></span>
 
   </md-toolbar>
 
 <div >
-  <app-radio-button-without-prize [items]="paingarnisrequired" (setTypeEvent)="setType($event)"></app-radio-button-without-prize>
+  <!--<app-radio-button-without-prize [items]="paingarnisrequired" (setTypeEvent)="setType($event)"></app-radio-button-without-prize>-->
 
-	<!--<md-list  *ngFor="let item of paingarnisoptions ">
+	<md-list  *ngFor="let item of options ">
     <md-list-item >
-					<md-checkbox (click)="toggle(item.name)"></md-checkbox>
-					{{item?.name}}
+					<md-checkbox [checked]="boolchecked" (click)="toggle(item)"></md-checkbox>
+					{{item}}
 				<td class="pad-r-20"></td>
     </md-list-item>
 				<md-divider class="c-accent-100"></md-divider>
-	</md-list>-->
+	</md-list>
       <!--<h2 class="md-title">Selected Items</h2>
       <code styles ="display: block; padding: 8px;">{{selected | json}}</code>-->
 

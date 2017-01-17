@@ -1,6 +1,6 @@
 import { PainGarnisRequiredService } from './../shared/model/pain-garnis-required.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router} from "@angular/router";
+import { Router } from "@angular/router";
 import { OrderService } from "../shared/model/order.service";
 import { ToastService } from "../shared/toast.service";
 
@@ -16,10 +16,10 @@ export class RequiredOptionsComponent implements OnInit, OnDestroy {
 
   constructor(private toastService: ToastService, private orderService: OrderService,
     private garnisrequiredService: PainGarnisRequiredService, private router: Router
-    ) {
+  ) {
   }
 
-goToHome() {
+  goToHome() {
     let link = ['/home'];
     this.router.navigate(link);
   }
@@ -27,6 +27,9 @@ goToHome() {
 
     try {
       this.orderService.setTempTotalPrize(this.orderService.getTotalPrize());
+      //  this.orderService.getOrder().painVegetarien.forEach(element => {
+      //     alert(element.name);
+      //     });
 
     } catch (error) {
 
@@ -58,9 +61,9 @@ goToHome() {
       //       break;
       //   }
       this.sizeDisabled = false;
- //     if (this.typeDisabled === false) {
-        this.boolDisabled = false;
- //     }
+      //     if (this.typeDisabled === false) {
+      this.boolDisabled = false;
+      //     }
     } catch (e) {
       this.toastService.showError();
     }
@@ -79,8 +82,12 @@ goToHome() {
       this.toastService.showError();
     }
   }*/
-
-  gotoOptions(): void {
+  goToTypeOfBread(): void {
+    //   this.orderService.setTempTotalPrize(this.tempTotalPrize);
+    let link = ['/typeOfBread'];
+    this.router.navigate(link);
+  };
+  goToOptions(): void {
     //   this.orderService.setTempTotalPrize(this.tempTotalPrize);
     let link = ['/options'];
     this.router.navigate(link);

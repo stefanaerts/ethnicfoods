@@ -1,5 +1,3 @@
-import { DialogComponent } from '../dialog/dialog.component';
-import { Router } from '@angular/router';
 import { OrderService } from './../shared/model/order.service';
 import { Constants } from './../shared/constants';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
@@ -23,25 +21,25 @@ export class PpComponent implements OnInit, AfterViewInit {
       alert('Order amount cannot be zero');
       window.location.href = '/home';
     }
-    console.log('in constructor');
+ //   console.log('in constructor');
 
   }
   ngOnInit() {
   }
   ngAfterViewInit() {
     try {
-      console.log('before getToken');
+  //    console.log('before getToken');
 
       this.getToken();
     } catch (error) {
-            console.log('error getToken');
+  //          console.log('error getToken');
       alert('error');
     }
 
   }
   makeTransaction(totalPrize: number) {
     let amount: number = totalPrize;
-    console.log('amount in txn=' + amount);
+//    console.log('amount in txn=' + amount);
     //   var delay = 4000; //1 second
     //   setTimeout(function () {
     //   },delay);
@@ -85,6 +83,7 @@ export class PpComponent implements OnInit, AfterViewInit {
             state: 'IL',
             phone: '123.456.7890'
           }
+        // tslint:disable-next-line:no-shadowed-variable
         }, function (err, payload) {
           if (err) {
             console.error('tokenizeErr=' + JSON.stringify(err));
@@ -110,11 +109,11 @@ export class PpComponent implements OnInit, AfterViewInit {
               if (data.success) {
                 //      ppButton.style.backgroundColor = 'rgba(0, 0, 0, .54)';
                 //      ppButton.setAttribute('disabled', 'true');
-                //alert('Payment authorized, thanks.');
+                // alert('Payment authorized, thanks.');
                 //  this.ConfirmDialogComponent.dialog();
-                //alert('Payment authorized, thanks.');
+                // alert('Payment authorized, thanks.');
                 //             window.location.href = '/home';
-                 window.location.href = '/dialog'
+                 window.location.href = '/dialog';
               } else {
                 alert('Payment failed: ' + data.message + ' Please refresh the page and try again.');
                 console.error("data=" + JSON.stringify(data));
@@ -141,7 +140,7 @@ export class PpComponent implements OnInit, AfterViewInit {
   getToken() {
 
 try {
-console.log('in getttoken');
+// console.log('in getttoken');
 
 
     this.http.get(Constants.API_ENDPOINT + 'api/v1/token').first().subscribe(
@@ -161,7 +160,7 @@ console.log('in getttoken');
         }
       }, (error: any) => {
         alert('network problem,pls try again. If still not working please contact angular2firebaseconsultant@gmail.com');
-        window.location.href='/home';
+        window.location.href = '/home';
         console.error("error in pp subscribe gettoken=" + error);
       }
     );

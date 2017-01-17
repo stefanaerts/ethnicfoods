@@ -2,11 +2,12 @@ import { DialogComponent } from './../dialog/dialog.component';
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import {MdDialog, MdDialogConfig, MdDialogRef} from '@angular/material';
 
-const dialogs = [DialogComponent];
+// const dialogs = [DialogComponent];
 const dialogsMap = {
-  'app-no-wifi-dialog': DialogComponent,
+  'app-pay-succeed-dialog': DialogComponent,
 
-}
+};
+
 @Component({
   selector: 'app-confirm-dialog',
    template: `
@@ -15,7 +16,7 @@ const dialogsMap = {
     </div>
   `,
 })
-export class ConfirmDialogComponent implements OnInit{
+export class ConfirmDialogComponent implements OnInit {
 dialogRef: MdDialogRef<any>;
 
   constructor(
@@ -33,8 +34,8 @@ dialogRef: MdDialogRef<any>;
     });
   }
 
-ngOnInit(){
-  this.open('app-no-wifi-dialog');
+ngOnInit() {
+  this.open('app-pay-succeed-dialog');
 }
 
 }

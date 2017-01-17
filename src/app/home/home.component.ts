@@ -53,6 +53,4 @@ export class HomeComponent implements OnInit {
     let link = ['/order'];
     this.router.navigate(link);
   }
-
-
 }

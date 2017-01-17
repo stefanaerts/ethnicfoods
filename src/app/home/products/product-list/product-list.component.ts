@@ -4,7 +4,7 @@ import { ToastService } from './../../../shared/toast.service';
 import { Product } from './../../../shared/model/product';
 import { Constants } from './../../../shared/constants';
 import { OrderService } from './../../../shared/model/order.service';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Item } from '../../../shared/model/item';
 import { Router } from '@angular/router';
 @Component({
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss'],
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit {
 
   @Input()
   items: Item[];
@@ -27,13 +27,15 @@ export class ProductListComponent {
    private counterService: CounterService, private router: Router, private orderService: OrderService, private toastService: ToastService) {
   }
 
-
+ngOnInit(){
+ // this.orderService.setProduct(null);
+}
   addToOrder(item: Product) {
 try {
          // this.orderService.getProduct().options = this.selected;
           this.orderService.getOrder().totalPrize = (this.orderService.getOrder().totalPrize + +item.prize);
           this.orderService.pushProductToOrder(item);
-          this.orderService.setProduct(null);
+   //       this.orderService.setProduct(null);
     } catch (error) {
  //       console.log(error);
       this.toastService.showError();
@@ -81,8 +83,12 @@ try {
     }
 
   }
+  // goToRequirements() {
+  //   let link = ['/required'];
+  //   this.router.navigate(link);
+  // }
   goToRequirements() {
-    let link = ['/required'];
+    let link = ['/options'];
     this.router.navigate(link);
   }
 }

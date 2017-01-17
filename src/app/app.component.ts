@@ -1,3 +1,4 @@
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { Constants } from './shared/constants';
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { SnackbarComponent } from './shared/snackbar/snackbar.component';
@@ -13,8 +14,8 @@ declare var NoFi: any;
 })
 export class AppComponent implements OnInit{
 
-  constructor(constants: Constants,public snb: SnackbarComponent, public  vc: ViewContainerRef) {
-
+  constructor(constants: Constants,public snb: SnackbarComponent,public toastr: ToastsManager, public  vc: ViewContainerRef) {
+  this.toastr.setRootViewContainerRef(vc);
   }
 
 ngOnInit(){
@@ -23,9 +24,7 @@ NoFi.init({
   interval: 1000,
   exit: true
 });
-
-    this.snb.refreshTotalPrizeSnackbar();
-
+this.snb.refreshTotalPrizeSnackbar();
 }
 
 }

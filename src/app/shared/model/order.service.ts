@@ -1,3 +1,4 @@
+import { Drink } from './drink';
 import { CounterService } from './../counter/counter.service';
 import { Product } from './product';
 import { Constants } from './../constants';
@@ -8,15 +9,39 @@ import { Order } from './order';
 export class OrderService {
   private order: Order;
   private product: Product;
+
   private tempTotalPrize: number;
+  pickupTime: String = '';
   constructor(private counterService: CounterService) {
-    this.order = new Order([], [], [], [], [], [], [], [], [], [], 0, this.getDate_Time());
+    //   console.log("in constr van orderservice");
+    this.order = new Order([], [], [], [], [], [], [], [], [], [], [], 0, this.getDate_Time());
 
   }
 
+  setPickupTime(ptime: String) {
+    //  alert('in setpickup');
+    this.pickupTime = ptime;
+  }
+  getPickupTime() {
+    // console.log('in getpickuptime');
+    return this.pickupTime;
+  }
   setProduct(product: Product) {
     this.product = product;
   }
+  setDrink(drink: Drink) {
+    try {
+      this.order.drinks.push(drink);
+      this.order.totalPrize = this.order.totalPrize + +drink.prize;
+      //  alert('length=' + this.drinks.length);
+    } catch (error) {
+      alert(error);
+    }
+  }
+  setTotalPrize(prize: number) {
+    this.order.totalPrize = this.order.totalPrize + +prize;
+  }
+
   getProduct() {
     return this.product;
   }
@@ -34,6 +59,7 @@ export class OrderService {
     return tmp;
   }
   getOrder() {
+    //  console.log('in get order');
     return this.order;
   }
 
@@ -62,16 +88,34 @@ export class OrderService {
   getAllOrderedPainVegetarien() {
     return this.order.painVegetarien;
   }
+  getAllOrderedDrinks() {
+    return this.order.drinks;
+  }
   clearOrder() {
     this.order = null;
+  }
+  removeDrinkFromOrder(drink: Drink) {
+    try {
+      let index;
+      index = this.order.drinks.indexOf(drink);
+      if (index > -1) {
+        this.order.totalPrize = (this.order.totalPrize - drink.prize);
+        this.order.drinks.splice(index, 1);
+      }
+   //   this.counterService.dec(drink.$key);
+    } catch (error) {
+      alert(error);
+    }
+
   }
   removeProductFromOrder(product: Product) {
     try {
       let index;
+
       switch (product.type) {
         case Constants.PAINVEGETARIEN:
-                 console.log('painveg: product.orderid=' + product.orderId);
-        console.log('painveg: order.orderid=' + this.order.orderId);
+          //            console.log('painveg: product.orderid=' + product.orderId);
+          //   console.log('painveg: order.orderid=' + this.order.orderId);
 
           index = this.order.painVegetarien.indexOf(product);
           if (index > -1) {
@@ -124,8 +168,8 @@ export class OrderService {
           this.counterService.inc(product.$key);
           break;
         case Constants.PLATDUJOUR:
-        console.log('product.orderid=' + product.orderId);
-        console.log('order.orderid=' + this.order.orderId);
+          //   console.log('product.orderid=' + product.orderId);
+          //   console.log('order.orderid=' + this.order.orderId);
 
           index = this.order.platdujour.indexOf(product);
           if (index > -1) {

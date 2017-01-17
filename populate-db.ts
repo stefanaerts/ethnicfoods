@@ -24,7 +24,7 @@ const spécialitésRef = database().ref(Constants.SPECIALITES);
 const Plats_du_jourRef = database().ref(Constants.PLATDUJOUR);
 const Petites_entrées_avec_potagesRef = database().ref(Constants.PETITEENTREE);
 const FormulesRef = database().ref(Constants.FORMULES);
-
+const DrinksRef = database().ref(Constants.DRINKS);
 
 
 dbData.desserts.forEach( dessert => {
@@ -40,6 +40,16 @@ dbData.desserts.forEach( dessert => {
   });
 });
 
+dbData.drinks.forEach( drink => {
+
+  console.log('adding drink', drink.name);
+
+  const drinkRef = DrinksRef.push({
+      name: drink.name,
+      prize: drink.prize,
+      type: drink.type
+  });
+});
 
 dbData.Pains_garnis_required.forEach( garnis => {
 
@@ -74,14 +84,15 @@ dbData.spécialités.forEach( spécialité => {
       type: spécialité.type
   });
 });
- /* dbData.Pains_garnis_options.forEach( pain_garnis_option => {
+  dbData.Pains_garnis_options.forEach( pain_garnis_option => {
 
   console.log('adding pain_garnis_option', pain_garnis_option.name);
 
   const pain_garnis_optionRef = Pains_garnis_optionsRef.push({
       name: pain_garnis_option.name,
+      prize: pain_garnis_option.prize
     });
-});*/
+});
 
 dbData.Pain_Végétariens.forEach( Pain_Végétarien => {
   console.log('adding Pain_Végétarien', Pain_Végétarien.name);

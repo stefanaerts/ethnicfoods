@@ -11,8 +11,10 @@ export class Product {
   options: string[];
   orderId: string;
   itemId: string;
-  static fromJson({$key, type, name, description, iconUrl, prize, prize_small, prize_large, typeOfBread, options, orderId, itemId}) {
-    return new Product($key, type, name, description, iconUrl, prize, prize_small, prize_large, typeOfBread, options, orderId, itemId);
+  static fromJson({$key, type, name, description, iconUrl,
+    prize, prize_small, prize_large, typeOfBread, options, orderId, itemId}) {
+    return new Product($key, type, name, description, iconUrl,
+      prize, prize_small, prize_large, typeOfBread, options, orderId, itemId);
   }
   static fromJsonArray(json: any[]): Product[] {
     return json.map(Product.fromJson);

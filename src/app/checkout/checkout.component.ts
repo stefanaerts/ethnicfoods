@@ -13,9 +13,10 @@ import * as $ from 'jquery';
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.scss'],
 })
-export class CheckoutComponent implements OnInit {
+export class CheckoutComponent implements OnInit, AfterViewInit {
   authorization: any;
   constructor(public http: Http, public os: OrderService, private router: Router) {
+  //  alert('in checkout component');
   }
   goToPayPal() {
     let link = ['/pp'];
@@ -30,8 +31,7 @@ export class CheckoutComponent implements OnInit {
     if (this.os.getTotalPrize() === 0) {
       alert('Order amount cannot be zero');
       this.goToHome();
-    }
-    else {
+    } else {
       this.http.get(Constants.API_ENDPOINT + 'api/v1/token').first().subscribe(
         data => {
 
@@ -118,7 +118,7 @@ export class CheckoutComponent implements OnInit {
 
         hostedFieldsInstance.on('validityChange', function (event) {
           // Check if all fields are valid, then show submit button
-          var formValid = Object.keys(event.fields).every(function (key) {
+          let formValid = Object.keys(event.fields).every(function (key) {
             return event.fields[key].isValid;
           });
 
@@ -132,14 +132,14 @@ export class CheckoutComponent implements OnInit {
         });
 
         hostedFieldsInstance.on('focus', function (event) {
-          var field = event.fields[event.emittedBy];
+          let field = event.fields[event.emittedBy];
 
           $(field.container).next('.hosted-field--label').addClass('label-float').removeClass('filled');
         });
 
         // Emulates floating label pattern
         hostedFieldsInstance.on('blur', function (event) {
-          var field = event.fields[event.emittedBy];
+          let field = event.fields[event.emittedBy];
 
           if (field.isEmpty) {
             $(field.container).next('.hosted-field--label').removeClass('label-float');
@@ -151,7 +151,7 @@ export class CheckoutComponent implements OnInit {
         });
 
         hostedFieldsInstance.on('empty', function (event) {
-          var field = event.fields[event.emittedBy];
+          let field = event.fields[event.emittedBy];
 
           $(field.container).next('.hosted-field--label').removeClass('filled').removeClass('invalid');
         });
@@ -183,7 +183,7 @@ export class CheckoutComponent implements OnInit {
                 if (data.success) {
                   submit.style.backgroundColor = 'rgba(0, 0, 0, .54)';
                   submit.setAttribute('disabled', 'true');
-                  //alert('Payment authorized, thanks.');
+                  // alert('Payment authorized, thanks.');
                   alert('Payment authorized, thanks.');
                   window.location.href = '/home';
                 } else {
@@ -196,7 +196,7 @@ export class CheckoutComponent implements OnInit {
               error: function (error) {
                 alert('Error: cannot connect to server. Please make sure your server is running.');
                 console.error(error);
-                 window.location.href = '/home';
+                window.location.href = '/home';
                 ;
               }
             });

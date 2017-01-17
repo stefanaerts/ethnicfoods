@@ -1,13 +1,16 @@
+import { Drink } from './../shared/model/drink';
+/*import { DatetimeService } from './../shared/datetime/datetime.service';
 import { Item } from './../shared/model/item';
 import { element } from 'protractor';
 import { Constants } from './../shared/constants';
 import { CounterService } from './../shared/counter/counter.service';
+*/
 import { Product } from './../shared/model/product';
 import { OrderService } from './../shared/model/order.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Order } from '../shared/model/order';
-import { DessertsService } from './../shared/model/desserts.service';
+/*import { DessertsService } from './../shared/model/desserts.service';
 import { SaladesService } from './../shared/model/salades.service';
 import { SpécialitésService } from './../shared/model/spécialités.service';
 import { PainVegetariensService } from './../shared/model/pain-vegetariens.service';
@@ -17,6 +20,7 @@ import { FormulesService } from './../shared/model/formules.service';
 import { PlatDuJourService } from './../shared/model/plat-du-jour.service';
 import { PetiteEntreesService } from './../shared/model/petite-entrees.service';
 import { PainPoissonsService } from './../shared/model/pain-poissons.service';
+*/
 
 class ProductDisplay {
   prod: Product;
@@ -30,9 +34,9 @@ class ProductDisplay {
 @Component({
   selector: 'app-order-summary',
   templateUrl: './order-summary.component.html',
-  styleUrls: ['./order-summary.component.scss']
-
+  styleUrls: ['./order-summary.component.scss'],
 })
+
 
 export class OrderSummaryComponent implements OnInit {
   order: Order;
@@ -41,25 +45,26 @@ export class OrderSummaryComponent implements OnInit {
   arr = [];
   arrdupl = [];
   currentDate: number = 0;
-  pickupTimeTemp: String = '';
+// pickupTimeTemp: String = '';
   pickupTime: String = '';
 
-  constructor(private router: Router, private orderService: OrderService,
-    private counterService: CounterService
-  ) {
-    //  this.order = this.orderService.getOrder();
-    //  this.currentDate = Date.now() ;
-    //  this.pickupTimeTemp = new Date(this.currentDate + (30 * 60 * 1000)).toString()
-    //   this.pickupTime= this.pickupTimeTemp.substring(0,this.pickupTimeTemp.length - 13);
+  constructor(public router: Router, public orderService: OrderService) {
+ //   console.log('in construct');
+    this.order = this.orderService.getOrder();
   }
 
   ngOnInit() {
-    this.order = this.orderService.getOrder();
-    this.currentDate = Date.now();
-    this.pickupTimeTemp = new Date(this.currentDate + (30 * 60 * 1000)).toString();
-    this.pickupTime = this.pickupTimeTemp.substring(0, this.pickupTimeTemp.length - 14);
+//console.log('in init');
+ this.order = this.orderService.getOrder();
+ //this.order.painVegetarien.forEach(element => {
+ //  alert(element.options);
+ // });
+  //  this.currentDate = Date.now();
+ //  this.pickupTimeTemp = new Date(Date.now() + (30 * 60 * 1000)).toString();
+  //   this.orderService.setPickupTime(this.pickupTimeTemp.substring(0, this.pickupTimeTemp.length - 14));
     // {{pickupTime | date:'medium'}}
    // this.order.painVegetarien.sort();
+
     this.order.painVegetarien.sort(
       (leftSide, rightSide): number => {
         if(leftSide.name < rightSide.name)return -1;
@@ -80,6 +85,7 @@ export class OrderSummaryComponent implements OnInit {
     this.order.painViande.sort();
     this.order.painPoisson.sort();
     this.order.platdujour.sort();
+    this.order.drinks.sort();
     //    this.order.painVegetarien
     //  this.order.painVegetarien.forEach(
     //    element => {
@@ -118,6 +124,10 @@ export class OrderSummaryComponent implements OnInit {
   deleteItem(item: Product) {
     this.orderService.removeProductFromOrder(item);
   }
+  deleteDrink(drink: Drink) {
+    this.orderService.removeDrinkFromOrder(drink);
+  }
+
   goToHome() {
     let link = ['/home'];
     this.router.navigate(link);

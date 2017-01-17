@@ -1,10 +1,11 @@
  <md-toolbar class="bg-primary-500 c-white" >
-    <span  class="width-33 hover-a" (click)="goToHome()"><a class="material-icons">home</a></span>
+    <span  style="width:30vw" class="hover-a" (click)="goToHome()"><a class="material-icons">home</a></span>
 
-    <span >Required Options</span>
+    <span style="width:60vw">Required Options</span>
 
     <!-- This fills the remaining space of the current row -->
     <span class="example-fill-remaining-space"></span>
+  <span style="width:20vw"class="hover-a" (click)="goToOptions()"><a class="material-icons">keyboard_arrow_left</a></span>
 
   </md-toolbar>
 
@@ -22,7 +23,7 @@
   <span class="example-fill-remaining-space"></span>
 
   <span style="width:20vw">
-      <button md-fab [disabled]="boolDisabled" (click)="gotoOptions()">
+      <button md-fab [disabled]="boolDisabled" (click)="goToTypeOfBread()">
         <md-icon class="material-icons">navigate_next</md-icon>
       </button>
   </span>

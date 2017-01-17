@@ -1,3 +1,4 @@
+import { Drink } from './drink';
 import { Product } from './product';
 export class Order {
 
@@ -12,6 +13,7 @@ export class Order {
    public petiteentree: Product[],
    public specialite: Product[],
    public salade: Product[],
+   public drinks: Drink[],
    public totalPrize: number,
    public orderId: string
     ) {

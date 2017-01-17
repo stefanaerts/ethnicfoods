@@ -1,8 +1,14 @@
-<div id="productShowcaseContainer">
-  <md-toolbar class="bg-primary-500 c-white" >
-    <span  class="width-33 hover-a" (click)="goToHome()"><a class="material-icons">home</a></span>
+<!--<script>
+  $( function() {
+    $( "#dialog" ).dialog();
+  } );
+  </script>-->
 
-    <span >Ordered</span>
+<div id="productShowcaseContainer">
+  <md-toolbar class="bg-primary-500 c-white">
+    <span class="width-33 hover-a" (click)="goToHome()"><a class="material-icons">home</a></span>
+
+    <span>Ordered</span>
 
     <!-- This fills the remaining space of the current row -->
     <span class="example-fill-remaining-space"></span>
@@ -10,31 +16,31 @@
     <span class="hover-a" (click)="goToCheckout()"><a class="material-icons" >payment</a></span>
   </md-toolbar>
 
-  <md-list  *ngFor="let item of order.painVegetarien trackBy:item?.$key;" class="width-100-p">
-   <span id="productShowcaseContainer" >
+  <md-list *ngFor="let item of order.painVegetarien" class="width-100-p">
+    <span id="productShowcaseContainer">
     <span id="pad-left"></span>
 
-    <span id="productShowcaseDetail" >
+    <span id="productShowcaseDetail">
          <span class="product-name" > {{item?.name}}</span>
-    <span >{{item?.typeOfBread}}</span><span *ngIf="item?.prize === item?.prize_large">(Large)</span> <span *ngIf="item?.options.length > 0"> : {{item?.options}}</span>
+    <span>{{item?.typeOfBread}}</span><span *ngIf="item?.prize === item?.prize_large">(Large)</span> <span *ngIf="item?.options.length > 0"> : {{item?.options}}</span>
     </span>
-     <span><i class="material-icons" (click)="deleteItem(item)">delete</i></span>
+    <span><i class="material-icons" (click)="deleteItem(item)">delete</i></span>
     <span id="productShowcaseThumbnailContainer">
 
           <span >{{item?.prize}}<md-icon class="font14">euro_symbol</md-icon> </span>
     </span>
     <span id="empty-el"></span>
-   </span>
-   <md-divider class="c-accent-100"></md-divider>
+    </span>
+    <md-divider class="c-accent-100"></md-divider>
   </md-list>
 
-<md-divider class="c-accent-100"></md-divider>
+  <md-divider class="c-accent-100"></md-divider>
 
-  <md-list   *ngFor="let item of order.platdujour trackBy:item?.$key;" class="width-100-p">
-  <span id="productShowcaseContainer" >
+  <md-list *ngFor="let item of order.platdujour" class="width-100-p">
+    <span id="productShowcaseContainer">
  <span id="pad-left"></span>
 
-    <span id="productShowcaseDetail" class="product-name" > {{item?.name}}</span>
+    <span id="productShowcaseDetail" class="product-name"> {{item?.name}}</span>
     <span><i class="material-icons" (click)="deleteItem(item)">delete</i></span>
 
     <span id="productShowcaseThumbnailContainer">
@@ -42,40 +48,55 @@
           <span >{{item?.prize}}<md-icon class="font14">euro_symbol</md-icon> </span>
     </span>
     <span id="empty-el"></span>
-  </span>
-<md-divider class="c-accent-100"></md-divider>
+    </span>
+    <md-divider class="c-accent-100"></md-divider>
   </md-list>
 
+<md-list *ngFor="let item of order.drinks" class="width-100-p">
+    <span id="productShowcaseContainer">
+    <span id="pad-left"></span>
 
+    <span id="productShowcaseDetail">
+         <span class="product-name" > {{item?.name}}</span>
+    </span>
+    <span><i class="material-icons" (click)="deleteDrink(item)">delete</i></span>
+    <span id="productShowcaseThumbnailContainer">
+
+          <span >{{item?.prize}}<md-icon class="font14">euro_symbol</md-icon> </span>
+    </span>
+    <span id="empty-el"></span>
+    </span>
+    <md-divider class="c-accent-100"></md-divider>
+  </md-list>
 </div>
 <md-divider class="c-accent-100"></md-divider>
 
-<div id="productShowcaseContainer"  class="c-text-footer">
- <span id="pad-left"></span>
+<div id="productShowcaseContainer" class="c-text-footer">
+  <span id="pad-left"></span>
 
-<div id="showTotal">
-  <div class="showPickupTime border-accent-700 bg-accent-100">
-    CHOOSE YOUR PICKUP TIME
-    <br> {{pickupTime }}
-  </div>
+  <div id="showTotal" style="height:100vh">
+<div class="showPickupTime border-accent-700 bg-accent-100">
+  CHOOSE YOUR PICKUP TIME
+<br>{{this.orderService.getPickupTime()}}
+  <app-datetime></app-datetime>
 </div>
-  <div id="showTotal">
+</div>
+<div id="showTotal">
 
-    <div id="showTotalContainer" class="border-accent-700 bg-accent-100">
+  <div id="showTotalContainer" class="border-accent-700 bg-accent-100">
 
-      <div id="showTotalText">
-        <span>Total</span>
-        <br>
-        <span>Inclusive vat</span>
-      </div>
-
-      <span class="showTotalPrize ">
-          <span class="right-pos">{{ this.orderService.getTotalPrizeAsString() }}<md-icon class="font14">euro_symbol</md-icon></span>
-        <br>
-          <span class="right-pos">{{this.orderService.getTotalTaxAsString() }}<md-icon class="font14">euro_symbol</md-icon></span>
-      </span>
-
+    <div id="showTotalText">
+      <span>Total</span>
+      <br>
+      <span>Inclusive vat</span>
     </div>
 
+    <span class="showTotalPrize ">
+          <span class="right-pos">{{ this.orderService.getTotalPrizeAsString() }}<md-icon class="font14">euro_symbol</md-icon></span>
+    <br>
+    <span class="right-pos">{{this.orderService.getTotalTaxAsString() }}<md-icon class="font14">euro_symbol</md-icon></span>
+    </span>
+
   </div>
 
+</div>

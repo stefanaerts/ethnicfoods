@@ -15,7 +15,7 @@ import { MdSnackBar, MdSnackBarRef, MdSnackBarConfig } from '@angular/material';
 export class SnackbarComponent implements OnInit {
 
   snackBarRef: MdSnackBarRef<PizzadialogComponent>;
-  //snackBarRef: MdSnackBarRef<SimpleMdSna>;
+  // snackBarRef: MdSnackBarRef<SimpleMdSna>;
 
   constructor(private router: Router, private orderService: OrderService, public vc: ViewContainerRef, public sb: MdSnackBar ) { }
 
@@ -29,11 +29,13 @@ export class SnackbarComponent implements OnInit {
 
   //  if (this.orderService.getTotalPrize() > 0) {
 
-       let sbConfig = new MdSnackBarConfig(this.vc);
-    //   sbConfig.
+       // let sbConfig = new MdSnackBarConfig(this.vc);
+       let sbConfig = new MdSnackBarConfig();
 
-      //this.snackBarRef =
-      this.sb.openFromComponent(PizzadialogComponent,sbConfig);
+      sbConfig.viewContainerRef = this.vc;
+
+      // this.snackBarRef =
+      this.sb.openFromComponent(PizzadialogComponent, sbConfig);
 
     //  this.snackBarRef = this.sb.open('Total Prize(' + this.orderService.getTotalPrize() + ')', 'View Order', sbConfig);
   //    this.snackBarRef.afterDismissed().subscribe(result => {
