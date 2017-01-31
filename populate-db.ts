@@ -27,7 +27,7 @@ const FormulesRef = database().ref(Constants.FORMULES);
 const DrinksRef = database().ref(Constants.DRINKS);
 
 
-dbData.desserts.forEach( dessert => {
+/*dbData.desserts.forEach( dessert => {
 
   console.log('adding dessert', dessert.name);
 
@@ -39,7 +39,7 @@ dbData.desserts.forEach( dessert => {
       type: dessert.type
   });
 });
-
+*/
 dbData.drinks.forEach( drink => {
 
   console.log('adding drink', drink.name);
@@ -50,7 +50,7 @@ dbData.drinks.forEach( drink => {
       type: drink.type
   });
 });
-
+/*
 dbData.Pains_garnis_required.forEach( garnis => {
 
   console.log('adding garnis', garnis.name);

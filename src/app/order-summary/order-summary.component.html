@@ -12,7 +12,7 @@
 
     <!-- This fills the remaining space of the current row -->
     <span class="example-fill-remaining-space"></span>
-
+ <span class="hover-a" (click)="goToInvoice()"><a class="material-icons" >picture_as_pdf</a></span>
     <span class="hover-a" (click)="goToCheckout()"><a class="material-icons" >payment</a></span>
   </md-toolbar>
 
@@ -34,7 +34,7 @@
     <md-divider class="c-accent-100"></md-divider>
   </md-list>
 
-<md-list *ngFor="let item of order.painVolaille" class="width-100-p">
+  <md-list *ngFor="let item of order.painVolaille" class="width-100-p">
     <span id="productShowcaseContainer">
     <span id="pad-left"></span>
 
@@ -126,7 +126,7 @@
     <md-divider class="c-accent-100"></md-divider>
   </md-list>
   <md-divider class="c-accent-100"></md-divider>
-<md-list *ngFor="let item of order.formule" class="width-100-p">
+  <md-list *ngFor="let item of order.formule" class="width-100-p">
     <span id="productShowcaseContainer">
  <span id="pad-left"></span>
 
@@ -143,7 +143,7 @@
   </md-list>
   <md-divider class="c-accent-100"></md-divider>
 
-<md-list *ngFor="let item of order.petiteentree" class="width-100-p">
+  <md-list *ngFor="let item of order.petiteentree" class="width-100-p">
     <span id="productShowcaseContainer">
  <span id="pad-left"></span>
 
@@ -159,7 +159,7 @@
     <md-divider class="c-accent-100"></md-divider>
   </md-list>
   <md-divider class="c-accent-100"></md-divider>
-<md-list *ngFor="let item of order.specialite" class="width-100-p">
+  <md-list *ngFor="let item of order.specialite" class="width-100-p">
     <span id="productShowcaseContainer">
  <span id="pad-left"></span>
 
@@ -176,7 +176,7 @@
   </md-list>
   <md-divider class="c-accent-100"></md-divider>
 
-<md-list *ngFor="let item of order.salade" class="width-100-p">
+  <md-list *ngFor="let item of order.salade" class="width-100-p">
     <span id="productShowcaseContainer">
  <span id="pad-left"></span>
 
@@ -216,28 +216,49 @@
   <span id="pad-left"></span>
 
   <div id="showTotal" style="height:100vh">
-<div class="showPickupTime border-accent-700 bg-accent-100">
+<div class="showPickupTime border-accent-700 ">
   CHOOSE YOUR PICKUP TIME
-  <br>{{this.orderService.getPickupTime()}}
+  <br><span class="bg-accent-100 border-fat">{{this.orderService.getPickupTime()}}</span>
   <app-datetime></app-datetime>
 </div>
 </div>
 <div id="showTotal">
 
-  <div id="showTotalContainer" class="border-accent-700 bg-accent-100">
+  <div id="showTotalContainer" class="border-accent-700 ">
 
     <div id="showTotalText">
-      <span>Total</span>
+      <span>Sub</span>
       <br>
-      <span>Inclusive vat</span>
+      <span>Tax 6%</span>
+      <br>
+      <span>Total</span>
     </div>
 
     <span class="showTotalPrize ">
           <span class="right-pos">{{ this.orderService.getTotalPrizeAsString() }}<md-icon class="font14">euro_symbol</md-icon></span>
     <br>
     <span class="right-pos">{{this.orderService.getTotalTaxAsString() }}<md-icon class="font14">euro_symbol</md-icon></span>
+    <br>
+    <span class="right-pos bg-accent-100 border-fat">{{this.orderService.getTotalPrizeWithTaxAsString() }}<md-icon class="font14">euro_symbol</md-icon></span>
     </span>
-
   </div>
+  <span>
+<br>
+    <div style="color:red;" class="hover" (click)="goToCheckout()"><a class="material-icons">payment</a><span class="hover rightpos">Payment</span></div>
+    <div style="color:red;" class="hover" (click)="goToInvoice()"><a class="material-icons">picture_as_pdf</a><span class="hover rightpos">Facture</span></div>
+
+  <!--<span >
+    <button md-raised-button color="accent" (click)="goToInvoice()">Invoice<a (click)="goToInvoice()"  class="material-icons">receipt</a></button>
+    </span>-->
+  </span>
+  <!--<span>Invoice</span>
+     <span class="hover-a" (click)="goToInvoice()"><a class="material-icons" >receipt</a></span>
+  </span>-->
+  <!--<div id="invoiceContainer">
+    <div>
+       </div>
+  </div>-->
+</div>
+
 
 </div>

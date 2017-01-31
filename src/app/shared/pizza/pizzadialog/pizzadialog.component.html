@@ -5,12 +5,14 @@
 
 </head>
 <body>
-<md-card  class="card">
-  <div class="mytable">
-        <span class="left">Total prize({{ this.os.getTotalPrizeAsString() }})</span>
-        <span class="right" [hidden]=this.os.checkTotalPrizeNotNull() >
+<!--<md-card  class="card">-->
+  <div >
+        <span >
+          Total prize({{ this.os.getTotalPrizeAsString() }})
+        <span [hidden]=this.os.checkTotalPrizeNotNull() >
           <button md-raised-button color="accent" (click)="goToOrder()">View Orders</button>
           </span>
+        </span>
 </div>
 
 
@@ -18,6 +20,6 @@
         <md-icon >go</md-icon>
       </button>-->
 
-</md-card>
+<!--</md-card>-->
 </body>
 </html>

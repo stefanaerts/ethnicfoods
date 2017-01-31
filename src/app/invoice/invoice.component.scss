@@ -1,0 +1,155 @@
+// br {
+//    display: block;
+//    margin: 3px 0;
+//    line-height:3px;
+// }
+.text2style{
+font-size:12px;
+font-weight:bold;
+}
+.note{
+  font-size:12px;
+  font-style: italic;
+}
+.text-inside-grid {
+  position:absolute;
+  left: 15px;
+}
+.font8{
+font-size:10px;
+color:#CDDC39;
+}
+#mainContainer {
+	display: flex;
+	flex-flow: row wrap;
+flex: 1 1 100%;
+//max-width: 740px;
+//	height:100vh;
+	width: 100vw;
+//	background-color: orange;
+//   background-color: #E0E0E0;
+
+//  border: 2px solid red;
+}
+
+ #titleContainer {
+   display: inline-block;
+   width:100vw;
+   flex: 1 1 100%; /* Let it fill the entire space horizontally */
+ /*flex: 0 0 100%; /* Let it fill the entire space horizontally */
+	height: 12vh;
+//max-width: 740px;
+//	background-color: rgb(200, 200, 200);
+ //  border: 1px solid yellow;
+}
+
+#wrap1Container{
+  display:inline-block;
+  //height:30vh;
+ //  flex: 1 1 100%;
+   height:25vh;
+//max-width: 740px;
+ // border : 1px solid purple;
+}
+#wrap2Container{
+  display:inline-block;
+ // height:100vh;
+   flex: 1 1 100%;
+ //  max-width: 740px;
+//   height:50vh;
+}
+#wrap3Container{
+  display:inline-block;
+  //height:30vh;
+   flex: 1 1 100%;
+ //  height:25vh;
+//  border : 1px solid yellow;
+//max-width: 740px;
+}
+.flexrow{
+  display: -webkit-flex;
+  display: -ms-flex;
+   display: flex;
+  -webkit-flex-direction:row;
+  -ms-flex-direction:row;
+  flex-direction: row;
+ box-sizing: border-box;
+// max-width: 740px;
+  /* border:1px orange solid; */
+}
+.flexcol{
+  display: -webkit-flex;
+  display: -ms-flex;
+   display: flex;
+  -webkit-flex-direction:column;
+  -ms-flex-direction:column;
+  flex-direction: column;
+ box-sizing: border-box;
+// max-width: 740px;
+  /* border:1px orange solid; */
+}
+
+#invoiceToContainer {
+  display:inline-block;
+ // flex: 1 1 auto;
+ @extend .flexcol;
+ width:38vw;
+ height:100%;
+// max-width: 740px;
+//   height: calc(100% - 100px);
+//padding-left: 10px;
+// border: 2px solid blue;
+}
+
+#invoiceContainer {
+  display:inline-block;
+  @extend .flexcol;
+  width:58vw;
+ height:100%;
+//  max-width: 740px;
+//	 border: 2px solid blue;
+//   padding-right: 10px;
+//   margin-right: 10px;
+
+}
+#invoiceDetailsContainer {
+  display:inline-block;
+  @extend .flexcol;
+  width:100vw;
+  //max-width: 740px;
+ // height:100%;
+	// border: 2px solid yellow;
+
+   padding-right: 35px;
+//padding-left:2px;
+//   margin-right: 10px;
+//   padding-left: 20px;
+
+
+}
+
+
+$white: #fff;
+
+.card-shape {
+ // border-radius: 6px;
+//  border-width: 1px;
+-moz-box-shadow: inset -1px -1px 1px #455A64;
+-webkit-box-shadow: inset -1px -1px 1px ;
+box-shadow: inset -5px -5px 5px #455A64;
+  padding: 2em 2em 1em;
+//max-width: 740px;
+  // @media (max-width: $small-screen) {
+  //   padding: 2em 1.5em 1em;
+  // }
+}
+
+
+.master-card {
+    @extend .card-shape;
+    color: $white;
+    font-size: 12px;
+    background-color: #363636;
+    background: linear-gradient(115deg,#546E7A, #546E7A 50%, #455A64 50%, #455A64);
+ // background: linear-gradient(115deg, #546E7A 50%, #455A64 50%);
+  }

@@ -1,3 +1,4 @@
+import { InvoiceComponent } from './invoice/invoice.component';
 import { ExtraOptionsComponent } from './drinks/extra-options.component';
 import { TypeOfBreadComponent } from './type-of-bread/type-of-bread.component';
 // import { ConfirmWrongDateDialogComponent } from './confirm-wrong-date-dialog/confirm-wrong-date-dialog.component';
@@ -23,6 +24,7 @@ export const routes: Routes = [
   { path: 'options', component: OptionsComponent },
   { path: 'typeOfBread', component: TypeOfBreadComponent },
   { path: 'extraOptions', component: ExtraOptionsComponent },
+  { path: 'invoice', component: InvoiceComponent },
 
   { path: 'order', component: OrderSummaryComponent },
   { path: 'test', component: TesterComponent },
@@ -34,6 +36,8 @@ export const routes: Routes = [
   { path: 'checkout-menu', component: BetaalMenuComponent },
   { path: 'dialog', component: ConfirmDialogComponent },
   { path: 'nowifidialog', component: ConfirmNoWifiDialogComponent },
+  { path: 'invoice', component: InvoiceComponent },
+
  // { path: 'wrongDateDialog', component: ConfirmWrongDateDialogComponent},
   { path: '**', pathMatch: 'full', redirectTo: '/home' }
 

@@ -7,8 +7,8 @@ export class Constants {
   constructor() {
  //   console.log('instance of Constants Created');
    }
-  public static get API_ENDPOINT(): string { return 'http://localhost:3000/'; }
-// public static get API_ENDPOINT(): string { return 'https://jvggmrjkt7.execute-api.eu-central-1.amazonaws.com/latest/'; }
+//  public static get API_ENDPOINT(): string { return 'http://localhost:3000/'; }
+ public static get API_ENDPOINT(): string { return 'https://jvggmrjkt7.execute-api.eu-central-1.amazonaws.com/latest/'; }
 
  public static get PAINVEGETARIEN(): string {return 'PAINVEGETARIEN'; }
  public static get PAINVOLAILLE(): string {return 'PAINVOLAILLE'; }

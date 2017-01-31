@@ -1,5 +1,11 @@
 
-
+.rightpos{
+  position: absolute;
+ // top: 2em;
+ // right: 2em;
+ // width: 44px;
+  height: 28px;
+}
 .font14{
    font-size:14px;
 }
@@ -8,8 +14,21 @@
 }
 .product-name{
   font-weight:bold;
+  font-size:14px;
+
 }
 #productShowcaseContainer {
+	display: flex;
+	flex-flow: row wrap;
+	width: 100vw;
+ box-sizing: border-box;
+line-height:24px;
+  /*border: 5px solid black;*/
+}
+.border-fat{
+  border: 2px solid orangered;
+}
+#invoiceContainer {
 	display: flex;
 	flex-flow: row wrap;
 	width: 100vw;
@@ -69,7 +88,7 @@ line-height:24px;
 #productShowcaseDetail {
   flex:inline-block;
    box-sizing: border-box;
-
+font-size:12px;
   /*flex: 1 1 80%; /* ~ 2 * 33.33% */
  /*  height: calc(100% - 100px); /* excluding the height of the header */
   flex:80;

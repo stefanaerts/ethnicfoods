@@ -18,13 +18,8 @@ export const dbData = {
       "type": Constants.DRINKS
     },
     {
-      "name": "Diet Coke 50cl",
+      "name": "Coca Light 50cl",
       "prize": "2.00",
-      "type": Constants.DRINKS
-    },
-    {
-      "name": "Agrum Schweppes 33cl",
-      "prize": "3.50",
       "type": Constants.DRINKS
     },
     {
@@ -33,7 +28,12 @@ export const dbData = {
       "type": Constants.DRINKS
     },
     {
-      "name": "Diet Coke 33cl",
+      "name": "Coca-Light 33cl",
+      "prize": "1.50",
+      "type": Constants.DRINKS
+    },
+    {
+      "name": "Coca-Cola 33cl",
       "prize": "1.50",
       "type": Constants.DRINKS
     },
@@ -53,7 +53,7 @@ export const dbData = {
       "type": Constants.DRINKS
     },
     {
-      "name": "Spa sparkling 33cl",
+      "name": "Spa pétillant 33cl",
       "prize": "1.50",
       "type": Constants.DRINKS
     },

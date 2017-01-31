@@ -22,7 +22,11 @@
       ],
       "scripts": [
 "../node_modules/hammerjs/hammer.js",
-"js/nofi.js"
+"js/nofi.js",
+"../node_modules/moment/moment.js",
+"../node_modules/html2canvas/dist/html2canvas.js",
+"../node_modules/jspdf/dist/jspdf.min.js",
+"../node_modules/jspdf/dist/jspdf.debug.js"
       ],
       "environments": {
         "source": "environments/environment.ts",

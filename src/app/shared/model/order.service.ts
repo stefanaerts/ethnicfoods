@@ -4,6 +4,7 @@ import { Product } from './product';
 import { Constants } from './../constants';
 import { Injectable } from '@angular/core';
 import { Order } from './order';
+declare var moment: any;
 
 @Injectable()
 export class OrderService {
@@ -24,6 +25,9 @@ export class OrderService {
   }
   getPickupTime() {
     // console.log('in getpickuptime');
+    if (this.pickupTime.length === 0) {
+      this.pickupTime = moment(new Date(Date.now() + (30 * 60 * 1000))).format('YYYY-MM-DD HH:mm');
+    }
     return this.pickupTime;
   }
   setProduct(product: Product) {
@@ -52,6 +56,14 @@ export class OrderService {
     return this.tempTotalPrize;
   }
 
+  getDate() {
+    // returns current day as string
+   // let dt = new Date(Date.now('DD/MM/YYYY'));
+    let tmp = moment(new Date(Date.now())).format('DD-MM-YY');
+   //           moment(new Date(Date.now() + (30 * 60 * 1000))).format('YYYY-MM-DD HH:mm');
+    //let tmp = dt.toString().substring(0, dt.toString().length - 24);
+    return tmp;
+  }
   getDate_Time() {
 
     let dt = new Date(Date.now());
@@ -69,6 +81,13 @@ export class OrderService {
   getTotalPrizeAsString() {
     return this.order.totalPrize.toFixed(2);
   }
+  getTotalPrizeWithTaxAsString() {
+    let tp: number = this.order.totalPrize;
+    let tax: number = this.order.totalPrize * 0.06;
+    let total: number = tp + tax;
+    return total.toFixed(2);
+  }
+
   getTotalTaxAsString() {
     return (this.order.totalPrize * 0.06).toFixed(2);
   }
@@ -103,7 +122,7 @@ export class OrderService {
         this.order.drinks.splice(index, 1);
       }
       this.counterService.dec(drink.$key);
-   //   this.counterService.dec(drink.$key);
+      //   this.counterService.dec(drink.$key);
     } catch (error) {
       alert(error);
     }
@@ -136,7 +155,7 @@ export class OrderService {
           break;
 
         case Constants.PAINVIANDE:
-            index = this.order.painViande.indexOf(product);
+          index = this.order.painViande.indexOf(product);
           if (index > -1) {
             this.order.totalPrize = (this.order.totalPrize - product.prize);
             this.order.painViande.splice(index, 1);
@@ -144,7 +163,7 @@ export class OrderService {
           this.counterService.dec(product.$key);
           break;
         case Constants.PAINPOISSON:
-            index = this.order.painPoisson.indexOf(product);
+          index = this.order.painPoisson.indexOf(product);
           if (index > -1) {
             this.order.totalPrize = (this.order.totalPrize - product.prize);
             this.order.painPoisson.splice(index, 1);
@@ -152,7 +171,7 @@ export class OrderService {
           this.counterService.dec(product.$key);
           break;
         case Constants.DESSERTS:
-            index = this.order.dessert.indexOf(product);
+          index = this.order.dessert.indexOf(product);
           if (index > -1) {
             this.order.totalPrize = (this.order.totalPrize - product.prize);
             this.order.dessert.splice(index, 1);
@@ -160,7 +179,7 @@ export class OrderService {
           this.counterService.dec(product.$key);
           break;
         case Constants.FORMULES:
-             index = this.order.formule.indexOf(product);
+          index = this.order.formule.indexOf(product);
           if (index > -1) {
             this.order.totalPrize = (this.order.totalPrize - product.prize);
             this.order.formule.splice(index, 1);
@@ -168,7 +187,7 @@ export class OrderService {
           this.counterService.dec(product.$key);
           break;
         case Constants.SPECIALITES:
-             index = this.order.specialite.indexOf(product);
+          index = this.order.specialite.indexOf(product);
           if (index > -1) {
             this.order.totalPrize = (this.order.totalPrize - product.prize);
             this.order.specialite.splice(index, 1);
@@ -176,7 +195,7 @@ export class OrderService {
           this.counterService.dec(product.$key);
           break;
         case Constants.PETITEENTREE:
-             index = this.order.petiteentree.indexOf(product);
+          index = this.order.petiteentree.indexOf(product);
           if (index > -1) {
             this.order.totalPrize = (this.order.totalPrize - product.prize);
             this.order.petiteentree.splice(index, 1);
@@ -195,7 +214,7 @@ export class OrderService {
           this.counterService.dec(product.$key);
           break;
         case Constants.SALADES:
-            index = this.order.salade.indexOf(product);
+          index = this.order.salade.indexOf(product);
           if (index > -1) {
             this.order.totalPrize = (this.order.totalPrize - product.prize);
             this.order.salade.splice(index, 1);
@@ -273,7 +292,7 @@ export class OrderService {
           this.order.platdujour.push(product);
           this.counterService.inc(product.$key);
           break;
-case Constants.DRINKS:
+        case Constants.DRINKS:
           product.orderId = this.order.orderId;
           product.itemId = this.getDate_Time();
           this.order.drinks.push(product);

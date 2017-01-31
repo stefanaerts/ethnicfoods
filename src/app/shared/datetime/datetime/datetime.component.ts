@@ -1,7 +1,6 @@
 import { OrderService } from './../../model/order.service';
 import { Component, OnInit,  Output, EventEmitter, ViewContainerRef } from '@angular/core';
 import { DatetimeService } from '../datetime.service';
-
 declare var moment: any;
 // moment['locale']('nl-be'); //e.g. fr-ca
 //noinspection TypeScriptCheckImport

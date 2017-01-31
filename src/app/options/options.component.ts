@@ -1,9 +1,10 @@
-import { PainGarnisOption } from './../shared/model/pain-garnis-option';
+//import { PainGarnisOption } from './../shared/model/pain-garnis-option';
 import { PainGarnisRequiredService } from './../shared/model/pain-garnis-required.service';
 import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { Router } from "@angular/router";
 import { OrderService } from "../shared/model/order.service";
-import { ToastService } from "../shared/toast.service";
+//import { ToastService } from "../shared/toast.service";
+import * as $ from 'jquery';
 //import { PainGarnisRequired } from './../shared/model/pain-garnis-required';
 @Component({
   selector: 'app-options',
@@ -23,6 +24,7 @@ constructor( private orderService: OrderService,
   }
 
   ngOnInit() {
+    $(window).scrollTop(0);
     this.options = this.orderService.getProduct().description.split(',');
     this.boolchecked = true;
     this.options.forEach(element => {

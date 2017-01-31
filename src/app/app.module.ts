@@ -63,6 +63,7 @@ import { ConfirmNoWifiDialogComponent } from './confirm-no-wifi-dialog/confirm-n
 import { DatetimeComponent } from './shared/datetime/datetime/datetime.component';
 import { TypeOfBreadComponent } from './type-of-bread/type-of-bread.component';
 import { ExtraOptionsComponent } from './drinks/extra-options.component';
+import { InvoiceComponent } from './invoice/invoice.component';
 // import { WrongDateDialogComponent } from './wrong-date-dialog/wrong-date-dialog.component';
 // import { ConfirmWrongDateDialogComponent } from './confirm-wrong-date-dialog/confirm-wrong-date-dialog.component';
 /*let options = <ToastOptions>{
@@ -100,7 +101,8 @@ import { ExtraOptionsComponent } from './drinks/extra-options.component';
     ConfirmNoWifiDialogComponent,
     DatetimeComponent,
     TypeOfBreadComponent,
-    ExtraOptionsComponent
+    ExtraOptionsComponent,
+    InvoiceComponent
     // WrongDateDialogComponent,
     // ConfirmWrongDateDialogComponent
   ],
@@ -125,7 +127,8 @@ import { ExtraOptionsComponent } from './drinks/extra-options.component';
     AngularFireModule.initializeApp(firebaseConfig),
     RouterModule.forRoot(routes),
   //  ToastModule.forRoot(options),
-    Ng2DatetimePickerModule
+    Ng2DatetimePickerModule,
+
     //  MaterializeModule,
     //   ModalModule.forRoot(),
     //  BootstrapModalModule

@@ -8,7 +8,7 @@ import { CounterService } from './../shared/counter/counter.service';
 import { Product } from './../shared/model/product';
 import { OrderService } from './../shared/model/order.service';
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Order } from '../shared/model/order';
 /*import { DessertsService } from './../shared/model/desserts.service';
 import { SaladesService } from './../shared/model/salades.service';
@@ -21,6 +21,7 @@ import { PlatDuJourService } from './../shared/model/plat-du-jour.service';
 import { PetiteEntreesService } from './../shared/model/petite-entrees.service';
 import { PainPoissonsService } from './../shared/model/pain-poissons.service';
 */
+import * as $ from 'jquery';
 
 class ProductDisplay {
   prod: Product;
@@ -38,7 +39,7 @@ class ProductDisplay {
 })
 
 
-export class OrderSummaryComponent implements OnInit {
+export class OrderSummaryComponent implements OnInit,AfterViewInit {
   order: Order;
   visibool: boolean = false;
   counts: ProductDisplay;
@@ -53,9 +54,14 @@ export class OrderSummaryComponent implements OnInit {
     this.order = this.orderService.getOrder();
   }
 
+  ngAfterViewInit(){
+  }
+
   ngOnInit() {
 //console.log('in init');
  this.order = this.orderService.getOrder();
+  $(window).scrollTop(300);
+
  //this.order.painVegetarien.forEach(element => {
  //  alert(element.options);
  // });
@@ -237,6 +243,10 @@ export class OrderSummaryComponent implements OnInit {
   }
   goToCheckout() {
     let link = ['/checkout-menu'];
+    this.router.navigate(link);
+  }
+  goToInvoice() {
+    let link = ['/invoice'];
     this.router.navigate(link);
   }
 }
