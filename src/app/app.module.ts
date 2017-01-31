@@ -1,9 +1,10 @@
+import { UserService } from './shared/model/user.service';
 import { DatetimeService } from './shared/datetime/datetime.service';
 import { CounterService } from './shared/counter/counter.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, FormBuilder } from '@angular/forms';
+import { FormsModule, FormBuilder,ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 //import { ToastModule, ToastOptions } from 'ng2-toastr/ng2-toastr';
@@ -26,7 +27,6 @@ import { PainGarnisOptionsService } from './shared/model/pain-garnis-options.ser
 import { PainGarnisRequiredService } from './shared/model/pain-garnis-required.service';
 //import { ToastService } from './shared/toast.service';
 import { DrinksService } from './shared/model/drinks.service';
-
 import { OrderService } from './shared/model/order.service';
 
 import { RouterModule } from '@angular/router';
@@ -64,6 +64,9 @@ import { DatetimeComponent } from './shared/datetime/datetime/datetime.component
 import { TypeOfBreadComponent } from './type-of-bread/type-of-bread.component';
 import { ExtraOptionsComponent } from './drinks/extra-options.component';
 import { InvoiceComponent } from './invoice/invoice.component';
+import { DeliveryComponent } from './delivery/delivery.component';
+import { PickupOrDeliveryComponent } from './pickup-or-delivery/pickup-or-delivery.component';
+import { DeliveryAddressComponent } from './delivery-address/delivery-address.component';
 // import { WrongDateDialogComponent } from './wrong-date-dialog/wrong-date-dialog.component';
 // import { ConfirmWrongDateDialogComponent } from './confirm-wrong-date-dialog/confirm-wrong-date-dialog.component';
 /*let options = <ToastOptions>{
@@ -102,7 +105,10 @@ import { InvoiceComponent } from './invoice/invoice.component';
     DatetimeComponent,
     TypeOfBreadComponent,
     ExtraOptionsComponent,
-    InvoiceComponent
+    InvoiceComponent,
+    DeliveryComponent,
+    PickupOrDeliveryComponent,
+    DeliveryAddressComponent
     // WrongDateDialogComponent,
     // ConfirmWrongDateDialogComponent
   ],
@@ -128,12 +134,12 @@ import { InvoiceComponent } from './invoice/invoice.component';
     RouterModule.forRoot(routes),
   //  ToastModule.forRoot(options),
     Ng2DatetimePickerModule,
-
+ReactiveFormsModule
     //  MaterializeModule,
     //   ModalModule.forRoot(),
     //  BootstrapModalModule
   ],
-  providers: [FormBuilder, DessertsService, SaladesService, SpécialitésService, PainViandesService, PainVolaillesService,
+  providers: [UserService,FormBuilder, DessertsService, SaladesService, SpécialitésService, PainViandesService, PainVolaillesService,
     FormulesService, PetiteEntreesService, PainVegetariensService, PlatDuJourService, PainPoissonsService,
     PainGarnisOptionsService, DrinksService,
   PainGarnisRequiredService, Constants, OrderService, CounterService, DatetimeService],

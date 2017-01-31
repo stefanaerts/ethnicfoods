@@ -18,7 +18,7 @@ export class PizzadialogComponent implements OnInit {
 
   }
   goToOrder(){
-let link=['/order'];
+let link=['/pickupOrDeliveryMenu'];
 this.router.navigate(link);
   }
 

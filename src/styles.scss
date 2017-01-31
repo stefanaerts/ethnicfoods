@@ -108,6 +108,10 @@ body {
 .c-white{
 color:white;
 }
+.bg-white{
+background-color:white;
+}
+
 .c-accent-100{
   color: md-color($custom-color-accent,A100);
 }
@@ -119,6 +123,9 @@ color:white;
 }
 .bg-accent-400{
   background-color: md-color($custom-color-accent,A400);
+}
+.c-primary-700{
+   color: md-color($custom-color-primary,700);
 }
  .bg-primary-500{
    background-color: md-color($custom-color-primary,500);
@@ -249,3 +256,10 @@ width:100vw;
     position: absolute;
 }
 
+.myclass {
+//  height:10vh;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}

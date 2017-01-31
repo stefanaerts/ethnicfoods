@@ -1,0 +1,27 @@
+<form novalidate (ngSubmit)="onSubmit(fgAddress)" [formGroup]="fgAddress">
+  <div formGroupName="deliveryAddress">
+    <label>
+          <span>Street *</span>
+          <input  type="text" placeholder="Street name" formControlName="street">
+        </label>
+    <div class="error" *ngIf="fgAddress.get('deliveryAddress').get('street').hasError('required') && fgAddress.get('deliveryAddress').get('street').touched">
+      Street is required
+    </div>
+    <label>
+          <span>Number *</span>
+          <input  placeholder="House number" formControlName="number">
+        </label>
+    <div class="error" *ngIf="fgAddress.get('deliveryAddress').get('number').hasError('required') && fgAddress.get('deliveryAddress').get('number').touched">
+      House Number is required
+    </div>
+    <label>
+          <span>Postcode *</span>
+          <input type="number" placeholder="Postcode " formControlName="postcode">
+        </label>
+    <div class="error" *ngIf="fgAddress.get('deliveryAddress').get('postcode').hasError('required') && fgAddress.get('deliveryAddress').get('postcode').touched">
+      Postcode is required
+    </div>
+
+  </div>
+  <button type="submit" id="submitBtn" [hidden]="fgAddress.invalid"><md-icon class="material-icons">navigate_next</md-icon></button>
+</form>

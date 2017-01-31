@@ -1,3 +1,6 @@
+import { DeliveryAddressComponent } from './delivery-address/delivery-address.component';
+import { PickupOrDeliveryComponent } from './pickup-or-delivery/pickup-or-delivery.component';
+import { DeliveryComponent } from './delivery/delivery.component';
 import { InvoiceComponent } from './invoice/invoice.component';
 import { ExtraOptionsComponent } from './drinks/extra-options.component';
 import { TypeOfBreadComponent } from './type-of-bread/type-of-bread.component';
@@ -33,10 +36,14 @@ export const routes: Routes = [
   { path: 'ccpick', component: CcpickerComponent },
 { path: 'datepick', component: DatetimeComponent },
 
-  { path: 'checkout-menu', component: BetaalMenuComponent },
+  { path: 'checkoutMenu', component: BetaalMenuComponent },
   { path: 'dialog', component: ConfirmDialogComponent },
   { path: 'nowifidialog', component: ConfirmNoWifiDialogComponent },
   { path: 'invoice', component: InvoiceComponent },
+  { path: 'delivery', component: DeliveryComponent },
+  { path: 'deliveryaddress', component: DeliveryAddressComponent },
+
+  { path: 'pickupOrDeliveryMenu', component: PickupOrDeliveryComponent },
 
  // { path: 'wrongDateDialog', component: ConfirmWrongDateDialogComponent},
   { path: '**', pathMatch: 'full', redirectTo: '/home' }

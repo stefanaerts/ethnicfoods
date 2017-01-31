@@ -242,7 +242,7 @@ export class OrderSummaryComponent implements OnInit,AfterViewInit {
     this.router.navigate(link);
   }
   goToCheckout() {
-    let link = ['/checkout-menu'];
+    let link = ['/checkoutMenu'];
     this.router.navigate(link);
   }
   goToInvoice() {

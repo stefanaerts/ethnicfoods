@@ -1,0 +1,42 @@
+<form novalidate (ngSubmit)="onSubmit(user)" [formGroup]="user">
+  <label>
+        <span>First name *</span>
+        <input type="text" placeholder="Your first name" formControlName="firstName">
+      </label>
+  <div class="error" *ngIf="user.get('firstName').touched && user.get('firstName').hasError('required')">
+    First Name is required
+  </div>
+  <div class="error" *ngIf="user.get('firstName').touched && user.get('firstName').hasError('minlength')">
+    Minimum of 2 characters
+  </div>
+  <label>
+        <span>Last name *</span>
+        <input type="text" placeholder="Your last name" formControlName="lastName">
+      </label>
+  <div class="error" *ngIf="user.get('lastName').touched && user.get('lastName').hasError('required')">
+    Last Name is required
+  </div>
+  <div class="error" *ngIf="user.get('lastName').touched && user.get('lastName').hasError('minlength')">
+    Minimum of 2 characters
+  </div>
+  <div formGroupName="account">
+    <label>
+          <span>Phone Number *</span>
+          <input type='tel' placeholder="Your Phone number" formControlName="phone">
+        </label>
+    <div class="error" *ngIf="user.get('account').get('phone').hasError('required') && user.get('account').get('phone').touched">
+      Phone is required
+    </div>
+    <div class="error" *ngIf="user.get('account').get('phone').hasError('noPhoneNumber')">
+      Is not a valid phone number
+    </div>
+    <label>
+          <span>Email address (optional)</span>
+          <input type="email" placeholder="Your email address" formControlName="email">
+        </label>
+    <div class="error" *ngIf="user.get('account').get('email').hasError('normalEmailRule')">
+      Email is invalid
+    </div>
+  </div>
+  <button type="submit" id="submitBtn" [hidden]="user.invalid"><md-icon class="material-icons">navigate_next</md-icon></button>
+</form>
