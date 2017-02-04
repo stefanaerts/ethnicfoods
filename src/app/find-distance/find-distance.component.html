@@ -1,0 +1,18 @@
+		<div>
+			<p>
+        <md-input-container class="example-full-width">
+      <input  md-input placeholder="Delivery Address" name="end" id="end">
+    </md-input-container>
+				<!--<input type="text" name="end" id="end" />-->
+
+				<input type="submit" value="Calculate Route" (click)="calcRoute()" />
+			</p>
+			<p>
+				<label for="distance">Distance (km): </label>
+         <md-input-container class="example-full-width">
+      <input  md-input placeholder="Distance" name="distance" id="distance" readonly="true">
+    </md-input-container>
+			</p>
+		</div>
+		<div id="map_canvas"></div>
+

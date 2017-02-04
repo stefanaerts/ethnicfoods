@@ -1,5 +1,4 @@
-import { FormGroup } from '@angular/forms';
-import { User } from './../../delivery/signup.interface';
+import { User } from './signup.interface';
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -37,6 +36,9 @@ getUserDeliveryStreetNumber() {
 }
 getUserDeliveryPostCode() {
   return this.user.deliveryAddress.postcode;
+}
+getUserDeliveryCity() {
+  return this.user.deliveryAddress.city;
 }
 
 }

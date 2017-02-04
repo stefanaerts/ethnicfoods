@@ -1,3 +1,4 @@
+import { FindDistanceComponent } from './find-distance/find-distance.component';
 import { DeliveryAddressComponent } from './delivery-address/delivery-address.component';
 import { PickupOrDeliveryComponent } from './pickup-or-delivery/pickup-or-delivery.component';
 import { DeliveryComponent } from './delivery/delivery.component';
@@ -42,7 +43,7 @@ export const routes: Routes = [
   { path: 'invoice', component: InvoiceComponent },
   { path: 'delivery', component: DeliveryComponent },
   { path: 'deliveryaddress', component: DeliveryAddressComponent },
-
+  { path: 'findDistance', component: FindDistanceComponent },
   { path: 'pickupOrDeliveryMenu', component: PickupOrDeliveryComponent },
 
  // { path: 'wrongDateDialog', component: ConfirmWrongDateDialogComponent},

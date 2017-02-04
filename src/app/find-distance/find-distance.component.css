@@ -1,0 +1,10 @@
+/*.gm-style { font: 400 11px Roboto, Arial, sans-serif;text-decoration: none; }.gm-style img { max-width: none; }*/
+#map_canvas {
+				height: 100%;
+			}
+/*.sebm-google-map-container {
+  height: 300px;
+}*/
+.example-full-width {
+  width: 100%;
+}

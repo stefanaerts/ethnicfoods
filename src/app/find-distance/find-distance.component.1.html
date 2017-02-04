@@ -1,0 +1,20 @@
+<div>
+  <p>
+    <label for="end">Delivery Address: </label>
+    <input type="text" name="end" id="end" />
+
+    <input type="submit" value="Calculate Route" (click)="calcRoute()" />
+  </p>
+  <p>
+    <label for="distance">Distance (km): </label>
+    <input type="text" name="distance" id="distance" readonly="true" />
+  </p>
+</div>
+<!--<sebm-google-map  [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false">
+  <sebm-google-map-marker *ngFor="let m of markers" [latitude]="m.lat" [longitude]="m.lng" [label]="m.label">
+    <sebm-google-map-info-window [isOpen]="true">
+      <strong>EthnicFoods: 14 rue de la Croix de Fer à 1000 Bruxelles.</strong>
+    </sebm-google-map-info-window>
+  </sebm-google-map-marker>
+</sebm-google-map>-->
+<div id="map_canvas"></div>

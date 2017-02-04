@@ -1,27 +1,33 @@
 <form novalidate (ngSubmit)="onSubmit(fgAddress)" [formGroup]="fgAddress">
   <div formGroupName="deliveryAddress">
     <label>
-          <span>Street *</span>
-          <input  type="text" placeholder="Street name" formControlName="street">
+          <span>Delivery Street *</span>
+          <input  type="text" placeholder="Delivery Street name" formControlName="street">
         </label>
-    <div class="error" *ngIf="fgAddress.get('deliveryAddress').get('street').hasError('required') && fgAddress.get('deliveryAddress').get('street').touched">
+    <div class="error" *ngIf="fgAddress.get('deliveryAddress').get('street').touched && fgAddress.get('deliveryAddress').get('street').hasError('required')">
       Street is required
     </div>
     <label>
-          <span>Number *</span>
-          <input  placeholder="House number" formControlName="number">
+          <span>Delivery House Number *</span>
+          <input  placeholder="Delivery House number" formControlName="number">
         </label>
-    <div class="error" *ngIf="fgAddress.get('deliveryAddress').get('number').hasError('required') && fgAddress.get('deliveryAddress').get('number').touched">
+    <div class="error" *ngIf="fgAddress.get('deliveryAddress').get('number').touched && fgAddress.get('deliveryAddress').get('number').hasError('required')">
       House Number is required
     </div>
     <label>
-          <span>Postcode *</span>
-          <input type="number" placeholder="Postcode " formControlName="postcode">
+          <span>Delivery Postcode or City *</span>
+          <input type="number" id="postcode" placeholder="Delivery Postcode" formControlName="postcode" (keyup)="setCity()">
         </label>
-    <div class="error" *ngIf="fgAddress.get('deliveryAddress').get('postcode').hasError('required') && fgAddress.get('deliveryAddress').get('postcode').touched">
+    <div class="error" *ngIf="fgAddress.get('deliveryAddress').get('postcode').touched && fgAddress.get('deliveryAddress').get('postcode').hasError('required')">
       Postcode is required
     </div>
-
+<label>
+  <span>If more then 1 city, please remove the cities that do not apply.</span>
+          <input type="text" id="city" placeholder="Delivery City" formControlName="city" (keyup)="setZip()">
+        </label>
+    <div class="error" *ngIf="fgAddress.get('deliveryAddress').get('city').touched && fgAddress.get('deliveryAddress').get('city').hasError('required')">
+      City is required
+    </div>
   </div>
-  <button type="submit" id="submitBtn" [hidden]="fgAddress.invalid"><md-icon class="material-icons">navigate_next</md-icon></button>
+  <button type="submit" id="submitBtn" [hidden]="boolHidden"><md-icon class="material-icons">navigate_next</md-icon></button>
 </form>

@@ -1,7 +1,29 @@
 import { Constants } from './src/app/shared/constants';
 
 export const dbData = {
-  "drinks": [
+  "users": [
+    {
+      "firstName": "Stefan",
+      "lastName": "Aerts",
+      "account": {
+        "email": "aerts.stefan@gmail.com",
+        "phone": "+32478604846"
+      },
+      "deliveryAddress": {
+        "street": "Steendreef",
+        "postcode": "1982",
+        "city": "Elewijt",
+        "number": "14 A"
+      },
+      "address": {
+        "street": "Steendreef",
+        "postcode": "1982",
+        "city": "Elewijt",
+        "number": "14 A"
+      }
+    },
+  ],
+  /*"drinks": [
     {
       "name": "Agrum Schweppes 33cl",
       "prize": "1.50",
@@ -76,7 +98,7 @@ export const dbData = {
       "description": "Tarte normande",
       "prize": "3.50",
       "iconUrl": "https://ethnicfoods.stevegravy.com/wp-content/uploads/2016/08/PNI_4475-2.jpg",
-      "type" : Constants.DESSERTS
+      "type": Constants.DESSERTS
     }
   ],
   "salades": [
@@ -85,14 +107,14 @@ export const dbData = {
       "description": "Assortiment de légumes grillés, tomates nature et parmesan",
       "prize": "6.95",
       "iconUrl": "https://ethnicfoods.stevegravy.com/wp-content/uploads/2016/08/PNI_4475-2.jpg",
-     "type" : Constants.SALADES
+      "type": Constants.SALADES
     },
     {
       "name": "Poulet grillé",
       "description": "parfumé au thym",
       "prize": "6.95",
       "iconUrl": "https://ethnicfoods.stevegravy.com/wp-content/uploads/2016/08/PNI_4475-2.jpg",
-      "type" : Constants.SALADES
+      "type": Constants.SALADES
     }
   ],
   "spécialités":
@@ -102,14 +124,14 @@ export const dbData = {
       "description": "avec pleurottes poêlées, riz basmati, sushi su, cacahuétètes grillées, germes de soja",
       "prize": "8.95",
       "iconUrl": "https://ethnicfoods.stevegravy.com/wp-content/uploads/2016/08/PNI_4475-2.jpg",
-      "type" : Constants.SPECIALITES
+      "type": Constants.SPECIALITES
     },
     {
       "name": "Brochette de scampis",
       "description": "avec riz sauvage, légumes wok poêlées aux herbes",
       "prize": "8.95",
       "iconUrl": "https://ethnicfoods.stevegravy.com/wp-content/uploads/2016/08/PNI_4475-2.jpg",
-      "type" : Constants.SPECIALITES
+      "type": Constants.SPECIALITES
     }
   ],
   "Pains_garnis_required":
@@ -137,66 +159,66 @@ export const dbData = {
   ],
   "Pains_garnis_options":
   [
-  {
-    "name": "Carottes râpées",
-    "prize": "0.50"
-  },
-  {
-    "name": "Maïs",
-    "prize": "0.50"
-  },
-  {
-    "name": "Jalapenos",
-    "prize": "0.50"
-  },
-  {
-    "name": "Dés de tomates",
-    "prize": "0.50"
-  },
-  {
-    "name": "Tomates séchées",
-    "prize": "0.50"
-  },
-  {
-    "name": "Légumes grillés",
-    "prize": "1.00"
-  },
-  {
-    "name": "Parmesan",
-    "prize": "0.50"
-  },
-  {
-    "name": "Guacamole",
-    "prize": "0.50"
-  },
-  {
-    "name": "Beurre",
-    "prize": "0.20"
-  },
-  {
-    "name": "Noix de pécan",
-    "prize": "0.50"
-  },
-  {
-    "name": "Poulet grillé",
-    "prize": "1.00"
-  },
+    {
+      "name": "Carottes râpées",
+      "prize": "0.50"
+    },
+    {
+      "name": "Maïs",
+      "prize": "0.50"
+    },
+    {
+      "name": "Jalapenos",
+      "prize": "0.50"
+    },
+    {
+      "name": "Dés de tomates",
+      "prize": "0.50"
+    },
+    {
+      "name": "Tomates séchées",
+      "prize": "0.50"
+    },
+    {
+      "name": "Légumes grillés",
+      "prize": "1.00"
+    },
+    {
+      "name": "Parmesan",
+      "prize": "0.50"
+    },
+    {
+      "name": "Guacamole",
+      "prize": "0.50"
+    },
+    {
+      "name": "Beurre",
+      "prize": "0.20"
+    },
+    {
+      "name": "Noix de pécan",
+      "prize": "0.50"
+    },
+    {
+      "name": "Poulet grillé",
+      "prize": "1.00"
+    },
   ],
   "Pain_Végétariens":
   [
     {
       "name": "Gouda",
       "description": "Beurre, gouda, parmesan, cressonnette",
-       "prize_small": "1.95",
+      "prize_small": "1.95",
       "prize_large": "3.75",
       "type": Constants.PAINVEGETARIEN
     },
     {
       "name": "Melun",
       "description": "Brie, vinaigrette de mangue, noix de pécan, roquette",
-       "prize_small": "2.95",
+      "prize_small": "2.95",
       "prize_large": "5.25",
-       "type": Constants.PAINVEGETARIEN
+      "type": Constants.PAINVEGETARIEN
     }
   ],
   "Pain_Volailles":
@@ -206,14 +228,14 @@ export const dbData = {
       "description": "Poulet grillé au thym, légumes grillés aux herbes",
       "prize_small": "3.25",
       "prize_large": "5.95",
-       "type": Constants.PAINVOLAILLE
+      "type": Constants.PAINVOLAILLE
     },
     {
       "name": "Bombay",
       "description": "Blanc de poulet, sauce tandoori, comcombre, salade",
       "prize_small": "2.95",
       "prize_large": "5.50",
-       "type": Constants.PAINVOLAILLE
+      "type": Constants.PAINVOLAILLE
     }
   ],
   "Pain_Viandes":
@@ -223,7 +245,7 @@ export const dbData = {
       "description": "Boeuf rôti au romarin, rémoulade de céleri-rave, parmesan, cressonnette",
       "prize_small": "2.95",
       "prize_large": "5.50",
-       "type": Constants.PAINVIANDE
+      "type": Constants.PAINVIANDE
     },
     {
       "name": "Venis",
@@ -231,7 +253,7 @@ export const dbData = {
       "days-avaiable": "uniquement le jeudi et vendredi",
       "prize_small": "2.95",
       "prize_large": "5.25",
-       "type": Constants.PAINVIANDE
+      "type": Constants.PAINVIANDE
     }
   ],
   "Pain_Poissons":
@@ -241,14 +263,14 @@ export const dbData = {
       "description": "Thon, huile d'olive, anchois, trio de poivrons, olives noires, salade verte",
       "prize_small": "3.25",
       "prize_large": "5.95",
-       "type": Constants.PAINPOISSON
+      "type": Constants.PAINPOISSON
     },
     {
       "name": "Knokke",
       "description": "Salade de crevettes grises, tomates confites, vinaigre balsamique, vinaigrette de tomate, cressonnette",
       "prize_small": "3.25",
       "prize_large": "5.95",
-       "type": Constants.PAINPOISSON
+      "type": Constants.PAINPOISSON
     }
   ],
   "Plat_du_jour":
@@ -301,6 +323,6 @@ export const dbData = {
       "prize": "6.95",
       "type": Constants.FORMULES
     }
-  ]
+  ]*/
 };
 

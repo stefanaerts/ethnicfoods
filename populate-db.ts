@@ -25,8 +25,28 @@ const Plats_du_jourRef = database().ref(Constants.PLATDUJOUR);
 const Petites_entrées_avec_potagesRef = database().ref(Constants.PETITEENTREE);
 const FormulesRef = database().ref(Constants.FORMULES);
 const DrinksRef = database().ref(Constants.DRINKS);
+const UsersRef = database().ref(Constants.USERS);
 
 
+dbData.users.forEach( user => {
+
+  console.log('adding user', user.firstName);
+
+  const userRef = UsersRef.push({
+      firstName: user.firstName,
+      lastName: user.lastName,
+      account: user.account,
+      deliveryAddress: user.deliveryAddress,
+      address: user.address
+    /*  email: user.account.email,
+      phone: user.account.phone,
+      street: user.deliveryAddress.street,
+      city: user.deliveryAddress.city,
+      number: user.deliveryAddress.number,
+      postcode: user.deliveryAddress.postcode*/
+
+  });
+});
 /*dbData.desserts.forEach( dessert => {
 
   console.log('adding dessert', dessert.name);
@@ -39,7 +59,9 @@ const DrinksRef = database().ref(Constants.DRINKS);
       type: dessert.type
   });
 });
-*/
+
+
+
 dbData.drinks.forEach( drink => {
 
   console.log('adding drink', drink.name);
@@ -50,7 +72,7 @@ dbData.drinks.forEach( drink => {
       type: drink.type
   });
 });
-/*
+
 dbData.Pains_garnis_required.forEach( garnis => {
 
   console.log('adding garnis', garnis.name);
