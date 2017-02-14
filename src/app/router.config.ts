@@ -1,5 +1,7 @@
-import { FindDistanceComponent } from './find-distance/find-distance.component';
+//import { GoogleMapAutoCompleteComponent } from './shared/googlemaps/google-map-auto-complete/google-map-auto-complete.component';
 import { DeliveryAddressComponent } from './delivery-address/delivery-address.component';
+import { OrderSummaryDeliveryComponent } from './order-summary-delivery/order-summary-delivery.component';
+import { FindDistanceComponent } from './find-distance/find-distance.component';
 import { PickupOrDeliveryComponent } from './pickup-or-delivery/pickup-or-delivery.component';
 import { DeliveryComponent } from './delivery/delivery.component';
 import { InvoiceComponent } from './invoice/invoice.component';
@@ -31,8 +33,9 @@ export const routes: Routes = [
   { path: 'invoice', component: InvoiceComponent },
 
   { path: 'order', component: OrderSummaryComponent },
+  { path: 'orderdelivery', component: OrderSummaryDeliveryComponent },
   { path: 'test', component: TesterComponent },
-  { path: 'checkout', component: CheckoutComponent },
+ // { path: 'checkout', component: CheckoutComponent },
   { path: 'pp', component: PpComponent },
   { path: 'ccpick', component: CcpickerComponent },
 { path: 'datepick', component: DatetimeComponent },
@@ -42,8 +45,10 @@ export const routes: Routes = [
   { path: 'nowifidialog', component: ConfirmNoWifiDialogComponent },
   { path: 'invoice', component: InvoiceComponent },
   { path: 'delivery', component: DeliveryComponent },
-  { path: 'deliveryaddress', component: DeliveryAddressComponent },
-  { path: 'findDistance', component: FindDistanceComponent },
+  //{ path: 'deliveryaddress', component: DeliveryAddressComponent },
+  { path: 'deliveryaddress', component: FindDistanceComponent },
+  //{ path: 'gmap', component: GoogleMapAutoCompleteComponent },
+
   { path: 'pickupOrDeliveryMenu', component: PickupOrDeliveryComponent },
 
  // { path: 'wrongDateDialog', component: ConfirmWrongDateDialogComponent},

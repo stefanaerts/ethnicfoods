@@ -3,7 +3,6 @@ import { Constants } from './shared/constants';
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { SnackbarComponent } from './shared/snackbar/snackbar.component';
 import '../js/nofi.js';
-
 declare var NoFi: any;
 
 @Component({
@@ -26,7 +25,7 @@ NoFi.init({
   interval: 1000,
   exit: true
 });
-this.snb.refreshTotalPrizeSnackbar();
+//this.snb.refreshTotalPrizeSnackbar();
 }
 
 }

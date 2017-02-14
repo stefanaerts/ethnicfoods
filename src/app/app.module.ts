@@ -1,3 +1,7 @@
+import { googlemapsConfig } from './../environments/googlemaps.config';
+import { AgmCoreModule } from "angular2-google-maps/core";
+
+import { BelgiumZipcodeService } from './shared/findCity/belgium-zipcode.service';
 import { UserService } from './shared/model/user.service';
 import { DatetimeService } from './shared/datetime/datetime.service';
 import { CounterService } from './shared/counter/counter.service';
@@ -7,7 +11,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, FormBuilder,ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
-//import { ToastModule, ToastOptions } from 'ng2-toastr/ng2-toastr';
 import { Ng2DatetimePickerModule } from 'ng2-datetime-picker';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from 'angularfire2/index';
@@ -25,7 +28,6 @@ import { PetiteEntreesService } from './shared/model/petite-entrees.service';
 import { PainPoissonsService } from './shared/model/pain-poissons.service';
 import { PainGarnisOptionsService } from './shared/model/pain-garnis-options.service';
 import { PainGarnisRequiredService } from './shared/model/pain-garnis-required.service';
-//import { ToastService } from './shared/toast.service';
 import { DrinksService } from './shared/model/drinks.service';
 import { OrderService } from './shared/model/order.service';
 
@@ -67,6 +69,13 @@ import { InvoiceComponent } from './invoice/invoice.component';
 import { DeliveryComponent } from './delivery/delivery.component';
 import { PickupOrDeliveryComponent } from './pickup-or-delivery/pickup-or-delivery.component';
 import { DeliveryAddressComponent } from './delivery-address/delivery-address.component';
+import { FindDistanceComponent } from './find-distance/find-distance.component';
+import { OrderSummaryDeliveryComponent } from './order-summary-delivery/order-summary-delivery.component';
+import { SimpleDialogComponent } from './shared/simple-dialog/simple-dialog.component';
+import { OrderedListComponent } from './shared/ordered-list/ordered-list.component';
+import { OrderListToolbarComponent } from './shared/toolbars/order-list-toolbar/order-list-toolbar.component';
+import { CalendarSelectorComponent } from './shared/calendar/calendar-selector/calendar-selector.component';
+//import { GoogleMapAutoCompleteComponent } from './shared/googlemaps/google-map-auto-complete/google-map-auto-complete.component';
 // import { WrongDateDialogComponent } from './wrong-date-dialog/wrong-date-dialog.component';
 // import { ConfirmWrongDateDialogComponent } from './confirm-wrong-date-dialog/confirm-wrong-date-dialog.component';
 /*let options = <ToastOptions>{
@@ -108,7 +117,14 @@ import { DeliveryAddressComponent } from './delivery-address/delivery-address.co
     InvoiceComponent,
     DeliveryComponent,
     PickupOrDeliveryComponent,
-    DeliveryAddressComponent
+    DeliveryAddressComponent,
+    FindDistanceComponent,
+    OrderSummaryDeliveryComponent,
+    SimpleDialogComponent,
+    OrderedListComponent,
+    OrderListToolbarComponent,
+    CalendarSelectorComponent,
+  //  GoogleMapAutoCompleteComponent,
     // WrongDateDialogComponent,
     // ConfirmWrongDateDialogComponent
   ],
@@ -122,7 +138,8 @@ import { DeliveryAddressComponent } from './delivery-address/delivery-address.co
     ConfirmNoWifiDialogComponent,
     //  ConfirmWrongDateDialogComponent,
     // WrongDateDialogComponent,
-    DatetimeComponent
+    DatetimeComponent,
+    SimpleDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -132,9 +149,11 @@ import { DeliveryAddressComponent } from './delivery-address/delivery-address.co
     MaterialModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig),
     RouterModule.forRoot(routes),
+  AgmCoreModule.forRoot(googlemapsConfig
+    ),
   //  ToastModule.forRoot(options),
     Ng2DatetimePickerModule,
-ReactiveFormsModule
+ReactiveFormsModule,
     //  MaterializeModule,
     //   ModalModule.forRoot(),
     //  BootstrapModalModule
@@ -142,7 +161,7 @@ ReactiveFormsModule
   providers: [UserService,FormBuilder, DessertsService, SaladesService, SpécialitésService, PainViandesService, PainVolaillesService,
     FormulesService, PetiteEntreesService, PainVegetariensService, PlatDuJourService, PainPoissonsService,
     PainGarnisOptionsService, DrinksService,
-  PainGarnisRequiredService, Constants, OrderService, CounterService, DatetimeService],
+  PainGarnisRequiredService, Constants, OrderService, CounterService, DatetimeService,BelgiumZipcodeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
