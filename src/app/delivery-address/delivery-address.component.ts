@@ -13,11 +13,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class DeliveryAddressComponent implements OnInit {
   fgAddress: FormGroup;
-  boolHidden: boolean;
+  public showBtn= false;
   constructor(private fb: FormBuilder, private router: Router, private userService: UserService, private belgiumZipcodeService: BelgiumZipcodeService) { }
 
   ngOnInit() {
-   this.boolHidden = true;
     this.fgAddress = this.fb.group({
       deliveryAddress: this.fb.group({
         street: ['', [Validators.required]],
@@ -61,9 +60,9 @@ this.fgAddress.get('deliveryAddress').get('postcode').markAsUntouched();
     }
     if ((<HTMLInputElement>document.getElementById("postcode")).value !== ''
       && (<HTMLInputElement>document.getElementById("city")).value !== '') {
-      this.boolHidden = false;
+      this.showBtn = true;
     } else {
-      this.boolHidden = true;
+      this.showBtn = false;
     }
   }
   setZip() {
@@ -85,9 +84,9 @@ this.fgAddress.get('deliveryAddress').get('postcode').markAsUntouched();
     }
     if ((<HTMLInputElement>document.getElementById("postcode")).value !== ''
       && (<HTMLInputElement>document.getElementById("city")).value !== '') {
-      this.boolHidden = false;
+      this.showBtn = true;
     } else {
-      this.boolHidden = true;
+      this.showBtn = false;
     }
   }
 }

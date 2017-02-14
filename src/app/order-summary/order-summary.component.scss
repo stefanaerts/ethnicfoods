@@ -1,14 +1,6 @@
 
-.rightpos{
-  position: absolute;
- // top: 2em;
- // right: 2em;
- // width: 44px;
-  height: 28px;
-}
-.font14{
-   font-size:14px;
-}
+
+
 .material-icons-16{
   font-size: 18px;
 }
@@ -25,9 +17,7 @@
 line-height:24px;
   /*border: 5px solid black;*/
 }
-.border-fat{
-  border: 2px solid orangered;
-}
+
 #invoiceContainer {
 	display: flex;
 	flex-flow: row wrap;
@@ -36,51 +26,7 @@ line-height:24px;
 line-height:24px;
   /*border: 5px solid black;*/
 }
-#showTotal {
-  flex:inline-block;
-  /* flex: 1 1 50%; /* ~ 2 * 33.33% */
-  flex:2;
-  border: 5px solid white;
-   box-sizing: border-box;
 
-}
-.showPickupTime {
-  flex:inline-block;
-  /* flex: 1 1 50%; /* ~ 2 * 33.33% */
-  flex:3;
-  //border: 5px solid md-color($custom-color-primary,700);
- box-sizing: border-box;
-
-}
-
-
-#showTotalContainer {
-	display: flex;
-	flex-flow: row wrap;
-   box-sizing: border-box;
-
-	/*width: 100%;*/
-  /*border: 5px solid rosybrown;*/
-}
-
-#showTotalText {
-   box-sizing: border-box;
-
-  flex:inline-block;
-  /* flex: 1 1 50%; /* ~ 2 * 33.33% */
-  flex:2;
-  /*border: 5px solid orange;*/
-  padding-top:1px;
-
-}
-.showTotalPrize {
- // flex:inline-block;
- //box-sizing: border-box;
-  /* flex: 1 1 50%; /* ~ 2 * 33.33% */
-  flex:2;
-  /*border: 5px solid deepskyblue;
-  float:right;*/
-}
 
 
 
@@ -227,3 +173,59 @@ font-size:12px;
    font-size: 14px;
    /*  height: 14px; */
  }
+.rightpos{
+  position: absolute;
+ // top: 2em;
+ // right: 2em;
+ // width: 44px;
+  height: 28px;
+}
+.font14{
+   font-size:14px;
+}
+.border-fat{
+//  border: 2px solid orangered;
+//color:red;
+//background-color:blue;
+//background: #ddd;
+//border-color:purple;
+}
+#showTotalContainer {
+	display: flex;
+	flex-flow: row wrap;
+   box-sizing: border-box;
+
+	/*width: 100%;*/
+  /*border: 5px solid rosybrown;*/
+}
+
+#showTotalText {
+   box-sizing: border-box;
+
+  flex:inline-block;
+  /* flex: 1 1 50%; /* ~ 2 * 33.33% */
+  flex:2;
+  /*border: 5px solid orange;*/
+  padding-top:1px;
+
+}
+#showTotal {
+  flex:inline-block;
+  /* flex: 1 1 50%; /* ~ 2 * 33.33% */
+  flex:2;
+  border: 5px solid white;
+   box-sizing: border-box;
+
+}
+
+
+
+
+.showTotalPrize {
+ // flex:inline-block;
+ //box-sizing: border-box;
+  /* flex: 1 1 50%; /* ~ 2 * 33.33% */
+  flex:2;
+  /*border: 5px solid deepskyblue;
+  float:right;*/
+}

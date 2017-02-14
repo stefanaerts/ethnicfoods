@@ -38,5 +38,5 @@
       Email is invalid
     </div>
   </div>
-  <button type="submit" id="submitBtn" [hidden]="user.invalid"><md-icon class="material-icons">navigate_next</md-icon></button>
+  <button type="submit" id="submitBtn" *ngIf="user.valid"><md-icon class="material-icons">navigate_next</md-icon></button>
 </form>

@@ -1,0 +1,229 @@
+
+.rightpos{
+  position: absolute;
+ // top: 2em;
+ // right: 2em;
+ // width: 44px;
+  height: 28px;
+}
+.font14{
+   font-size:14px;
+}
+.material-icons-16{
+  font-size: 18px;
+}
+.product-name{
+  font-weight:bold;
+  font-size:14px;
+
+}
+#productShowcaseContainer {
+	display: flex;
+	flex-flow: row wrap;
+	width: 100vw;
+ box-sizing: border-box;
+line-height:24px;
+  /*border: 5px solid black;*/
+}
+.border-fat{
+  border: 2px solid orangered;
+}
+#invoiceContainer {
+	display: flex;
+	flex-flow: row wrap;
+	width: 100vw;
+ box-sizing: border-box;
+line-height:24px;
+  /*border: 5px solid black;*/
+}
+#showTotal {
+  flex:inline-block;
+  /* flex: 1 1 50%; /* ~ 2 * 33.33% */
+  flex:2;
+  border: 5px solid white;
+   box-sizing: border-box;
+
+}
+.showPickupTime {
+  flex:inline-block;
+  /* flex: 1 1 50%; /* ~ 2 * 33.33% */
+  flex:3;
+  //border: 5px solid md-color($custom-color-primary,700);
+ box-sizing: border-box;
+
+}
+
+
+#showTotalContainer {
+	display: flex;
+	flex-flow: row wrap;
+   box-sizing: border-box;
+
+	/*width: 100%;*/
+  /*border: 5px solid rosybrown;*/
+}
+
+#showTotalText {
+   box-sizing: border-box;
+
+  flex:inline-block;
+  /* flex: 1 1 50%; /* ~ 2 * 33.33% */
+  flex:2;
+  /*border: 5px solid orange;*/
+  padding-top:1px;
+
+}
+.showTotalPrize {
+ // flex:inline-block;
+ //box-sizing: border-box;
+  /* flex: 1 1 50%; /* ~ 2 * 33.33% */
+  flex:2;
+  /*border: 5px solid deepskyblue;
+  float:right;*/
+}
+
+
+
+/*.showTotalPrize .col2{float:right;}*/
+#productShowcaseDetail {
+  flex:inline-block;
+   box-sizing: border-box;
+font-size:12px;
+  /*flex: 1 1 80%; /* ~ 2 * 33.33% */
+ /*  height: calc(100% - 100px); /* excluding the height of the header */
+  flex:80;
+
+  /*border: 5px solid yellow;*/
+}
+
+#productShowcaseThumbnailContainer {
+   box-sizing: border-box;
+
+  flex:inline-block;
+  flex: 1 1 34%;  /* ~ 33.33% */
+  flex:19;
+  /*border: 5px solid red;*/
+  padding:2px;
+  margin:2px;
+  text-align:right;
+  /* height: calc(100% - 100px); */
+}
+
+
+
+
+
+
+
+
+
+#empty-el{
+  flex:inline-block;
+  flex:1;
+}
+#pad-left{
+  padding-left:5px;
+  /*background-color:red;*/
+  color:white;
+}
+
+
+
+
+.example-fill-remaining-space {
+  // This fills the remaining space, by using flexbox.
+  // Every toolbar row uses a flexbox row layout.
+  flex: 1 1 auto;
+}
+
+
+.navigation {
+  list-style: none;
+  margin: 0;
+
+  background: deepskyblue;
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: row wrap;
+  -webkit-flex-flow: row wrap;
+  justify-content: flex-end;
+}
+
+.navigation a {
+  text-decoration: none;
+  display: block;
+  padding: 1em;
+  color: white;
+}
+
+.navigation a:hover {
+  background: darken(deepskyblue, 2%);
+}
+
+@media all and (max-width: 800px) {
+  .navigation {
+    justify-content: space-around;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .navigation {
+    -webkit-flex-flow: column wrap;
+    flex-flow: column wrap;
+    padding: 0;
+  }
+
+  .navigation a {
+    text-align: center;
+    padding: 10px;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  }
+
+
+  .navigation li:last-of-type a {
+    border-bottom: none;
+  }
+}
+
+
+ .rwd-break670 {
+   display: block;
+ }
+.rwd-break420 {
+   display: block;
+ }
+.rwd-break530 {
+   display: block;
+ }
+.rwd-break350 {
+   display: block;
+ }
+
+ @media screen and (min-width: 670px) {
+   .rwd-break670 {
+     display: none;
+   }
+ }
+@media screen and (min-width: 350px) {
+   .rwd-break350 {
+     display: none;
+   }
+ }
+ @media screen and (min-width: 390px) {
+   .rwd-break530 {
+     display: none;
+   }
+ }
+
+
+
+ .prizecolor {
+   color: rgba(0, 0, 0, 0.54);
+   font-size: 14px;
+   /*  height: 14px; */
+ }

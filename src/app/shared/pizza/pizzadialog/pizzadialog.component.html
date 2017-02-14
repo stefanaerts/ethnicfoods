@@ -8,8 +8,8 @@
 <!--<md-card  class="card">-->
   <div >
         <span >
-          Total prize({{ this.os.getTotalPrizeAsString() }})
-        <span [hidden]=this.os.checkTotalPrizeNotNull() >
+          Total prize({{ totalPrize }})
+        <span *ngIf="totalPrize">
           <button md-raised-button color="accent" (click)="goToOrder()">View Orders</button>
           </span>
         </span>

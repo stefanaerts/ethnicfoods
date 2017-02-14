@@ -1,3 +1,4 @@
+import { OrderService } from './../shared/model/order.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,16 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PickupOrDeliveryComponent implements OnInit {
 
-  constructor(public router: Router) { }
+  constructor(public router: Router,public os: OrderService) { }
 
   ngOnInit() {
   }
-goToPickup() {
+  goToPickup() {
+this.os.setDeliveryMethod('PICKUP');
     let link = ['/order'];
     this.router.navigate(link);
   }
-  goToDelivery() {
-    let link = ['/delivery'];
+  goToDeliveryAddress() {
+    let link = ['/deliveryaddress'];
     this.router.navigate(link);
   }
 }

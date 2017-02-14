@@ -1,0 +1,15 @@
+<div id="dialogbox" title="WRONG PICKUP DATE" >
+  The pickup date cannot be before:
+  <br>
+  <br>
+   {{oldDate}}
+  <br>
+  <br>
+  you entered:
+  <br>
+  <br>
+  {{newDate}}
+  <div md-dialog-actions>
+  <button md-button (click)="dialogRef.close()">Close</button>
+</div>
+</div>

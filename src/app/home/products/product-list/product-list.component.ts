@@ -1,3 +1,4 @@
+import { SnackbarComponent } from './../../../shared/snackbar/snackbar.component';
 //import { HomeComponent } from './../../home.component';
 import { CounterService } from './../../../shared/counter/counter.service';
 //import { ToastService } from './../../../shared/toast.service';
@@ -24,7 +25,7 @@ export class ProductListComponent implements OnInit {
   // typeOfProduct: string;
 
   constructor(
-   private counterService: CounterService, private router: Router, private orderService: OrderService) {
+   private counterService: CounterService, private router: Router, private orderService: OrderService,public snb: SnackbarComponent) {
  //private counterService: CounterService, private router: Router, private orderService: OrderService, private toastService: ToastService) {
 
 }
@@ -87,7 +88,7 @@ try {
       alert("No Product selected");
         break;
     }
-
+this.snb.refreshTotalPrizeSnackbar();
   }
   // goToRequirements() {
   //   let link = ['/required'];

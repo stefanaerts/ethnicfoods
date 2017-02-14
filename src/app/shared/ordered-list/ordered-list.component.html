@@ -1,0 +1,186 @@
+<md-list *ngFor="let item of order.painVegetarien" class="width-100-p">
+    <span id="productShowcaseContainer">
+    <span id="pad-left"></span>
+
+    <span id="productShowcaseDetail">
+         <span class="product-name" > {{item?.name}}</span>
+    <span>{{item?.typeOfBread}}</span><span *ngIf="item?.prize === item?.prize_large">(Large)</span> <span *ngIf="item?.options.length > 0"> : {{item?.options}}</span>
+    </span>
+    <span><i class="material-icons" (click)="deleteItem(item)">delete</i></span>
+    <span id="productShowcaseThumbnailContainer">
+
+          <span >{{item?.prize}}<md-icon class="font14">euro_symbol</md-icon> </span>
+    </span>
+    <span id="empty-el"></span>
+    </span>
+    <md-divider class="c-accent-100"></md-divider>
+  </md-list>
+
+  <md-list *ngFor="let item of order.painVolaille" class="width-100-p">
+    <span id="productShowcaseContainer">
+    <span id="pad-left"></span>
+
+    <span id="productShowcaseDetail">
+         <span class="product-name" > {{item?.name}}</span>
+    <span>{{item?.typeOfBread}}</span><span *ngIf="item?.prize === item?.prize_large">(Large)</span> <span *ngIf="item?.options.length > 0"> : {{item?.options}}</span>
+    </span>
+    <span><i class="material-icons" (click)="deleteItem(item)">delete</i></span>
+    <span id="productShowcaseThumbnailContainer">
+
+          <span >{{item?.prize}}<md-icon class="font14">euro_symbol</md-icon> </span>
+    </span>
+    <span id="empty-el"></span>
+    </span>
+    <md-divider class="c-accent-100"></md-divider>
+  </md-list>
+
+
+  <md-list *ngFor="let item of order.painViande" class="width-100-p">
+    <span id="productShowcaseContainer">
+    <span id="pad-left"></span>
+
+    <span id="productShowcaseDetail">
+         <span class="product-name" > {{item?.name}}</span>
+    <span>{{item?.typeOfBread}}</span><span *ngIf="item?.prize === item?.prize_large">(Large)</span> <span *ngIf="item?.options.length > 0"> : {{item?.options}}</span>
+    </span>
+    <span><i class="material-icons" (click)="deleteItem(item)">delete</i></span>
+    <span id="productShowcaseThumbnailContainer">
+
+          <span >{{item?.prize}}<md-icon class="font14">euro_symbol</md-icon> </span>
+    </span>
+    <span id="empty-el"></span>
+    </span>
+    <md-divider class="c-accent-100"></md-divider>
+  </md-list>
+
+  <md-list *ngFor="let item of order.painPoisson" class="width-100-p">
+    <span id="productShowcaseContainer">
+    <span id="pad-left"></span>
+
+    <span id="productShowcaseDetail">
+         <span class="product-name" > {{item?.name}}</span>
+    <span>{{item?.typeOfBread}}</span><span *ngIf="item?.prize === item?.prize_large">(Large)</span> <span *ngIf="item?.options.length > 0"> : {{item?.options}}</span>
+    </span>
+    <span><i class="material-icons" (click)="deleteItem(item)">delete</i></span>
+    <span id="productShowcaseThumbnailContainer">
+
+          <span >{{item?.prize}}<md-icon class="font14">euro_symbol</md-icon> </span>
+    </span>
+    <span id="empty-el"></span>
+    </span>
+    <md-divider class="c-accent-100"></md-divider>
+  </md-list>
+
+
+  <md-list *ngFor="let item of order.platdujour" class="width-100-p">
+    <span id="productShowcaseContainer">
+ <span id="pad-left"></span>
+
+    <span id="productShowcaseDetail" class="product-name"> {{item?.name}}</span>
+    <span><i class="material-icons" (click)="deleteItem(item)">delete</i></span>
+
+    <span id="productShowcaseThumbnailContainer">
+
+          <span >{{item?.prize}}<md-icon class="font14">euro_symbol</md-icon> </span>
+    </span>
+    <span id="empty-el"></span>
+    </span>
+    <md-divider class="c-accent-100"></md-divider>
+  </md-list>
+
+
+  <md-list *ngFor="let item of order.dessert" class="width-100-p">
+    <span id="productShowcaseContainer">
+ <span id="pad-left"></span>
+
+    <span id="productShowcaseDetail" class="product-name"> {{item?.name}}</span>
+    <span><i class="material-icons" (click)="deleteItem(item)">delete</i></span>
+
+    <span id="productShowcaseThumbnailContainer">
+
+          <span >{{item?.prize}}<md-icon class="font14">euro_symbol</md-icon> </span>
+    </span>
+    <span id="empty-el"></span>
+    </span>
+    <md-divider class="c-accent-100"></md-divider>
+  </md-list>
+  <md-list *ngFor="let item of order.formule" class="width-100-p">
+    <span id="productShowcaseContainer">
+ <span id="pad-left"></span>
+
+    <span id="productShowcaseDetail" class="product-name"> {{item?.name}}</span>
+    <span><i class="material-icons" (click)="deleteItem(item)">delete</i></span>
+
+    <span id="productShowcaseThumbnailContainer">
+
+          <span >{{item?.prize}}<md-icon class="font14">euro_symbol</md-icon> </span>
+    </span>
+    <span id="empty-el"></span>
+    </span>
+    <md-divider class="c-accent-100"></md-divider>
+  </md-list>
+
+  <md-list *ngFor="let item of order.petiteentree" class="width-100-p">
+    <span id="productShowcaseContainer">
+ <span id="pad-left"></span>
+
+    <span id="productShowcaseDetail" class="product-name"> {{item?.name}}</span>
+    <span><i class="material-icons" (click)="deleteItem(item)">delete</i></span>
+
+    <span id="productShowcaseThumbnailContainer">
+
+          <span >{{item?.prize}}<md-icon class="font14">euro_symbol</md-icon> </span>
+    </span>
+    <span id="empty-el"></span>
+    </span>
+    <md-divider class="c-accent-100"></md-divider>
+  </md-list>
+
+  <md-list *ngFor="let item of order.specialite" class="width-100-p">
+    <span id="productShowcaseContainer">
+ <span id="pad-left"></span>
+
+    <span id="productShowcaseDetail" class="product-name"> {{item?.name}}</span>
+    <span><i class="material-icons" (click)="deleteItem(item)">delete</i></span>
+
+    <span id="productShowcaseThumbnailContainer">
+
+          <span >{{item?.prize}}<md-icon class="font14">euro_symbol</md-icon> </span>
+    </span>
+    <span id="empty-el"></span>
+    </span>
+    <md-divider class="c-accent-100"></md-divider>
+  </md-list>
+
+  <md-list *ngFor="let item of order.salade" class="width-100-p">
+    <span id="productShowcaseContainer">
+ <span id="pad-left"></span>
+
+    <span id="productShowcaseDetail" class="product-name"> {{item?.name}}</span>
+    <span><i class="material-icons" (click)="deleteItem(item)">delete</i></span>
+
+    <span id="productShowcaseThumbnailContainer">
+
+          <span >{{item?.prize}}<md-icon class="font14">euro_symbol</md-icon> </span>
+    </span>
+    <span id="empty-el"></span>
+    </span>
+    <md-divider class="c-accent-100"></md-divider>
+  </md-list>
+
+  <md-list *ngFor="let item of order.drinks" class="width-100-p">
+    <span id="productShowcaseContainer">
+    <span id="pad-left"></span>
+
+    <span id="productShowcaseDetail">
+         <span class="product-name" > {{item?.name}}</span>
+    </span>
+    <span><i class="material-icons" (click)="deleteDrink(item)">delete</i></span>
+    <span id="productShowcaseThumbnailContainer">
+
+          <span >{{item?.prize}}<md-icon class="font14">euro_symbol</md-icon> </span>
+    </span>
+    <span id="empty-el"></span>
+    </span>
+    <md-divider class="c-accent-100"></md-divider>
+  </md-list>

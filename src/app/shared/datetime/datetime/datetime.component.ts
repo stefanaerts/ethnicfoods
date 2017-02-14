@@ -1,7 +1,11 @@
+import { SimpleDialogComponent } from './../../simple-dialog/simple-dialog.component';
 import { OrderService } from './../../model/order.service';
-import { Component, OnInit,  Output, EventEmitter, ViewContainerRef } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter, ViewContainerRef } from '@angular/core';
 import { DatetimeService } from '../datetime.service';
 declare var moment: any;
+import { MdDialog, MdDialogConfig, MdDialogRef } from '@angular/material';
+
+
 // moment['locale']('nl-be'); //e.g. fr-ca
 //noinspection TypeScriptCheckImport
 // import { Ng2Datetime } from 'ng2-datetime-picker';
@@ -11,13 +15,13 @@ DatetimeService.firstDayOfWeek = 0; // e.g. 1, or 6
   selector: 'app-datetime',
   templateUrl: './datetime.component.html',
   providers: [],
-  //  styleUrls: ['./datetime.component.css']
+  styleUrls: ['./datetime.component.css'],
 
   styles: [`
-    div { font-family: Courier; font-size: 13px}
-    input { min-width: 200px; font-size: 15px; }
-    input.ng-dirty { background: #ddd; }
-  `]
+     div { font-family: Courier; font-size: 13px}
+     input { min-width: 200px; font-size: 15px;background: #ddd; }
+     input.ng-dirty { background: #ddd; }
+   `]
 })
 
 //  myForm: FormGroup; // our form model
@@ -28,12 +32,20 @@ DatetimeService.firstDayOfWeek = 0; // e.g. 1, or 6
 // minDate:String='';
 
 export class DatetimeComponent implements OnInit {
-  defaultValue: Date;
-  minDate: Date;
-  maxDate: Date;
-  dateSelected: Date;
-
+  //defaultValue: Date;
+  // minDate: Date;
+  // maxDate: Date;
+  dateSelected;
+  dialogDate: any;
+  selectedOption: string;
   @Output('ngModelChange') ngModelChange = new EventEmitter();
+  @Input() minDate: Date;
+  @Input() maxDate: Date;
+  @Input() minHour: number;
+  @Input() maxHour: number;
+  @Input() defaultValue: Date;
+
+
   // moment(new Date(Date.now() + (30 * 60 * 1000))).format('YYYY-MM-DD HH:MM');
   //  defaultValue = moment(new Date(Date.now() + (30 * 60 * 1000)), 'YYYY-MM-DD HH:mm');
 
@@ -42,13 +54,18 @@ export class DatetimeComponent implements OnInit {
   // maxDate = new Date(Date.now() + (4320 * 60 * 1000));
   // //  constructor(private fb: FormBuilder) { }
   constructor(public orderService: OrderService,
-      public viewContainerRef: ViewContainerRef) {
+    public viewContainerRef: ViewContainerRef, public dialog: MdDialog ) {
     // moment.locale('nl-be');
-    this.defaultValue = moment(new Date(Date.now() + (30 * 60 * 1000))).format('YYYY-MM-DD HH:mm');
+    //   this.defaultValue = moment(new Date(Date.now() + (30 * 60 * 1000))).format('YYYY-MM-DD HH:mm');
+    //    this.defaultValue = moment().format('YYYY-MM-DD 12:30');
+    //this.minHour=12;
+    //this.maxHour=13;
+
     // this.date2 = this.defaultValue;
-    this.dateSelected = moment(new Date(Date.now() + (30 * 60 * 1000))).format('YYYY-MM-DD HH:mm');
-    this.minDate = moment().format("YYYY-MM-DD");
-      this.maxDate = new Date(Date.now() + (5760 * 60 * 1000));
+    //   this.dateSelected = moment(new Date(Date.now() + (30 * 60 * 1000))).format('YYYY-MM-DD HH:mm');
+    //  this.dateSelected = moment().format('YYYY-MM-DD 12:30');
+    //  this.minDate = moment().format("YYYY-MM-DD");
+    //  this.maxDate = new Date(Date.now() + (5760 * 60 * 1000));
     // var d= moment(new Date(Date.now() + (30 * 60 * 1000))).format('YYYY-MM-DD HH:MM');
     // this.defaultValue=d;
     // this.defaultValue = ("0" + d.getDate()).slice(-2) + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" +
@@ -58,29 +75,44 @@ export class DatetimeComponent implements OnInit {
 
     // this.defaultValue = moment(new Date(Date.now() + (30 * 60 * 1000))).format('MMMM Do YYYY, h:mm:ss');
   }
+   sendMessage(pTime:Date): void {
+        // send message to subscribers via observable subject
+        this.orderService.sendMessage(String(pTime));
+    }
+    clearMessage(): void {
+        this.orderService.clearMessage();
+    }
   ngOnInit() {
-}
+  }
+
 
 
 
   setTextValue(newValue): void {
- //   alert(newValue);
-  //  alert(this.minDate);
-  //  alert(this.maxDate);
-    var newDate = moment(new Date(newValue));
-    var oldDate = moment(this.defaultValue);
-  //  alert((newDate < this.minDate));
-// alert("newdate=" + newDate);
-// alert("oldDate=" + oldDate);
-    if (newDate > oldDate) {
-         this.orderService.setPickupTime(newValue);
+   // console.log('in  setTextValue ' + this.defaultValue);
+    let newDate = moment.parseZone(new Date(newValue)).format('YYYY-MM-DD HH:mm');
+   // let defaultDate = moment.parseZone(new Date(this.defaultValue)).format('YYYY-MM-DD HH:mm');
+    if (newDate > this.defaultValue) {
+      this.orderService.sendMessage(newDate);
+      (<HTMLInputElement>document.getElementById('cal')).value=String(newDate);
     }
-    if (newDate < oldDate) {
-       this.defaultValue = moment(new Date(Date.now() + (30 * 60 * 1000))).format('YYYY-MM-DD HH:mm');
+    if (newDate < this.defaultValue) {
+  this.dateSelected = String(this.defaultValue);
+  (<HTMLInputElement>document.getElementById('cal')).value = String(this.defaultValue);
 
-      alert("The pickup date cannot be before: " + this.defaultValue +
-      " you entered " + moment(new Date(newDate)).format('YYYY-MM-DD HH:mm'));
-         this.orderService.setPickupTime(oldDate);
+      this.sendMessage(this.defaultValue);
+      this.dialogDate = newDate;
+        moment.parseZone(new Date(newDate)).format('YYYY-MM-DD HH:mm');
+      this.openDialog();
+
     }
+
   }
+  openDialog() {
+    let dialogRef: MdDialogRef<SimpleDialogComponent> = this.dialog.open(SimpleDialogComponent);
+    dialogRef.componentInstance.oldDate = this.defaultValue;
+    dialogRef.componentInstance.newDate = this.dialogDate;
+  }
+
 }
+

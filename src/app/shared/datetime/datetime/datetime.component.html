@@ -1,4 +1,7 @@
-<div id="my-div">
-  <input [(ngModel)]="dateSelected" ng2-datetime-picker close-on-select="false" [min-date]="minDate" [max-date]="maxDate" (ngModelChange)="setTextValue($event)"
+
+<div id="my-div" >
+
+  <input readonly="true" id="cal" [(ngModel)]="dateSelected"  ng2-datetime-picker close-on-select="false"  [min-date]="minDate" [max-date]="maxDate" [min-hour]="minHour" [max-hour]="maxHour"  (ngModelChange)="setTextValue($event)"
   />
+
 </div>

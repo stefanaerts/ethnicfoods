@@ -1,3 +1,4 @@
+import { SnackbarComponent } from './../shared/snackbar/snackbar.component';
 import { element } from 'protractor';
 import { PainGarnisOptionsService } from './../shared/model/pain-garnis-options.service';
 import { Router } from '@angular/router';
@@ -14,7 +15,7 @@ export class ExtraOptionsComponent implements OnInit {
   selected = [];
 
   constructor(private router: Router,
-    private orderService: OrderService, private extraOptionsService: PainGarnisOptionsService) { }
+    private orderService: OrderService, private extraOptionsService: PainGarnisOptionsService,public snb: SnackbarComponent) { }
 
   ngOnInit() {
 
@@ -40,7 +41,7 @@ export class ExtraOptionsComponent implements OnInit {
           this.orderService.getOrder().totalPrize = Number(this.orderService.getOrder().totalPrize)  + Number(tempprize);
       });
          this.orderService.setProduct(null);
-
+this.snb.refreshTotalPrizeSnackbar();
       this.goToHome();
     } catch (error) {
       alert('error in adding extraoptions to order');

@@ -1,18 +1,26 @@
-		<div>
-			<p>
-        <md-input-container class="example-full-width">
-      <input  md-input placeholder="Delivery Address" name="end" id="end">
+<div>
+  <p>
+    <md-input-container class="example-full-width">
+      <input md-input placeholder="Delivery Address" name="end" id="end" (click)="setBool()" (keyup)="setBool()">
     </md-input-container>
-				<!--<input type="text" name="end" id="end" />-->
+    <!--<input type="text" name="end" id="end" />-->
 
-				<input type="submit" value="Calculate Route" (click)="calcRoute()" />
-			</p>
-			<p>
-				<label for="distance">Distance (km): </label>
-         <md-input-container class="example-full-width">
-      <input  md-input placeholder="Distance" name="distance" id="distance" readonly="true">
-    </md-input-container>
-			</p>
-		</div>
-		<div id="map_canvas"></div>
+    <button id="calcroute" md-raised-button *ngIf="boolHiddenCalc" style="color:white" color="primary" (click)="calcRoute('DRIVING')">Calculate route by car</button>
+    <!--<input type="submit" value="Calculate route by walk" (click)="calcRoute('WALKING')" />
+				<input type="submit" value="Calculate route by bicycle" (click)="calcRoute('BICYCLING')" />-->
 
+  </p>
+  <p id="distance_fee" *ngIf="showDeliveryFeeBox">
+      <span><label>Distance=</label><label name="distance" id="distance" *ngIf="showDeliveryFeeBox"></label><label>km</label></span>
+      <span><label>Delivery Fee=</label><label name="totalFee" id="totalFee" *ngIf="showDeliveryFeeBox"></label><label>Euro</label></span>
+
+      <!--<label>Delivery Fee=</label><input md-input name="totalFee" id="totalFee" readonly="true"><label>Euro</label>-->
+    <!--</md-input-container>-->
+  </p>
+  <button  *ngIf="showBtnConfirmDelivery" hidden md-raised-button id="confirmDelivery" style="color:white" color="primary" (click)="goToOrder('DELIVERY')">Confirm For delivery</button>
+  <br><br>
+  <button md-raised-button id="cancelDelivery" hidden *ngIf="showBtnConfirmDelivery" style="color:white" color="primary" (click)="goToOrder('PICKUP')">Cancel delivery,pickup yourself at Ethnicfoods</button>
+
+
+</div>
+<div id="map_canvas"></div>

@@ -7,7 +7,6 @@ import 'jspdf';
 import 'html2canvas';
 declare let jsPDF;
 declare let html2canvas;
-import * as $ from 'jquery';
 
 @Component({
   selector: 'app-invoice',

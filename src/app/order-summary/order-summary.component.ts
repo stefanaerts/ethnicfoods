@@ -1,27 +1,11 @@
 import { Drink } from './../shared/model/drink';
-/*import { DatetimeService } from './../shared/datetime/datetime.service';
-import { Item } from './../shared/model/item';
-import { element } from 'protractor';
-import { Constants } from './../shared/constants';
-import { CounterService } from './../shared/counter/counter.service';
-*/
 import { Product } from './../shared/model/product';
 import { OrderService } from './../shared/model/order.service';
 import { Router } from '@angular/router';
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnChanges, OnDestroy } from '@angular/core';
 import { Order } from '../shared/model/order';
-/*import { DessertsService } from './../shared/model/desserts.service';
-import { SaladesService } from './../shared/model/salades.service';
-import { SpécialitésService } from './../shared/model/spécialités.service';
-import { PainVegetariensService } from './../shared/model/pain-vegetariens.service';
-import { PainVolaillesService } from './../shared/model/pain-volailles.service';
-import { PainViandesService } from './../shared/model/pain-viandes.service';
-import { FormulesService } from './../shared/model/formules.service';
-import { PlatDuJourService } from './../shared/model/plat-du-jour.service';
-import { PetiteEntreesService } from './../shared/model/petite-entrees.service';
-import { PainPoissonsService } from './../shared/model/pain-poissons.service';
-*/
-import * as $ from 'jquery';
+declare var moment: any;
+import { Subscription } from 'rxjs/Subscription';
 
 class ProductDisplay {
   prod: Product;
@@ -39,203 +23,41 @@ class ProductDisplay {
 })
 
 
-export class OrderSummaryComponent implements OnInit,AfterViewInit {
-  order: Order;
-  visibool: boolean = false;
-  counts: ProductDisplay;
-  arr = [];
-  arrdupl = [];
-  currentDate: number = 0;
-// pickupTimeTemp: String = '';
-  pickupTime: String = '';
+export class OrderSummaryComponent implements OnInit, OnChanges {
+  // order: Order;
+ // pTime;
+  totalPay: string;
+  totalPrize: string;
+  totalTax: string;
+  // minDate: Date;
+  // maxDate: Date;
+  // defaultValue: Date;
 
-  constructor(public router: Router, public orderService: OrderService) {
- //   console.log('in construct');
-    this.order = this.orderService.getOrder();
+   constructor(private orderService: OrderService, public router: Router) {
   }
-
-  ngAfterViewInit(){
+  ngOnChanges(changes) {
+    // console.log(changes);
+    //  this.pTime = this.orderService.getPickupTime();
   }
 
   ngOnInit() {
-//console.log('in init');
- this.order = this.orderService.getOrder();
-  $(window).scrollTop(300);
+    this.totalPrize = this.orderService.getTotalPrizeAsString();
+    this.totalPay = (Number(this.orderService.getTotalPrizeWithTaxAsString())).toFixed(2);
+    this.totalTax = this.orderService.getTotalTaxAsString();
+    //  this.order = this.orderService.getOrder();
+   // this.minDate = moment().format("YYYY-MM-DD");
+   // this.maxDate = new Date(Date.now() + (8640 * 60 * 1000));
+   // this.defaultValue = moment(new Date(Date.now() + (30 * 60 * 1000))).format('YYYY-MM-DD HH:mm');
+    //  $(window).scrollTop(300);
 
- //this.order.painVegetarien.forEach(element => {
- //  alert(element.options);
- // });
-  //  this.currentDate = Date.now();
- //  this.pickupTimeTemp = new Date(Date.now() + (30 * 60 * 1000)).toString();
-  //   this.orderService.setPickupTime(this.pickupTimeTemp.substring(0, this.pickupTimeTemp.length - 14));
-    // {{pickupTime | date:'medium'}}
-   // this.order.painVegetarien.sort();
 
-    this.order.painVegetarien.sort(
-      (leftSide, rightSide): number => {
-        if(leftSide.name < rightSide.name)return -1;
-        if(leftSide.name > rightSide.name)return 1;
-        if (leftSide.name === rightSide.name)
-        {
-          if (leftSide.typeOfBread < rightSide.typeOfBread) return -1;
-          if (leftSide.typeOfBread > rightSide.typeOfBread) return 1;
-          if (leftSide.typeOfBread === rightSide.typeOfBread) {
-            if (leftSide.prize < rightSide.prize) return -1;
-            if (leftSide.prize > rightSide.prize) return 1;
-          }
-        }
-          return 0;
-      });
-
-    this.order.painVolaille.sort((leftSide, rightSide): number => {
-        if(leftSide.name < rightSide.name)return -1;
-        if(leftSide.name > rightSide.name)return 1;
-        if (leftSide.name === rightSide.name)
-        {
-          if (leftSide.typeOfBread < rightSide.typeOfBread) return -1;
-          if (leftSide.typeOfBread > rightSide.typeOfBread) return 1;
-          if (leftSide.typeOfBread === rightSide.typeOfBread) {
-            if (leftSide.prize < rightSide.prize) return -1;
-            if (leftSide.prize > rightSide.prize) return 1;
-          }
-        }
-          return 0;
-      });
-    this.order.painViande.sort((leftSide, rightSide): number => {
-        if(leftSide.name < rightSide.name)return -1;
-        if(leftSide.name > rightSide.name)return 1;
-        if (leftSide.name === rightSide.name)
-        {
-          if (leftSide.typeOfBread < rightSide.typeOfBread) return -1;
-          if (leftSide.typeOfBread > rightSide.typeOfBread) return 1;
-          if (leftSide.typeOfBread === rightSide.typeOfBread) {
-            if (leftSide.prize < rightSide.prize) return -1;
-            if (leftSide.prize > rightSide.prize) return 1;
-          }
-        }
-          return 0;
-      });
-    this.order.painPoisson.sort((leftSide, rightSide): number => {
-        if(leftSide.name < rightSide.name)return -1;
-        if(leftSide.name > rightSide.name)return 1;
-        if (leftSide.name === rightSide.name)
-        {
-          if (leftSide.typeOfBread < rightSide.typeOfBread) return -1;
-          if (leftSide.typeOfBread > rightSide.typeOfBread) return 1;
-          if (leftSide.typeOfBread === rightSide.typeOfBread) {
-            if (leftSide.prize < rightSide.prize) return -1;
-            if (leftSide.prize > rightSide.prize) return 1;
-          }
-        }
-          return 0;
-      });
-    this.order.platdujour.sort((leftSide, rightSide): number => {
-        if(leftSide.name < rightSide.name)return -1;
-        if(leftSide.name > rightSide.name)return 1;
-        if (leftSide.name === rightSide.name)
-        {
-          if (leftSide.typeOfBread < rightSide.typeOfBread) return -1;
-          if (leftSide.typeOfBread > rightSide.typeOfBread) return 1;
-          if (leftSide.typeOfBread === rightSide.typeOfBread) {
-            if (leftSide.prize < rightSide.prize) return -1;
-            if (leftSide.prize > rightSide.prize) return 1;
-          }
-        }
-          return 0;
-      });
-    this.order.drinks.sort((leftSide, rightSide): number => {
-        if(leftSide.name < rightSide.name)return -1;
-        if(leftSide.name > rightSide.name)return 1;
-        if (leftSide.name === rightSide.name)
-        {
-          if (leftSide.typeOfBread < rightSide.typeOfBread) return -1;
-          if (leftSide.typeOfBread > rightSide.typeOfBread) return 1;
-          if (leftSide.typeOfBread === rightSide.typeOfBread) {
-            if (leftSide.prize < rightSide.prize) return -1;
-            if (leftSide.prize > rightSide.prize) return 1;
-          }
-        }
-          return 0;
-      });
-
-  this.order.dessert.sort((leftSide, rightSide): number => {
-        if(leftSide.name < rightSide.name)return -1;
-        if(leftSide.name > rightSide.name)return 1;
-        if (leftSide.name === rightSide.name)
-        {
-          if (leftSide.typeOfBread < rightSide.typeOfBread) return -1;
-          if (leftSide.typeOfBread > rightSide.typeOfBread) return 1;
-          if (leftSide.typeOfBread === rightSide.typeOfBread) {
-            if (leftSide.prize < rightSide.prize) return -1;
-            if (leftSide.prize > rightSide.prize) return 1;
-          }
-        }
-          return 0;
-      });
-      this.order.petiteentree.sort((leftSide, rightSide): number => {
-        if(leftSide.name < rightSide.name)return -1;
-        if(leftSide.name > rightSide.name)return 1;
-        if (leftSide.name === rightSide.name)
-        {
-          if (leftSide.typeOfBread < rightSide.typeOfBread) return -1;
-          if (leftSide.typeOfBread > rightSide.typeOfBread) return 1;
-          if (leftSide.typeOfBread === rightSide.typeOfBread) {
-            if (leftSide.prize < rightSide.prize) return -1;
-            if (leftSide.prize > rightSide.prize) return 1;
-          }
-        }
-          return 0;
-      });
-      this.order.specialite.sort((leftSide, rightSide): number => {
-        if(leftSide.name < rightSide.name)return -1;
-        if(leftSide.name > rightSide.name)return 1;
-        if (leftSide.name === rightSide.name)
-        {
-          if (leftSide.typeOfBread < rightSide.typeOfBread) return -1;
-          if (leftSide.typeOfBread > rightSide.typeOfBread) return 1;
-          if (leftSide.typeOfBread === rightSide.typeOfBread) {
-            if (leftSide.prize < rightSide.prize) return -1;
-            if (leftSide.prize > rightSide.prize) return 1;
-          }
-        }
-          return 0;
-      });
-      this.order.salade.sort((leftSide, rightSide): number => {
-        if(leftSide.name < rightSide.name)return -1;
-        if(leftSide.name > rightSide.name)return 1;
-        if (leftSide.name === rightSide.name)
-        {
-          if (leftSide.typeOfBread < rightSide.typeOfBread) return -1;
-          if (leftSide.typeOfBread > rightSide.typeOfBread) return 1;
-          if (leftSide.typeOfBread === rightSide.typeOfBread) {
-            if (leftSide.prize < rightSide.prize) return -1;
-            if (leftSide.prize > rightSide.prize) return 1;
-          }
-        }
-          return 0;
-      });
-      this.order.formule.sort((leftSide, rightSide): number => {
-        if(leftSide.name < rightSide.name)return -1;
-        if(leftSide.name > rightSide.name)return 1;
-        if (leftSide.name === rightSide.name)
-        {
-          if (leftSide.typeOfBread < rightSide.typeOfBread) return -1;
-          if (leftSide.typeOfBread > rightSide.typeOfBread) return 1;
-          if (leftSide.typeOfBread === rightSide.typeOfBread) {
-            if (leftSide.prize < rightSide.prize) return -1;
-            if (leftSide.prize > rightSide.prize) return 1;
-          }
-        }
-          return 0;
-      });
   }
+   setTotalPay(totalpay: string) {
+    this.totalPay = totalpay;
+    this.totalPrize = this.orderService.getTotalPrizeAsString();
+    this.totalTax = this.orderService.getTotalTaxAsString();
 
-  deleteItem(item: Product) {
-    this.orderService.removeProductFromOrder(item);
-  }
-  deleteDrink(drink: Drink) {
-    this.orderService.removeDrinkFromOrder(drink);
-  }
+  };
 
   goToHome() {
     let link = ['/home'];

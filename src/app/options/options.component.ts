@@ -4,7 +4,6 @@ import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/cor
 import { Router } from "@angular/router";
 import { OrderService } from "../shared/model/order.service";
 //import { ToastService } from "../shared/toast.service";
-import * as $ from 'jquery';
 //import { PainGarnisRequired } from './../shared/model/pain-garnis-required';
 @Component({
   selector: 'app-options',

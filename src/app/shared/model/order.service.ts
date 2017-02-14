@@ -1,3 +1,4 @@
+import { Ng2DatetimePickerModule } from 'ng2-datetime-picker';
 import { Drink } from './drink';
 import { CounterService } from './../counter/counter.service';
 import { Product } from './product';
@@ -5,6 +6,9 @@ import { Constants } from './../constants';
 import { Injectable } from '@angular/core';
 import { Order } from './order';
 declare var moment: any;
+import { Observable } from 'rxjs/Rx';
+import { Subject } from 'rxjs/Subject';
+
 
 @Injectable()
 export class OrderService {
@@ -12,23 +16,65 @@ export class OrderService {
   private product: Product;
 
   private tempTotalPrize: number;
-  pickupTime: String = '';
+
+  delTime: String = '';
+  deliveryMethod = '';
+  deliveryFee = '0';
+  deliveryAddress: string;
+  private subject = new Subject<any>();
   constructor(private counterService: CounterService) {
     //   console.log("in constr van orderservice");
     this.order = new Order([], [], [], [], [], [], [], [], [], [], [], 0, this.getDate_Time());
-
   }
 
-  setPickupTime(ptime: String) {
-    //  alert('in setpickup');
-    this.pickupTime = ptime;
+
+  sendMessage(message: string) {
+    this.subject.next({ text: message });
   }
-  getPickupTime() {
-    // console.log('in getpickuptime');
-    if (this.pickupTime.length === 0) {
-      this.pickupTime = moment(new Date(Date.now() + (30 * 60 * 1000))).format('YYYY-MM-DD HH:mm');
+
+  clearMessage() {
+    this.subject.next();
+  }
+
+  getMessage(): Observable<any> {
+    return this.subject.asObservable();
+  }
+
+  setDeliveryMethod(deliveryMethod: string) {
+    this.deliveryMethod = deliveryMethod;
+  }
+  getDeliveryMethod() {
+    // console.log('in delmethod');
+    return this.deliveryMethod;
+  }
+  setDeliveryFee(deliveryFee: string) {
+    if (Number(deliveryFee) > 0) {
+      this.deliveryFee = deliveryFee;
+    } else {
+      this.deliveryFee = '0';
     }
-    return this.pickupTime;
+  }
+  getDeliveryFee() {
+    //console.log('in delfee');
+    return this.deliveryFee;
+  }
+  /*setPickupTime(ptime:Observable<Date>) {
+  //console.log('in setpickuptime:' + ptime);
+     //   this.pickupChange.subscribe(ptime  => {
+      //      this.pickupTime = ptime;
+     // });
+    // this.pickupTime$ = ptime;
+
+  }*/
+
+  setDeliveryAddress(deliveryAddress: string) {
+this.deliveryAddress = deliveryAddress;
+  }
+  getDeliveryAddress() {
+return this.deliveryAddress;
+  }
+  getDeliveryTime() {
+    return this.delTime;
   }
   setProduct(product: Product) {
     this.product = product;
@@ -37,7 +83,6 @@ export class OrderService {
     try {
       this.order.drinks.push(drink);
       this.order.totalPrize = this.order.totalPrize + +drink.prize;
-      //  alert('length=' + this.drinks.length);
     } catch (error) {
       alert(error);
     }
@@ -58,9 +103,9 @@ export class OrderService {
 
   getDate() {
     // returns current day as string
-   // let dt = new Date(Date.now('DD/MM/YYYY'));
+    // let dt = new Date(Date.now('DD/MM/YYYY'));
     let tmp = moment(new Date(Date.now())).format('DD-MM-YY');
-   //           moment(new Date(Date.now() + (30 * 60 * 1000))).format('YYYY-MM-DD HH:mm');
+    //           moment(new Date(Date.now() + (30 * 60 * 1000))).format('YYYY-MM-DD HH:mm');
     //let tmp = dt.toString().substring(0, dt.toString().length - 24);
     return tmp;
   }
@@ -71,7 +116,7 @@ export class OrderService {
     return tmp;
   }
   getOrder() {
-    //  console.log('in get order');
+    //   console.log('in get order');
     return this.order;
   }
 
@@ -79,6 +124,8 @@ export class OrderService {
     return this.order.totalPrize;
   }
   getTotalPrizeAsString() {
+    //   console.log('in getTotalPrizeAsString' + teller);
+
     return this.order.totalPrize.toFixed(2);
   }
   getTotalPrizeWithTaxAsString() {
@@ -87,12 +134,20 @@ export class OrderService {
     let total: number = tp + tax;
     return total.toFixed(2);
   }
+  getTotalPrizeWithTaxAndFeeAsString() {
+    let tp: number = this.order.totalPrize;
+    let tax: number = this.order.totalPrize * 0.06;
+    let delFee: number = Number(this.deliveryFee);
+    let total: number = tp + tax + delFee;
+    return total.toFixed(2);
+  }
 
   getTotalTaxAsString() {
     return (this.order.totalPrize * 0.06).toFixed(2);
   }
 
   checkTotalPrizeNotNull() {
+    //console.log('in check totalprizeNoTNull');
     return (this.order.totalPrize === 0);
   }
   getAllOrderedPainVolailles() {

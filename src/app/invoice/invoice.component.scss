@@ -3,6 +3,11 @@
 //    margin: 3px 0;
 //    line-height:3px;
 // }
+.maxlength{
+  width:90vw;
+  max-width: 675px;
+
+}
 .text2style{
 font-size:12px;
 font-weight:bold;
@@ -23,7 +28,7 @@ color:#CDDC39;
 	display: flex;
 	flex-flow: row wrap;
 flex: 1 1 100%;
-//max-width: 740px;
+max-width: 730px;
 //	height:100vh;
 	width: 100vw;
 //	background-color: orange;
@@ -38,6 +43,7 @@ flex: 1 1 100%;
    flex: 1 1 100%; /* Let it fill the entire space horizontally */
  /*flex: 0 0 100%; /* Let it fill the entire space horizontally */
 	height: 12vh;
+  max-width: 730px;
 //max-width: 740px;
 //	background-color: rgb(200, 200, 200);
  //  border: 1px solid yellow;
@@ -48,14 +54,14 @@ flex: 1 1 100%;
   //height:30vh;
  //  flex: 1 1 100%;
    height:25vh;
-//max-width: 740px;
+max-width: 710px;
  // border : 1px solid purple;
 }
 #wrap2Container{
   display:inline-block;
  // height:100vh;
    flex: 1 1 100%;
- //  max-width: 740px;
+   max-width: 710px;
 //   height:50vh;
 }
 #wrap3Container{
@@ -64,7 +70,7 @@ flex: 1 1 100%;
    flex: 1 1 100%;
  //  height:25vh;
 //  border : 1px solid yellow;
-//max-width: 740px;
+max-width: 710px;
 }
 .flexrow{
   display: -webkit-flex;
@@ -95,7 +101,7 @@ flex: 1 1 100%;
  @extend .flexcol;
  width:38vw;
  height:100%;
-// max-width: 740px;
+ max-width: 710px;
 //   height: calc(100% - 100px);
 //padding-left: 10px;
 // border: 2px solid blue;
@@ -106,7 +112,7 @@ flex: 1 1 100%;
   @extend .flexcol;
   width:58vw;
  height:100%;
-//  max-width: 740px;
+  max-width: 710px;
 //	 border: 2px solid blue;
 //   padding-right: 10px;
 //   margin-right: 10px;
@@ -116,7 +122,7 @@ flex: 1 1 100%;
   display:inline-block;
   @extend .flexcol;
   width:100vw;
-  //max-width: 740px;
+  max-width: 710px;
  // height:100%;
 	// border: 2px solid yellow;
 

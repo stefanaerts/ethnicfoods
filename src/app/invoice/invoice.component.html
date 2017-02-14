@@ -1,117 +1,120 @@
 <div id="mainContainer" style="background-color: #E0E0E0;">
 
-<div id="titleContainer">
-  <md-toolbar class="master-card">
-    <span style="width:1vw;height:5vh;font-size:1px;background-color:#CDDC39" >.</span>
-<span style="width:2vw;"></span>
-<span style="width:70vw;font-size:18px">Ethnicfoods<br><span style="font-size:9px;padding-left:30px">.be</span>
-</span>
-<span>rue de la Croix de Fer, 14 à 1000 Bruxelles<br>
+  <div id="titleContainer">
+    <md-toolbar class="master-card">
+      <span style="width:1vw;height:5vh;font-size:1px;background-color:#CDDC39">.</span>
+      <span style="width:2vw;"></span>
+      <span style="width:70vw;font-size:18px">Ethnicfoods<br><span style="font-size:9px;padding-left:30px">.be</span>
+      </span>
+      <span>rue de la Croix de Fer, 14 à 1000 Bruxelles<br>
       Email: rahim032@hotmail.com
       </span>
-<i class="material-icons" (click)="createPDF()">picture_as_pdf</i>
+      <i class="material-icons" (click)="createPDF()">picture_as_pdf</i>
 
-</md-toolbar>
-</div>
+    </md-toolbar>
+  </div>
 
-<div id="wrap2Container">
-  <div id="invoiceDetailsContainer">
+  <div id="wrap2Container">
+    <div id="invoiceDetailsContainer">
 
-    <md-grid-list cols="6" rowHeight="25px" rowWidth="100vw" layout-align="none">
-      <md-grid-tile *ngFor="let tile of tilesInvoiceTo" [style.font-weight]="tile.boldvar" [style.font-size]="tile.fontsize" [colspan]="tile.cols"
-        [rowspan]="tile.rows" [style.color]="tile.color" [style.background]="tile.bgcolor">
-        <!--<span>
+      <md-grid-list cols="6" rowHeight="25px" rowWidth="100vw" layout-align="none">
+        <md-grid-tile *ngFor="let tile of tilesInvoiceTo" [style.font-weight]="tile.boldvar" [style.font-size]="tile.fontsize" [colspan]="tile.cols"
+          [rowspan]="tile.rows" [style.color]="tile.color" [style.background]="tile.bgcolor">
+          <!--<span>
        <span> {{tile.text}}</span>
         <br>
         <span class="text2style">{{tile.total}}</span>
         </span>-->
-        <span>
+          <span>
 
         <span >{{tile.title}}</span>
-        <br>
+          <br>
 
-        <span class="text2style">{{tile.name}}</span>
-        <br> <span [style.font-size]="tile.font10">{{tile.address}}</span>
-        <br> <span [style.font-size]="tile.font10"><i class="material-icons font8">settings_phone</i>{{tile.phone}}</span>
+          <span class="text2style">{{tile.name}}</span>
+          <br> <span [style.font-size]="tile.font10">{{tile.address}}</span>
+          <br> <span [style.font-size]="tile.font10"><i class="material-icons font8">settings_phone</i>{{tile.phone}}</span>
 
-        <!--<br> <span [style.font-size]="tile.font10"><i class="material-icons font8">settings_phone</i>{{tile.phone}}</span>-->
-        <br> <span [style.font-size]="tile.font10"><i class="material-icons font8">email</i>{{tile.email}}</span>
-        </span>
+          <!--<br> <span [style.font-size]="tile.font10"><i class="material-icons font8">settings_phone</i>{{tile.phone}}</span>-->
+          <br> <span [style.font-size]="tile.font10"><i class="material-icons font8">email</i>{{tile.email}}</span>
+          </span>
 
-      </md-grid-tile>
+          </md-grid-tile>
 
 
-      <md-grid-tile *ngFor="let tile of tilesInvoiceTotal" [style.font-weight]="tile.boldvar" [style.font-size]="tile.fontsize"
-        [colspan]="tile.cols" [rowspan]="tile.rows" [style.color]="tile.color" [style.background]="tile.bgcolor">
-        <span>
+          <md-grid-tile *ngFor="let tile of tilesInvoiceTotal" [style.font-weight]="tile.boldvar" [style.font-size]="tile.fontsize"
+            [colspan]="tile.cols" [rowspan]="tile.rows" [style.color]="tile.color" [style.background]="tile.bgcolor">
+            <span>
        <span> {{tile.text}}</span>
-        <br>
-        <span>{{tile.total}}</span>
-        </span>
-      </md-grid-tile>
+            <br>
+            <span>{{tile.total}}</span>
+            </span>
+            </md-grid-tile>
 
-    </md-grid-list>
-    <md-grid-list cols="6" rowHeight="17px" rowWidth="100vw" layout-align="none">
-      <md-grid-tile *ngFor="let tile of tilesInvoiceDetailsTitle" [style.font-weight]="tile.boldvar" [style.font-size]="tile.fontsize"
-        [colspan]="tile.cols" [rowspan]="tile.rows" [style.color]="tile.color" [style.background]="tile.bgcolor">
-        <div>{{tile.description}}</div>
-        <div>{{tile.unitPrice}}</div>
-        <div>{{tile.quantity}}</div>
-        <div>{{tile.total}}</div>
-      </md-grid-tile>
-      <div *ngFor="let rowData of tilesInvoiceDetailsPainVeg">
-        <md-grid-tile *ngFor="let tile of rowData" [style.font-weight]="tile.boldvar" [style.font-size]="tile.fontsize" [colspan]="tile.cols"
-          [rowspan]="tile.rows" [style.color]="tile.color" [style.background]="tile.bgcolor">
-          <div>{{tile.name}}</div>
-          <div>{{tile.typeOfBread}}</div>
+      </md-grid-list>
+      <md-grid-list cols="6" rowHeight="17px" rowWidth="100vw" layout-align="none">
+        <md-grid-tile *ngFor="let tile of tilesInvoiceDetailsTitle" [style.font-weight]="tile.boldvar" [style.font-size]="tile.fontsize"
+          [colspan]="tile.cols" [rowspan]="tile.rows" [style.color]="tile.color" [style.background]="tile.bgcolor">
+          <div>{{tile.description}}</div>
           <div>{{tile.unitPrice}}</div>
-          <div>
-            <div>{{tile.quantity}}</div>
-          </div>
+          <div>{{tile.quantity}}</div>
           <div>{{tile.total}}</div>
-          <div class="text-inside-grid">{{tile.description}}</div>
-        </md-grid-tile>
-      </div>
-      <div *ngFor="let rowData of tilesInvoiceDetailsPainVol">
-        <md-grid-tile *ngFor="let tile of rowData" [style.font-weight]="tile.boldvar" [style.font-size]="tile.fontsize" [colspan]="tile.cols"
-          [rowspan]="tile.rows" [style.color]="tile.color" [style.background]="tile.bgcolor">
-          <div>{{tile.name}}</div>
-          <div>{{tile.typeOfBread}}</div>
-          <div>{{tile.unitPrice}}</div>
-          <div>
-            <div>{{tile.quantity}}</div>
+          </md-grid-tile>
+          <div *ngFor="let rowData of tilesInvoiceDetailsPainVeg">
+            <md-grid-tile *ngFor="let tile of rowData" [style.font-weight]="tile.boldvar" [style.font-size]="tile.fontsize" [colspan]="tile.cols"
+              [rowspan]="tile.rows" [style.color]="tile.color" [style.background]="tile.bgcolor">
+              <div>{{tile.name}}</div>
+              <div>{{tile.typeOfBread}}</div>
+              <div>{{tile.unitPrice}}</div>
+              <div>
+                <div>{{tile.quantity}}</div>
+              </div>
+              <div>{{tile.total}}</div>
+              <div class="text-inside-grid">{{tile.description}}</div>
+              </md-grid-tile>
           </div>
-          <div>{{tile.total}}</div>
-          <div class="text-inside-grid">{{tile.description}}</div>
-        </md-grid-tile>
-      </div>
-      <div *ngFor="let rowData of tilesInvoiceDetailsPainViande">
-        <md-grid-tile *ngFor="let tile of rowData" [style.font-weight]="tile.boldvar" [style.font-size]="tile.fontsize" [colspan]="tile.cols"
-          [rowspan]="tile.rows" [style.color]="tile.color" [style.background]="tile.bgcolor">
-          <div>{{tile.name}}</div>
-          <div>{{tile.typeOfBread}}</div>
-          <div>{{tile.unitPrice}}</div>
-          <div>
-            <div>{{tile.quantity}}</div>
+          <div *ngFor="let rowData of tilesInvoiceDetailsPainVol">
+            <md-grid-tile *ngFor="let tile of rowData" [style.font-weight]="tile.boldvar" [style.font-size]="tile.fontsize" [colspan]="tile.cols"
+              [rowspan]="tile.rows" [style.color]="tile.color" [style.background]="tile.bgcolor">
+              <div>{{tile.name}}</div>
+              <div>{{tile.typeOfBread}}</div>
+              <div>{{tile.unitPrice}}</div>
+              <div>
+                <div>{{tile.quantity}}</div>
+              </div>
+              <div>{{tile.total}}</div>
+              <div class="text-inside-grid">{{tile.description}}</div>
+              </md-grid-tile>
           </div>
-          <div>{{tile.total}}</div>
-          <div class="text-inside-grid">{{tile.description}}</div>
-        </md-grid-tile>
-      </div>
-      <div *ngFor="let rowData of tilesInvoiceDetailsPainPoisson">
-        <md-grid-tile *ngFor="let tile of rowData" [style.font-weight]="tile.boldvar" [style.font-size]="tile.fontsize" [colspan]="tile.cols"
-          [rowspan]="tile.rows" [style.color]="tile.color" [style.background]="tile.bgcolor">
-          <div>{{tile.name}}</div>
-          <div>{{tile.typeOfBread}}</div>
-          <div>{{tile.unitPrice}}</div>
-          <div>
-            <div>{{tile.quantity}}</div>
+          <div *ngFor="let rowData of tilesInvoiceDetailsPainViande">
+            <md-grid-tile *ngFor="let tile of rowData" [style.font-weight]="tile.boldvar" [style.font-size]="tile.fontsize" [colspan]="tile.cols"
+              [rowspan]="tile.rows" [style.color]="tile.color" [style.background]="tile.bgcolor">
+              <div>{{tile.name}}</div>
+              <div>{{tile.typeOfBread}}</div>
+              <div>{{tile.unitPrice}}</div>
+              <div>
+                <div>{{tile.quantity}}</div>
+              </div>
+              <div>{{tile.total}}</div>
+              <div class="text-inside-grid">{{tile.description}}</div>
+              </md-grid-tile>
           </div>
-          <div>{{tile.total}}</div>
-          <div class="text-inside-grid">{{tile.description}}</div>
-        </md-grid-tile>
-      </div>
-    </md-grid-list>
+          <div *ngFor="let rowData of tilesInvoiceDetailsPainPoisson">
+            <md-grid-tile *ngFor="let tile of rowData" [style.font-weight]="tile.boldvar" [style.font-size]="tile.fontsize" [colspan]="tile.cols"
+              [rowspan]="tile.rows" [style.color]="tile.color" [style.background]="tile.bgcolor">
+              <div>{{tile.name}}</div>
+              <div>{{tile.typeOfBread}}</div>
+              <div>{{tile.unitPrice}}</div>
+              <div>
+                <div>{{tile.quantity}}</div>
+              </div>
+              <div>{{tile.total}}</div>
+              <div class="text-inside-grid">{{tile.description}}</div>
+              </md-grid-tile>
+          </div>
+      </md-grid-list>
+    </div>
+    <md-divider class="maxlength"></md-divider>
+ <div id="invoiceDetailsContainer">
     <md-grid-list cols="6" rowHeight="27px" rowWidth="100vw" layout-align="none">
       <div *ngFor="let rowData of tilesInvoiceDetailsPlatDuJour">
         <md-grid-tile *ngFor="let tile of rowData" [style.font-weight]="tile.boldvar" [style.font-size]="tile.fontsize" [colspan]="tile.cols"
@@ -124,7 +127,7 @@
           </div>
           <div>{{tile.total}}</div>
           <div class="text-inside-grid">{{tile.description}}</div>
-        </md-grid-tile>
+          </md-grid-tile>
       </div>
       <div *ngFor="let rowData of tilesInvoiceDetailsPetiteEntree">
         <md-grid-tile *ngFor="let tile of rowData" [style.font-weight]="tile.boldvar" [style.font-size]="tile.fontsize" [colspan]="tile.cols"
@@ -137,7 +140,7 @@
           </div>
           <div>{{tile.total}}</div>
           <div class="text-inside-grid">{{tile.description}}</div>
-        </md-grid-tile>
+          </md-grid-tile>
       </div>
       <div *ngFor="let rowData of tilesInvoiceDetailsFormule">
         <md-grid-tile *ngFor="let tile of rowData" [style.font-weight]="tile.boldvar" [style.font-size]="tile.fontsize" [colspan]="tile.cols"
@@ -150,7 +153,7 @@
           </div>
           <div>{{tile.total}}</div>
           <div class="text-inside-grid">{{tile.description}}</div>
-        </md-grid-tile>
+          </md-grid-tile>
       </div>
       <div *ngFor="let rowData of tilesInvoiceDetailsSalades">
         <md-grid-tile *ngFor="let tile of rowData" [style.font-weight]="tile.boldvar" [style.font-size]="tile.fontsize" [colspan]="tile.cols"
@@ -163,7 +166,7 @@
           </div>
           <div>{{tile.total}}</div>
           <div class="text-inside-grid">{{tile.description}}</div>
-        </md-grid-tile>
+          </md-grid-tile>
       </div>
       <div *ngFor="let rowData of tilesInvoiceDetailsSpecialites">
         <md-grid-tile *ngFor="let tile of rowData" [style.font-weight]="tile.boldvar" [style.font-size]="tile.fontsize" [colspan]="tile.cols"
@@ -176,7 +179,7 @@
           </div>
           <div>{{tile.total}}</div>
           <div class="text-inside-grid">{{tile.description}}</div>
-        </md-grid-tile>
+          </md-grid-tile>
       </div>
       <div *ngFor="let rowData of tilesInvoiceDetailsDesserts">
         <md-grid-tile *ngFor="let tile of rowData" [style.font-weight]="tile.boldvar" [style.font-size]="tile.fontsize" [colspan]="tile.cols"
@@ -189,9 +192,9 @@
           </div>
           <div>{{tile.total}}</div>
           <!--<div >{{tile.description}}</div>-->
-        </md-grid-tile>
+          </md-grid-tile>
       </div>
-    <!--</md-grid-list>
+      <!--</md-grid-list>
     <md-grid-list cols="6" rowHeight="20px" rowWidth="100vw" layout-align="none">-->
 
       <div *ngFor="let rowData of tilesInvoiceDetailsDrinks">
@@ -205,22 +208,22 @@
           </div>
           <div>{{tile.total}} </div>
           <!--<div >{{tile.description}}</div>-->
-        </md-grid-tile>
+          </md-grid-tile>
       </div>
-    <!--</md-grid-list>
+      <!--</md-grid-list>
   <md-grid-list cols="6" rowHeight="13px" rowWidth="100vw" layout-align="none">-->
-      <md-grid-tile  *ngFor="let tile of tilesInvoiceTotalDetail" style="text-align: left !important;" [style.font-weight]="tile.boldvar" [style.font-size]="tile.fontsize" [colspan]="tile.cols" [rowspan]="tile.rows" [style.color]="tile.color"
-[style.background]="tile.bgcolor">
-<div>{{tile.subTotalDescription}}</div>
-<div>{{tile.subTotal}}</div>
-<div>{{tile.taxDescription}}</div>
-<div>{{tile.tax}}</div>
-<div>{{tile.totalDescription}}</div>
-<div>{{tile.total}}</div>
-</md-grid-tile>
-</md-grid-list>
+      <md-grid-tile *ngFor="let tile of tilesInvoiceTotalDetail" style="text-align: left !important;" [style.font-weight]="tile.boldvar"
+        [style.font-size]="tile.fontsize" [colspan]="tile.cols" [rowspan]="tile.rows" [style.color]="tile.color" [style.background]="tile.bgcolor">
+        <div>{{tile.subTotalDescription}}</div>
+        <div>{{tile.subTotal}}</div>
+        <div>{{tile.taxDescription}}</div>
+        <div>{{tile.tax}}</div>
+        <div>{{tile.totalDescription}}</div>
+        <div>{{tile.total}}</div>
+        </md-grid-tile>
+    </md-grid-list>
 
-</div>
+  </div>
 
 </div>
 

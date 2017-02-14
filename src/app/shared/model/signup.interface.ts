@@ -12,9 +12,10 @@ export interface User {
     number: string;
   };
   deliveryAddress: {
-    street: string;
-    postcode: string;
-    city: string;
-    number: string;
+   // address: string;
+      street: string;
+      postcode: string;
+      city: string;
+      number: string;
   };
 }

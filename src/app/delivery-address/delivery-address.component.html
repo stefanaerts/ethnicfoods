@@ -29,5 +29,5 @@
       City is required
     </div>
   </div>
-  <button type="submit" id="submitBtn" [hidden]="boolHidden"><md-icon class="material-icons">navigate_next</md-icon></button>
+  <button type="submit" id="submitBtn" *ngIf="showBtn"><md-icon class="material-icons">navigate_next</md-icon></button>
 </form>

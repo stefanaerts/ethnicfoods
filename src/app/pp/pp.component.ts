@@ -3,8 +3,7 @@ import { Constants } from './../shared/constants';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/first';
-import * as braintree from 'braintree-web';
-import * as $ from 'jquery';
+ import * as braintree from 'braintree-web';
 
 
 @Component({

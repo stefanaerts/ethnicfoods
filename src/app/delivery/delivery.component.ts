@@ -42,6 +42,7 @@ export class DeliveryComponent implements OnInit {
   //  }
   onSubmit() {
    this.userService.setUser(this.user.value);
+
      let link = ['/deliveryaddress'];
     this.router.navigate(link);
 //    console.log(this.user.value, this.user.valid);

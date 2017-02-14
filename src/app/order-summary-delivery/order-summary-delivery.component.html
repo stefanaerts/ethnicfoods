@@ -1,0 +1,39 @@
+<div>
+  <app-order-list-toolbar></app-order-list-toolbar>
+  <app-ordered-list (setTotalPay)="setTotalPay($event)"></app-ordered-list>
+</div>
+<div id="productShowcaseContainer" class="c-text-footer">
+  <span id="pad-left"></span>
+  <div id="showTotal" style="height:100vh">
+    <app-calendar-selector></app-calendar-selector>
+  </div>
+  <div id="showTotal">
+    <div id="showTotalContainer" class="border-accent-700 ">
+      <div id="showTotalText">
+        <span>Sub</span>
+        <br>
+        <span>Tax 6%</span>
+            <br>
+        <span>Delivery</span>
+        <br>
+        <span>Total</span>
+      </div>
+      <span class="showTotalPrize ">
+          <span class="right-pos">{{ totalPrize }}<md-icon class="font14">euro_symbol</md-icon></span>
+      <br>
+      <span class="right-pos">{{ totalTax }}<md-icon class="font14">euro_symbol</md-icon></span>
+          <br>
+      <span class="right-pos bg-accent-100 border-fat">{{delFee }}<md-icon class="font14">euro_symbol</md-icon></span>
+      <br>
+
+      <span class="right-pos bg-accent-100 border-fat">{{ totalPay }}<md-icon class="font14">euro_symbol</md-icon></span>
+      </span>
+    </div>
+    <span>
+<br>
+    <div  class="hover" (click)="goToCheckout()"><a style="color:#ffd740;" class="material-icons">payment</a><span class="hover rightpos">Payment</span></div>
+  <div class="hover" (click)="goToInvoice()"><a style="color:#ffd740;" class="material-icons">picture_as_pdf</a><span class="hover rightpos">Facture</span></div>
+  </span>
+
+
+</div>

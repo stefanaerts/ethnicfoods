@@ -5,21 +5,25 @@
 
 .grid {
     flex-wrap:wrap;
-    width:100px;
+    width:800px;
+    height:800px;
 }
 img {
     width:100px;
+    height:100px;
 }
 
 @media (min-width: 200px) {
     .grid {
-        width:200px;
+        width:800px;
+        height:800px;
     }
 }
 
 @media (min-width: 400px) {
     .grid {
-        width:400px;
+        width:800px;
+        height:800px;
     }
 }
 
