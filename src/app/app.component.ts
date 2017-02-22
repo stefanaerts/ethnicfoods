@@ -20,11 +20,11 @@ export class AppComponent implements OnInit{
   }
 
 ngOnInit(){
-NoFi.init({
+/*NoFi.init({
   eventName: 'offline',
   interval: 1000,
   exit: true
-});
+});*/
 //this.snb.refreshTotalPrizeSnackbar();
 }
 
