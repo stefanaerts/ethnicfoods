@@ -1,29 +1,35 @@
- <md-toolbar class="bg-primary-500 c-white" >
-    <span  style="width:30vw" class="hover-a" (click)="goToHome()"><a class="material-icons">home</a></span>
+<md-toolbar class="bg-primary-500 c-white">
+  <span style="width:30vw" class="hover-a" (click)="goToHome()"><a class="material-icons">home</a></span>
 
-    <span style="width:60vw">Required Options</span>
+  <span style="width:60vw">Required Options</span>
 
-    <!-- This fills the remaining space of the current row -->
-    <span class="example-fill-remaining-space"></span>
-  <span style="width:20vw"class="hover-a" (click)="goToOptions()"><a class="material-icons">keyboard_arrow_left</a></span>
+  <!-- This fills the remaining space of the current row -->
+  <span class="example-fill-remaining-space"></span>
+  <span style="width:20vw" class="hover-a" (click)="goToOptions()"><a class="material-icons">keyboard_arrow_left</a></span>
+  <span style="width:20px;"></span>
 
-  </md-toolbar>
+  <span style="position:absolute;right:10px">
+      <button md-mini-fab [disabled]="boolDisabled" (click)="goToTypeOfBread()">
+        <md-icon class="material-icons">navigate_next</md-icon>
+      </button>
+  </span>
+</md-toolbar>
 
 <div *ngIf="this.orderService.getProduct()?.prize_small">
-  <app-md-card-subtitle  [product]="this.orderService.getProduct()?.name" [description]="this.orderService.getProduct()?.description"></app-md-card-subtitle>
+  <app-md-card-subtitle [product]="this.orderService.getProduct()?.name" [description]="this.orderService.getProduct()?.description"></app-md-card-subtitle>
 
   <app-radio-button-with-prize [prize_small]="this.orderService.getProduct()?.prize_small" [prize_large]="this.orderService.getProduct()?.prize_large"
     (setPrizeEvent)="setPrize($event)"></app-radio-button-with-prize>
 
-  <!--<app-radio-button-without-prize [items]="paingarnisrequired" (setTypeEvent)="setType($event)"></app-radio-button-without-prize>-->
-  <!--<app-total-prize   [totalPrize]="this.orderService.getTempTotalPrize() | number"></app-total-prize>-->
+    <!--<app-radio-button-without-prize [items]="paingarnisrequired" (setTypeEvent)="setType($event)"></app-radio-button-without-prize>-->
+    <!--<app-total-prize   [totalPrize]="this.orderService.getTempTotalPrize() | number"></app-total-prize>-->
 </div>
 <md-toolbar style="height:100vh" class="bg-primary-500">
-  <span  style="width:80vw"></span>
+  <span style="width:80vw"></span>
   <span class="example-fill-remaining-space"></span>
 
-  <span style="width:20vw">
-      <button md-fab [disabled]="boolDisabled" (click)="goToTypeOfBread()">
+  <span style="position:absolute;right:10px">
+      <button md-mini-fab [disabled]="boolDisabled" (click)="goToTypeOfBread()">
         <md-icon class="material-icons">navigate_next</md-icon>
       </button>
   </span>

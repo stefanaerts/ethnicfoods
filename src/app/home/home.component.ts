@@ -20,7 +20,7 @@ import { Observable } from 'rxjs/Rx';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-   providers: []
+  providers: []
 })
 export class HomeComponent implements OnInit {
   dessertsVisible = false;
@@ -35,21 +35,19 @@ export class HomeComponent implements OnInit {
   pain_VolaillesVisible = false;
   drinksVisible = false;
   totalPrize$: Observable<number>;
-
   constructor(
-    private router: Router, private dessertsService: DessertsService, private saladesService: SaladesService,
-    private specialitesService: SpécialitésService, private vegetariensService: PainVegetariensService,
+    private router: Router, public dessertsService: DessertsService, private saladesService: SaladesService,
+    private specialitesService: SpécialitésService, public vegetariensService: PainVegetariensService,
     private volaillesService: PainVolaillesService, private viandesService: PainViandesService,
     private poissonsService: PainPoissonsService, private formulesService: FormulesService,
     private platdujoursService: PlatDuJourService, private petiteentreesService: PetiteEntreesService,
-    private orderService: OrderService,private drinksService: DrinksService, private constants: Constants
+    public orderService: OrderService, private drinksService: DrinksService, private constants: Constants
 
   ) {
-    }
+  }
 
   ngOnInit() {
-
-    }
+  }
 
 
   goToOrderSummary() {

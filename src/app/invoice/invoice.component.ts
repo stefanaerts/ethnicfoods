@@ -442,7 +442,7 @@ summarizeProduct(productArray: Product[])
             textalign: 'none', fontsize: '12px', cols: 3, color: '', rows: 1, boldvar: 'bold', bgcolor: 'white'
           },
             { unitPrice: element.prize, fontsize: '12px', cols: 1, color: '', rows: 1, boldvar: '', bgcolor: 'white' },
-          { quantity: element.$key, fontsize: '12px', cols: 1, color: '', rows: 1, boldvar: '', bgcolor: 'white' },
+          { quantity: element.name, fontsize: '12px', cols: 1, color: '', rows: 1, boldvar: '', bgcolor: 'white' },
           { total: (element.prize), fontsize: '12px', cols: 1, color: '', rows: 1, boldvar: '', bgcolor: 'white' },
         ]);
       } else if (displayArray.length > 0) {
@@ -455,7 +455,7 @@ summarizeProduct(productArray: Product[])
               textalign: 'none', fontsize: '12px', cols: 3, color: '', rows: 1, boldvar: 'bold', bgcolor: 'white'
             },
             { unitPrice: element.prize, fontsize: '12px', cols: 1, color: '', rows: 1, boldvar: '', bgcolor: 'white' },
-            { quantity: element.$key, fontsize: '12px', cols: 1, color: '', rows: 1, boldvar: '', bgcolor: 'white' },
+            { quantity: element.name, fontsize: '12px', cols: 1, color: '', rows: 1, boldvar: '', bgcolor: 'white' },
             { total: element.prize, fontsize: '12px', cols: 1, color: '', rows: 1, boldvar: '', bgcolor: 'white' },
 
           ]);
@@ -469,9 +469,9 @@ summarizeProduct(productArray: Product[])
               textalign: 'none', fontsize: '12px', cols: 3, color: '', rows: 1, boldvar: 'bold', bgcolor: 'white'
             },
             { unitPrice: element.prize, fontsize: '12px', cols: 1, color: '', rows: 1, boldvar: '', bgcolor: 'white' },
-            { quantity: element.$key, fontsize: '12px', cols: 1, color: '', rows: 1, boldvar: '', bgcolor: 'white' },
+            { quantity: element.name, fontsize: '12px', cols: 1, color: '', rows: 1, boldvar: '', bgcolor: 'white' },
             {
-              total: (element.prize * this.counterService.getCount(element.$key)),
+              total: (element.prize * this.counterService.getCount(element.name)),
               fontsize: '12px', cols: 1, color: '', rows: 1, boldvar: '', bgcolor: 'white'
             },
 

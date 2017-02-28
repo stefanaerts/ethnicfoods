@@ -16,7 +16,7 @@ export class CcpickerComponent implements OnInit, AfterViewInit {
   message: string;
   authorization: any;
   boolHidden: true;
-  constructor(public http: Http, public os: OrderService, private router: Router) {
+  constructor(public http: Http, public orderServ: OrderService, private router: Router) {
     this.message = "...Loading";
   }
   goToHome() {
@@ -24,7 +24,7 @@ export class CcpickerComponent implements OnInit, AfterViewInit {
     this.router.navigate(link);
   }
   getToken() {
-    if (this.os.getTotalPrize() === 0) {
+    if (this.orderServ.getTotalPrize() === 0) {
       alert('Order amount cannot be zero');
       this.goToHome();
     } else {
@@ -39,7 +39,7 @@ export class CcpickerComponent implements OnInit, AfterViewInit {
 
             this.authorization = data.text();
             //   this.message = data.text();
-            this.makeTransaction(this.os.getTotalPrizeAsString());
+            this.makeTransaction(this.orderServ.getTotalPrizeWithTaxAndFeeAsString());
           } else {
   //          console.log('in failed network status=' + data.statusText);
   //          console.log('data status=' + data.statusText);
@@ -67,7 +67,8 @@ export class CcpickerComponent implements OnInit, AfterViewInit {
     this.getToken();
   }
   makeTransaction(totalPrize: string) {
-    let amount: string = totalPrize;
+    //let amount: string = totalPrize;
+    let amount:number= Number(this.orderServ.getTotalPrizeWithTaxAndFeeAsString());
     let form: HTMLFormElement = (<HTMLFormElement>document.querySelector('#checkout-form'));
     let submit: HTMLElement = (<HTMLElement>document.getElementById('button-pay'));
     let spincirle: HTMLElement = (<HTMLElement>document.getElementById('spincircle'));
@@ -201,7 +202,8 @@ export class CcpickerComponent implements OnInit, AfterViewInit {
                   submit.style.backgroundColor = 'rgba(0, 0, 0, .54)';
                   submit.setAttribute('disabled', 'true');
                   // alert('Payment authorized, thanks.');
-                  window.location.href = '/dialog';
+
+                  window.location.href = '/dialog?am=' + amount;
                 } else {
                   alert('Payment failed: ' + data.message + ' Please refresh the page and try again.');
                   console.error("data=" + JSON.stringify(data));

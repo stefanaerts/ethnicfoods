@@ -24,4 +24,8 @@ goToHome() {
     let link = ['/invoice'];
     this.router.navigate(link);
   }
+  goToPickupOrDeliveryMenu(){
+       let link = ['/pickupOrDeliveryMenu'];
+    this.router.navigate(link);
+  }
 }

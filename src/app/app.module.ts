@@ -1,7 +1,5 @@
 import { googlemapsConfig } from './../environments/googlemaps.config';
 import { AgmCoreModule } from "angular2-google-maps/core";
-
-import { BelgiumZipcodeService } from './shared/findCity/belgium-zipcode.service';
 import { UserService } from './shared/model/user.service';
 import { DatetimeService } from './shared/datetime/datetime.service';
 import { CounterService } from './shared/counter/counter.service';
@@ -14,6 +12,7 @@ import { MaterialModule } from '@angular/material';
 import { Ng2DatetimePickerModule } from 'ng2-datetime-picker';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from 'angularfire2/index';
+import {AngularFireOfflineModule} from 'angularfire2-offline';
 import { firebaseConfig } from '../environments/firebase.config';
 import { HomeComponent } from './home/home.component';
 import { DessertsService } from './shared/model/desserts.service';
@@ -48,12 +47,8 @@ import { ProductListComponent } from './home/products/product-list/product-list.
 import { Constants } from './shared/constants';
 import { CounterItemComponent } from './shared/counter/counter-item/counter-item.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
-// import { ModalModule } from 'angular2-modal';
-// import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
 import { SnackbarComponent } from './shared/snackbar/snackbar.component';
 import { PizzadialogComponent } from './shared/pizza/pizzadialog/pizzadialog.component';
-// import { CounterPipe } from './shared/pipes/counter.pipe';
-import { TesterComponent } from './test/tester/tester.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { PpComponent } from './pp/pp.component';
 import { BetaalMenuComponent } from './betaal-menu/betaal-menu.component';
@@ -75,13 +70,6 @@ import { SimpleDialogComponent } from './shared/simple-dialog/simple-dialog.comp
 import { OrderedListComponent } from './shared/ordered-list/ordered-list.component';
 import { OrderListToolbarComponent } from './shared/toolbars/order-list-toolbar/order-list-toolbar.component';
 import { CalendarSelectorComponent } from './shared/calendar/calendar-selector/calendar-selector.component';
-//import { GoogleMapAutoCompleteComponent } from './shared/googlemaps/google-map-auto-complete/google-map-auto-complete.component';
-// import { WrongDateDialogComponent } from './wrong-date-dialog/wrong-date-dialog.component';
-// import { ConfirmWrongDateDialogComponent } from './confirm-wrong-date-dialog/confirm-wrong-date-dialog.component';
-/*let options = <ToastOptions>{
-  animate: 'flyRight',
-  positionClass: 'toast-bottom-right',
-};*/
 
 @NgModule({
   declarations: [
@@ -98,10 +86,8 @@ import { CalendarSelectorComponent } from './shared/calendar/calendar-selector/c
     ProductListComponent,
     CounterItemComponent,
     OrderSummaryComponent,
-    TesterComponent,
     SnackbarComponent,
     PizzadialogComponent,
-    // CounterPipe,
     CheckoutComponent,
     PpComponent,
     BetaalMenuComponent,
@@ -124,20 +110,14 @@ import { CalendarSelectorComponent } from './shared/calendar/calendar-selector/c
     OrderedListComponent,
     OrderListToolbarComponent,
     CalendarSelectorComponent,
-  //  GoogleMapAutoCompleteComponent,
-    // WrongDateDialogComponent,
-    // ConfirmWrongDateDialogComponent
   ],
   entryComponents: [
     AppComponent,
     DialogComponent,
     ConfirmDialogComponent,
-    // SnackbarComponent,
     PizzadialogComponent,
     NoWifiDialogComponent,
     ConfirmNoWifiDialogComponent,
-    //  ConfirmWrongDateDialogComponent,
-    // WrongDateDialogComponent,
     DatetimeComponent,
     SimpleDialogComponent
   ],
@@ -148,20 +128,17 @@ import { CalendarSelectorComponent } from './shared/calendar/calendar-selector/c
     HttpModule,
     MaterialModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireOfflineModule,
     RouterModule.forRoot(routes),
   AgmCoreModule.forRoot(googlemapsConfig
     ),
-  //  ToastModule.forRoot(options),
     Ng2DatetimePickerModule,
 ReactiveFormsModule,
-    //  MaterializeModule,
-    //   ModalModule.forRoot(),
-    //  BootstrapModalModule
   ],
   providers: [UserService,FormBuilder, DessertsService, SaladesService, SpécialitésService, PainViandesService, PainVolaillesService,
     FormulesService, PetiteEntreesService, PainVegetariensService, PlatDuJourService, PainPoissonsService,
     PainGarnisOptionsService, DrinksService,
-  PainGarnisRequiredService, Constants, OrderService, CounterService, DatetimeService,BelgiumZipcodeService],
+  PainGarnisRequiredService, Constants, OrderService, CounterService, DatetimeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

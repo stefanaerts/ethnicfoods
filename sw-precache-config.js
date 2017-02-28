@@ -1,21 +1,22 @@
 module.exports = {
-  navigateFallback: '/index.html',
+  staticFileGlobs: ['dist' + '/**/*.{js,html,css,jpg,png,gif,woff2,woff}'],
   stripPrefix: 'dist',
-  root: 'dist/',
- // options: {
- //   cache: {
-      maximumFileSizeToCacheInBytes: 3220000,
- //   }
- // },
-  staticFileGlobs: [
-    'dist/index.html',
-    'dist/**.js',
-    'dist/**.css',
-    'dist/**.woff',
-    'dist/**.woff2',
-    'dist/assets/**.css',
-    'dist/assets/**.woff2',
-    'dist/assets/**.woff',
-    'dist/assets/**.jpg',
-  ]
+  maximumFileSizeToCacheInBytes: 7220000,
+navigateFallback: '/index.html',
+  // staticFileGlobs: [
+  //   '/',
+  //   '/index.html',
+  //   '/inline.bundle.js',
+  //   '/main.bundle.js',
+  //   '/scripts.bundle.js',
+  //   '/vendor.bundle.js',
+  //   '/styles.bundle.css',
+  //   'assets/oMMgfZMQthOryQo9n22dcuvvDin1pK8aKteLpeZ5c0A.woff2',
+  //   'assets/cdf5969b7a910edf90bbf822a3cbc797.woff2',
+  //   'assets/jquery.min.js',
+  //   'assets/jquery-ui.min.js',
+  //   '/assets/app-min.css',
+  //   '/assets/PNI_4475-2.jpg',
+  //   '/assets/test.jpg'
+  // ],
 };

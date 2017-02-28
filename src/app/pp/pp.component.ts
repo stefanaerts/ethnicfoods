@@ -1,9 +1,10 @@
+import { Router } from '@angular/router';
 import { OrderService } from './../shared/model/order.service';
 import { Constants } from './../shared/constants';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/first';
- import * as braintree from 'braintree-web';
+import * as braintree from 'braintree-web';
 
 
 @Component({
@@ -13,32 +14,32 @@ import 'rxjs/add/operator/first';
 })
 export class PpComponent implements OnInit, AfterViewInit {
   authorization: any;
-  amount: number;
-  constructor(public http: Http, public os: OrderService, ) {
-    this.amount = Number(this.os.getTotalPrize().toFixed(2));
-    if (this.amount === 0) {
+  amount: string;
+  constructor(public http: Http, public os: OrderService, public router: Router) {
+    this.amount = this.os.getTotalPrizeWithTaxAndFeeAsString();
+    if (this.amount === '') {
       alert('Order amount cannot be zero');
       window.location.href = '/home';
     }
- //   console.log('in constructor');
+    //   console.log('in constructor');
 
   }
   ngOnInit() {
   }
   ngAfterViewInit() {
     try {
-  //    console.log('before getToken');
+      //    console.log('before getToken');
 
       this.getToken();
     } catch (error) {
-  //          console.log('error getToken');
+      //          console.log('error getToken');
       alert('error');
     }
 
   }
-  makeTransaction(totalPrize: number) {
-    let amount: number = totalPrize;
-//    console.log('amount in txn=' + amount);
+  makeTransaction(totalPrize: string) {
+    let amount: string = totalPrize;
+    //    console.log('amount in txn=' + amount);
     //   var delay = 4000; //1 second
     //   setTimeout(function () {
     //   },delay);
@@ -82,12 +83,12 @@ export class PpComponent implements OnInit, AfterViewInit {
             state: 'IL',
             phone: '123.456.7890'
           }
-        // tslint:disable-next-line:no-shadowed-variable
+          // tslint:disable-next-line:no-shadowed-variable
         }, function (err, payload) {
           if (err) {
             console.error('tokenizeErr=' + JSON.stringify(err));
             alert('Error: cannot connect to tokenize server. Please make sure your server is running.');
-             window.location.href = '/home';
+            window.location.href = '/home';
             return;
           }
           // If this was a real integration, this is where you would
@@ -112,7 +113,9 @@ export class PpComponent implements OnInit, AfterViewInit {
                 //  this.ConfirmDialogComponent.dialog();
                 // alert('Payment authorized, thanks.');
                 //             window.location.href = '/home';
-                 window.location.href = '/dialog';
+                // window.location.href = '/dialog';
+                //  alert(amount);
+                window.location.href = '/dialog?am=' + amount;
               } else {
                 alert('Payment failed: ' + data.message + ' Please refresh the page and try again.');
                 console.error("data=" + JSON.stringify(data));
@@ -135,38 +138,46 @@ export class PpComponent implements OnInit, AfterViewInit {
       });
     });
   }
-
+  goToHome() {
+    let link = ['/home'];
+    this.router.navigate(link);
+  }
   getToken() {
 
-try {
-// console.log('in getttoken');
+    try {
+      // console.log('in getttoken');
+      if (this.os.getTotalPrize() === 0) {
+        alert('Order amount cannot be zero');
+        this.goToHome();
+      } else {
 
 
-    this.http.get(Constants.API_ENDPOINT + 'api/v1/token').first().subscribe(
-      data => {
+        this.http.get(Constants.API_ENDPOINT + 'api/v1/token').first().subscribe(
+          data => {
 
-        if (data.status === 200) {
-          //      this.createClient(data.text());
-          this.authorization = data.text();
+            if (data.status === 200) {
+              //      this.createClient(data.text());
+              this.authorization = data.text();
 
-          setTimeout(function () {
-          }, 1000);
-          this.makeTransaction(this.amount);
+              setTimeout(function () {
+              }, 1000);
+              this.makeTransaction(this.amount);
 
-          //   this.message = data.text();
-        } else {
-          console.error("error in getToken, status =" + data.status + "REASON: " + data.statusText);
-        }
-      }, (error: any) => {
-        alert('network problem,pls try again. If still not working please contact angular2firebaseconsultant@gmail.com');
-        window.location.href = '/home';
-        console.error("error in pp subscribe gettoken=" + error);
+              //   this.message = data.text();
+            } else {
+              console.error("error in getToken, status =" + data.status + "REASON: " + data.statusText);
+            }
+          }, (error: any) => {
+            alert('network problem,pls try again. If still not working please contact angular2firebaseconsultant@gmail.com');
+            window.location.href = '/home';
+            console.error("error in pp subscribe gettoken=" + error);
+          }
+        );
       }
-    );
-} catch (error) {
-  alert('something went wrong.See message:-> ' + error);
-window.location.href = '/home';
-}
+    } catch (error) {
+      alert('something went wrong.See message:-> ' + error);
+      window.location.href = '/home';
+    }
   }
 
 

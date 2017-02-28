@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MdDialogRef} from '@angular/material';
+import { MdDialogRef } from '@angular/material';
 @Component({
   selector: 'app-simple-dialog',
   templateUrl: './simple-dialog.component.html',
@@ -7,8 +7,9 @@ import {MdDialogRef} from '@angular/material';
 })
 export class SimpleDialogComponent implements OnInit {
 
-oldDate: Date;
-newDate: Date;
+  oldDate: Date;
+  newDate: Date;
+  variableMessage: string;
   constructor(public dialogRef: MdDialogRef<SimpleDialogComponent>) {
   }
 

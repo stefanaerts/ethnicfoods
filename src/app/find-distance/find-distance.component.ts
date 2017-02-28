@@ -34,19 +34,20 @@ export class FindDistanceComponent implements OnInit {
 
   }
   ngOnInit() {
-   // this.initialize();
+    // this.initialize();
 
   }
 
   goToOrder(deliverymethod: string) {
     this.ordersv.setDeliveryMethod(deliverymethod);
     if (deliverymethod === Constants.PICKUP) {
-      this.ordersv.setDeliveryFee('0');
+      this.ordersv.setDeliveryFee(0);
       let link = ['/order'];
       this.router.navigate(link);
     } else {
-      this.ordersv.setDeliveryFee((<HTMLElement>document.getElementById("totalFee")).textContent);
+      this.ordersv.setDeliveryFee(Number((<HTMLElement>document.getElementById("totalFee")).textContent));
       this.ordersv.setDeliveryAddress((<HTMLInputElement>document.getElementById("end")).value);
+      this.ordersv.setDistance(Number((<HTMLInputElement>document.getElementById("distance")).textContent));
       let link = ['/orderdelivery'];
       this.router.navigate(link);
 
@@ -56,7 +57,6 @@ export class FindDistanceComponent implements OnInit {
     this.boolHiddenCalc = true;
     this.showDeliveryFeeBox = false;
     this.showBtnConfirmDelivery = false;
-    //    alert((<HTMLInputElement>document.getElementById("end")).value.length);
     if ((<HTMLInputElement>document.getElementById("end")) !== undefined) {
 
       if (((<HTMLInputElement>document.getElementById("end")).value).trim() !== '') {
@@ -65,17 +65,11 @@ export class FindDistanceComponent implements OnInit {
       } else {
         this.boolHiddenCalc = false;
         this.showBtnConfirmDelivery = false;
-
-        //  let distance = (<HTMLElement>document.getElementById("distance"));
-        //     (<HTMLElement>distance).hidden = true;
-        //     let totalFee = (<HTMLElement>document.getElementById("totalFee"));
-        //     (<HTMLElement>totalFee).hidden = true;
       }
     }
   }
   setBoolConfirm() {
     this.boolHiddenOK = false;
-    alert(this.boolHiddenOK);
   }
   initialize() {
 
@@ -113,10 +107,6 @@ export class FindDistanceComponent implements OnInit {
     // Push the marker to our array of markers.
   }
   calcRoute(travelmode) {
-    // let distanceDisp = (<HTMLElement>document.getElementById("distance"));
-    // (<HTMLElement>distanceDisp).hidden = false;
-    // let totalFeeDisp = (<HTMLElement>document.getElementById("totalFee"));
-    // (<HTMLElement>totalFeeDisp).hidden = false;
     let travelmodedispl;
     switch (travelmode) {
       case google.maps.TravelMode.DRIVING:
@@ -149,36 +139,31 @@ export class FindDistanceComponent implements OnInit {
       destination: end,
       travelMode: travelmodedispl
     };
-
     this.directionsService.route(request, function (response, status) {
       if (status === google.maps.DirectionsStatus.OK) {
         directionsDisplay.setDirections(response);
-        //distanceInput.click();
         distance = response.routes[0].legs[0].distance.value / 1000;
-
+        let totalFee = (<HTMLInputElement>document.getElementById("totalFee"));
         if (!((totalprize >= 10) && (distance < 1))) {
-          let totalFee = (<HTMLInputElement>document.getElementById("totalFee"));
-
-          totalFee.textContent = ((Math.round(5 * distance)).toString());
+          //     totalFee.textContent = ((Math.round(5 * distance)).toString());
+          totalFee.textContent = (Number((5 * distance)).toFixed(2));
         };
         let distanceInput = (<HTMLInputElement>document.getElementById("distance"));
-        //    alert(distanceInput.textContent);
         distanceInput.textContent = distance.toString();
         (<HTMLElement>document.getElementById("confirmDelivery")).hidden = false;
         (<HTMLElement>document.getElementById("cancelDelivery")).hidden = false;
-     //   (<HTMLElement>document.getElementById("calcroute")).hidden = true;
+        //   (<HTMLElement>document.getElementById("calcroute")).hidden = true;
         document.getElementById("confirmDelivery").textContent = 'Confirm '
           + (<HTMLInputElement>document.getElementById("end")).value;
       }
-
       //         (<HTMLElement>document.getElementById("confirmDelivery")).hidden = false;
       //         (<HTMLElement>document.getElementById("cancelDelivery")).hidden = false;
-try {
-  let totalstepstmp = response.routes[0].legs[0].steps.length;
-} catch (error) {
-  alert('no route calculation possible,pls give another address in');
-  return;
-}
+      try {
+        let totalstepstmp = response.routes[0].legs[0].steps.length;
+      } catch (error) {
+        alert('no route calculation possible,pls give another address in');
+        return;
+      }
       let totalsteps = response.routes[0].legs[0].steps.length;
       let step = totalsteps / 2;
       let step2 = Math.floor(step);
@@ -188,18 +173,6 @@ try {
       infowindow2.setPosition(response.routes[0].legs[0].steps[step2].end_location);
       infowindow2.open(map);
     });
-
-
-    //     setTimeout(function () {
-    //        this.showDeliveryFeeBox = true;
-    //       let distanceInput = (document.getElementById("distance").textContent);
-    //   alert('5 sec passed' + distanceInput);
-    //   //    if (distanceInput.textContent.length > 0) {
-    //   //      this.showBtnConfirmDelivery = true;
-    //  //     }
-    //     }, );
-
-
   }
 }
 

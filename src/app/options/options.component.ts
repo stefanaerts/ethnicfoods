@@ -19,7 +19,7 @@ export class OptionsComponent implements OnInit, OnDestroy {
 
 //  constructor(private toastService: ToastService, private orderService: OrderService,
 constructor( private orderService: OrderService,
-    private garnisrequiredService: PainGarnisRequiredService, private router: Router) {
+     private router: Router) {
   }
 
   ngOnInit() {

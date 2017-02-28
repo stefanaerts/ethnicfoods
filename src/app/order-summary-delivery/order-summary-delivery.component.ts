@@ -38,11 +38,20 @@ export class OrderSummaryDeliveryComponent implements OnInit {
     this.delAddress = this.orderService.getDeliveryAddress();
   }
   setTotalPay(totalpay: string) {
+    this.setDelFee(totalpay);
     this.totalPay = (Number(totalpay) + Number(this.orderService.getDeliveryFee())).toFixed(2);
     this.totalPrize = this.orderService.getTotalPrizeAsString();
     this.totalTax = this.orderService.getTotalTaxAsString();
-    this.delFee = this.orderService.getDeliveryFee();
+    this.delFee = Number(this.orderService.getDeliveryFee()).toFixed(2);
   };
+
+  setDelFee(totalpay: string) {
+    if (Number(totalpay) === 0) {
+      this.orderService.setDeliveryFee(0);
+    } else if (Number(totalpay) < 10) {
+      this.orderService.setDeliveryFee(this.orderService.getDistance() * 5);
+    }
+  }
   goToHome() {
     let link = ['/home'];
     this.router.navigate(link);

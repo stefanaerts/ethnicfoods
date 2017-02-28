@@ -3,18 +3,22 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { PetiteEntree } from './petite-entree';
 import { AngularFire } from 'angularfire2';
+import {
+  AngularFireOffline,
+  ListObservable,
+  ObjectObservable } from 'angularfire2-offline';
 
 @Injectable()
 export class PetiteEntreesService {
-petiteentrees$: Observable<PetiteEntree[]>;
+petiteentrees$: ListObservable<PetiteEntree[]>;
 
-  constructor(private af: AngularFire ) {
+  constructor(private af: AngularFireOffline ) {
  this.petiteentrees$ = af.database.list(Constants.PETITEENTREE)
    .map(PetiteEntree.fromJsonArray);
 
   }
 
-  findAllPetiteEntrees(): Observable<PetiteEntree[]> {
+  findAllPetiteEntrees(): ListObservable<PetiteEntree[]> {
     return this.petiteentrees$;
  }
 

@@ -13,13 +13,11 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class OrderedListComponent implements OnInit {
  order: Order;
-// @Input()  totalPay: string;
 @Output() setTotalPay = new EventEmitter<string>();
-//@Output() setTypeEvent = new EventEmitter<string>();
+
   constructor( private orderService: OrderService,public router: Router,public snb: SnackbarComponent) { }
 
   ngOnInit() {
-  //  alert(this.totalPay);
       this.order = this.orderService.getOrder();
  this.order.painVegetarien.sort(
       (leftSide, rightSide): number => {
@@ -170,13 +168,13 @@ export class OrderedListComponent implements OnInit {
   }
  deleteItem(item: Product) {
     this.orderService.removeProductFromOrder(item);
-this.setTotalPay.emit( Number(this.orderService.getTotalPrizeWithTaxAsString()).toFixed(2));
+this.setTotalPay.emit( Number(this.orderService.getTotalPrizeAsString()).toFixed(2));
 this.snb.refreshTotalPrizeSnackbar();
     //  this.delFee = this.orderService.getDeliveryFee();
   }
   deleteDrink(drink: Drink) {
     this.orderService.removeDrinkFromOrder(drink);
-this.setTotalPay.emit( Number(this.orderService.getTotalPrizeWithTaxAsString()).toFixed(2));
+this.setTotalPay.emit( Number(this.orderService.getTotalPrizeAsString()).toFixed(2));
 this.snb.refreshTotalPrizeSnackbar();
  }
 

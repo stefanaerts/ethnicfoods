@@ -16,6 +16,7 @@ export class CheckoutComponent implements OnInit, AfterViewInit {
   authorization: any;
   constructor(public http: Http, public os: OrderService, private router: Router) {
   //  alert('in checkout component');
+  //  alert(this.os.getTotalPrizeWithTaxAndFeeAsString());
   }
   goToPayPal() {
     let link = ['/pp'];
@@ -38,7 +39,7 @@ export class CheckoutComponent implements OnInit, AfterViewInit {
             //      this.createClient(data.text());
             this.authorization = data.text();
             //   this.message = data.text();
-            this.makeTransaction(this.os.getTotalPrizeAsString());
+            this.makeTransaction(this.os.getTotalPrizeWithTaxAndFeeAsString());
           } else {
             console.error("error in getToken, status =" + data.status + "REASON: " + data.statusText);
           }
@@ -59,6 +60,7 @@ export class CheckoutComponent implements OnInit, AfterViewInit {
 
   makeTransaction(totalPrize: string) {
     let amount: string = totalPrize;
+  //  alert(amount);
     let form: HTMLFormElement = (<HTMLFormElement>document.querySelector('#checkout-form'));
     let submit: HTMLElement = (<HTMLElement>document.getElementById('submitBtn'));
 
@@ -184,6 +186,7 @@ export class CheckoutComponent implements OnInit, AfterViewInit {
                   submit.setAttribute('disabled', 'true');
                   // alert('Payment authorized, thanks.');
                   alert('Payment authorized, thanks.');
+        //          alert(amount);
                   window.location.href = '/home';
                 } else {
                   alert('Payment failed: ' + data.message + ' Please refresh the page and try again.');

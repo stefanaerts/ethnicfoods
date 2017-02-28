@@ -1,5 +1,7 @@
+import { SimpleDialogComponent } from './../shared/simple-dialog/simple-dialog.component';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { MdDialog, MdDialogConfig, MdDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-betaal-menu',
@@ -7,26 +9,39 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./betaal-menu.component.scss']
 })
 export class BetaalMenuComponent implements OnInit {
-
-  constructor(private router: Router) { }
+  noWifi: boolean;
+  constructor(private router: Router, public dialog: MdDialog) { }
 
   ngOnInit() {
+    if (!navigator.onLine) {
+      this.noWifi = true;
+      alert('no internet connection');
+      let link = ['/order'];
+    this.router.navigate(link);
+    }
+    if (navigator.onLine) {
+      this.noWifi = false;
+    }
   }
-goToHome() {
+  goToHome() {
     let link = ['/home'];
     this.router.navigate(link);
   }
   goToPayPal() {
     try {
-       let link = ['/pp'];
-    this.router.navigate(link);
+      let link = ['/pp'];
+      this.router.navigate(link);
     } catch (error) {
       alert('something went wrong.See message:-> ' + error);
-window.location.href = '/home';
+      window.location.href = '/home';
     }
 
 
   }
+  //openDialog() {
+  //    let dialogRef: MdDialogRef <SimpleDialogComponent> = this.dialog.open(SimpleDialogComponent);
+  //    dialogRef.componentInstance.variableMessage = 'No internet connection at this moment,pls wait to be connected or connect again';
+  //  }
 
   goToCheckout() {
     let link = ['/checkout'];

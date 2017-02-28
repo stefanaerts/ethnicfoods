@@ -13,7 +13,7 @@ window.NoFi = (function (window, document, undefined) {
   var init = function (obj) {
 
     var options = obj || {};
-    var interval = options.interval || 10000;
+    var interval = options.interval || 5000;
     var eventName = options.eventName || 'offline';
     var exit = options.exit || false;
 
@@ -21,14 +21,19 @@ window.NoFi = (function (window, document, undefined) {
       (function checkStatus() {
         setTimeout(function () {
           if (!navigator.onLine) {
-            window.location.href = '/nowifidialog';
+           if(window.location.href.indexOf('checkoutMenu') !== -1){
+             alert('No internet connection at this moment,pls connect again  and wait 5 seconds to see you are up again ');
+           }
+
+        //    alert( 'internet is down');
+  //          }
             emitEvent(eventName);
             if (exit) {
               return;
             }
           }
           checkStatus();
-        }, 10000);
+        }, 5000);
       })();
     }
 

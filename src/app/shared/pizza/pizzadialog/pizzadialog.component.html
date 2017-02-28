@@ -1,25 +1,21 @@
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
+
 <body>
-<!--<md-card  class="card">-->
-  <div >
-        <span >
+  <!--<md-card  class="card">-->
+  <div>
+    <span>
           Total prize({{ totalPrize }})
         <span *ngIf="totalPrize">
           <button md-raised-button color="accent" (click)="goToOrder()">View Orders</button>
           </span>
-        </span>
-</div>
-
-
-  <!--<button md-fab (click)="goToOrder()">
-        <md-icon >go</md-icon>
-      </button>-->
-
-<!--</md-card>-->
+    </span>
+  </div>
 </body>
+
 </html>
