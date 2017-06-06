@@ -17,11 +17,6 @@ DatetimeService.firstDayOfWeek = 0; // e.g. 1, or 6
   providers: [],
   styleUrls: ['./datetime.component.css'],
 
-  styles: [`
-     div { font-family: Courier; font-size: 13px}
-     input { min-width: 200px; font-size: 15px;background: #ddd; }
-     input.ng-dirty { background: #ddd; }
-   `]
 })
 
 //  myForm: FormGroup; // our form model
@@ -54,7 +49,7 @@ export class DatetimeComponent implements OnInit {
   // maxDate = new Date(Date.now() + (4320 * 60 * 1000));
   // //  constructor(private fb: FormBuilder) { }
   constructor(public orderService: OrderService,
-    public viewContainerRef: ViewContainerRef, public dialog: MdDialog ) {
+    public viewContainerRef: ViewContainerRef, public dialog: MdDialog) {
     // moment.locale('nl-be');
     //   this.defaultValue = moment(new Date(Date.now() + (30 * 60 * 1000))).format('YYYY-MM-DD HH:mm');
     //    this.defaultValue = moment().format('YYYY-MM-DD 12:30');
@@ -75,13 +70,13 @@ export class DatetimeComponent implements OnInit {
 
     // this.defaultValue = moment(new Date(Date.now() + (30 * 60 * 1000))).format('MMMM Do YYYY, h:mm:ss');
   }
-   sendMessage(pTime:Date): void {
-        // send message to subscribers via observable subject
-        this.orderService.sendMessage(String(pTime));
-    }
-    clearMessage(): void {
-        this.orderService.clearMessage();
-    }
+  sendMessage(pTime: Date): void {
+    // send message to subscribers via observable subject
+    this.orderService.sendMessage(String(pTime));
+  }
+  clearMessage(): void {
+    this.orderService.clearMessage();
+  }
   ngOnInit() {
   }
 
@@ -89,20 +84,20 @@ export class DatetimeComponent implements OnInit {
 
 
   setTextValue(newValue): void {
-   // console.log('in  setTextValue ' + this.defaultValue);
+    // console.log('in  setTextValue ' + this.defaultValue);
     let newDate = moment.parseZone(new Date(newValue)).format('YYYY-MM-DD HH:mm');
-   // let defaultDate = moment.parseZone(new Date(this.defaultValue)).format('YYYY-MM-DD HH:mm');
+    // let defaultDate = moment.parseZone(new Date(this.defaultValue)).format('YYYY-MM-DD HH:mm');
     if (newDate > this.defaultValue) {
       this.orderService.sendMessage(newDate);
-      (<HTMLInputElement>document.getElementById('cal')).value=String(newDate);
+      (<HTMLInputElement>document.getElementById('cal')).value = String(newDate);
     }
     if (newDate < this.defaultValue) {
-  this.dateSelected = String(this.defaultValue);
-  (<HTMLInputElement>document.getElementById('cal')).value = String(this.defaultValue);
+      this.dateSelected = String(this.defaultValue);
+      (<HTMLInputElement>document.getElementById('cal')).value = String(this.defaultValue);
 
       this.sendMessage(this.defaultValue);
       this.dialogDate = newDate;
-        moment.parseZone(new Date(newDate)).format('YYYY-MM-DD HH:mm');
+      moment.parseZone(new Date(newDate)).format('YYYY-MM-DD HH:mm');
       this.openDialog();
 
     }

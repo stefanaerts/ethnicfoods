@@ -7,10 +7,9 @@
     {
       "root": "src",
       "outDir": "dist",
-       "assets": [
+      "assets": [
         "assets",
-        "favicon.ico",
-        "service-worker.js"
+        "favicon.ico"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -19,18 +18,19 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
-        "styles.scss"
+        "styles.scss",
+        "assets/app-min.css"
       ],
       "scripts": [
-"../node_modules/hammerjs/hammer.js",
-"js/nofi.js",
-"../node_modules/moment/moment.js",
-"../node_modules/html2canvas/dist/html2canvas.js",
-"../node_modules/jspdf/dist/jspdf.min.js",
-"../node_modules/jspdf/dist/jspdf.debug.js"
+        "../node_modules/hammerjs/hammer.js",
+        "js/nofi.js",
+        "../node_modules/moment/moment.js",
+        "../node_modules/html2canvas/dist/html2canvas.js",
+        "../node_modules/jspdf/dist/jspdf.min.js",
+        "../node_modules/jspdf/dist/jspdf.debug.js"
       ],
+      "environmentSource": "environments/environment.ts",
       "environments": {
-        "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
       }

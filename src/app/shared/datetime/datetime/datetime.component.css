@@ -1,3 +1,18 @@
 #my-div .ng2-datetime-picker {
   background-color: blue;
 }
+
+div {
+  font-family: Courier;
+  font-size: 13px
+}
+
+input {
+  min-width: 200px;
+  font-size: 15px;
+  background: #ddd;
+}
+
+input.ng-dirty {
+  background: #ddd;
+}

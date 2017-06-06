@@ -1,5 +1,3 @@
-
-
 <md-card class="bg-primary-500">
   <md-card-title-group class="c-white">
     <md-card-title class="c-white"><span class="bold ">Ethnic</span><span class="italic">foods</span></md-card-title>
@@ -19,9 +17,9 @@
   </span>
 </div>
 
-  <div>
-    <app-product-list [items]="vegetariensService.painvegetariens$ | async" [boolVisible]="pain_VegetariensVisible"></app-product-list>
-  </div>
+<div>
+  <app-product-list [items]="vegetariensService.painvegetariens$ | async" [boolVisible]="pain_VegetariensVisible"></app-product-list>
+</div>
 
 
 <!-- vol -->
@@ -35,9 +33,9 @@
   </span>
 </div>
 
-  <div>
-    <app-product-list [items]="volaillesService.painvolailles$ | async" [boolVisible]="pain_VolaillesVisible"></app-product-list>
-  </div>
+<div>
+  <app-product-list [items]="volaillesService.painvolailles$ | async" [boolVisible]="pain_VolaillesVisible"></app-product-list>
+</div>
 
 <!-- viande -->
 <div class="product-type bg-primary-300">
@@ -50,9 +48,9 @@
   </span>
 </div>
 
-  <div>
-    <app-product-list [items]="viandesService.painviandes$ | async" [boolVisible]="pain_ViandesVisible"></app-product-list>
-  </div>
+<div>
+  <app-product-list [items]="viandesService.painviandes$ | async" [boolVisible]="pain_ViandesVisible"></app-product-list>
+</div>
 
 <!-- poisson -->
 <div class="product-type bg-primary-300">
@@ -65,9 +63,9 @@
   </span>
 </div>
 
-  <div>
-    <app-product-list [items]="poissonsService.painpoissons$ | async" [boolVisible]="pain_PoissonsVisible"></app-product-list>
-  </div>
+<div>
+  <app-product-list [items]="poissonsService.painpoissons$ | async" [boolVisible]="pain_PoissonsVisible"></app-product-list>
+</div>
 
 
 <!-- Plat du jour -->
@@ -82,9 +80,9 @@
 </div>
 
 
-  <div>
-    <app-product-list [items]="platdujoursService.plat_du_jours$ | async" [boolVisible]="plat_du_jourVisible"></app-product-list>
-  </div>
+<div>
+  <app-product-list [items]="platdujoursService.plat_du_jours$ | async" [boolVisible]="plat_du_jourVisible"></app-product-list>
+</div>
 
 <!-- Petite entrees & potage -->
 <div class="product-type bg-primary-300">
@@ -98,9 +96,9 @@
 </div>
 
 
-  <div>
-    <app-product-list [items]="petiteentreesService.petiteentrees$ | async" [boolVisible]="petites_entreesVisible"></app-product-list>
-  </div>
+<div>
+  <app-product-list [items]="petiteentreesService.petiteentrees$ | async" [boolVisible]="petites_entreesVisible"></app-product-list>
+</div>
 
 <!-- Formules -->
 <div class="product-type bg-primary-300">
@@ -114,9 +112,9 @@
 </div>
 
 
-  <div>
-    <app-product-list [items]="formulesService.formules$ | async" [boolVisible]="formulesVisible"></app-product-list>
-  </div>
+<div>
+  <app-product-list [items]="formulesService.formules$ | async" [boolVisible]="formulesVisible"></app-product-list>
+</div>
 
 <!-- Salades -->
 <div class="product-type bg-primary-300">
@@ -130,9 +128,9 @@
 </div>
 
 
-  <div>
-    <app-product-list [items]="saladesService.salades$ | async" [boolVisible]="saladesVisible"></app-product-list>
-  </div>
+<div>
+  <app-product-list [items]="saladesService.salades$ | async" [boolVisible]="saladesVisible"></app-product-list>
+</div>
 <!-- specialites -->
 <div class="product-type bg-primary-300">
   <span>
@@ -145,9 +143,9 @@
 </div>
 
 
-  <div>
-    <app-product-list [items]="specialitesService.specialites$ | async" [boolVisible]="specialitesVisible"></app-product-list>
-  </div>
+<div>
+  <app-product-list [items]="specialitesService.specialites$ | async" [boolVisible]="specialitesVisible"></app-product-list>
+</div>
 
 
 <!-- Desserts -->
@@ -162,9 +160,9 @@
 </div>
 
 
-  <div>
-    <app-product-list [items]="dessertsService.desserts$ | async" [boolVisible]="dessertsVisible"></app-product-list>
-  </div>
+<div>
+  <app-product-list [items]="dessertsService.desserts$ | async" [boolVisible]="dessertsVisible"></app-product-list>
+</div>
 
 
 <div class="product-type bg-primary-300">
@@ -177,8 +175,8 @@
   </span>
 </div>
 <div>
-    <app-product-list [items]="drinksService.drinks$ | async" [boolVisible]="drinksVisible"></app-product-list>
-  </div>
+  <app-product-list [items]="drinksService.drinks$ | async" [boolVisible]="drinksVisible"></app-product-list>
+</div>
 <br>
 
 <md-card style="height:100vh" class="bg-primary-500">
